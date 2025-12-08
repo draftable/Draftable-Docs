@@ -1,0 +1,51 @@
+---
+title: "CORS implementation within API Self-hosted"
+description: "This article is intended for users wanting to configure CORS (Cross-origin resource sharing) support to their API Self-hosted instance."
+---
+
+To enable CORS support you will need to add a series of variables and values to your environment field within your docker-compose.yml file (or similar). For reference, you can find our full guide on docker-compose.yml file configuration [here](/hc/en-us/articles/6140653011865-Understanding-the-docker-compose-yml-file-and-parameters-guide).   
+  
+<Note>
+**Note:** CORS is only supported in API Self-Hosted version 2.3.1 and above. 
+</Note>
+
+Firstly let's look at an example docker-compose.yml file, with all the CORS settings added. 
+
+```yaml
+version: '3.5'
+  services:
+    apish:
+      environment:
+        DRAFTABLE_APISH_DJANGO: |-
+          draftable:
+            django:
+              enable_cors: True #enables CORS on the Draftable Self Hosted instance
+              cors:
+                allowed_origins: [] # List of allowed origins 
+                allowed_origin_regexes: [] # List of regular expressions matching allowed origins 
+                allow_all_origins: True # Allow CORS requests from any origin
+    image: draftable/apish:latest
+    ports:
+      - 80:80/tcp # HTTP
+      - 0.0.0.0:8443:443/tcp # HTTPS
+    volumes:
+      - draftable_volumne:/srv/draftable
+      - /sys/fs/cgroup:/sys/fs/cgroup
+volumes:
+  draftable_volume:
+```
+
+There are multiple variables that are added to this yaml configuration. See below for an explanation of each variable and its purpose.  
+
+- `DRAFTABLE_APISH_DJANGO: |-`: This is a new environment variable exposed to the Docker container and `DRAFTABLE_APISH_DJANGO: |-`It is required for CORS support. This is different and should not be confused with `DRAFTABLE_APISH_NGINX: |-`, and you can remove `DRAFTABLE_APISH_NGINX: |-` if no other configuration is being used inside that environment variable.
+- `enable_cors:`: This variable which is seated under the `django:` key sets whether CORS is enabled or not on the instance. If set to `true` CORS will be enabled on that instance.
+- `allowed_origins:`: This variable which is seated under the `cors:` key allows you to provide a list of the allowed origins for CORS. The correct formatting for this field is:
+```bash
+allowed_origins:
+  - my.domain.com
+  - some.other.domain.com
+```
+- `allowed_origin_regexes:`: This variable which is seated under the `cors:` key allows you to list the regular expressions matching the allowed origins
+- `allow_all_origins:`: This variable which is seated under the `cors:` key allows you to turn on CORS requests from any origin. This is the equivalent of using \* as a wildcard and needs to be set to `True` for this effect.
+
+Of the fields added under `DRAFTABLE_APISH_DJANGO: |-` **you** **only need to add one of those fields** for configuration to function. This `allow_all_origins`field is obviously the easiest (it defaults to `False`), as it just allows requests from anywhere. A more secure configuration is one of the first two options being `allowed_origins: and allowed_origin_regexes:`.

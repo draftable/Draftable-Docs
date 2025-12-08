@@ -1,0 +1,237 @@
+---
+title: "Release notes: Draftable Legal v2.10.8 - v2.11"
+description: "We are excited to share our latest updates to Draftable Legal."
+---
+
+
+
+
+Throughout September-October, we focused on developing the following features and functionalities to Draftable Legal:
+
+- Select input files from the list of recent documents, improving workflow efficiency
+- Keep input files in the launcher after running a comparison to improve user experience
+- Outlook add-in, enabling single ‘click’ comparisons of text and files attached to emails
+- Further improvements to iManage integration based on customer feedback
+- Improvements to SharePoint integration
+- Upgrades to the side-by-side viewer for ease of document review and collaboration
+- Support for Rich Text Files (.rtf)
+- Further improvements to enhance issue reporting and diagnosis
+
+You can read more about these features in the following sections.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed this 2.11 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [support@draftable.com](mailto:support@draftable.com).
+
+## Select input files from the list of recent documents
+
+One of our design goals for Draftable Legal is to give users the fastest comparison workflows possible. With that in mind, in version 2.11 users now can select input files from a list of files they have previously compared in Draftable. This includes files saved locally or in a users’ DMS (e.g. iManage). This feature allows users to save valuable time retrieving those documents where they need them for a new comparison. Where files are stored in iManage, users will see the document and version ID displayed in the list to help identify the right file to select.
+
+The list of recently compared files can be accessed by ‘clicking’ “Recent” in the launcher. For the files to appear in the list of “Recent” files, they need to have been previously “Compared” (i.e., if files were uploaded to the launcher, but the user did not proceed with comparing them, these files will not be added to the “Recent” list).
+<Frame>
+![](/images/draftable-legal/image-169.png)
+</Frame>
+## Keep input files in the launcher after running a comparison
+
+This new feature is also developed in line with permitting our users to work faster. From our conversations with users, we have learnt that when running comparisons, some of them prefer if the files that they uploaded for the most recent comparison stayed in the launcher, so that they can be re-used for subsequent comparisons. Draftable v2.11 allows users to enable this feature (by unticking “Clean up input files” box in the ‘General’ settings menu) and choose if they want input files kept in the launcher or cleaned up after each comparison.
+
+We made this feature optional, as everyone have different ways that they prefer to work in – so each user can choose what works best for themselves when using Draftable Legal.
+<Frame>
+![](/images/draftable-legal/image-170.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-171.png)
+</Frame>
+## A new and improved Outlook add-in
+
+We are committed to ensuring Draftable works where you do. For some lawyers, Outlook is the centre of their workflows. So we’ve made a number of significant updates to our Outlook Add-in to make it easy to start a comparison from within Outlook.
+
+### Getting started: The new Outlook add-in will automatically be available on update
+
+The first improvement we’ve made is to remove the need for customers to self-install their Outlook add-in. From now on, once you have updated Draftable Legal to v2.11 or later, the new Draftable add-in will automatically be installed in Outlook and will be available in the ribbon menu. It will auto-update if any future changes are made. Just be sure to restart Outlook before looking for the newest features!
+<Frame>
+![](/images/draftable-legal/image-172.png)
+</Frame>
+### Comparing attachments from emails
+
+Need to be able to compare email attachments directly from Outlook? No problem! The new Draftable Outlook add-in allows you to do exactly that – either through the new “Compare attachments” button in Outlook ribbon or via a ‘right click’. This function will provide users with additional paths to upload documents for comparison in the launcher (in addition to the previously available ‘drag & drop’ method).
+
+*Option 1 – “Compare attachments” button*
+
+You can use the ‘compare attachments’ button when selecting either individual attachments or by a whole email (this option will load all files attached to the email).
+<Frame>
+![](/images/draftable-legal/image-173.png)
+</Frame>
+*Option 2 – ‘Right click’*
+
+You can also load attachments to Draftable by right clicking and selecting the option “Add to compare”.
+<Frame>
+![](/images/draftable-legal/image-174.png)
+</Frame>
+When there are more than two documents attached to an email or selecting with right click, by ‘clicking’ “Compare attachments” you will be able to see all files in a selection menu (pictured). Customers can then choose the files they wish to compare.
+<Frame>
+![](/images/draftable-legal/image-175.png)
+</Frame>
+### Compare email text from emails
+
+We know users often need to compare text in emails. While Draftable already supported free text comparisons, as a bonus, we wanted our Outlook add-in to make this possible with less ‘clicks’. To compare free text in Outlook, users can now highlight the relevant text for comparison and ‘click’ “Compare text” button in Draftable add-in – the text will be added to the input field in the launcher and ready for compare. This function will save users ‘Copying’ and ‘Pasting’ the text, offering a more efficient way to add free text to comparison.
+
+In upcoming releases, we plan on expanding this feature to our Word add-in, to allow easier comparison of text in Word files.
+
+## Improvements to iManage integration
+
+Thanks to the detailed feedback received from our customers, we have been able to make several workflow improvements to our iManage integrations.
+
+### Load both input files from iManage from the New Comparison window in a single go
+
+In the previous version of Draftable, when uploading both input files from iManage from the New Comparison window, users were required to select the first input file by clicking “From iManage” and adding one file, and then they were required to repeat the same process for the second input file. From v2.11, users will be able select two iManage documents or two versions of a document to be uploaded as two input files in the launcher in one go (meaning that they do not need to repeat select “From iManage” process for the second file).
+<Frame>
+![](/images/draftable-legal/image-176.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-177.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-178.png)
+</Frame>
+### New commands for faster selection of input file versions within iManage
+
+Loading files from iManage can be annoying and time consuming. Our customers need a product that is easy to use, runs comparisons with minimal input so their time is devoted to more important tasks. That's why we've added two new commands within iManage that make it faster and easier to select input files for comparison. Users starting their comparison within iManage now have the following new file loading options:
+
+#### Compare versions
+
+Users can now select a file or file version and use the new “Compare versions” option to immediately open the Draftable version selector menu. This immediately shows a list of all versions of the selected iManage file. You can select up to two version(s) to load for comparison. *Note, where only two versions of the file exist Draftable will simply load both versions for comparison rather than showing the version selection menu*.
+<Frame>
+![](/images/draftable-legal/image-179.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-180.png)
+</Frame>
+#### Compare with latest
+
+Sometimes users just need to compare the two most recent version of a selected file version quickly. To make this easy, Draftable can now ‘smart select’ the next latest version available for comparison using the “Compare with latest” option within iManage.
+
+Hitting "Compare with latest" when selecting a file (not file version) will result in Draftable loading the two most recent versions of the file into the New Comparison Window. If you have selected a specific file version you want to compare, Draftable will load that version, along with either the most recent (i.e. newest) version or the 'next most recent' version if you have selected the newest version already.
+
+For example, if a file has four versions (V1-V4), selecting “V4” will result in “V3” and “V4” automatically being loaded into the New Comparison Window. In the same example, selecting “V2” and using 'Compare with latest' will load “V2” and “V4”). Of course, if users find that the versions are loaded that they are not the ones they need to compare, they can use the new 'select version' command within Draftable to open a list of all versions and change the input files (see below). 
+<Frame>
+![](/images/draftable-legal/image-181.png)
+</Frame>
+<Frame>
+![](/images/draftable-legal/image-182.png)
+</Frame>
+### Enable users to see a list of iManage file versions to change version or choose a second version for comparison
+
+Finding the file version you need within the iManage Work UI can be slow and tedious. To help make this easier, once a file is loaded in Draftable, users can use “Select Version” to quickly see a list of file versions in iManage. Users can change the version loaded, or select another version of the same file to use in their comparison.
+<Frame>
+![](/images/draftable-legal/image-183.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-184.png)
+</Frame>
+### Display iManage document number and version reference details in Draftable UI and outputs
+
+In some matters, there are so many file versions, it can be hard to keep track of which one you are comparing. To help with this, from v2.11 Draftable will display the document ID and version number in the New Comparison window. The document ID and version number will also be displayed in the name of the comparison output file when iManage files are compared.
+<Frame>
+![](/images/draftable-legal/image-185.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-186.png)
+</Frame>
+### Show iManage document number and version reference details in the comparison summary
+
+ Similar to the feature above, based on the customer feedback, the document number and version reference from iManage will now be included in the comparison summary page.
+<Frame>
+![](/images/draftable-legal/image-187.png)
+</Frame>
+### Directly save Redline ‘Word with Tracked Changes’ output into iManage 
+
+Users can now save time by saving 'Redline Tracked Changes' comparison outputs directly to iManage as new files without first saving to their local computer. 
+<Frame>
+![](/images/draftable-legal/image-188.png)
+</Frame>
+<Frame>
+![](/images/draftable-legal/image-189.png)
+</Frame>
+## Improvements to SharePoint integration
+
+### Launch comparisons from SharePoint Online with the new Draftable App
+
+While Draftable has previously supported loading locally synced SharePoint files, customers have been asking for the ability to load files from their Sharepoint Online (i.e. files from SharePoint accessible only through web browsers). With the release of the new Draftable App for SharePoint (available from v2.11.300), users can now load files (including versions of files) and launch a comparison from SharePoint Online through their web browser.
+
+The Draftable App adds two command options, "Compare" and "Compare version(s)" in both the ribbon menu (first picture) and the right click menu (second picture).  The "Compare" command will load the selected file into the New Comparison Window. The "Compare Version(s)" command will load a window which shows the version history of your file, and allows users to select up to two versions for comparison (third picture). 
+
+### <Frame>![](/images/draftable-legal/image-190.png)</Frame>
+
+### <Frame>![](/images/draftable-legal/image-191.png)</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-192.png)
+</Frame>
+### Word add-in now supports loading remote files from SharePoint
+
+As part of our commitment to reducing time to compare, our Word add in now supports loading files that are saved to SharePoint. Previously these files were required to be saved locally before they could be loaded via our Word Add-in.   
+
+## Upgraded side-by-side viewer experience
+
+### Tagging and adding custom notes (annotating changes)
+
+One of our product goals is to make it easier to complete a review of changes within Draftable and share feedback with colleagues. From v2.11, the side-by-side viewer includes the option to tag changes to assign priority and indicate where further action is required (“High Priority”, “Low Priority”, “Action Required”, “No Action Required” or “Needs Review”). Customers will also be able to annotate changes in their comparison output by including custom entry “notes”. This improvement will be particularly useful when users are reviewing large documents where they first need to review the scope of the changes and take notes of high versus low priority changes before they proceed with a more detailed review addressing the changes.
+<Frame>
+![](/images/draftable-legal/image-193.png)
+</Frame>
+### Interactive filtering of changes in the document
+
+Once users added tags and / or notes to the changes, they are be able to filter the change list to only show those with specific tags or those that have (or do not have) notes added to them. This helps users categorise changes and focus their attention on the most relevant changes and enable a more efficient document review.
+<Frame>
+![](/images/draftable-legal/image-194.png)
+</Frame>
+The new “Filters” feature in v2.11 replaced the “Visible Categories” feature from previous versions of Draftable. However, the users will not miss any previously offered functionality and will be able to configure the comparison output (e.g. selecting if and what style changes should be reflected) through the “Filters” menu.
+<Frame>
+![](/images/draftable-legal/image-195.png)
+</Frame>
+### Exporting the changes list to share with colleagues
+
+To further enhance the value of reviewing comparisons in Draftable, users can now easily a list of changes along with their tags and notes to colleagues for review. From v2.11, Draftable Legal provides for the ability to export the list of changes from a side-by-side comparison output. Customer can ‘copy’ the change list to clipboard (either as a filtered version or in full) and ‘paste’ it in a table format in emails or other documents. The table of exported changes includes all tags and notes left on changes to allow easier collaboration between colleagues. Filtering the list enables users to choose to share only changes that are most important (e.g. share changes marked with “Needs Review” tags).
+
+In future updates, we will add the ability to export a list of changes as a .csv file.
+<Frame>
+![](/images/draftable-legal/image-196.png)
+</Frame>
+
+<Frame>
+![](/images/draftable-legal/image-197.png)
+</Frame>
+## Comparison of Rich Text Files (.rtf) is now supported
+
+We constantly review and improve core capabilities to ensure that the key types of files used by our customers are supported for comparison with Draftable. In response to customer feedback, we have added RTF files to the list of input file types that we support.
+
+## Further improvements to enhance issue reporting and diagnosis
+
+Last, but not least, we continue improving quality of the technical support that we offer to our customers. As part of this, we have developed new capabilities to facilitate error reporting and diagnosing.
+
+### Document Obfuscator
+
+ We appreciate that privacy and security concerns are paramount for our customers. The new document obfuscator feature enables our customers to anonymise documents so that they can be shared with us to facilitate support in the case when customers experience issues with comparing certain files. Document obfuscation will completely anonymise content of a file, but will keep the structure of that file, permitting us to faster diagnose issues. This new feature can be found in ‘Troubleshooting’ section of the ‘Settings’ menu.
+<Frame>
+![](/images/draftable-legal/image-198.png)
+</Frame>
+You can see below for an example of the same document pre- and post- obfuscation. Given that obfuscation is randomly generated, the obfuscated file will not be able to be ‘deciphered’, so none of private information contained in the original file will be available in the obfuscated file. To learn more about the document obfuscator, [see our Knowledge Base article here](/hc/en-us/articles/22361579075225-Explainer-Using-the-Obfuscator-feature-to-share-redacted-documents-with-Draftable-Support).
+<Frame>
+![](/images/draftable-legal/image-199.png)
+</Frame>
+### Option to turn on iManage logs
+
+To enhance customer support with queries related to iManage integration with Draftable, we now support the ability to ‘turn on’ additional logs to provide information on customer’s iManage settings. Should you have any issues with setting up iManage integration, please contact [support@draftable.com](mailto:support@draftable.com) and our team will advise you how to enable iManage logs.
+
+### Allow customers to configure error messages to direct to internal IT Support
+
+We heard from several customers with internal IT support teams that they wanted Draftable to direct end users experiencing issues to reach out to internal IT support rather than go directly to Draftable. From version 2.11.1, Draftable Legal now enables administrators to configure error messages via Group Policy. Customers can customise the support contact details in the Draftable UI error messages, enabling system administrators to include details of their internal IT support team (instead of Draftable Support). Contact details for Draftable Support remains the default option, but administrators can now configure this via Group Policy. For more information on this configuration see the [knowledge base article on configuring Group Policy.](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal)

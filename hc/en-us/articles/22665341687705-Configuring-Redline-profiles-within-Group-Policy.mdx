@@ -1,0 +1,322 @@
+---
+title: "Configuring Redline profiles within Group Policy"
+description: "This article is for system administrators who are interested in using Group Policy specifically to configure Redline comparison profiles settings for their users using Draftable Legal. This article will show the additional steps required in addition to Group Policy configuration in order to get this setting configured properly."
+---
+
+
+## Setting up
+
+Ensure you have already followed the [Draftable Group Policy guide](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal) in respect to adding the templates for the group policy. 
+
+Open the Group Policy Editor (via Control Panel)
+
+After installing the group policy template you should see following policies in the **Draftable Legal** section:
+
+<Frame>
+![](/images/draftable-legal/image-225.png)
+</Frame>
+
+## Getting the profile JSON ready
+
+To pre-configure the Redline settings profiles within group policy, you must already have the JSON for profile ready to be added into the group policy setting. To get this, see the process below:
+<Steps>
+<Step>
+Go to the **Redline** section within the settings menu
+	<Frame>
+	![](/images/draftable-legal/image-226.png)
+	</Frame>
+</Step>
+<Step>
+Select **Add profile,** then give the profile a name and click **OK**
+	<Frame>
+	![](/images/draftable-legal/image-227.png)
+	</Frame>
+</Step>
+<Step>
+Start building the profile as required for your user by selecting the settings desired. Then once you have finished building the profile, export it by clicking on the option icon, and then selecting **export**
+	<Frame>
+	![](/images/draftable-legal/image-228.png)
+	</Frame>
+	<Frame>
+	![](/images/draftable-legal/image-229.png)
+	</Frame>
+</Step>
+<Step>
+A new window will appear to save the profile to your desired location. Do so and select **save**
+	<Frame>
+	![](/images/draftable-legal/image-230.png)
+	</Frame>
+</Step>
+<Step>
+Navigate to where the JSON has been saved and access the file
+	<Frame>
+	![](/images/draftable-legal/image-231.png)
+	</Frame>
+</Step>
+</Steps>
+This is your profile JSON data, and is required for your group policy Redline profile settings. When required, copy the entire JSON string and save it into your group policy, which is outlined in the next step.
+
+## Configuring Redline profiles within group policy
+
+There are a few components to the Redline profiles configuration in group policy. Configuring Redline profiles to be loaded for the user, team allocation for what profiles users can see and setting the default Redline profile used. 
+
+### Configuring the team name for user
+
+As an administrator, you can allocate a user to a *team* as a way to further distinguish what profiles they can use from the Redline settings configured by group policy. Mutliple team names can exist, which has the benefit of easily allocating which profiles are loaded for different groups of users.
+
+<Note>**Note:** This step is entirely optional, and only required if you wish for certain users to only use certain Redline profiles.</Note>
+<Steps>
+<Step>
+Using the Group policy editor of choice, navigate to the **Draftable Legal** policy templates
+	<Frame>
+	![](/images/draftable-legal/image-232.png)
+	</Frame>
+</Step>
+<Step>
+Double click on **User Team Name**
+	<Frame>
+	![](/images/draftable-legal/image-233.png)
+	</Frame>
+</Step>
+<Step>
+Enable the policy and set a string based name for the user in the **Set team name for the user** field. Alternatively, putting a wildcard **\*** for the user, will allow them to see all profiles from all teams.
+	<Frame>
+	![](/images/draftable-legal/image-234.png)
+	</Frame>
+</Step>
+<Step>
+Click **Apply** and then **OK** for the policy to take effect.
+</Step>
+</Steps>
+The user now has a team name allocated to their account via group policy.
+
+### Configuring the Redline profiles
+
+You can configure up to 10 Redline profiles that can be automatically loaded into your user machines. Here is how you configure the Redline profiles:
+<Steps>
+<Step>
+Using the Group policy editor of choice, navigate to the **Draftable Desktop Pro** policy templates
+	<Frame>
+	![](/images/draftable-legal/image-235.png)
+	</Frame>
+
+</Step>
+<Step>
+Double click on the Redline setting profile you wish to configure
+	<Frame>
+	![](/images/draftable-legal/image-236.png)
+	</Frame>
+</Step>
+<Step>
+Enable the policy and paste the Redline profile JSON (that we created using the processed outlined earlier in this article) into the **Paste Redline Profile JSON here** field.
+	<Frame>
+	![](/images/draftable-legal/image-237.png)
+	</Frame>
+</Step>
+<Step>
+*Optionally:* you can enter the team name of the Redline setting profile, so that only users with that team name can see that profile. If you would like to do this, add the team name in the **Team name** field.
+	<Frame>
+	![](/images/draftable-legal/image-238.png)
+	</Frame>
+</Step>
+<Step>
+Click **Apply** and then **OK** for the policy to take effect.
+</Step>
+</Steps>
+Next time your user loads Draftable Legal, the Redline profiles configured in group policy will be loaded for the user to utilize.
+
+### Setting the default profile
+
+You can select the default Redline profile that is used when a user loads Draftable Legal. To do this follow the procedure below:
+<Steps>
+<Step>
+Using the Group policy editor of choice, navigate to the **Draftable Desktop Pro** policy templates
+	<Frame>
+	![]![](/images/draftable-legal/image-239.png)
+	</Frame>
+</Step>
+<Step>
+Double click on the **Redline Default Profile Name** policy
+	<Frame>
+	![](/images/draftable-legal/image-240.png)
+	</Frame>
+</Step>
+<Step>
+Enable the policy and enter the name of the profile you wish to load as default into the **Set default Redline Profile name** field.
+	<Note>**Note:** This is the name of profile you saved it as, not the name of the policy.</Note>
+	<Frame>
+	![](/images/draftable-legal/image-241.png)
+	</Frame>
+</Step>
+<Step>
+Click **Apply** and then **OK** for the policy to take effect.
+</Step>
+</Steps>
+Next time your user loads Draftable Legal, the selected default Redline profile policy will be loaded.
+
+## Configuring locking specific settings across all Profiles
+
+From v2.15.300, Draftable Legal allows administrators to override any Profile setting using a "Redline Settings Base Profile" in Group Policy. This is designed to allow some Profile settings (e.g. author of changes) to be kept consistent across all profiles while still allowing administrators and end user to create custom profiles by changes other 'unlocked' settings. This section outlines how administrators can lock specific Profile settings across all Profiles with this functionality.
+
+### Configuring and locking specific settings across all Profiles
+<Steps>
+<Step>
+The "Redline Settings Base Profile" policy looks the same as all other Redline profiles group policy items, but it has the additional configurable property called "Enforced" that can be added to the JSON string.  
+	  
+	Administrators can nominate keys (i.e. Redline settings) that are to be "Enforced" at the end of the profile JSON by listing them. This configures the setting using the key in the Redline profile value and locks this setting from end user configuration. Below is an example of the Redline profile JSON showing the **Enforced** key added for locking down settings.
+
+```json expandable
+    {  
+	    "Name": "My Profile",  
+	    "Version": 1,  
+	    "Created": "2024-05-27T11:46:13.6253904Z",  
+	    "Updated": "2024-05-27T11:46:13.6253904Z",  
+	    "CompareHeadersAndFooters": null,  
+	    "CompareBulletsAndNumberings": true,  
+	    "CompareTables": false,  
+	    "CompareImages": false,  
+	    "CompareTextBoxes": true,  
+	    "CompareHeaders": true,  
+	    "CompareFooters": true,  
+	    "CompareCoverPage": true,  
+	    "CompareHiddenText": false,  
+	    "CompareTablesOfContents": true,  
+	    "CompareWatermarks": true,  
+	    "CompareFootnotesAndEndnotes": true,  
+	    "StyleChangesEnabled": true,  
+	    "StyleChangeConfig": 3,  
+	    "CommentOption": 0,  
+	    "SmallChangesLevel": 0,  
+	    "CaseSensitivity": 0,  
+	    "DefaultAuthorOption": 1,  
+	    "DefaultAuthorCustomOptionValue": "Draftable",  
+	    "DefaultAuthorLauncherDropdownVisible": false,  
+	    "DefaultSummaryPagePosition": 0,  
+	    "DefaultTrackChangesBehaviour": 0,  
+	    "MovesEnabled": true,  
+	    "RedlineMarkupScheme": {  
+	        "TextDeletion": {  
+	            "Underline": 0,  
+	            "Strikethrough": 1,  
+	            "HighlightColour": null,  
+	            "TextColor": "181, 8, 46",  
+	            "WordApiTextDecoration": 4,  
+	            "WordApiTextColor": 6  
+	        },  
+	        "TextInsertion": {  
+	            "Underline": 1,  
+	            "Strikethrough": 0,  
+	            "HighlightColour": null,  
+	            "TextColor": "55, 110, 150",  
+	            "WordApiTextDecoration": 3,  
+	            "WordApiTextColor": 9  
+	        },  
+	        "TextMoveFrom": {  
+	            "Underline": 0,  
+	            "Strikethrough": 2,  
+	            "HighlightColour": null,  
+	            "TextColor": "44, 98, 52",  
+	            "WordApiTextDecoration": 6,  
+	            "WordApiTextColor": 11  
+	        },  
+	        "TextMoveTo": {  
+	            "Underline": 2,  
+	            "Strikethrough": 0,  
+	            "HighlightColour": null,  
+	            "TextColor": "44, 98, 52",  
+	            "WordApiTextDecoration": 5,  
+	            "WordApiTextColor": 11  
+	        },  
+	        "CellDelete": {  
+	            "HighlightColor": "252, 230, 244",  
+	            "WordApiCellColour": 0  
+	        },  
+	        "CellInsert": {  
+	            "HighlightColor": "225, 242, 250",  
+	            "WordApiCellColour": 2  
+	        },  
+	        "CellMerge": {  
+	            "HighlightColor": "252, 227, 208",  
+	            "WordApiCellColour": 4  
+	        },  
+	        "CellSplit": {  
+	            "HighlightColor": "254, 244, 222",  
+	            "WordApiCellColour": 1  
+	        },  
+	        "RevisedLine": {  
+	            "Mark": 0  
+	        }  
+	    },  
+	    "FilenameOutputFormat": "",  
+	    "Enforced": \[  
+	        "RedlineMarkupScheme",  
+	        "CommentOption"  
+	    ]
+	}
+```
+
+As you can see above, the keys "CommentOption" and "RedlineMarkupScheme" are now enforced.
+
+For reference, the following keys can be set as enforced:
+
+```json expandable
+"CompareHeadersAndFooters"
+"CompareBulletsAndNumberings"
+"CompareTables"
+"CompareImages"
+"CompareTextBoxes"
+"CompareHeaders"
+"CompareFooters"
+"CompareCoverPage"
+"CompareHiddenText"
+"CompareTablesOfContents"
+"CompareWatermarks"
+"CompareFootnotesAndEndnotes"
+"StyleChangesEnabled"
+"StyleChangeConfig"
+"CommentOption"
+"SmallChangesLevel"
+"CaseSensitivity"
+"DefaultAuthorOption"
+"DefaultAuthorLauncherDropdownVisible"
+"DefaultSummaryPagePosition"
+"DefaultTrackChangesBehaviour"
+"MovesEnabled"
+"RedlineMarkupScheme"
+"FilenameOutputFormat"
+```
+</Step>
+<Step>
+Using the information above, you can prepare your base profile JSON, and once you have your JSON profile ready, go to the Group Policy Editor and find the "Redline Settings Base Profile" item.
+	<Frame>
+	![](/images/draftable-legal/image-242.png)
+	</Frame>
+</Step>
+<Step>
+Within this policy, paste the entire JSON profile as a string, to use as a base template to add ***enforced*** Redline settings (i.e. to configure and lock the specific Redline setting across all profiles)
+	<Frame>
+	![](/images/draftable-legal/image-243.png)
+	</Frame>
+	<Note>**Note:** Enforcing does not allow for a setting to be locked, while still being configurable across different profiles. The enforced setting will be the same for all Profiles and will be based on the "Redline Settings Base Profile" entered in the above policy.</Note>
+</Step>
+</Steps>
+### Disabling the Draftable Default profile 
+
+Administrators can disable the Draftable Default profile by using the policy 'Admin Base Profiles Only' policy. 
+<Steps>
+<Step>
+Open the Group Policy editor
+	<Frame>
+	![](/images/draftable-legal/image-244.png)
+	</Frame>
+</Step>
+<Step>
+Find the Admin Base Profiles Only policy
+	<Frame>
+	![](/images/draftable-legal/image-245.png)
+	</Frame>
+</Step>
+<Step>
+Set to **enabled** to remove the Draftable Default profile. Users will still be able to create new profiles but these will be based on the Admin profiles created, and they cannot import any user profiles.
+</Step>
+</Steps>

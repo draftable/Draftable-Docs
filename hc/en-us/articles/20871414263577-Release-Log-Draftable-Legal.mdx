@@ -1,0 +1,2023 @@
+---
+title: "Release Log: Draftable Legal"
+description: "This article provides a summary log of Draftable Legal (formerly Draftable Pro) releases. It dates back to v2.5.0, which was the version that first introduced Draftable's Redline comparison algorithm into Draftable Desktop.  "
+---
+
+<Update label="25.11.100" description="13 November 2025">
+
+**Bug fixes**
+
+Fix for watermark appearing on PDF outputs
+</Update>
+
+
+<Update label="25.11.0" description="11 November 2025">
+**Features and improvements**
+
+*Accuracy*
+- Updated algorithm to improve changed text position around deleted paragraphs
+- Added support for comparison of smart-tag content
+
+*Markup configuration*
+- Added new Redline setting Profile option to 'ignore whitespace changes'
+
+*Integrations*
+- Draftable in Office: Added support for a new Modern JS add-in for Microsoft Office that allows full comparison workflows with Draftable inside of Word, Excel and PowerPoint
+- Draftable for Office (file loading add-in):
+  - Added support for sheet / cell range loading in Excel and specific slide loading in PowerPoint
+  - Updated DMS files to display filename / ID / version in "Compare Open" screen instead of file-paths
+- Outlook: Added the ability for administrators to customize the body text when Draftable generates emails in MS Outlook
+
+*Ease of use*
+- Always open to user's non-maximized window size when starting Draftable
+- Added a new setting that opens the comparison viewer in a new tab (rather than same tab)
+
+*Administrator features*
+- Created a new MS Office add-in deployment instruction page with live links to latest manifest
+
+**Bug fixes**
+
+*Application fixes*
+- Fix for missing PDF format option for Changes Report in Side by Side comparisons
+
+*Algorithm reliability fixes*
+- Fix for 'unable to compare' due to overlaps in move detection
+- Fix for 'unable to compare' due to malformed svg content
+- Fix for 'unable to compare' due to mismatched block- and run-level sdt markers
+- Fix for 'unable to compare' due to preprocessing issues with textbox content in TOC
+- Fix for issue with sync scrolling in Side by Side comparisons with threaded runners
+
+*Integration fixes*
+- [Outlook] Fix for issue impacting the compare actions in Draftable's Outlook JS add-in
+- [iManage] Fix for issue causing actions from iManage in browser to fail
+- [SharePoint] Fix for issue causing drag & drop and launch compare from SharePoint to fail
+</Update>
+
+<Update label="25.10.300" description="28 October 2025">
+**Bug fixes**
+- Fix for issue with recent iManage integration update in 25.10.100 causing switching functionality between tenants to fail
+- Fix for issue causing redline in email copy command to fail
+</Update>
+
+<Update label="25.10.100" description="23 October 2025">
+**Features and Improvements**
+
+*Administrator features*
+- iManage configuration improvement
+- Updated on premise configuration and easier switching between iManage tenants for Global team collaboration, <a href="/hc/en-us/articles/51727897426841-Configuring-Multiple-iManage-Tenancies-in-Draftable-Legal">see here for details</a>
+
+**Bug fixes**
+- Fix for issue causing error when emailing redlines from Draftable
+- Fix for issue where comparing text input vs text file is crashing the app
+</Update>
+
+<Update label="25.10.0" description="21 October 2025">
+**Features and Improvements**
+
+*Accuracy and reliability*
+- Implemented Apryse library for PDF to Docx conversions (used in preprocessing PDF input files) and set this library to default for all users and organizations.
+
+*Integrations*
+- Word, Excel & PowerPoint: Modern Microsoft Office JavaScript (JS) add in for file loading from Office applications into Draftable – download via <a href="https://dl.draftable.com/addins/office-simple/2.17.0.0/manifest.xml"> https://dl.draftable.com/addins/office-simple/2.17.0.0/manifest.xml</a>
+
+*Redline in Email*
+- Added Accept/Reject All option into add-in to streamline email review workflows
+- Added a "report a bug" button in the add in to assist error reporting and troubleshooting
+- Improved the logic for automatic selection of baseline email when using "Compare against earlier email" command
+
+*Administrator features*
+- Added ability for Organizations to opt in to add an organization-level GUID to product telemetry to allow usage data reporting to administrators
+- Update to enforce logging telemetry when adding new settings (if telemetry is enabled by the organization)
+
+**Bugfixes**
+- Fix for issue where images were causing an error in new Outlook
+- Fix for occasional filename UI collision in redline viewer outputs
+- Fix for issue corrupting redline in email comparisons due to sentinel values
+- Fix for Redline in Email issue where the "Change Baseline" button was not working
+- Fix for issues in Excel Redline where the comparison produced a corrupt xlsx file
+- Fix for failed PowerPoint redline due to gradient colors not being handled in the pptx conversion to greyscale colors
+- Fix to update dialog to avoid cutoff text
+- Fix to avoid table column changes interacting badly and resulting in poor layout
+- Fix for issue causing comparison results to open in the most recent Draftable window instead of the source tab
+- Fix for issue where numbering in Redline in Draftable was incorrect when comparing RTF filetypes
+- Fix for pre-processing failure when an invalid output type was selected
+- Fix for issue impacting NetDocuments users comparing files loaded via NetDocuments or Draftable Word add-in due to special characters
+</Update>
+
+<Update label="25.9.300" description="29 September 2025">
+**Features & improvements**
+
+*Core functionality*
+- Redline in Email: Stop embedding images to reduce frequency of limitation when creating new email (popup warning that email is larger than 32KB)
+
+*Accuracy & quality*
+- Improved "Draftable Engine" for PDF to Docx conversion and moved from "Preview" to "General" settings option
+
+*Ease of use*
+- Support for foreign language display in the Draftable User Interface (French, German, Spanish, Dutch, Polish, Tagalog, Portuguese, Swedish, Japanese)
+- Allow users to reduce the window size of Draftable to fit into 1/4 of standard laptop screen
+
+*Administrator features*
+- Add telemetry to window sizing changes
+- Include Excel and PPT when locking profile settings as an admin
+
+**Bug fixes**
+- Fix for issue where Draftable was failing to remember the user preference for window sizing
+- Fix for issue where detaching a tab breaks the original window workflow
+- Fix for issue causing failure to clear selection in Text Decoration settings
+- Fix for issue where comparison summary information misclassifies table edits
+- Fix for Side by Side algorithm parameters not reaching text alignment stage, resulting in moved text not showing as moved
+- Fix for Word Add-in Not properly parsing file names with "&" symbol
+- Fix for Epona file loading where files are not parsing the filename in a way that is windows compatible
+- Fix for issues where invalid codepoints when normalizing text resulted in failure to compare
+- Fix for false positive (showing change where no change occurred) in numbered lists due to bookmark causing revision acceptor to drop numbering
+- Fix for Telemetry system issue where Original file type was not logged in the compare execution log
+</Update>
+
+<Update label="25.9.200" description="18 September 2025">
+**Bug fixes**
+- Fix for issue with Draftable Word add-in causing a pop up to appear asking users to save changes to normal.dotm template
+</Update>
+
+<Update label="25.9.100" description="11 September 2025">
+**Bug fixes**
+- Redirect draftable legal subscription link to current url
+</Update>
+
+<Update label="25.9.0" description="4 September 2025">
+**Features & improvements**
+
+*Ease of use*
+- Allow users to resize Draftable window to original minimum (before 25.8.0 update)
+
+*Performance*
+- Added a Preview feature that optimizes comparisons to enable faster comparisons for shorter documents
+
+*Administrator features*
+- Add a setting to turn on extra logging from CEF for troubleshooting
+- Added new Telemetry logging for the source of files loaded into Draftable (e.g. Local, DMS)
+
+*Integration functions*
+- SharePoint:
+  - Added new setting (in Integrations section) that allows detection of Major / Minor versions and only display major versions in version history
+  - Improved performance of SharePoint search
+
+**Bug fixes**
+- NetDocuments: Fix for issue impacting Compare with Latest command (path for domain-profile folders not being recognized)
+- Fix to ensure "Compare with Latest" command in the Draftable Ribbon in Word does not appear for local (non-DMS) documents
+- Fix for error when emailing 5 or more files from Draftable
+- Fix for issue causing the Draftable Excel Add-in to fail to install properly via MSI
+- Fix for issue when selecting iManage document as Older/Newer via Draftable Word add in
+- Three fixes for document-specific issue causing 'unable to compare' error
+- Fix for issue impacting ability to resize window when on comparison tab
+- Update to stop modification of Normal.dotm to cleanup old context menu command for "compare text in Draftable" via registry setting to avoid popup from Word add in when closing any word documents
+</Update>
+
+<Update label="25.8.0" description="15 August 2025">
+**Features & improvements**
+
+*Core functionality*
+- Added Changes Pages Only (PDF) output as an option in the Comparison Type menu, in 1-Click Compare workflows and in Bulk Compare mode
+- Added Departures Table as a Comparison Type option and 1-Click Compare workflow option
+
+*Quality & Accuracy*
+- Refined logic used for triggering OCR in 'auto' mode to ensure it runs in cases where input documents have some machine-readable text
+- Updated algorithm to handle comparison of textboxes/tables inside <code>&lt;w:pict&gt;</code> elements
+- Cleanup mixed numbering to text false positives
+
+*Ease of use*
+- Redesigned application UI and UX
+  - Merged New Comparison Window, Comparison Viewer, Settings Menu and Progress Bar into a single window
+  - New comparisons open in tabs instead of multiple windows
+  - New comparisons can be started in new tabs
+  - Updated component design to modern rounded corners
+  - Increased font and iconography sizes for improved legibility
+- Added logic to automatically order non-DMS files as older and newer based on filename, file metadata (Preview Feature)
+- Remember the expanded / collapsed state of the comparison summary panel when switching between Redline and Three Pane views in the Comparison Viewer
+
+*Integration functions*
+- iManage:
+  - Update to support new Drag & Drop API in latest iManage SDK update
+- Outlook:
+  - Updated Draftable's modern JS Outlook add-in to include functionality for file loading, text loading and 1-Click commands (removing the need for the COM add-in)
+  - Notify users when 'copying' redlined emails to paste with source formatting
+- Epona:
+  - Allow users to decide how Compare Latest is working with subversions
+
+**Bug fixes**
+- Fix for long lines not wrapping when converting txt to pdf for comparison
+- Fix to Handle listnum field with invalid level
+- Fix for NetDocsEchoPrefix registry value isn't expanded or normalized, leading to path for domain-profile folders not being recognized
+- Fix for Summary page style not being updated when switching profiles in the Viewer
+- Fix for zip corruption with empty xml parts
+- Fix for issue when 'unhiding' unchanged pages in viewer
+- Fix for unknown error when Opening, Saving and Emailing PDF Redline on Excel comparison files
+- Word Add-in: Fix to avoid hanging when the document is completely empty
+- Fix for Changes Report Error (opening, saving, copy and email) when file has a long filename
+- Added new Troubleshooting setting to turn on extra logging from CEF
+</Update>
+
+<Update label="25.6.200" description="4 July 2025">
+**Features and improvements**
+
+*Core functionality*
+- Redline in Email
+  - Update to ensure empty paragraph edits are visible
+
+*Ease of use*
+- Added the ability to rerun (refresh) a comparison from the viewer, with updates to input files automatically shown when input files are synced to DMS
+- Added ability to switch profiles from the viewer (i.e. after running the comparison) via a new command in the ribbon menu
+- The Comparison Viewer Windows now default to maximized state
+
+**Bug fixes**
+- Improved performance for MSI installs
+- Fix that cleans cached values in header/footer numbering fields to ensure page numbers in footers compare correctly
+- Improvement in initialization process of the Draftable application to identify potential looped process and notify user
+- Fix to ensure text emphasis styles are applied properly to summary page and comments
+- Fix for notes and tags on moved text not appearing in Departures Table output
+- Fix to ensure moved object changes or changes in bullet lists with non-standard bullets are shown in the PowerPoint Redline Change List
+</Update>
+
+<Update label="25.6.100" description="26 June 2025">
+**Feature and improvements**
+
+*Core functionality*
+- Added Accept/Reject functionality to Redline in Email Outlook add-in
+
+*Markup Configuration*
+- Allow multiple text decorations (e.g. Bold & Underline) to be used in markup schemas
+
+*Accuracy*
+- Updated Tungsten Automate OCR Configuration (Powered by OmniPage OCR) to improve pdf recognition and OCR performance
+
+*Quality*
+- Added new setting (off by default) that automatically accepts table layout changes when exporting to tracked changes to avoid these bubbles being left in on the right hand side of the doc
+
+*Integration functions*
+- Word Add-in: improved design to avoid Normal.dotm warning popup caused by interaction with NetDocuments Outlook add-in
+- iManage: New behavior when saving comparison outputs from the Draftable viewer to default to location of last selected document
+
+*Ease of use*
+- Added ability to use default of Ctrl+leftarrow and Ctrl+rightarrow keyboard shortcut to navigate to next change, with additional shortcut options available in Settings menu
+
+**Bug fixes**
+- Fix to endure Redline in Email is working when Http Listener is installed as Windows Service
+- [NetDocuments] Fix for issue when Saving as attachment is not working
+- [NetDocuments] Fix for issue impacting ability of Draftable to identify that some documents loaded via the Draftable Word add-in as being from NetDocuments
+- Fix to restore ability to export Redline outputs to docx format in Next Action menu
+- Fix for issue causing "export logs" troubleshooting command to fail
+- Fix to ensure the 'Select Version' behavior is loading the correct side (older or newer) depending on which side the 'select version' command was used on
+- Fix for issue impacting punctuation in Changes Report when exported as a .CSV file
+</Update>
+
+<Update label="25.6.0" description="11 June 2025">
+**Feature and improvements**
+
+*Core Functionality*
+- Allow users to compare PowerPoint files using "Redline in Draftable" and review changes in a new Draftable PowerPoint viewer with a clickable, filterable change list
+- Improved handing of "capitalization" style in case-sensitive comparisons
+
+*Integration functions*
+- Outlook add in: Allow users to use "1-Click Compare" in Outlook for email attachments
+- Word add in: Support for locally saved changes when loading DMS (iManage & NetDocuments) files via the Draftable Word add in
+
+**Bug fixes**
+- Fix to ensure tooltip for the Draftable System Tray icon is working properly
+- Added support to handle malformed LISTNUM instructions to resolve failed comparison
+- Fix for unable to compare due to serialization of nested complex field instructions
+</Update>
+
+<Update label="25.5.300" description="3 June 2025">
+**Bug fixes**
+- Fix for issue in backward compatibility of Moved Text Decoration settings (underline, strikethrough) in Administrator-created Profiles set up prior to November 2024 (before v24.11.0)
+</Update>
+
+<Update label="25.5.200" description="28 May 2025">
+**Feature and improvements**
+
+*Core functionality*
+- New update to enable Redlining of emails directly in Outlook via new modern JS add in –
+  <a href="/hc/en-us/articles/46382047949977-Configuring-Redline-in-Email-Outlook-with-Draftable">see here for details on how to deploy the new Redlining in Outlook add in</a>
+
+*Markup customization*
+- Added new setting to remove comments from input files for 3 pane view
+
+*Integration functions*
+- Word:
+  - Added new command in Word select files to load from all open word files
+- Outlook:
+  - Draftable now includes the user profile's email signature when generating emails
+- NetDocuments:
+  - Add next action to save as attachment to original or modified document
+  - Support for locally edited files from Word
+  - Add setting option to save comparison outputs as "checked in" by default
+
+*Administrator function*
+- Updated System Verification of OCR to use Tungsten Automate (Powered by OmniPage OCR) instead of Word
+- Added version information to ADML and ADMX templates
+
+**Bug fixes**
+- Fix for unable to compare issue caused by numbering alignment shortcut
+- Fix for issue when markup settings show no color for changes in table cells
+- Fix to issue causing bulk comparisons to run slowly
+- Fix to enable a user's OneDrive files to be loaded via Word add-in without the SharePoint integration enabled
+</Update>
+
+<Update label="25.5.100" description="13 May 2025">
+**Bug fixes**
+- Properly handle Install desktop shortcuts on install
+- Fix for issue causing "Email logs" troubleshooting command to fail
+- Fix for missing numbering reference leading to failed comparison for specific documents
+- Fix for issue causing both 1-Click Compares and Bulk Compares to fail when generating Side-By-Side outputs
+- Fix for issue causing exports of Tracked Changes via Draftable viewer to fail when input files are PDFs
+</Update>
+
+<Update label="25.5.00" description="5th May 2025">
+**Features & Improvements**
+- Bulk Compare: Now ensures the Draftable window resizes correctly after toggling off a bulk compare
+- iManage: Add option to remove 'save as related file' as next action option
+- Added a setting to keep comments when they are removed when accepting tracked changes
+- Bulk Compare: Improvements to file export workflows for bulk compare
+- Word add-in: Added a new 'Compare with Latest' option to Word add-in
+- NetDocuments: Support selection and correct identification of Subversions
+- OCR: New Tungsten Automate OCR engine (Powered by OmniPage OCR) now used for improved OCR on documents
+- Excel Redline Viewer: Added support to allow Excel Redlines to be outputted as a PDF files via email / print / save output options from the Excel Redline viewer
+- Added the ability for administrators to create custom tags for the change list within the comparison viewer
+
+**Bug fixes**
+- Fixed scenarios where invalid background requests cause following requests to fail
+- Various fixes to comparison handling when comparing documens
+- Fixed issue to prevent Draftable from freezing when updating
+- Output filenames wasn't working in files with same filename has been fixed
+- Fixed issues with Redline comparisons not working when using rtf file as the input file
+</Update>
+
+<Update label="25.03.200" description="3rd April 2025">
+**Bug fixes**
+- Fix to errors in group policy not working
+</Update>
+
+<Update label="25.03.100" description="1st April 2025">
+**Features and improvements:**
+- Add settings UI for table cell highlight
+
+**Bugfixes**
+- Added Excel redline settings migration fix
+</Update>
+
+<Update label="25.03.00" description="31 March 2025">
+**Features and improvements:**
+
+*Troubleshooting*
+- Improved Draftable troubleshooting, by grouping temporary files by comparison
+- Removed the warning "One or more documents are in an older format" for easier clarity
+
+*1-Click Compare*
+- Improvements to 1-Click error dialogue to be clearer and more helpful
+
+*Comparison and export improvements*
+- Updated the Changes Report table to fill the entire width of a page in MS Word
+- UI change, now the right hand side menu in the comparison viewer  will be "sticky" between sessions (e.g. to collapse the change list by default)
+- Added support for setting to ignore curly and straight apostrophes as well as quotation marks in comparisons
+
+*Administrator features*
+- Add ability for administrators to create custom tags for the change list in comparisons
+- Support admin installed Add-ins information within the Draftable settings menu
+
+*Other*
+- Created Long Term Support (LTS) Deploy Pipeline / Release
+- <b>SharePoint</b> - One Click command should use the new command
+
+**Bug fixes:**
+- Created a fix for large bulk compares sometimes hit runner process timeouts and stall
+- Fix to comment indexing in change list generation
+- Created fix where files couldn't be loaded with resource error from a shared drive
+- <b>Departures Table:</b> Columns inconsistent in the email body, table formatting issues
+- Unable to open Redline in excel issue has been fixed
+- Fixes for handle numPicBullet definitions that use mc:AlternateContent blocks
+- False positive paragraph change due to bookmark tag in table
+- Added fix for file type icon at top of the viewer not displaying as PDF when PDF input files compared
+- Added fixes for Draftable to handle pagination in SharePoint API
+- Added fix for System Verification step for "Microsoft Windows: Context menu" fail when installed for system
+- Fixes for text compare not working
+</Update>
+
+<Update label="25.2.000" description="28 February 2025">
+**Features and Improvements**
+
+*Core functionality*
+Departure Table: Now released to all users with:
+- Improved output formatting,
+- Ability to export Departures Table to email body with or without change list filtering
+- Ability to extract inline comments in Departures Table
+
+Excel Redline improvements
+- Include worksheet name in "Location" column of Changes Report for Excel Comparisons
+- Improve legibility for Excel Viewer when formula change border is shown
+- Show redlined text from change in Changes Report from Excel Viewer
+
+*Accuracy and Quality improvements*
+- Improved algorithm for comparing Text Boxes
+- Improved algorithm for PowerPoint Redline comaprisons
+
+*Markup Configuration*
+- New option to ignore changes to headers and footers in Changes Pages Only
+- Improved visibility of changes for vision impaired users by adding the option to highlight changed text to mark up schema
+
+*Ease of use*
+- Added Comparison Summary Data to the top of the Comparison Viewer, added setting & GPO for showing / hiding by default
+- Added the ability for 1-Click Compare to 'automatically select the two most recent versions' when using 1-Click Compare in Document Management Systems
+
+*Administrator features*
+- Updated for Http Listener service to prepare for release of new Outlook modern add-in for Redlining in in email
+
+**Bug fixes**
+- Fix to avoid truncating custom.xml when writing metadata.
+- Fix for Changes Report being exported as html when docx selected
+- Fix to avoid failure to generate Changes Report on moves within textboxes
+- Fix for exported/saved zip contents missing file extensions
+- Fix for unable to compare error due to footnoteColumns attribute in section properties
+- Update to MSI installer to fix missing iManage integration package
+- Fix for issue where Native office compare options were not working
+- Fix for issue where comparisons are showing changes in Text Boxes even when 'Text boxes' are deselected in Redline settings
+- Fix for PDF compatibility mode flattening numbering indentation, leading to all numbered content being incorrectly set at the same level
+- Fix for unable to compare issue caused by issue saving files with macros in preprocessing
+- fix for issue where deleted paragraphs inheriting wrong paragraph properties (e.g. headings)
+- Fix for issue where all file icons were appearing as pdf in Bulk Compare
+- Fic for Redline Change List generation crashing due to unhandled instrText.
+- Fix for unable to compare error due to table compare issue
+- Fix for PowerPoint Redline "Rearrange overlapping edits" behavior not working when Classic Red markup color selected
+- Fix for unable to compare error for certain documents with comments
+- Fix for false positives in umlat ü due to failing to normalize unicode sequences before comparison
+</Update>
+
+<Update label="25.01.100" description="31 January 2025">
+**Features and Improvements**
+- Excel Redline viewer and Change List in Draftable released to all users by default (no longer in Preview)
+- Added telemetry data logging for Excel file metadata and actions taken in the new Excel Viewer
+
+**Bug fixes**
+- Update to comment comparison logic to avoid comments incorrectly shown as insertion when present in both documents
+- Fix to strip invalid XML characters when converting from TXT to DOCX
+- Fix to prevent Excel Redline comparisons from failing due to attempt to preserve merged cells
+</Update>
+
+<Update label="25.01.0" description="28 January 2025">
+**Features and Improvements**
+
+*Core Functionality*
+Excel Redline viewer in Draftable (Preview)
+- Allow users to compare Excel files as "Redline in Draftable", opening a dedicated Draftable Excel viewer
+- Add a clickable, filterable Change List for Redlined Excel files in the Draftable Viewer
+- Added Next Actions options for Excel Redline in Draftable (save to DMS, email, etc)
+- Added Changes Report export for Excel files compared with "Redline in Draftable" Comparison Type
+
+Departures Table Improvements (available as a preview feature)
+- Extended clause with parent sections, use shorthand in section column
+- Updated wording in Departure Table template
+- Improved clause extraction from tables
+- Improved reference section extraction from tables
+- Updated clause number detection algorithm to improve accuracy
+- Included viewer notes and tags + differentiate comment colors
+- Updated logic to ensure the exported file has the correct file name logic applied
+- Improved redline of moved text in the Departures Table
+
+Bulk Compare improvements
+- Allow users to Email or Copy to Clipboard all comparisons at once after Bulk Compare
+- Added support for including a Summary Page when saving comparisons from Bulk Compare mode
+- Added support for multiple file types in the bulk save dialog after Bulk Compare
+- Added filetype icons into UI for Select from Recent files in Bulk Compare mode
+- Increased the speed of bulk compare exports
+- Added a progress bar that displays while exporting files after Bulk Compare
+- Implemented smart selection of comparison types for Bulk Compare (greys out inapplicable
+
+*Accuracy and output quality*
+- Updated algorithm logic to adjust the height of fixed-height rows in tables when revisions are present (to ensure revisions are visible in the redline output)
+- Improve output rendering for deleted sections of tables (to avoid long skinny columns in Redline outputs)
+- Aligned numbering IDs to minimize the number of layout bubbles indicating numbering changes in Tracked Changes outputs
+
+*Markup configuration*
+- Add option to compare footnote numbering
+- Add option to ignore changes to quotation marks (from curly to straight)
+
+*Ease of use improvements*
+- Updated logic for file naming to remove the need to rename input files when emailing original and modified files with the same name
+- Wrap file selector buttons (Browse, select from DMS, Free Text) in the New Comparison Window into two rows
+- Improved file loading UI to disable the compare button until files are ready and add a file loading spinner to the New Comparison Window
+
+*Integration functions*
+- Updated file ordering logic to use version metadata when loading from iManage, Epona and SharePoint via the Draftable New Comparison Window
+
+*Administrator features*
+- Add ability to use 'remember my choice' for next actions in admin-set profiles
+- Upgraded .NET60 to .NET80
+- Silence all the CEF logging & Update CEF 125.0.210 ->131.3.50
+- soft hyphens as zero weight characters
+- MS Office Add ins: Switch LoadBehavior to Load at Startup (3) and
+- MS Office Add ins: Bump up versions
+    → Outlook v1.18.0.0
+    → Word v1.26.0.0
+    → Excel v1.4.0.0
+
+**Bug fixes**
+- Fix for issue where filenames with "." were not following filename conventions
+- Fixed issue impacting the "Compare Text with Draftable" in the right click context menu in Draftable's Word Add In
+- Fix for SharePoint graph client error
+- Fix for highlighting colors on Departure Table
+- Fix file loading logic from Document Management Systems
+- Fix for error when using 1-Click Compare to export Redline Docx files
+- Fix for issue causing crashes when generating clauses data for Departures Table
+</Update>
+<Update label="24.12.0" description="23 December 2024">
+
+**Features and Improvements**
+
+- *Core functionality*
+  - Bulk Compare updates:
+    - Simultaneous comparison of multiple discrete pairs of documents
+    - Redesigned file loading UI/UX, removing need to select 'sub-mode'
+    - Revision lines now included in Bulk Comparison exports
+  - Departures Table: Preview feature to auto-generate Departures Table output for contract negotiations ([see December 2024 Release Notes](/hc/en-us/articles/41369665084313-Release-Notes-Draftable-Legal-December-2024-v24-12-0))
+  - Revision lines now added to Redline in Word exports
+
+- *Ease of use*
+  - Set default state for Bulk Compare in Compare Selector
+  - Added tooltips with full filename, version and Doc ID in Bulk Compare mode
+  - Default UI for Draftable's New Comparison Window now auto-hides "Native in Office" Comparison Type
+
+- *Accuracy*
+  - Improved algorithm for Redline in Excel: better column and row identification
+
+- *Markup Configuration*
+  - Added "Vintage Green" color for moved text (legacy comparison tools)
+
+- *Integration functions*
+  - iManage: Increased version selection menu limit from 25 to 100
+  - NetDocuments: Show Document ID and Version Number metadata in New Comparison Window and Summary Page outputs
+
+**Bug fixes**
+
+- Corrected output filename settings for Redline in Word outputs when loaded via Word Add-in
+- Fixed two separate causes of "unable to compare" error for specific documents
+- Now able to save Tracked Changes outputs even when files have long filenames
+- Fixed error occurring during side-by-side comparisons
+- Restored ability to open 'select version' menu when loading files from DMS via Draftable Word add-in
+- Fixed OCR not working on image-based PDFs with partial machine readable text
+- Fixed error related to Word showing unreadable content message in Redline outputs
+- Updated fix for document numbering issues
+
+</Update>
+
+<Update label="24.11.100" description="28 November 2024">
+
+**Features and Improvements**
+
+- *Core functionality*
+  - Redline in PowerPoint available for all users
+  - Reduced file size for PDF exports
+
+- *Accuracy*
+  - Docx algorithm updated for improved numbering and paragraph comparisons
+  - Excel Redline algorithm improved for sheet matching based on header row and maintaining hidden sheet visibility
+
+- *Markup configuration*
+  - New Redline Profile: option to convert all dynamic fields (e.g. cross-references) to plain text before comparison
+
+- *Ease of use*
+  - Continue using Draftable while comparisons run in the background
+
+- *Administrator features*
+  - New GPO for "Clean up input files after comparison" (in Settings → General tab)
+  - Admins can edit email subject for exported comparisons
+  - Improved telemetry captures more usage events (DMS triggers, swapping files, launching viewer, etc)
+
+**Bugfixes**
+
+- Restored revision lines in Comparison Viewer and Redline PDF export
+- Fixed comparison formatting issues around numbering
+- Fixed Comparison Error with Draftable Engine PDF conversions
+- Fixed garbled text issue for redlined documents signed with Kappris
+- Fixed save/open failure for specific redline input as PDF
+- Fixed error in PowerPoint Redlines when Grayscale option enabled
+
+</Update>
+
+<Update label="24.11.0" description="13 November 2024">
+
+**Features & Improvements**
+
+- Improved table comparison algorithm: now aligns tables before comparing
+- Added classic green and leaf green colors to the markup schema palette (brighter move highlights)
+
+**Bug Fixes**
+
+- Removed 'dev' tag from MSI installs
+- Fixed numbering styles in Redline Docx comparisons
+- Resolved issue where Redline in Word comparisons exported incorrectly as Tracked Changes files
+- Fixed handling of hyperlinked relationships from comments
+- Fixed output filename handling for New Comparison Window exports
+- Corrected SharePoint integration issue (site permission changes causing missing sites in search)
+- Fixed Add-in install errors with the MSI installer
+- Improved move detection to remove incorrect long text in move view
+- Added support for legacy field codes so Change List does not fail
+
+</Update>
+
+<Update label="24.10.400" description="6 November 2024">
+
+**Bug fixes**
+
+- Fixed issue preventing Office Add-ins installation for MSI setups
+
+</Update>
+
+<Update label="24.10.300" description="31 October 2024">
+
+**Features & Improvements**
+
+- *Ease of use*
+  - Improved filename truncation, dynamically trim based on save location (iManage, NetDocuments, OneDrive, local, etc)
+  - Cleaned up help articles in action pane & ribbon
+  - Added option to set the default 'save to' location for 1-Click Compare
+
+- *Administrator features*
+  - Option to verify Add-in Certificates
+
+- *Integration functions*
+  - [SharePoint] Improved site search: now displays 25+ results
+  - [Epona] Added support for Drag & Drop from Outlook extension
+
+**Bug fixes**
+
+- Fixed comparison loading delays on single-core machines due to change list generation
+- Fixed iManage recent selection bug causing app blocking
+- Fixed OCR per-comparison option not working in New Comparison Window
+- Fixed handling of style changes in DOCX
+- Fixed Changes Report loading error when combined with Summary Page in Redline
+- Fixed Outlook display and filename mismatch for attachments
+- Fixed error generating viewer PDF for footnotes/endnotes when disabled
+- Fixed password prompt not disappearing after entering correct password mid-comparison
+- Fixed opening of password-protected files during bulk comparisons
+
+</Update>
+
+<Update label="24.10.200" description="21 October 2024">
+
+**Features & Improvements**
+
+- Updated custom output filename token logic: 'v' added before NetDocuments version numbers in filenames (not added when comparing local files)
+
+**Bug fixes**
+
+- [NetDocuments] Fixed refresh function causing 'unable to compare' errors
+
+</Update>
+
+<Update label="24.10.100" description="17 October 2024">
+
+**Bug fixes**
+
+- Fixed signing issue introduced in 24.10.0 for MSI installers
+
+</Update>
+
+<Update label="24.10.0" description="11 October 2024">
+
+**Features & Improvements**
+
+- *Core functionality*
+  - Added PowerPoint Redline (.pptx) as Comparison Type (Preview feature – email [product@draftable.com](mailto:product@draftable.com) for access)
+
+- *Ease of use*
+  - Added Summary Page data to Draftable Comparison Viewer
+  - Added 'Exit application' option in file menu
+
+- *Epona Integration*
+  - Expanded Version selector to display additional version file details
+  - Changed file dialog to show versions
+
+- *Administrator features*
+  - Group Policy option to disable Windows bubble notifications on startup
+  - Group Policy to enable Bulk Comparisons
+  - Improved Windows system info for installed Draftable version
+  - Promoted "Save Track Changes output to iManage as new version" button to full feature
+
+**Bugfixes**
+
+- Prevent app crash for oversized Outlook file attachments
+- Fixed Change List load error
+- Fixed compare error with math elements
+- Fixed "unable to compare" error for some files
+- Fixed unsubscribing of file loading errors after changing compare method
+- Fixed issue with redline author detection
+- Fixed renamed files being deselected in email generation UX
+- Fixed author field override when comparing input text
+- Fixed 1-Click Compare definition not loading in settings UI
+- Fixed NamedPipeClient System.TimeoutException
+- Fixed Changes Report docx generation error
+
+</Update>
+
+<Update label="24.9.1" description="27 September 2024">
+
+**Features and improvements**
+
+- *Core functionality*
+  - Redline in Excel available for all users (no longer preview)
+
+**Bug fixes**
+
+- Fixed Windows shell extension not being installed for Per User installer
+- Fixed bug where ObservableList.Clear() was not wrapped by Dispatcher
+
+</Update>
+
+<Update label="24.9.0" description="27 September 2024">
+
+**Features and improvements**
+
+- *Core functionality*
+  - Users can load files, worksheets, and selected cells via Excel Add-In
+  - Algorithm update: added support for Japanese and other ideographic languages
+
+- *Ease of use*
+  - Faster rerun of comparisons; auto-resync of files left open in Draftable
+  - Bulk status tagging in change list and 'reviewed' tag for reviewed changes
+  - Share tagged/annotated changes in updated Next Actions menu; option to include Changes Report in email body
+  - New setting to default saving locally to last-used location
+
+</Update>
+
+<Update label="24.8.200" description="6 September 2024">
+
+**New features & improvements**
+
+- *Accuracy*
+  - Improved readability of merged table cells in Redline outputs
+
+- *Markup configuration*
+  - Classic Word blue and red now available in markup schema
+
+- *Ease of use*
+  - Setting to disable notification for legacy document comparisons
+  - Markup schema colours shown on Summary Page
+  - Names of compared files shown in Changes Report
+  - Side-by-side Comparisons: new option to save output to last location
+  - Changes Report can be added to comparison exports and exported as docx
+  - Markup schema colours used in Change Report for easy change ID
+  - Input files can be printed via Next Action menu
+  - Change List display removed for Bulk Compare Redline viewer (not supported)
+
+- *Administrator features*
+  - File Obfuscator in troubleshooting now obfuscates a pair of files
+
+**Bug fixes**
+
+- Removed redundant ".docx" suffix on clipboard-renamed files
+- Fixed flickering drag & drop screen rendering
+- Fixed missing detection of inserted header on the first page
+- Fixed compare error with complex fields
+- Fixed inserted signatures not showing in change list
+
+</Update>
+
+<Update label="24.8.100" description="22 August 2024">
+
+**Bug fixes**
+
+- Fixed OCR settings not showing in general tab
+
+</Update>
+
+<Update label="24.8.0" description="13 August 2024">
+
+**New features & improvements**
+
+- *Core functionality*
+  - Single page export for side-by-side comparisons in next action menus
+  - Users can rename, convert, and zip files when emailing or copying to clipboard
+
+- *Ease of use*
+  - File selection, renaming, and conversion preferences now persist ('sticky') across viewer sessions
+  - Added Redline Profile setting to default 3-pane view for redline PDF comparisons
+  - Improved "Draftable does not compare" error messaging
+
+- *Improved Performance*
+  - Better table column matching algorithm
+  - Auto-repair for input DOCX files
+  - Improved performance for text vs text in Redline outputs
+
+- *Administrator features*
+  - Product telemetry now records Redline Profile and Group Policy changes
+  - Telemetry also captures Bulk Compare interactions
+
+**Bugfixes**
+
+- Fixed document-specific 'unable to compare' errors
+- Fixed issue where redline filename was incorrect if the name included '.'
+- Fixed Office Add-ins not properly installed with MSI
+- Removed false positives where deleted comments were not showing
+- Fixed redline output color changes not appearing if text decoration not set in markup schema
+- Updated help link for Email in Next Action menu
+- Fixed compare errors using files with special characters from iManage
+- Corrected footer visibility with disabled footer changes
+- Removed false positives in text box handling
+- Fixed out-of-order display of deletions and insertions
+
+</Update>
+
+<Update label="24.7.200" description="17 July 2024">
+
+**Features & Improvements**
+
+- *Administrator features*
+  - Admins can set/remove default Comparison Types via registry/Group Policy
+  - Redline Change List and Three Pane view now full features (no preview toggle)
+  - Redline Change List, Three-Pane view, and 'Save Tracked Changes as new version to iManage' are default for all users
+  - Registry update avoids persistence of old default settings
+
+- *Improved Performance*
+  - Excel Redline Comparison Type: output row limit raised from 10K to 1M; significant speed increase for large files
+
+- *Greater Accuracy*
+  - Redline settings 'Layout Changes' now include whitespace (tab spacing etc.)
+  - Regression testing for 1-Click Compare API enabled
+
+- *Integration functions*
+  - iManage: Users are auto-logged in on app start (enables working drag/drop when not previously logged in)
+  - *Note*: iManage package unchanged in this release
+
+**Bug fixes**
+
+- Fixed issue with Redline Change List UI not loading
+- Fixed Telemetry bug for tracking PDF conversion engine changes
+- Fixed issue where 'Layout Changes' exclusions generated false positives
+- Fixed UI bug where NetDocuments ribbon menu commands overlapped
+
+</Update>
+
+<Update label="24.7.100" description="4 July 2024">
+
+**Bug fixes**
+
+- Fixed broken toggle in Preview menu for Redline in Excel
+
+</Update>
+
+<Update label="24.7.0" description="3 July 2024">
+
+**Features & Improvements**
+
+- *New core functionality*
+  - Excel Redline (.xlsx) available as Comparison Type (Preview only)
+  - Option to use Draftable Engine for PDF to DOCX conversions
+  - Option to remove cover page from Side by Side comparison exports
+
+- *Ease of use*
+  - Next Actions (save, print, email, etc) now show in ribbon menu in viewer
+  - Bulk Compare: uses input file location when bulk saving
+  - Help link next to Comparison Type in New Comparison Window for KB article reference
+  - Redline settings UI: 'Filename Output' retitled as 'Output filename'
+
+- *Performance improvements*
+  - Detects and advises user of incompatible legacy doc/docx format documents for conversion
+
+- *Integration functions*
+  - iManage:
+    - Save outputs to iManage as 'Related' files
+    - Desktop IPC communication is now user-unique (for multi-user launch compatibility)
+  - Epona:
+    - File descriptor now includes version comments
+
+- *Administrator features*
+  - Software version numbers now match year/month of release
+  - Exported error log filenames now include date and unique ID
+  - Dropped x32 bit support to reduce app size
+  - Updated CEF# & Universal C Runtime to reduce size
+  - Product telemetry gathers additional metadata (words, pages, chars, Word doc scheme ver, install and troubleshooting events)
+
+**Bug fixes**
+
+- Restored warning dialog that Changed Pages output doesn't support style changes
+- Fixed Group Policy Template error for Silent Start with Windows
+- Fixed compare error for comments with corrupted metadata
+- Fixed whitespace changes being ignored with 'changed pages only' in Redline viewer
+- Ensured 1-Click Compare respects user Output filename configuration
+- Side-By-Side exports now include moves (matches what is shown in Draftable)
+- Fixed drag-and-drop failure not showing correct error if integration is disabled
+
+</Update>
+
+<Update label="2.16.100" description="20 June 2024">
+
+**New Features & Improvements**
+
+- *Core functionality*
+  - Improved memory efficiency on multi-user systems (e.g. Citrix) with NGEN support
+
+- *Integrations*
+  - iManage: New Windows Service with Http Listener
+  - SharePoint: Extra troubleshooting data logging; improved search speed on large sets
+  - Epona: Remembers last used file location within Epona/Outlook extension
+
+**Bug fixes**
+
+- Respects 'Start automatically with windows' setting
+- Fixed "unable to compare" error for Redline in Word output (document-specific)
+- Corrected numbering issues in comparison outputs
+- Fixed watermark changes not displaying
+- Fixed right-click 'Compare text in Draftable' for Word Add-In
+- Fixed iManage version selection for filenames with special characters
+
+</Update>
+
+<Update label="2.16" description="6 June 2024">
+
+**New Features & Improvements**
+
+- *Core functionality*
+  - New Redline in Word without tracked changes (.docx) comparison type
+  - Redline (.docx) now an export option in Next Actions, Bulk Compare, and 1-Click Compare
+
+- *Ease of use*
+  - Renamed Comparison Type options in New Comparison Window ([see here for details](/hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window))
+  - New 'Native (MS Office)' Comparison Type for Excel/PowerPoint using Office's tools
+  - Accept tracked changes in selected text via 'Compare Text' in Word Add-in
+  - Copy input files to clipboard via Next Action menu
+
+- *Accuracy and reliability*
+  - Now uses iManage SDK v10.9.3.43
+  - Removes "original" from input filenames when attaching to email
+
+**Bug fixes**
+
+- Improved algorithm prevents unwanted changes shown for images, hidden text, or page breaks when comparison options are disabled
+- Prevents Draftable from altering Word Review Balloons settings after use
+- Registry/Group Policy for 1-Click Compare now updates end user UI
+- Fixed PDF Redline font rendering error
+- Margin lines not shown when changes are ignored in selected Redline Profile
+
+</Update>
+
+<Update label="2.15.300" description="29 May 2024">
+
+**Features & Improvements**
+
+- *Core functionality*
+  - Bulk Compare: 
+    - Now supports multiple 'older' docs vs a single 'newer' doc
+    - Export window lets user pick desired output and choose zip option for bulk save
+
+- *Integration functions*
+  - Epona integration can be enabled in settings
+  - SharePoint "Heavy Usage" mode: only shows frequent/followed sites for large orgs
+
+- *Accuracy & reliability*
+  - Better algorithm for table row adds/splits
+  - Draftable Engine is now default for PDF conversions
+
+- *Administrator features*
+  - Admins can lock Profile settings when creating profiles
+  - Registry/Group Policy added for 1-Click Compare:
+    - Default workflow/definition used unless user sets their own
+    - Section can be removed from settings to stop user customization
+    - Optionally block end user export of their 1-Click Compare settings
+
+- *Ease of use*
+  - Default comparison output names use 'vs' between filenames
+  - Removed "Changes theme" question for Side-by-Side
+  - 1-Click Compare settings export now available
+
+**Bug fixes**
+
+- Bulk Compare: fixed file list disappearance when canceling add
+- Chromium logs now appear next to selected document
+- Fixed input filename trimming in output filenames
+- Fixed loading errors for NetDocuments files
+- Fixed hidden tables being missed in comparisons
+- Removed warning popup for iManage uploads and local saves that were canceled
+- Prevented crash when uploading new file to iManage
+- Fixed table cutoff bug in comparison
+- Fixed 1-Click Compare saving preview instead of final document
+- "Unable to Compare" bug fixed when Bullets/Numbering are off
+- Fixed Normal.dotm prompt in Word engine
+
+</Update>
+
+<Update label="2.15.200" description="14 May 2024">
+
+**Features & Improvements**
+
+- List of changes for Redline comparisons now includes tagging, notes, and export (shown by default) ([see details](/hc/en-us/articles/32514479509785-Using-the-Redline-Change-List-to-review-filter-tag-add-notes-and-export-your-changes))
+- Side-by-Side exports now use blue for insertions (was green)
+- Comments now omitted from Redline PDF in viewer (shown in Change List instead)
+- Expand comments now possible in Draftable Redline PDF viewer
+- Improved "invalid 1-Click action" messages
+
+- *Integration functions*
+  - SharePoint:
+    - Select from / save to multiple SharePoint sites, including browsing
+    - 1-Click Compare for file versions, with Version Selector dialog if >2 versions
+    - Shows check-in comment in SharePoint version dialog
+  - Epona: Last-used file browser path now remembered
+  - Office Add-ins: 
+    - Improved VSTO add-ins unzip function
+    - Fixed Office Add-in cache/load issues
+
+- *Administrator features*
+  - Preview tab: can enable/disable 3-pane view; Registry/Group Policy added
+
+**Bug fixes**
+
+- Fixed 1-Click Compare failing when workflow’s Comparison Type doesn’t support chosen files
+- Fixed highlight box placement for specific fonts
+- Removed Repair Add-in in Troubleshooting to prevent autoupdate issues
+- Fixed 1-Click Compare workflow used incorrectly if last one was cancelled
+- Fixed "next actions" option in 1-Click Compare Settings not refreshing
+- Fixed revision line in black (not red) with Draftable Engine for PDF conversions
+- Fixed changes in Redline Markup settings not persisting after restart
+
+</Update>
+
+<Update label="2.15.100" description="2 May 2024">
+
+**Features & Improvements**
+
+- New 3-Pane view: see original, modified, and redline all together ([details](/hc/en-us/articles/31975077731225-Three-Pane-View-See-changes-in-context-with-older-newer-and-redlined-documents-in-one-screen))
+
+- *Integration functions*
+  - 1-Click Compare now supports file versions in iManage and SharePoint ([details](/hc/en-us/articles/31611819497753-Using-1-Click-Compare-to-run-comparisons-with-your-preferred-default-workflow))
+  - Uses file version metadata for correct file ordering in SharePoint (old left, new right)
+
+- *Administrator features*
+  - Customize 'unable to compare' error text
+  - Remove "share logs" from 'unable to compare' error option
+
+- *Troubleshooting*
+  - "Email logs & obfuscated documents" option added in troubleshooting
+  - Attach obfuscated documents to auto-generated email via 'unable to compare' dialog
+
+- *Comparison quality*
+  - Improved algorithm so cell content change doesn't show as entire table insertion/deletion
+
+**Bug fixes**
+
+- 1-Click Compare works with Bulk Compare enabled
+- Added Group Policy template for Legal (DraftableDesktopLegal) and Installer (DraftableInstaller) (missing from v2.15)
+
+</Update>
+
+<Update label="2.15.000" description="26 April 2024">
+
+**Features & Improvements**
+
+- 1-Click Compare: Compare from file explorer or DMS (iManage, NetDocuments, SharePoint, Epona, Worldox) ([details](/hc/en-us/articles/31611819497753-Using-1-Click-Compare-to-run-comparisons-with-your-preferred-default-workflow))
+- Side-by-Side outputs can now be saved to DMS with next actions
+  - *Note*: This removes options for single document view export and track changes for Legal version users
+- New DMS integrations: Epona 365 and Worldox
+
+- *Markup configurations for Redline*
+  - Can ignore: numbered lists, case changes, footnote numbering, tables, text boxes, tables of contents, images, and font colour as subcategory of styling
+
+- *Administrator features*
+  - Show HKLM-installed add-ins in settings
+  - Let customers set free text font for redline PDFs
+  - Extended Group Policy for default PDF conversion engine
+  - System MSI can be deployed with/without shortcuts or Office Add-ins ([details](/hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer))
+
+**Bug fixes**
+
+- Output filename works correctly even when summary page is omitted
+- Prevents non-Draftable Word Add-ins from showing in Draftable Ribbon
+- Resolved dotm template prompt and related failures in Word Add-in
+
+</Update>
+
+<Update label="2.14.301" description="5 April 2024">
+
+**Bug fixes**
+
+- Fixed race condition on first launch when activating from Group Policy
+
+</Update>
+
+<Update label="2.14.300" description="27 March 2024">
+
+**Bug fixes**
+
+- Unique names for elements in VSTO Add-ins to fix conflicts with custom add-ins
+- Fixed iManage "201 success" handled as error
+- Removed file manager toggle to restore SharePoint access
+- Custom filename feature now trims long filenames
+
+</Update>
+
+<Update label="2.14.200" description="24 March 2024">
+
+**Bug fixes**
+
+- Resolved issue in 2.14+ where user wasn't notified if comparison failed
+
+</Update>
+
+<Update label="2.14.100" description="22 March 2024">
+
+**New features and improvements**
+
+- Added Bulk Compare tooltip with Knowledge Base link
+
+**Bug fixes**
+
+- Option to disable iManage persistent session
+- Fixed error on loading two files from iManage when not logged in
+- Prevented dialog showing after Track Changes comparison success
+- Draftable URL protocol now works as expected
+
+</Update>
+
+<Update label="2.14.00" description="19 March 2024">
+
+**New features and improvements**
+
+- Bulk Compare: One-to-many compare ([see details](/hc/en-us/articles/30062521598361-Bulk-Compare-How-to-load-and-run-multiple-comparisons-at-once))
+- Redline settings: can ignore "headers" and "footers" separately
+- Comparison time now shown in Summary page
+
+- *Performance*
+  - Improved reliability via Word API updates
+
+- *Integrations*
+  - SharePoint: Select from / save to SharePoint Online via Draftable, GPO to enable/disable
+
+- *UI/UX*
+  - Next action panel in Redline Viewer is more interactive
+  - Viewer Ribbon menu is expanded by default
+
+- *Other*
+  - Telemetry now links session between launcher & viewer
+
+**Bug fixes**
+
+- Can now turn moves detection on/off for Side by Side
+- Fixed "given key not present in dictionary" error in TryGetNumbering
+- Fixed legacy colour theme for Side-by-Side
+
+</Update>
+
+<Update label="2.13.700" description="13 March 2024">
+
+**Bug fixes**
+
+- Add-in installation now allows central security signing
+- Fixed "Word with Tracked Changes" output setting fail to open by default
+- Fixed input files not loading if triggered when app isn't running
+
+</Update>
+
+<Update label="2.13.601" description="7 March 2024">
+
+**Bug fixes**
+
+- As above: improved add-in installation for central security signing
+- Fixed "Word with Tracked Changes" output open-by-default bug
+- Fixed input files not loaded when app is not running
+
+</Update>
+
+<Update label="2.13.600" description="24 February 2024">
+
+**Bug fixes**
+
+- Fixed comparison bug with hidden text
+
+</Update>
+
+<Update label="2.13.500" description="22 February 2024">
+
+**Bug fixes**
+
+- Fixed issue preventing free text comparison
+
+</Update>
+
+<Update label="2.13.400" description="16 February 2024">
+
+**Bug fixes**
+
+- Fixed "StartOnStartupOption" failure
+- Improved iManage enable on behalf of users (with better UI)
+- Bookmarks now encoded as the same character
+- Added UNC file path support (DMS/local drives)
+- Font size threshold setting now visible to standard users
+- Fixed Redline output for text blob comparison
+
+</Update>
+
+<Update label="2.13.300" description="13 February 2024">
+
+**App improvements and new features**
+
+- Custom output filenames for Redline
+- File area shows spinner/loader if multiple file selector closed without file
+- Improved workflow handling for NetDocuments in Offline Mode
+
+**Bug fixes**
+
+- Fixed saving error to NetDocuments
+- Fixed parsing error for DOCX indentation
+
+</Update>
+
+<Update label="2.13.200" description="9 February 2024">
+
+**Bug fixes**
+
+- Small refinement to a prior compatibility fix
+
+</Update>
+
+<Update label="2.13.100" description="6 February 2024">
+
+**App improvements & new features**
+
+- New setting to auto-load most recent versions from DMS
+
+**Bug fixes**
+
+- Fixed compatibility bug with Microsoft Edge Webview2 v121.0.2277.98+ ([details](/hc/en-us/articles/28451168797977))
+
+</Update>
+
+<Update label="2.13" description="23 January 2024">
+
+**App improvements & new features**
+
+- Compare output now shows 'hidden' text as changes
+- Drag and drop text directly (no "Input Text" button needed)
+- Can collapse 'next actions' panel in viewer
+- File browser's default save-to location matches input file location
+
+- *Integration*
+  - SharePoint: Drag & drop from SharePoint Online
+  - MS Word: Load text to compare from within MS Word
+  - iManage: Option to auto-open file after saving
+
+- *Other*
+  - Updated Control Panel icon for add-ins
+  - Draftable New Compare window no longer auto-opens on startup
+  - Updated app size estimate in Windows (2GB)
+  - Draftable settings now show installed add-in versions
+
+**Bug fixes**
+
+- Fixed Side-By-Side export error for certain documents
+- System Verification results are now scrollable
+- Tracked Changes from Side-By-Side export fixed
+- Numbering algorithm error resolved
+- Group Policy template "Pro" suffix changed to "Legal"
+- Fixed .doc to PDF conversion bug causing failed comparisons
+
+</Update>
+
+<Update label="2.12.300" description="12 January 2024">
+
+**Bug fixes**
+
+- Patch for PowerPoint-side-by-side comparison issues
+
+</Update>
+
+<Update label="2.12.200" description="21 December 2023">
+
+**App improvements & new features**
+
+- *Speed & reliability*
+  - Preview: New "Draftable engine" for faster/more reliable DOCX→PDF (set in general settings, default still "Word")
+
+- *Ease of use*
+  - Copy outputs to clipboard
+  - Export changes report CSV and save to DMS
+  - Update warning when app is about to restart after update
+
+- *iManage*
+  - Version selector enabled when loading iManage files via Word Add-in
+
+- *NetDocuments*
+  - Support for remote NetDocuments files from Word Add-in
+  - Save as track changes/comparison output to NetDocuments attachment
+
+- *SharePoint*
+  - Compare Versions button is disabled when list doesn't support versioning
+
+- *Administrator features*
+  - Group Policy support: no desktop shortcut and disable COM add-in install/update
+  - Group Policy: enable/disable launching Draftable on startup
+
+- *Other*
+  - Updated Viewer to v3.6.20
+
+**Bug fixes**
+
+- Improved detection of numbered list false positives (PDF→Word input)
+- Summary page timestamp is now correct
+- "Normal dotm" Word warning removed when using Draftable for PDF conversion
+- Fixed bug with Changed Pages output
+- Drag and drop from email attachment keeps file name
+- Password protection now works for xlsx
+- "Email logs" works in System Verification
+- OCR failure contact set to [support@draftable.com](mailto:support@draftable.com)
+- UI: fixed profile name rendering issues in settings and comparison type selection
+- Privacy disclaimer, activation dialog, and update-related message boxes now display properly
+- Startup no longer alerts unnecessarily on application autostart or update shutdown
+- GDPR: further third-party report sanitization
+- Int: Fixed Add-in Repair and iManage Session Cache exception
+
+</Update>
+
+<Update label="2.12.101" description="18 December 2023">
+
+**Bug fixes**
+
+- Patch for PowerPoint startup issue
+
+</Update>
+
+<Update label="2.12.100" description="8 December 2023">
+
+**App improvements & new features**
+
+- NetDocuments integration enabled for all regions except "US-Gov"
+
+</Update>
+
+<Update label="2.12" description="5 December 2023">
+
+**App improvements & new features**
+
+- NetDocuments integration:
+  - Load and compare from NetDocs
+  - Select/save to NetDocuments
+  - Show versions/attachments during load from NetDocs
+  - NetDocuments integration can be enabled/disabled via settings/Group Policy
+
+- *GDPR compliance*
+  - Further sanitized third-party logging and telemetry
+
+- *iManage*
+  - Overhauled library dependency handling
+  - Reduced installation size by 346MB (44%)
+  - Added support for iManage drive files via Word add-in
+
+**Bug fixes**
+
+- Fixed CLI AutoCompare bug
+- Enabled CSV compare for Side by Side
+- Document version change now detected on re-compare
+- Fixed OCR selection error on main window
+- Fixed algorithm bug for page headers
+
+</Update>
+
+<Update label="2.11.300" description="20 November 2023">
+
+**App improvements & new features**
+
+- iManage: New context menu – "Compare with most recent" and "Compare versions"
+- Redline as 'Word with tracked changes' can now be saved to iManage
+- SharePoint: Can now load files (inc. versions) and run comparison in browser
+- New Compare window launches after activation
+- SharePoint: Supports remote-located files from Word add-in
+- Local file browser: now supports multi-select
+
+**Bug fixes**
+
+- Fixed PDF load timeout (network drives)
+- Prevented error dialog when canceling "Save to iManage"
+- Fixed loading error for iManage "Favorites" via context menu
+- Image hash updated (no longer uses MD5)
+- Fixed regression in Office MSI detection
+
+</Update>
+
+<Update label="2.11.200" description="6 November 2023">
+
+**App improvements & new features**
+
+- New Compare window auto-launches after activation
+- Redline for .rtf files now supported
+
+**Bug fixes**
+
+- Fixed loading of password-protected Office docs
+- Fixed iManage favorites selection failure
+
+</Update>
+
+<Update label="2.11.100" description="1 November 2023">
+
+**App improvements & new features**
+
+- Input files now remain after compare (enables 1-click re-run)
+  - New user setting to clear input files after compare
+- Group Policy: disable Redline comparison types
+- Improved detection of structured document tags (fewer false positives)
+
+**Bug fixes**
+
+- Fixed header/footer false negatives
+- Improved error handling for Word conversion failures
+
+</Update>
+
+<Update label="2.11" description="26 October 2023">
+
+**App improvements and new features**
+
+- Launch input file from recent list in launcher
+- Improved iManage integration:
+  - Multiple input from iManage
+  - List other versions after selecting first iManage doc
+  - Show iManage doc number/version in comparison window and summary
+  - Output name matches iManage versions compared
+- Word Add-in update now in-app
+- Default insertion color: "Dark Blue"
+- Upgraded viewer to 3.6.18:
+  - Change list: tags (Needs Review, Low Priority, etc), custom notes, can filter on status/notes (replaces "Visible Categories")
+  - Export change list as .csv or clipboard, configurable by filter/tags
+- Troubleshooting: more detailed error logs from iManage
+
+**Bug fixes**
+
+- Fixed file paths using '&' in Word add-in
+- Fixed author field in New Compare Window changing unintentionally
+- Improved error handling for closing Word doc
+- Fixed spinner on compare result window not loading PDF
+- Word Add-in warns for unsaved files
+- Prevented app freeze on export exceptions
+- Fixed "docx to pdf copy" failure in side by side for docx
+- Removed spurious error on file load timeout
+- Output filename limit raised from 30 to 70 characters
+
+</Update>
+
+<Update label="2.10.17" description="16 October 2023">
+
+**Bug fixes**
+
+- Added iManage credential support for on-premise instances
+
+</Update>
+
+<Update label="2.10.16" description="9 October 2023">
+
+**App improvements and new features**
+
+- Sanitize filename function for iManage file names
+
+</Update>
+
+<Update label="2.10.15" description="5 October 2023">
+
+**Bug fixes**
+
+- Fixed Redline compare for text input
+
+</Update>
+
+<Update label="2.10.14" description="27 September 2023">
+
+**App improvements and new features**
+
+- Drag & Drop from iManage supported
+
+**Bug fixes**
+
+- Fixed error loading files from iManage
+
+</Update>
+
+<Update label="2.10.13" description="26 September 2023">
+
+**App improvements and new features**
+
+- Compare Excel files (csv, xls, xlsx) natively with Spreadsheet Compare
+- Improved validate Comparison Type selection in Compare Selector
+- Group policy: option to disable iManage integration
+- Default: style changes are hidden for Side-by-Side
+
+**Bug fixes**
+
+- Fixed MSI patch version handling
+- Fixed Draftable opening Word files at start of compare
+
+</Update>
+
+<Update label="2.10.12" description="2 October 2023">
+
+**Bug fixes**
+
+- Improved PowerPoint error handling (RPC retry)
+- Fixed Word instance leak
+
+</Update>
+
+<Update label="2.10.11" description="19 September 2023">
+
+**App improvements and new features**
+
+- Can set default content/style changes for SBS
+- Internal setting to remove iManage from input selector
+
+</Update>
+
+<Update label="2.10.10" description="15 September 2023">
+
+**Bug fixes**
+
+- Group Policy fix
+
+</Update>
+
+<Update label="2.10.9" description="14 September 2023">
+
+**Bug fixes**
+
+- Fixed error disabling PDF warning in Office in some scenarios
+
+</Update>
+
+<Update label="2.10.8" description="13 September 2023">
+
+**App improvements and new features**
+
+- Load files from iManage via right-click/context menu
+- Native PowerPoint compare
+- Progress bar now shown while loading comparison
+- Viewer now supports "open link" features
+- More error dialogs now include an option to export/send logs
+- Error logs now include User Desktop settings
+- Viewer now logs custom errors
+- Added Repair Word Add-In option
+
+</Update>
+
+<Update label="2.10.7" description="7 September 2023">
+
+**Bug fixes**
+
+- Fixed error when Office is not installed
+
+</Update>
+
+<Update label="2.10.6" description="5 September 2023">
+
+**App improvements and new features**
+
+- Default types for save to iManage improved (DD-1013)
+- Added double underline & strikethrough options for markup styling (DD-1045)
+
+**Bug fixes**
+
+- Various word integration cleanups
+- Prevented double-click on redline side panel buttons
+- App log now includes sentry & telemetry config info
+- Error logs now record timezone at startup
+- Fixed NullReferenceException in updater
+- Refactored tasks to move PDF generation to progress window
+- Improved default handling for redline settings
+- Fixed Word Single Instance policy breaking OCR
+
+</Update>
+
+<Update label="2.10.5" description="31 August 2023">
+
+**App improvements and new features**
+
+- Improved default handling for redline settings
+
+</Update>
+
+<Update label="2.10.4" description="29 August 2023">
+
+**Bug fixes**
+
+- System.NullReferenceException in redline compare fixed
+
+</Update>
+
+<Update label="2.10.3" description="24 August 2023">
+
+**App improvements and new features**
+
+- Smarter default filenames for save to iManage
+- File name sanitization for iManage
+- Author (full/initials) now an option in settings
+- "Email Comparison" window in Outlook now appears front-most
+- Improved file name sanitization
+- Document obfuscator feature and GPO to disable it
+
+**Bug fixes**
+
+- Fixed redline export error
+- Fixed Tracked Changes output error
+- Fixed overlong temp file path error
+- Fixed interaction bug (Track Changes, PDF, third-party PDF software)
+- Fixed Save to iManage "new version" cancel error
+
+</Update>
+
+<Update label="2.10.2" description="20 August 2023">
+
+**App improvements and new features**
+
+- OCR test added to system verification
+- Switched to viewer 3.6.14
+- 15 min file load & compare timeout
+- RedlineProfile now defaults to headers/footers ON
+
+**Bug fixes**
+
+- Compatibility option for security popup issue
+- Single Word Application instance enforced (+ GPO)
+- Refreshed runner pool on setting change
+- Fixed document redline comparison bug
+- Fixed OCR bug
+
+</Update>
+
+<Update label="2.10.1" description="13 August 2023">
+
+**App improvements and new features**
+
+- Viewer 3.6.13
+- Telemetry always logged locally (troubleshooting)
+- Can select Changed Pages output for email export pre-document ready
+
+**Bug fixes**
+
+- Comparison Progress window bug (OCR step missing in some cases) fixed
+- Office integration cleanups and fixes
+- KOFAX compatibility improvements
+- Exclude Draftable.Xml from obfuscation
+- Minor algorithm cleanups/bugfixes
+- Fixed error for side-by-side compare
+- Viewer redline error fixes
+
+</Update>
+
+<Update label="2.10" description="7 August 2023">
+
+**App improvements and new features**
+
+- Blue Theme is now default
+- All installers and Add-In included
+- Teams can now manage profiles
+
+</Update>
+
+<Update label="2.9.4" description="1 August 2023">
+
+**App improvements and new features**
+
+- Increased memory limit for CompareRunner
+
+**Bug fixes**
+
+- Comments now display correctly in Redline
+- iManage supports more than single preferred library database
+- Word template issue fixed (Add-in/templates skipped on start)
+
+</Update>
+
+<Update label="2.9.3" description="26 July 2023">
+
+**Bug fixes**
+
+- Fixed fatal crash on upgrade
+- Handles Word API TargetInvocationException
+- Fixed Word Macro warning trigger
+
+</Update>
+
+<Update label="2.9.2" description="24 July 2023">
+
+**App improvements and new features**
+
+- Diagnostic tool issues now link to help articles
+
+**Bug fixes**
+
+- Fixed redundant registry read for PDF warning 
+- Word Options key now auto-created as needed
+- Fixed OCR bugs
+- Fixed Settings window hang on first open
+- Fixed CompareSelector lag after closing
+- Several algorithm improvements and cleanups
+
+</Update>
+
+<Update label="2.9.1" description="13 July 2023">
+
+**App improvements and new features**
+
+- Switched to viewer v3.6.12
+
+**Bug Fixes**
+
+- Fixed onboarding stats step
+- Normal.dotm Word popup workaround applied
+
+</Update>
+
+<Update label="2.9.0" description="12 July 2023">
+
+**App improvements and new features**
+
+- Comments compared: changes tracked, authors preserved
+- Redline 'moves' improved:
+  - Groups consecutive moves
+  - Detects moves within same paragraph
+  - Handles paragraph splits/joins
+- System Verification now upfront for user settings
+- Added Draftable Pro KB links throughout
+- Group Policy for iManage on-prem setup (Service URL, App ID)
+
+**Bug fixes**
+
+- [No bug list provided in this release]
+
+</Update>
+
+<Update label="2.8.6" description="3 July 2023">
+
+**Bug fixes**
+
+- OCR settings: now enabled when selected as 'automatic'/'always'
+- Fixed Draftable.dotm creation error
+
+</Update>
+
+<Update label="2.8.5" description="29 June 2023">
+
+**App improvements and new features**
+
+- Show steps in comparison progress dialog improved
+- Viewer updated to v3.6.11
+
+**Bug fixes**
+
+- Fixed error running side-by-side compare with PDF/Word inputs
+- Fixed override bug with Word settings
+- Possible fix for Normal.dotm popups
+
+</Update>
+
+<Update label="2.8.4" description="22 June 2023">
+
+**App improvements and new features**
+
+- Steps now shown in progress dialog
+- Improved telemetry
+
+**Bug fixes**
+
+- Fixed loading documents into new comparison window
+- Potential fix for running non-English system comparisons
+
+</Update>
+
+<Update label="2.8.3" description="15 June 2023">
+
+**App improvements and new features**
+
+- Group Policy for Redline Profiles
+
+**Bug fixes**
+
+- Fixed error for free text input
+
+</Update>
+
+<Update label="2.8.2" description="8 June 2023">
+
+**App improvements and new features**
+
+- Added missing Group Policy Template for Draftable Pro
+- Better handling for iManage on-premise
+- Manages Word options to avoid default popups
+
+</Update>
+
+<Update label="2.8.1" description="7 June 2023">
+
+**App improvements and new features**
+
+- Release 'Changed pages only' feature to allow dynamic toggle of in viewer and export as PDF
+- Improvements to iManage integration
+
+</Update>
+
+<Update label="2.8.0" description="1 June 2023">
+
+**App improvements and new features**
+
+- Added Profiles for Redline settings
+- Released MS Word Add-In (automatically installed after starting the app)
+- New Group Policy template for Draftable Pro
+	- With options to set iManage on-premise credentials
+- Extension for existing Draftable Group Policy to set auto-updates on/off for per User & per-User MSI
+- Native menu is now enabled for Redline output, with options to
+	- Start new comparison
+	- Open settings
+	- Close window
+- Save File to iManage as new version
+
+ **Bug fixes**
+
+- Various Redline algorithm bug fixes
+- Bugfix for Comments
+
+</Update>
+
+<Update label="2.7.2" description="17 May 2023">
+
+**Bug Fixes**
+
+- Fix for Headers and Footers not being visible in side-by-side view for standard license
+
+</Update>
+
+<Update label="2.7.1" description="11 May 2023">
+
+**Bug fixes**
+
+- Updated default Move From and Move To text decoration
+
+</Update>
+
+<Update label="2.7.0" description="8 May 2023">
+
+**App improvements and new features**
+
+- Compare progress dialog with spinner 
+	- Gracefully dispose of cancel in-progress comparison
+- Extend markup customization & add option for users to ignore moved text (show as insert / delete instead)
+- Set default markup colours to align with word
+- Allow users to save their preference to open or save when Word tracked changes output is selected
+- Updated to Viewer 3.6.9
+- Speed improvements
+	- Generate preview pages of redline PDF while waiting for comparison to complete
+	- Maintain pool of compare runner processes
+	- Remove unnecessary preprocessing steps to speed up comparisons
+
+ **Bug fixes**
+
+- Various bugs removed from Redline algorithm
+
+</Update>
+
+<Update label="2.6.3" description="2 May 2023">
+
+**Bugfixes**
+
+- Fix for issue preventing saving documents to iManage from the viewer right hand side panel
+
+</Update>
+
+<Update label="2.6.2" description="27 April 2023">
+
+**Bug fixes**
+
+- Bug fix for issue preventing select file from iManage
+
+</Update>
+
+<Update label="2.6.1" description="20 April 2023">
+
+**Bug fixes**
+
+- Compare Selector visible before accepting Terms & Conditions on fresh installation
+
+</Update>
+
+<Update label="2.6.0" description="3 April 2023">
+
+**App improvements and new features**
+
+- Fix a bug where some fonts (mostly Asian) were not loaded
+- Support iManage on-premise
+- Fix bug where file name was expanding the control instead of wrapping text
+- Keep the launcher open after a comparison is created
+- Introduce spinners in buttons for actions that might take time
+- Show license key in settings window
+- Change "Redline" label to "Redline (.pdf)" in comparison launcher
+- Add an option for users to switch between word-level or character-level
+- Telemetry improvements
+	- We're able to group actions that happened in context of a specific comparison
+	- Create id after file drop and not changing it until the comparison is triggered
+- Prepopulate email body when emailing outputs
+- Ship language specific fonts with desktop
+
+ **Components**
+
+- Use viewer v3.6.8 with better handling of long list of changes handle language specific fonts
+
+ **Bug fixes**
+
+- Various bugs removed from Redline algorithm
+
+</Update>
+
+<Update label="2.5.4" description="27 March 2023">
+
+**App improvements and new features**
+
+- Respect summary page setting when doing comparison with output set to Word Track Changes
+- Redline comparison execution time improvements
+- Introduce session concept to improve telemetry
+- If a word or pdf document doesn’t have an author we’ll use the file owner
+
+**Redline compare algorithm improvements**
+
+- Improved support for headers and footers
+- Maintain and merge comment threads
+- Partial support for embedded objects
+- VML textbox support
+- Fixed several edge cases that cause false positives
+
+</Update>
+
+<Update label="2.5.3" description="13 March 2023">
+
+**App improvements and new features**
+
+- Support txt and txt blob
+- Customize Track Changes Author
+- New viewer v3.6.7-pre.3
+- UI fixes
+
+**Bug fixes**
+
+- Assertion Error in HandleInsert/HandleDelete
+- Bug fixes in Redline compare algorithm
+	- Bookmarks
+	- Comments
+	- Header & footers
+	- Numbering
+
+</Update>
+
+<Update label="2.5.2" description="27 February 2023">
+
+**App improvements and new features**
+
+- UI improvements
+- User statistics from Redline/Pro
+
+</Update>
+
+<Update label="2.5.1" description="20 February 2023">
+
+**App improvements and new features**
+
+- Option in Redline settings to keep comments in the Track Changes from one/both of the documents, or skip
+- Compare Launcher will now be closed if the app is deactivated
+- Settings window closed if the app is deactivated
+- No dialog when Redline Markup Scheme not saved
+- There should be no dialog when TC Compare is in progress and app was deactivated
+
+**Bugfixes**
+
+- Sentry log in File Explorer Integration & app shortcut launch
+- Global Shortcut no longer freezes app
+
+</Update>
+
+<Update label="2.5.0" description="15 February 2023">
+
+**App improvements and new features**
+
+- Streamlined Redline compare workflow
+- Word Track Changes support
+- iManage integration
+- OCR support
+- Compare Selector and Settings UI improvements
+- All new update and installer engines
+- URL scheme improvements
+- .draftable support introduced
+- Draftable Pro mode now available
+- Export/share via Outlook
+- Viewer 3.6.7
+
+**Dependencies update**
+
+- Viewer rendering engine
+- CEF Sharp
+- Moved from Microsoft.Toolkit to CommunityToolkit
+- Other dependencies updated
+
+**Bugfixes**
+
+- Update process bugfixes
+
+</Update>

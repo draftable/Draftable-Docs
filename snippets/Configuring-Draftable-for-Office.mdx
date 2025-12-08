@@ -1,0 +1,89 @@
+This guide provides step-by-step instructions for Microsoft 365 administrators to deploy the Draftable Outlook Add-in organization-wide.
+
+<Warning>Draftable in Office is currently NOT supported for remote desktop, Citrix or RDP environments. Please also note that for the latest version of Chrome (142.0.7444), these add-ins do not work for Microsoft 365 in Chrome.</Warning>
+
+
+## Prerequisites
+
+- You must have admin privileges for Microsoft 365 (**you will need a Microsoft 365 Business account)**
+- Ensure your environment supports Office Add-ins via the Microsoft 365 admin center.
+- You must have **at least Draftable v25.10.000** for this Add-in to correctly function.
+
+
+## Step-by-Step Setup
+
+### 1. Go to the Integrated Apps Portal
+<Steps>
+<Step>
+Visit the [Integrated Apps section of the Microsoft 365 Admin Center](https://admin.microsoft.com/#/Settings/IntegratedApps).
+</Step>
+<Step>
+Click **Upload custom apps**.
+</Step>
+</Steps>
+### 2. Upload the Draftable Outlook Add-in
+<Steps>
+<Step>
+Under **App type**, select **Office Add-in** from the dropdown menu.
+</Step>
+<Step>
+Download the **latest manifest file** by following the below URL:  
+	[https://dl.draftable.com/addins/office-simple/2.17.0.0/manifest.xml](https://dl.draftable.com/addins/office-simple/2.17.0.0/manifest.xml)  
+	  
+	<Note>**Note:** The Draftable in Office Add-in **does not auto-update**. You will need to retrieve the latest manifest file when you wish to update your version of the Add-in.</Note>
+</Step>
+<Step>
+This URL will always point to the latest version of the Draftable Add-in manifest.
+</Step>
+<Step>
+Click **Validate**.
+	<Frame>
+	![](/images/draftable-legal/image-222.png)
+	</Frame>
+</Step>
+</Steps>
+### 3. Configure Delivery to Users
+
+You will be asked how the add-in should be deployed across your organization:
+
+- Assign to **Entire organization**, **Specific users**, or **Groups** depending on your use case.
+- Choose whether the add-in should be **automatically installed** or **available for users to install manually**.
+	<Frame>
+	![](/images/draftable-legal/image-223.png)
+	</Frame>
+
+
+### 4. Accept Permissions
+
+You will be prompted to accept and approve the required permissions on behalf of your users.
+
+<Frame>
+![](/images/draftable-legal/image-224.png)
+</Frame>
+
+#### Required Permissions Overview
+
+**App Permissions:**
+
+- Sign in and read users’ basic profile information.
+- Access user profile details including name, picture, username, and email address.
+- Read basic company information for signed-in users.
+
+**App Capabilities:**
+
+- `ReadWriteItem`: Allows the app to read and write the contents of a document.
+- `SendReceiveData`: Enables the app to communicate with the Draftable application for comparison processing.
+
+
+### 5. Finish Setup
+
+Once permissions are approved and the app is assigned to your selected users, the Draftable in Office Add-in will be available within Word.
+<Note>
+**Please note:** The Application installation and update can **take up to 72 hours (and in some cases longer)**. For more information about it, please visit Microsoft Documentation - [Deploy add-ins in the admin center - Microsoft 365 admin | Microsoft Learn](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-deployment-of-add-ins?view=o365-worldwide")  
+</Note>
+We recommend that if the Add-in hasn't been deployed in this time, you should get users to restart Outlook and their Machine to **prompt** the Add-in to be added. 
+
+
+## Need Help?
+
+If you experience issues with deployment or setup, please contact support@draftable.com.

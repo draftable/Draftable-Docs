@@ -1,0 +1,96 @@
+---
+title: "Explainer: Using the Obfuscator feature to share redacted documents with Draftable Support"
+description: "If you are seeing this article, it is likely you've run into an error with Draftable Legal and have been asked to share 'obfuscated documents' with Draftable Support. This article outlines how the obfuscation process works to help you determine whether you want to proceed with sharing the documents with our Support team."
+---
+
+
+## What's the issue?
+
+If a pair of documents fails to compare, the most efficient approach for our Support team to diagnose and troubleshoot the issue is to replicate the problem using the original files. This ensures we have identified the root cause properly and enables us to confirm any fixes work before asking you to update and retest. 
+
+Documents shared with Draftable remain strictly confidential. We are committed to never sharing your documents with third parties. However, we understand that for confidentiality reasons, you may still not be able to share your documents with us.
+
+In this case, our Document Obfuscator offers another solution: to scramble all information in the documents before providing them to our Support team. This aims to provide both benefits: faster issue resolution, while maintaining the confidentiality of your documents.
+
+## Here's the solution
+
+### Use the 'Document Obfuscator' to share anonymized documents 
+
+The 'Document Obfuscator' feature allows users to completely anonymize their documents before sharing them with the Draftable support team. The tool scrambles and replaces the actual content of user's documents to avoid sharing confidential information while maintaining the underlying structure of the document. Important note: the obfuscator feature *does not send the files to Draftable*. Users will be able to first save the obfuscated file and review the file before sharing with Draftable via email. Sharing obfuscated documents enables Draftable developers to rerun comparisons when attempting to fix the user issue. The result is faster issue diagnosis turnaround, and internal verification testing to take place before asking users to update and confirm errors are resolved.
+<Steps>
+<Step>
+Open Draftable Legal and click on **Settings** option in the top right corner  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-1.png" alt="Settings option" />
+	</Frame>
+</Step>
+<Step>
+Go to the **Troubleshooting** tab and select the **'File Obfuscator'** action  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-2.png" alt="Troubleshooting tab" />
+	</Frame>
+</Step>
+<Step>
+First you will get the below window pop up explaining what is happening. Click Yes here.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-3.png" alt="Obfuscator popup" />
+	</Frame>
+</Step>
+<Step>
+Browse to the file location of the first file on your computer and select the file and hit Open.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-4.png" alt="File browser" />
+	</Frame>
+</Step>
+<Step>
+Repeat step 4 with the second file.
+</Step>
+<Step>
+You will then be asked to select a location to save the Zip file, which will contain the two files you have just selected, in the 'Obfuscated' form.
+</Step>
+<Step>
+A new 'obfuscated' version of the file's will be created in the Zip file. Open the zip and extract the two files and run them through Draftable. This is to make sure the issue you encountered is still reproducible.
+</Step>
+<Step>
+If the issue still occurs with the 'Obuscated' version of the files, please send them to support@draftable.com
+</Step>
+</Steps>
+## How it works
+
+The Document Obfuscator removes all sensitive data from your documents while maintaining the document structure. The table below describes the obfuscation method relevant to each document element:
+
+| **Element** | **Details** |
+|:-|:-|
+| Text | All text is replaced by a random text. (e.g. "the quick brown fox" -> "ani tkmlk ixrfw ssu"). This is an irreversible transformation. This applies to text in all parts of the document: body, headers, footers, footnotes, comments, etc. |
+| Images | Images are replaced by black placeholder images with the same file format (e.g. jpeg, png) |
+| Hyperlinks | All hyperlinks are redirected to [draftable.com](http://draftable.com/) |
+| Tables | All table content is obfuscated, but the table dimensions (i.e. number of rows and columns) are preserved. |
+| Comments | Comments text is scrambled, and the names of comment authors are anonymised. |
+| Math | The text within mathematical expressions is obfuscated, but some mathematical symbols (e.g. sigma, the integral symbol) are not. |
+| Metadata | All document metadata is removed (e.g., Author of file) |
+
+The following document information is NOT obfuscated:
+
+- Format / Styling: e.g., the font size, font family, font colour, indentation, etc.
+- Bullets/Numbering: paragraphs will continue to be numbered sequentially
+- Structure: e.g., the number of paragraphs, the number of rows/columns in a table, the position of a text box
+
+### Example of document BEFORE obfuscation
+
+<Frame>
+  <img src="/images/troubleshooting/image-5.png" alt="Document before obfuscation" />
+</Frame>
+
+### Example of document AFTER obfuscation
+
+<Frame>
+  <img src="/images/troubleshooting/image-6.png" alt="Document after obfuscation" />
+</Frame>
+
+## What if I don't obfuscate and share my documents?
+
+If users choose not to use the Document Obfuscator, the Draftable team will still work to resolve your issue. However, we may find the issue diagnosis requires more trial and error, with users asked to run tests, reproduce the error and share logs several times throughout the diagnosis stage. As we will not be able to test any potential fixes, we will also ask users to re-test the comparison to see if a fix has worked. Where this fails, further error log sharing will be required. This dependency on user testing always leads to slower issue resolution times and can be painful for users who are busy with more pressing tasks.

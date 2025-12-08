@@ -1,0 +1,337 @@
+---
+title: "API Self Hosted Deployment on Azure"
+description: "This article is intended for users who wish to deploy a Draftable API Self Hosted container via Microsoft Azure. It is important to understand that the current only supported method of Self Hosted deployment via Azure is to host a Linux virtual machine, and then to configure that virtual machine to run the container."
+---
+
+This is due to a lack of support from Azure for NFS file sharing between Azure volumes, which is a required component for API Self Hosted. Hence, "native" deployment on Azure container apps is not supported.
+
+### Stage 1: Configuring the Azure environment 
+  
+Many components need to be ready even before we begin to configure the virtual machine and consequently set up the container. You may already have some of these configured so please ignore them as you go through all these.   
+ 
+**Resource group**: Ensure you have configured a resource group so that we can allocate the required Azure resources to it as they are created (this includes the VM!). Click on **create** to create a resource group, give the resource group a name (I called mine apishtest) and set up the resource group. 
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-12.png)  
+</Frame>
+ 
+**Managed identities:** You will need to create a managed identity if you don't already have one, this matters for the key vault process. Click on **create** to create the Managed identity, give the identity a name and setup the resource.   
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-13.png)  
+</Frame>
+
+**Key vault:** Create a key vault so that we can add in **keys**, **secrets**, **access policies** and **certificate**. Click on **create** to create the Key vault, give the key vault a name and setup the resource.   
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-14.png)  
+</Frame>
+
+Once you have created the **key vault** (mine is called apishkey), we will not configure a **Key**, **Secret**, **Access policy** and **certificate**. These items are all found in the **Key Vault**, and these components are required for the virtual machine gateway provisioning.   
+   
+**Keys**: Create a key, by selecting **Generate/import** and give it a name**. No additional setup is required here.**  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-15.png)  
+</Frame>
+
+Secrets: Create a key, by selecting **Generate/import** and give it a name**. No additional setup is required here.**  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-16.png)  
+</Frame>
+
+Access policies: Start, by creating a policy, by selecting **create.**  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-17.png)  
+</Frame>
+
+For the first step in creating the access policy, we will need to assign what permissions to that policy. You can be particular here depending on your use case, however the **Key, Secret** and **certificate** management permissions are all required. In my example, I selected all permissions, see below.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-18.png)  
+</Frame>
+
+With that managed identity we created earlier, we need to assign it permissions. Search for the identity you created earlier (or if you already have an managed identity configured, use that) and select it as the principle. Below is the example for my identity, which I called **real\_identity.**  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-19.png)  
+</Frame>
+
+Ignore the optional Application step and move to create the access policy.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-20.png)  
+</Frame>
+
+Review all the information, and if it is all correct, select **create.**   
+   
+Certificates: Now you can finally add your custom certificate to the key vault, which we will use later to provision the gateway. Select **Generate/Import** to begin the certification configuration.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-21.png)  
+</Frame>
+
+   
+You have two methods of certification setup, you can either **generate** a certificate or **import** a certificate. See the below example for generating a certificate, note the **subject** field which is important for configuring a CN. Fill in all the required fields that are relevant for your use case.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-22.png)  
+</Frame>
+
+If you instead choose to import a certificate, select the **import** method for tickets and then upload the certificate file with the password. Remember, the certificate file needs to be in the **PKCS** format.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-23.png)  
+</Frame>
+   
+Once the certificate has been added, we can move to the next stage with is **Setting up the Virtual Machine.**   
+ 
+
+### Stage 2: Setting up the Virtual Machine
+
+  
+<Frame>
+![](/images/draftable-api-self-hosted/image-24.png)  
+</Frame>
+Start the process by selecting **create** in the virtual machine icon in Azure to start Virtual Machine creation.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-25.png)  
+</Frame>
+In the basics tab we need to select the **resource group** using either an existing one or the resource group we created earlier. Select an **Image** to launch the virtual machine, we recommend using Ubuntu. Provide the Virtual machine with a **name** and set the **region** where the machine will be hosted.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-26.png)  
+</Frame>
+For the **size** ensure you at least select **Standard\_D2s\_V3** as the size for the virtual machine. Choosing a smaller size will incur failure to start the instance due to lack of resource. The **Username** and **Key pair** name should auto fill after inputting the other information, but otherwise provide names for these these accordingly.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-27.png)  
+</Frame>
+For the last part of the basic setup, ensure you setup your ports. This will depend on your use-case however in my example I am configuring **port 80** (HTTP), **port 443** (HTTPS) and **port 22** (SSH). Then move onto the **Disks** section.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-28.png)  
+</Frame>
+Here we need to configure the **OS disk size** and the **disk type**. For **disk size** we recommend at least **30 GiB**, however you may want to scale this to fit your use case. As for **disk type**, we recommend **Standard SSD**. After configuring the disk, move onto configuring the Networking.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-29.png)  
+</Frame>
+We recommend creating new resources for the **Virtual network, Subnet** and **public IP** each, unless of course you wish to use existing resources for these.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-30.png)  
+</Frame>
+This next component is extremely important as we specify the load balancing option as a **application gateway** which is the component that is going to act as a load balancer but will allow us to use custom certificates that we configured earlier. Select **Application gateway,** and then for the field **Select and application gateway** we are going to instead **Create an application gateway.**   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-31.png)  
+</Frame>
+This will open a new side panel to configure the settings for this gateway. Specify a name for the gateway and then configure the routing information. We provide the routing rule a name and then we are going to use port 443 for HTTPS connection, so we set the **port** to **443\.** Select the **Protocol** as **HTTPS,** then for **Choose a certificate** we are going to select **Choose a certificate from Key Vault**, which we setup earlier. Select the relevant **Managed identity, Key vault** and **Certificate.** Then at the bottom of this window, select **Create.**   
+   
+Then move onto the **Management** section.   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-32.png)  
+</Frame>
+There is no required configuration here or for the **Advanced** and **Tags** tab (default settings shown below)**.** You can configure settings here at your own risk, however once complete, we then move onto the **Review + create** tab**.**   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-33.png)  
+</Frame>
+<br/>
+<Frame>
+![](/images/draftable-api-self-hosted/image-34.png)  
+</Frame>
+<br/>
+<Frame>
+![](/images/draftable-api-self-hosted/image-35.png)  
+</Frame>
+
+You will be shown a screen with a summary of all the settings provisioned for the Virtual machine as well as a validation check to confirm whether all the settings had correctly passed. If the validation check passed, and you have verified all the information is correct, select **create** to begin deployment.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-36.png)  
+</Frame>
+Your deployment may take some time to complete, but upon successful deployment of the virtual machine, you will be presented with a similar screen as above. Once deployed, click **go to resource** so we can begin to process the container.  
+   
+  
+
+### Stage 3: Configuring the Virtual Machine and launching the container 
+
+  
+<Frame>
+![](/images/draftable-api-self-hosted/image-37.png)  
+</Frame>
+Once the virtual machine is running, we need to connect to it via SSH to begin configuring the OS with docker and the API Self Hosted image. Click **Select** in the **SSH using Azure CLI.**   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-38.png)  
+</Frame>
+You will be presented with the above screen. Wait for the validation checks to complete then click **Connect.**   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-39.png)  
+</Frame>
+A cloud shell CLI will launch in your browser. Agree that you want to connect with the provided fingerprint by typing in **Yes.**   
+   
+<Frame>
+![](/images/draftable-api-self-hosted/image-40.png)  
+</Frame>
+You should be presented with a similar screen as above. We now need to begin the installation of docker onto the Ubuntu machine. Start by running the commands below. You can simply copy and paste this directly into the command line.
+
+```bash
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+```
+ 
+<Frame>
+![](/images/draftable-api-self-hosted/image-41.png)  
+</Frame>
+Continue docker configuration by running the command below.
+
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-42.png)  
+</Frame>
+
+Now that we have completed initial docker configuration, lets now install docker running the command below.
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-43.png)  
+</Frame>
+   
+Let's verify the docker install by running the `hello-world` image. Use the command below.
+
+```bash
+sudo docker run hello-world
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-44.png)  
+</Frame>
+
+If you see a screen as above, this means docker is installed correctly. If so, continue to pull the Draftable API Self Hosted container. The below command will pull the latest image.   
+
+```bash
+sudo docker pull draftable/apish:latest
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-45.png)  
+</Frame>
+
+Once the image has completed downloading to the virtual machine. We need to setup a folder to store our docker-compose.yml in, which dictates the configuration of the instance. Navigate to the main directory using the command below, and list all files.
+
+```bash
+cd / ls
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-46.png)  
+</Frame>
+   
+Lets now create a folder called "composefiles" and then run the list command to ensure the folder was created.
+
+```bash
+sudo mkdir composefilesls
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-47.png)  
+</Frame>
+   
+Navigate to that folder location using `cd composefiles` and lets create the docker-compose.yml file. Lets create the file first, then using `nano` we will add in the basic yaml configuration.   
+ 
+
+```bash
+sudo touch docker-compose.ymlsudo nano docker-compose.yml
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-48.png)  
+</Frame>
+   
+Once you use `nano` you will be presented with a text editor. You can use the basic configuration below for configuring a API Self Hosted instance, however if you want to configure additional parameters you may need to refer to our knowledge-base: [/hc/en-us/categories/4405478683545-Draftable-API-Self-hosted](/hc/en-us/categories/4405478683545-Draftable-API-Self-hosted)
+
+```json
+version: '3.5'
+services:
+  apish: #Name of the service being used
+    environment:    #Enviroment settings for the appliance
+      DRAFTABLE_APISH_NGINX: |-
+    image: draftable/apish     #Select which image is to be used on your appliance
+    ports:
+       - 80:80/tcp         # HTTP port settings
+       - 443:443/tcp      # HTTPS port settings
+    volumes:        #Configure which volumes will be used for your appliance
+      - draftable-apish:/srv/draftable
+      - /sys/fs/cgroup:/sys/fs/cgroup
+volumes: #Configuration for volumes used, settings should match above
+  draftable-apish:
+```
+
+Simply copy the yaml above (or your own) and paste it into the nano editor.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-49.png)  
+</Frame>
+   
+You can write this file by using the shortcut command `Ctrl+O` and then exit by using the shortcut command `Ctrl+X`. Now we need to start Docker, use the command below.
+
+```bash
+sudo systemctl start docker
+```
+
+   
+Once you have started docker, we need to install the docker compose plugin so we can use the docker-compose file. Use the commands below.
+
+```bash
+sudo apt-get updatesudo apt-get install docker-compose-plugin
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-50.png)  
+</Frame>
+Once you have completed this, we can now finally start the container, using docker compose. Use the command below.
+
+```bash
+sudo docker compose up
+```
+
+   
+You will see the container start its boot sequence. Give the container a bit of time to configure and upon successful completion, you should a message saying `Container startup complete.`  
+<Frame>
+![](/images/draftable-api-self-hosted/image-51.png)  
+</Frame>
+<br/> 
+<Frame>
+![](/images/draftable-api-self-hosted/image-52.png)  
+</Frame>
+   
+Navigate back to the virtual machine to retrieve the public IP address. Copy it, and enter it into your browser to connect to the instance.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-53.png)  
+</Frame>
+You should see a screen similar to below, which means the container is running correctly. You will now need to set up the administrator account, which you can find details here: [/hc/en-us/articles/8424839618457-Draftable-Self-hosted-instance-first-time-configuration](/hc/en-us/articles/8424839618457-Draftable-Self-hosted-instance-first-time-configuration)  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-54.png)  
+</Frame>
+ 
+This should complete the API Self-hosted configuration on Microsoft Azure. If you have any issues following the above information or questions in general, please get in contact with us at [support@draftable.com](mailto:support@draftable.com).

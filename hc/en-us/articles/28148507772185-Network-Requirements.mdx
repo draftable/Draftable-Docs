@@ -1,0 +1,51 @@
+---
+title: "Network Requirements"
+description: "This article is for IT or network administrators responsible for managing an organization's network."
+---
+
+
+
+Draftable Legal requires network connectivity for license verification, software updates, error reporting, and network telemetry. However, some of these functions can be disabled.
+
+**Video Resource:** For a comprehensive understanding of Draftable network requirements, we offer our specially crafted explainer video, accessible [via this link.](/hc/en-us/articles/27925634630937-Draftable-Legal-High-Level-Overview)
+
+## License Verification
+
+On launch, the application will verify the product license by connecting to Draftable license servers.
+
+| Property | Value |
+|:-|:-|
+| Host | draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | Yes |
+
+## Software Updates
+
+On launch, the application will check for updates. If a major update is available, it will be automatically installed. For minor updates, the user can force an update manually.
+
+| Property | Value |
+|:-|:-|
+| Host | dl.draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | Yes |
+
+## Error Reporting
+
+If unexpected error conditions are encountered, the application will send an error report to Draftable servers for diagnostics purposes. 
+
+This can be disabled by the user (via application settings) or by network administrators (via Group Policy).
+
+| Property | Value |
+|:-|:-|
+| Host | draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | No |
+
+## Telemetry/Usage Data
+
+Draftable Desktop uses Microsoft Azure as the host for telemetry/usage data. Hence there are outbound connections to the Azure AppInsights servers. For further information, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses).
+
+This can be disabled by the user (via application settings) or by network administrators (via Group Policy).

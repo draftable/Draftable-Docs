@@ -1,0 +1,138 @@
+---
+title: "Release Notes: Draftable Legal February 2025 (v25.2.0)"
+description: "We are excited to announce the February release of Draftable Legal (v25.2.0), delivering our accuracy and quality improvements to our algorithms, new Departures Table output format to all users, enhancing review features for Excel Redlines, and new markup options for vision impaired users. Here’s a quick highlight of the top five new features:"
+---
+
+
+1. **Quickly export and share Departure Tables –** streamline clause reviews by exporting the **Departures Table** (now available to all users) directly into the **email body**, with or without the filters in your change list, making it easier to share key departures with colleagues and clients without extra formatting steps.
+2. **Faster, clearer Excel change tracking –** share summary of changes in Excel files more efficiently with worksheet names now displayed in the Changes Report, clearer redline visibility in the Excel Viewer, and redlined text appearing directly in the **Changes Report**, ensuring all modifications are easy to spot and understand.
+3. **More precise document comparisons –** we've improved the accuracy in text box and PowerPoint comparisons, reducing false positives and ensuring that changes are captured with greater precision, especially in **complex slide decks and structured documents**.
+4. **More markup customization options** – Customize how changes are displayed with options to **ignore changes to footers** in Changes Pages Only mode and **highlight changed text** within the markup schema, making document comparisons more relevant and easier to read.
+5. **Smarter 1-Click Compare file loading –** Save time when working with version-controlled documents with **1-Click Compare now automatically selects the two most recent versions** when comparing files in a **Document Management System**, eliminating manual selection steps.
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the February releases to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## Features and Improvements
+
+### Core Functionality
+
+#### Departures Table Enhancements
+
+All users of Draftable Legal can now automatically generate a table formatted output document showing with all changes with the relevant clause number referenced, and Microsoft word comments from input files and any tags or notes added in Draftable shown in a 'Review Notes' column. Based on feedback from customers testing the preview version of this feature, the February release included the following improvements:
+
+- Better output formatting for readability.
+- A new option in the 'next actions' menu of the Draftable viewer to export the Departures Table directly into the email body, with or without the change list filtering applied (pictured).
+<Frame>
+![Email next acitons showing departure table.png](/images/draftable-legal/image-75.png)
+</Frame>
+<Frame>
+![Departures table in email body.png](/images/draftable-legal/image-76.png)
+</Frame>
+- Added ability to extract inline comments within the Departures Table into the 'Review Notes' column (pictured).
+<Frame>
+![Departures table with comments and notes tags.png](/images/draftable-legal/image-77.png)
+</Frame>
+#### Excel Redline Improvements
+
+Based on further feedback from customers since January's release of our Excel Redline viewer in Draftable, we have made improvements to this workflow to ensure better legibility of formula changes in the viewer and provide more information in the changes report. 
+
+Below is an example of our improvement for enhanced legibility for the Excel Viewer when formula change borders are displayed.
+
+| **Previous display of adjacent cells with unique formula changes shown in the Draftable viewer** | **Updated display of adjacent cells with unique formula changes shown in the Draftable viewer** |
+| :--- | --- |
+| <Frame>![Old formula change.png](/images/draftable-legal/image-78.png)</Frame> | <Frame>![new formula change.png](/images/draftable-legal/image-79.png)</Frame> |
+
+Below is an example of the updated Changes Report (shown here in an email body) now displaying worksheet names in the "Location" column and redlined text from changes in each change row.
+<Frame>
+![Excel changes report in email.png](/images/draftable-legal/image-80.png)
+</Frame>
+### Accuracy and Quality Enhancements
+
+#### Improved comparison of text boxes
+
+The February 2025 update allows users who compare documents with text boxes to see higher quality outputs thanks to improvements to our Text Box comparisons algorithm. This improvement has removed the likelihood of Draftable displaying false changes (i.e. showing unchanged text boxes as insertions and deletions) due to small movements in the location of the text box, and ensures that revised inserted text in text box is displayed in a way that is easy to read.
+
+#### Improved quality of Redline in PowerPoint
+
+We have also released an enhanced PowerPoint Redline algorithm that reduces the for more accurate slide comparisons. Specifically, these improvements have optimized our comparison algorithm to:
+
+- Ensure moved text boxes are clearly displayed as a move
+- Missing markup for inserted shapes
+- Optimize text size to avoid redlined text running outside of the slide
+
+### Markup Configuration Updates
+
+#### New Markup Schema option to use highlights to display changes
+
+Law firms and legal teams working with vision impaired clients or staff often have trouble ensuring changes can be easily seen and understood by those audiences. Based on feedback from users, our February release includes a new option in the Redline Profile settings to use highlights to indicate changes.  
+<Frame>
+![HIghlights in markup config.png](/images/draftable-legal/image-81.png)
+</Frame>
+#### Ignore footnote changes in Changed Pages Only output
+
+We heard from many law firms that their Document Management System often inserts the Document ID and version number into the footer of their documents. This meant each version had a footer change on every page, and while lawyers do want to see those changes redlined, footer changes should on their own be enough to include a page in the 'Changed Pages Only' PDF output. 
+
+In our February release, we have implemented a new Redline profile setting (set to off by default) that ensures if the only change on a page is either in the header or footer, these changes will be ignored in the 'Changed Pages Only' PDF export.
+<Frame>
+![Changed Pages Only setting.png](/images/draftable-legal/image-82.png)
+</Frame>
+Importantly, the 'Changed Pages Only' output will still show redlined changes in the header and footer for pages that are included.
+
+### Ease of Use Enhancements
+
+Several law firms provided feedback to Draftable that their users would prefer to see the changes summary statistics (e.g. number of insertions, deletions, etc) at the top of the Draftable Viewer. The February update of Draftable Legal has added a new collapsible section to our Comparison Viewer which displays these summary statistics at the top of the screen.
+<Frame>
+![Summary statistics in viewer.png](/images/draftable-legal/image-83.png)
+</Frame>
+Users and administrators can configure how this is displayed via the General tab in the Settings menu or via the Windows Registry or Group Policy, choosing from the following options:
+
+- Do not display the statistics section
+- Display the statistics section collapsed by default
+- Display the statistics section shown by default
+<Frame>
+  ![Summary statistics display settings.png](/images/draftable-legal/image-84.png)
+</Frame>
+#### Automatically use the latest two versions for 1-Click Compare
+
+When using 1-Click Compare commands in document management systems, users previously were asked to first select the two versions for comparison from a list. We have now updated the '1-Click Compare' logic to leverage the setting available in the Integrations tab of the Settings menu, which enables users to have Draftable automatically select the two most recent versions of a file when using 1-Click Compare.
+
+To enable this behavior, users or administrators just need to ensure the integration setting 'Enable automatic selection of the two latest versions' is checked.
+<Frame>
+![Automtic selection fo the two most recent versions.png](/images/draftable-legal/image-85.png)
+</Frame>
+### Administrator Features
+
+#### Updated HTTP Listener Service for new Outlook Add-In 
+
+Our February update also updated our HTTP Listener Service to prepare this for the upcoming release of our new Outlook Add-In which will include functionality for redlining changes in emails.
+
+
+## Bug Fixes
+
+As with all releases, the February update included fixes to several reported issues:
+
+- Fixed an issue causing **custom.xml** truncation when writing metadata.
+- Resolved an issue where the **Changes Report was exported as HTML** instead of DOCX when selected.
+- Fixed a failure to generate the **Changes Report on moves within text boxes**.
+- Fixed an issue where exported/saved ZIP contents were **missing file extensions**.
+- Addressed an issue where a **comparison error occurred due to the footnoteColumns attribute in section properties**.
+- Updated the MSI installer to fix the **missing iManage integration package**.
+- Fixed an issue where **native Office compare options were not working**.
+- Resolved an issue where **comparisons showed changes in text boxes even when 'Text boxes' were deselected in Redline settings**.
+- Fixed a **PDF compatibility mode bug** that caused numbering indentation to flatten incorrectly.
+- Resolved a comparison failure caused by **issues saving files with macros in preprocessing**.
+- Fixed an issue where **deleted paragraphs inherited incorrect paragraph properties (e.g., headings)**.
+- Addressed an issue where **all file icons appeared as PDFs in Bulk Compare**.
+- Fixed an issue where **Redline Change List generation crashed due to an unhandled instrText error**.
+- Fixed a **comparison error caused by table compare issues**.
+- Addressed an issue where **PowerPoint Redline's "Rearrange overlapping edits" behavior did not work when Classic Red markup color was selected**.
+- Fixed a **comparison error for certain documents with comments**.
+- Resolved false positives in **umlaut (ü) detection due to failing to normalize Unicode sequences before comparison**.
+
+If you are ever experiencing issues in Draftable, please contact [support@draftable.com](mailto:support@draftable.com) for further assistance.

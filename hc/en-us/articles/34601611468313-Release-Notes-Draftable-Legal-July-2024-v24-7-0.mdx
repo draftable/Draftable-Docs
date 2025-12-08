@@ -1,0 +1,142 @@
+---
+title: "Release Notes: Draftable Legal July 2024 (v24.7.0)"
+---
+
+<Note>
+*Note: This article was updated on July 18 2024 to include description of highlighted features in the 24.7.200 update*
+</Note>
+We are excited to announce the release of Draftable Legal v24.7 (July 2024). This update introduces several new features and improvements aimed at expanding the value of Draftable across your user base, improving product reliability on a wider set of documents, improving integration workflows and making Draftable a leaner and easier to administer application.
+
+Key benefits in this update include:
+
+- **Legal-friendly and more detailed Excel comparisons** using our new Excel Redline comparison type (preview only)
+- **Better reliability on a wider set of documents** by identifying word documents with legacy elements and offering users access to the Draftable Engine for PDF to Docx conversion
+- **Greater flexibility for comparison iManage file management** with the new ability to save comparisons as a related file
+- **Easier product use** thanks to next actions being available in the ribbon (top) menu of the Draftable Comparison Viewer
+- **Faster comparison workflows for iManage users in multi-user (e.g. Citrix) environments** with the updated Listener Service to allow launching of comparisons from iManage
+- **Easier IT administration of Draftable** thanks to Comparison Type configurations, reduced application size, and improved application version and error log naming conventions
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 24.7.0 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Core Functionality
+
+### Excel Redline Comparison (Preview)
+
+The centerpiece of the 24.7.0 release is a new (preview) feature that allows users to compare Excel files and produce a redline output in an Excel (.xlsx) file. Using a new comparison algorithm purpose built for Excel, this enhances your comparison capabilities and allows users to see changes in values, formulas and formatting changes (such as column and row insertions and deletions) in detail.
+
+Customers can access this preview feature by contacting their account executive or by emailing [product@draftable.com](mailto:product@draftable.com).
+
+Our Product team will be collecting feedback on this preview feature to make additional improvements before releasing it to all Draftable users.
+<Frame caption="A view of the New Comparison Window with the Redline in Excel Comparison Type">
+![Launcher with Excel Redline.png](/images/draftable-legal/image-138.png)
+</Frame>
+
+<Frame caption="An example of an Excel Redline output from Draftable showing redlined changes, inserted (blue) and deleted (red) rows and formula changes (yellow with red border). Formula change details are provided in 'notes'.">
+![Excel redline output advanced.png](/images/draftable-legal/image-139.png)
+</Frame>
+
+### Remove Cover Page from Side by Side Exports
+
+Users that need to share Side by Side comparisons with external parties can now choose to remove the cover page from the PDF export. to conform with Increase customization with the option to remove the cover page from Side by Side comparison exports. This allows for a cleaner, more focused comparison output tailored to your specific needs.
+<Frame>
+![Include or exclude cover page in Side by Side.png](/images/draftable-legal/image-140.png)
+</Frame>
+## Ease of Use Improvements
+
+### Next actions now available in the ribbon (top) menu
+
+We are committed to ensuring Draftable Legal is easy to use on the first go without requiring any training. With the v24.7.0 release, we are reinforcing this commitment by adding our 'Next Actions' (e.g. open, save to DMS, email, print, copy to clipboard, etc) in the ribbon (top) menu of our Comparison Viewer.
+
+This change ensures that the next actions are easily seen and discovered by new users. Thanks to the addition of the Redline Change List in v2.15.200, these actions were only available when users switched from the Change List to the Next Actions menu on the right hand side of the Comparison Viewer. With the addition of these action in the ribbon menu, new users should be able to compete their workflows without needing specific training on how to switch these views.
+
+Users can still continue to use the Next Action menu on the right hand side by selecting the next action icon ![](/images/draftable-legal/image-145.png) in the top right corner of the viewer.
+<Frame>
+![Next actions in ribbon 3.png](/images/draftable-legal/image-141.png)
+</Frame>
+### Smaller ease of use enhancements
+
+**Use input file location when saving Bulk Compare outputs** Users can now save Bulk Compare outputs faster with Draftable Legal defaulting to the input file location. 
+
+**Improved product guidance**  From v24.7.0 users will see a link next to the Comparison Type selection in the New Comparison Window that opens our [dedicated knowledge base article on Comparison Types](/hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window). 
+
+## Performance Improvements
+
+### PDF to DOCX Conversion with the Draftable Engine (Preview)
+
+Users experiencing reliability issues with PDF comparisons due to Microsoft Word's conversion process can now switch to the Draftable Engine as an alternative. The Draftable Engine has proved hugely popular for DOCX to PDF conversion and is now the Draftable default thanks to its speed and reliability improvements compared with Microsoft Word's conversions. This feature provides that same Draftable Engine for converting PDF files to DOCX. 
+
+Customers can access this preview feature by contacting their account executive or by emailing [product@draftable.com](mailto:product@draftable.com).
+
+Our Product team will be collecting feedback on this preview feature to make additional quality control improvements before releasing it to all Draftable users.
+<Frame>
+![PDF to DOCX conversion via Draftable Engine.png](/images/draftable-legal/image-142.png)
+</Frame>
+### Algorithm Enhancements
+
+Users running comparisons of older documents in Draftable can occasionally experience reliability issues due to legacy document elements. To provide a wider document compatibility and a better user experience, Draftable will detect these legacy elements and advise users to update their document to a modern format for comparison. This algorithm improvement continues to enhance our broader product reliability and has been made possible thanks to the feedback received by customers contact our Support team.  
+<Frame>
+![Doc compatibility issue 2.png](/images/draftable-legal/image-143.png)
+</Frame>
+
+## Integration Functions
+
+### iManage Enhancements
+
+#### Save outputs to iManage as a 'Related' file
+
+From Draftable Legal v24.7.0 iManage users can now save their comparison outputs to iManage as a new file and then relate that file to an existing iManage file (e.g. the input files) all in one workflow. Users simply select to Save to iManage (as a new related file). This will provide an iManage window to save the comparison output file and then immediately open another iManage window to select the file to relate the comparison output to. 
+<Frame>
+![Save as a related file.png](/images/draftable-legal/image-144.png)
+</Frame>
+#### Updated listener service for multi-user (e.g. Citrix) environments 
+
+Our recently released Listener Service was developed to allow users to launch comparisons from iManage even when Draftable is not running. However, the Listener Service was not optimized for multi-user systems (e.g. Citrix), as it only worked for one user per machine. The v24.7.0 release updated the Listener to make desktop IPC communication unique for each user instead of the system, allowing multi-user systems to launch from iManage seamlessly.
+
+You can [read more about the Listener Service in this dedicated article](/hc/en-us/articles/33978111642905-Alternative-iManage-HTTP-listener-service-installation-guide-for-Draftable-Legal).
+
+### Epona Enhancements
+
+To ensure Epona users have the information they need to select the correct input files, from v24.07.0 Draftable Legal's integration with Epona 365 will now display comments associated with document versions in the file selection menu. 
+
+
+## Administrator Features
+
+### Comparison Type configuration
+
+To ensure end users are only provided with Comparison options needed by your organization, from Draftable Legal v24.7.200 administrators can set default and / or remove Comparison Types via the Windows Registry or using Group policy. 
+
+You can learn more about how to configure Comparison Types or Outputs in [this article](/hc/en-us/articles/35240737941913-How-to-configure-Comparison-Types-and-Outputs-Remove-options-or-set-initial-default).
+
+### Other Administrator Features
+
+**Version Number Alignment** To provide easier version tracking for administrators, Draftable Legal has switched its version numbering convention to a 'Year-Month-Version' (YY.MM.VV) format . This allows administrators to intuitively identify the age of a version when administering Draftable for their organization.
+
+**Improved Error Log Naming** To make it easier for administrators and our Support team to track and manage errors logs, we have updated our file name conventions for exported error logs to include the date and a unique ID.
+
+**Reduced Application Size** Draftable Legal v24.7.0 has reduced application size by dropping support for x32 bit, updating CEF# and Microsoft Universal C Runtime. 
+
+**Enhanced Telemetry** To improve our product learnings the 24.7.0 update has added data points to our telemetry, Updated product telemetry now shares document metadata (including the number of words, pages, and characters) as well as the Word Document Scheme version and installation & troubleshooting events.
+
+See here for [more information on our Product Telemetry program](/hc/en-us/articles/34620487450265-Product-Telemetry).  
+
+
+## Bug Fixes
+
+As always, this release also implemented a number of bug fixes identified by our customers. These included:
+
+- Restoring the dialog warning users that Changed Pages output does not support style changes.
+- Fixing an issue where Silent Start with Windows was set incorrectly in the Group Policy Template.
+- Resolving an algorithm error when comparing documents with corrupted metadata comments.
+- Fixing an issue where whitespace changes were ignored when using the 'changed pages only' option in the Draftable Redline Viewer.
+- Ensuring 1-Click compares respect the user's Output filename configuration when opening.
+- Updating Side-By-Side exports to include moves, aligning them with what is shown in Draftable.
+- Correcting an error message shown when failing to complete a drag-and-drop load due to integration being disabled.
+
+
+We hope these new features and improvements enhance your experience with Draftable Legal. For any feedback or suggestions, please contact us at [product@draftable.com](mailto:product@draftable.com) and for any support issues please contact support@draftable.com.

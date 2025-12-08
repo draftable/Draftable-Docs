@@ -1,0 +1,136 @@
+<Note>
+**Please note:**
+
+Only registry keys have the option to configure the email address that is sent by default for these error messages. 
+</Note>
+
+## Group Policy Objects
+
+Before configuring group policy, ensure you are using the latest group policy template files, which can be found [here](/hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files). To configure the error message settings via Group Policy, see each of the objects below. 
+
+### Configure Custom Error Message
+
+This group policy object allows you to set a custom error message that will be shown when an error occurs.
+
+Policy Location: User Configuration > Administrative Templates > Draftable  
+Object Name: Configure custom error message  
+Description: Set a custom error message to show for users when there is an error when executing a comparison.
+
+<Frame>
+![](/images/draftable-legal-configure-end-user/image-1.png)
+</Frame>
+
+### Configure Custom Contact Support Email Body
+
+This group policy object sets the response body of the email that users can send when prompted with an error.
+
+Policy Location: User Configuration > Administrative Templates > Draftable  
+Object Name: Configure custom contact support email body  
+Description: Set a custom email message that will be shown when the user sees Outlook email with logs, after an error in the application.
+
+<Frame>
+![](/images/draftable-legal-configure-end-user/image-2.png)
+</Frame>
+
+### Never share obfuscated documents
+
+This group policy object sets the behaviour for sending/sharing obfuscated documents when sending emails for unable to compare error messages.
+
+Policy Location: User Configuration > Administrative Templates > Draftable Desktop Legal  
+Object Name: Never share obfuscated documents  
+Description: Set this policy to be enabled, which means that obfuscated document submission is always disabled, or set the policy to disabled to ensure that documents sent via error messages are always obfuscated. 
+
+<Frame>
+![](/images/draftable-legal-configure-end-user/image-3.png)
+</Frame>
+
+### Users can share error logs
+
+This group policy object sets global policy whether a user can share error logs. 
+
+Policy Location: User Configuration > Administrative Templates > Draftable  
+Object Name: Users can share error logs  
+Description: Enabled means that users can share error logs, disabled means that users cannot share error logs. 
+
+<Frame>
+![](/images/draftable-legal-configure-end-user/image-4.png)
+</Frame>
+
+## Registry Keys
+
+All registry keys should be created under Computer\\HKEY\_CURRENT\_USER\\Software\\Draftable\\Feature and should be of type REG\_SZ. If the key does not already exist, you can simply just create it. 
+
+<Note>
+**Please note:**
+
+For system-wide configuration, it is highly recommended that you place the registry keys under Computer\\HKEY\_LOCAL\_MACHINE\\Software\\Policies\\Draftable\\Feature
+</Note>
+
+### Custom Compare Error Message
+
+This registry key allows you to set a custom error message that will be shown when an error occurs.
+
+```bash
+Key: HKCU:\\Software\\Draftable\\Feature  
+Value name: CustomCompareErrorMessage  
+Value type: REG\_SZ  
+Value data: <key>
+```
+
+For the value **&lt;key&gt;,** enter a string to change the text of the error message that is displayed for users.
+
+### Custom Email Support Message
+
+This registry key sets the response body of the email that users can send when prompted with an error.
+
+```bash
+Key: HKCU:\\Software\\Draftable\\Feature  
+Value name: CustomEmailSupportMessage  
+Value type: REG\_SZ  
+Value data: <key>
+```
+
+For the value **&lt;key&gt;,** enter the desired email body string to change the body text of the default support email.
+
+### Custom Error Contact Info Setting
+
+This registry key sets the email address to which the support email will be sent when users are prompted with an error.
+
+```bash
+Key: HKCU:\\Software\\Draftable\\Feature  
+Value name: CustomErrorContactInfoSetting  
+Value type: REG\_SZ  
+Value data: <key>
+```
+
+For the value **&lt;key&gt;,** enter the desired default contact email address for users to send their support queries. 
+
+### Never share obfuscated documents
+
+This registry key sets whether obfuscated documents can be sent or not sent via email as part of a comparison error message.
+
+```bash
+Key: HKCU:\\Software\\Draftable\\Compare  
+Value name: NeverShareObfuscatedDocuments  
+Value type: REG\_DWORD  
+Value data: <key>
+```
+
+For the value **&lt;key&gt;**, this can be set to "1" for enabled, which means that obfuscated document submission is always disabled, or set the key to "0" disabled to ensure that documents sent via error messages are always obfuscated. 
+
+### Users can share error logs
+
+This registry key sets whether log files can be sent or not sent via email as part of a comparison error message.
+
+```bash
+Key: HKCU:\\Software\\Draftable\\Feature  
+Value name: CompareErrorWindowAllowsToEmailLogs  
+Value type: REG\_DWORD  
+Value data: <key>
+```
+
+For the value **&lt;key&gt;**, this can be set to "1" for enabled, which means log files can be sent, or set the key to "0" disabled, which disables log files from being sent.
+
+Ensure all configurations are correctly applied by restarting Draftable Legal or the user's computer if necessary. These settings will help streamline troubleshooting by providing custom error messages and facilitating smoother communication between the users and the support team. If you have any issues with configuration, please email us at [support@draftable.com](mailto:support@draftable.com)
+
+

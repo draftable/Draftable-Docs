@@ -1,0 +1,57 @@
+---
+title: "How to configure Comparison Types and Outputs: Remove options or set initial default"
+description: "Comparison Types and outputs are at the core of the Draftable Legal experience. While we strive to offer as much flexibility for users in Comparison Types, many users will not need all the options provided. Likewise, organizations may wish to stop users from exporting certain comparison outputs via the 'Next Actions' commands or in 1-Click Compare workflows. From Draftable v24.7.200, administrators can set default and / or remove Comparison Types via the Windows Registry or using Group policy."
+---
+
+This article guides IT Administrators in configuring Draftable Legal to remove any unwanted Comparison Types and / or to change the default Comparison Type from 'Redline in Draftable'
+
+To learn more about Comparison Types and their use, please see [this article](/hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window).   
+
+### How to update the initial default Comparison Type
+
+Administrators can use the InitialComparisonOutput registry key to set an initial Comparison Type default. The default options are:
+
+| **Comparison Type** | **Value for InitialComparisonOutput registry key** |
+| :--- | :--- |
+| Redline in Draftable | Redline |
+| Redline in Word | RedlineDocx |
+| Tracked Changes in Word | TrackChangesWord |
+| Side by Side | Draftable |
+| Redline in Excel | ExcelRedline |
+| Native in MS Office | NativeOffice |
+
+Once set, this will set the selected Comparison Type as the default choice in the New Comparison Window upon starting Draftable. If the user selects a different Comparison Type, this will be 'sticky' and remains selected until the user either changes it again or closes the application. 
+
+## Removing unwanted Comparison Types
+
+Many organizations exclusively use either Tracked Changes or Redline in Word as their preferred word output. Likewise, organizations will often have a preference for either Redline in Excel, Side by Side or MS Office Native for Excel comparisons. With this in mind, organizations can configure Draftable Legal to only provide those Comparison Types and outputs needed by their users. This can be done via Group Policy or in the Windows Registry. 
+
+### Removing Comparison Type and Output options via Group Policy
+
+Administrators can update the default value of the following Group Policy Options to remove Comparison Types from the New Comparison Window, Next Actions menu, and 1-Click Compare menu.
+
+| **Comparison Type** | **Group Policy Option** |
+| :--- | :--- |
+| Redline in Draftable | Enable Redline PDF Output |
+| Excel Redline | Enable Excel Redline Output |
+| Redline in Word | Enable Redline DOCX Output |
+| Tracked Changes in Word | Enable Track Changes in Word Output |
+| Side by Side | Enable Side-By-Side Output Comparison |
+| Changed Pages Only PDF export | Enable Changed Pages Output |
+| Native in MS Office | Enable Native Office Output |
+
+### Removing Comparison Type options via the Windows Registry 
+
+The following registry keys can be configured to exclude Comparison Types and outputs from the New Comparison Window, Next Actions menu, and 1-Click Compare menu (with the default value 0 showing the Comparison Type / output).
+
+| **Comparison Type** | **Registry Key (set to 1 to remove)** |
+| :--- | :--- |
+| Redline in Draftable | IsRedlineOutputEnabled |
+| Excel Redline | IsExcelRedlineOutputEnabled |
+| Redline in Word | IsRedlineDocxOutputEnabled |
+| Tracked Changes in Word | IsTrackChangesWordOutputEnabled |
+| Side by Side | IsDraftableOutputEnabled |
+| Changed Pages Only PDF export | IsChangedPagesOutputEnabled |
+| Native in MS Office | IsNativeOfficeOutputEnabled |
+
+

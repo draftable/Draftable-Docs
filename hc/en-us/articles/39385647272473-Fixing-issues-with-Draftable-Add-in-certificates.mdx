@@ -1,0 +1,64 @@
+---
+title: "Fixing issues with Draftable Add-in certificates"
+---
+
+## Understanding the Add-in Certificate Verification Process
+
+Our application provides add-ins for Word, Outlook, and Excel to enhance productivity and streamline workflow. At times, you may encounter warnings related to these add-ins if their certificates are not recognized as trusted on your device. To mitigate this, we offer a "Verify Add-in Certificate State" tool that ensures these certificates are properly verified and trusted.
+
+### What does the "Verify Add-in Certificate State" button do?  
+  
+<Frame>
+  <img src="/images/troubleshooting/image-7.png" alt="Verify Add-in Certificate State button" />
+</Frame>
+
+Clicking the "Verify Add-in Certificate State" button prompts our application to check the certificate status of each add-in against your system's Trusted Publishers store. Certificates act like digital IDs, confirming that software is safe and originates from a trustworthy publisher. Here’s an overview of the process:
+<Steps>
+<Step title="Certificate Check">
+Each add-in's certificate is reviewed to verify its presence in your Trusted Publishers store. This store serves as an approved list, allowing Office to recognize trusted add-ins without security warnings.
+</Step>
+<Step title="Prompt to Add Missing Certificates">
+If any certificate is missing, a prompt will appear, asking if you’d like to add it. Adding the certificate ensures the add-in is recognized as a trusted source, enhancing security and performance.
+</Step>
+<Step title="Log Collection for Troubleshooting">
+If the verification process encounters an error (e.g., a certificate can’t be verified or added), you will be prompted to send logs for analysis. The application will gather relevant logs, draft an email with the logs attached, which you can review before sending to our support team.
+</Step>
+</Steps>
+### Why Certificates Matter for Add-ins
+
+Microsoft Office requires all add-ins to be signed by trusted publishers to protect your data and environment from malicious code. By ensuring that each add-in's certificate is verified and stored in the Trusted Publishers list, our application provides:
+
+- **Security**: Only verified add-ins run within your Office applications.
+- **Reliability**: Add-ins from trusted publishers perform better and avoid potential security blocks by Office.
+
+### Common Reasons for Missing Certificates
+
+Certificates may be missing from your Trusted Publishers store due to:
+
+- **System Changes**: Updates or changes to your system can sometimes reset the Trusted Publishers list.
+- **New Installations**: For fresh installs, certificates might not yet be added to your system’s trusted stores.
+- **Office Security Policies**: Strict security settings may prevent automatic certificate recognition.
+
+### How to Use the Verify Add-in Certificate State Button
+<Steps>
+<Step title="Click the Button">
+ Navigate to the tool in the **Troubleshooting section** and select "Verify Add-in Certificate State."  
+	<Frame>
+	  <img src="/images/troubleshooting/image-8.png" alt="Troubleshooting section" />
+	</Frame>
+</Step>
+<Step title="Review Prompts">
+If any certificates are missing, a prompt will appear, asking for permission to add them.  
+	<Frame>
+	  <img src="/images/troubleshooting/image-9.png" alt="Certificate prompt" />
+	</Frame>
+</Step>
+<Step title="Send Logs if Needed">    
+If any step fails, you’ll be prompted to send logs. Approving this action drafts an email with the logs attached, which you can send to our support team for assistance.
+</Step>
+</Steps>
+### Your Privacy and Security Are a Priority
+
+We prioritize your security. The verification process and log collection are strictly for troubleshooting. Logs are only gathered and sent with your approval and contain only the necessary information for identifying issues with add-in certificate verification.
+
+Using the "Verify Add-in Certificate State" button helps ensure a smooth, secure experience with our Office add-ins. For further assistance, feel free to reach out to our support team.

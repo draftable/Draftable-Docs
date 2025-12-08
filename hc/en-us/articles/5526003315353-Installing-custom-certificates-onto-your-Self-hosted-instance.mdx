@@ -1,0 +1,85 @@
+---
+title: "Installing custom certificates onto your Self-hosted instance"
+---
+
+## Installing custom certificates on your instance
+
+The following instructions assume the API Self-hosted appliance is running and was launched using Docker Compose. However, the instructions can be adapted for most orchestration systems. An example Docker Compose configuration is published on GitHub to the official [Draftable API Self-hosted](https://github.com/draftable/apish) repository.
+
+## Prerequisites
+
+The following files should be configured and ready before the installation procedure begins. 
+
+- Custom certificate files which include a .crt and .key files respectively
+- An instance that has already gone through the first time configuration
+- An instance that has been configured using docker-compose (you cannot install custom certificates using docker run based instances)
+
+## Installation procedure
+
+The *custom.crt* and *custom.key* files refer to the custom TLS certificate and private-key respectively. The file names are not important, but it’s recommended to use the .crt and .key file extensions. If using different file names you should reflect this is the below instructions as appropriate.  
+<Note>
+**Note:** Ensure you have versed yourself and are using docker compose for container start-up before you start this custom certificate installation process.
+</Note>
+
+1. Determine the name of the running API Self-hosted container. Use command below:
+```bash
+docker ps
+```
+2. Create the directory where the custom TLS certificate will be stored. Use command template below, remembering to change the \<container\_id> field to the name of your instance:
+```bash
+docker exec -it <container_id> mkdir -p /srv/draftable/config/certs /srv/draftable/config/private 
+```
+3. Copy the custom TLS certificate and private-key to the container. Use command template below, remembering to change the *\<container\_id>, custom.crt* and *custom.key* fields to the name of your instance, generated certificate and key names respectively:
+```bash
+docker cp /path/to/custom.crt <container_id>:/srv/draftable/config/certs/custom.crt
+docker cp /path/to/custom.key <container_id>:/srv/draftable/config/private/custom.key
+```
+4. Set the appropriate permissions on newly created directories and files. Use command template below, remembering to change the \<container\_id>, custom.crt and custom.key fields to the name of your instance, generated certificate and key names respectively:
+```bash
+docker exec -it <container_id> chgrp -R ssl-cert /srv/draftable/config/private
+docker exec -it <container_id> chmod 0750 /srv/draftable/config/private
+docker exec -it <container_id> chmod 0640 /srv/draftable/config/private/custom.key
+```
+5. Update your docker-compose.yml file with the following configuration: (Note if you are not using docker compose to run your containers, please see the attached documentation to how to setup and run your containers via docker compose)  
+```bash
+version: '3.5'
+services:
+  apish:
+    environment:
+      DRAFTABLE_APISH_NGINX: |-
+        nginx:
+          virtual_hosts:
+            draftable:
+              conf_settings:
+                ssl:
+                  certificate: /srv/draftable/config/certs/custom.crt
+                  private_key: /srv/draftable/config/private/custom.key
+    image: draftable/apish
+    ports:
+      - 80:80/tcp # HTTP
+      - 0.0.0.0:8443:443/tcp # HTTPS
+    volumes:
+      - draftable-apish:/srv/draftable
+      - /sys/fs/cgroup:/sys/fs/cgroup 
+volumes:
+  draftable-apish:
+```
+
+<Note>
+	**Note:** That the above snippet should be merged with the existing content of your Docker Compose file (or equivalent YAML configuration for your orchestration system). Attached to this article is an example of a docker compose.yml file. Click here for more information regarding the [docker-compose.yml file](/hc/en-us/articles/6140653011865-Understanding-the-docker-compose-yml-file-and-parameters-guide).
+</Note>
+6. For the changes to take effect, restart the container by using the docker compose down and up commands. Ensure you are currently in the directory where the docker compose YAML exists:
+```bash
+docker-compose down
+```
+- Once the container has stopped, we run the up command
+```bash
+docker-compose up
+```
+
+<CardGroup>
+<Card title="docker-compose.yml" icon="file-lines" href="https://help.draftable.com/hc/en-us/article_attachments/6462072214937" cta="Download" iconType="solid" >
+593 Bytes
+</Card>
+</CardGroup>
+

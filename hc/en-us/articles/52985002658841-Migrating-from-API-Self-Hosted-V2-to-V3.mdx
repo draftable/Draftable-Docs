@@ -1,0 +1,366 @@
+---
+title: "Migrating from API Self-Hosted V2 to V3"
+description: "This guide covers migrating your existing Draftable API Self-Hosted V2 instance to V3. The migration process is designed for zero downtime, allowing both instances to run side-by-side during the transition. The entire process should take less than 30 minutes. "
+---
+
+
+## What Gets Migrated
+
+The migration script transfers the following data from your V2 instance:
+
+- **PostgreSQL database** — Complete draftable database including all comparisons, user accounts, and settings
+- **Application files** — All data stored in the /srv/draftable volume (config, data, fonts)
+- **License** — Your existing product key is automatically activated in V3
+
+<CardGroup>
+<Card
+  title="What Gets Migrated"
+  icon="arrow-right-arrow-left"
+  href="/hc/en-us/articles/#what-gets-migrated"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Prerequisites"
+  icon="list-check"
+  href="/hc/en-us/articles/#prerequisites"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Migration Overview"
+  icon="diagram-project"
+  href="/hc/en-us/articles/#migration-overview"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Step 1: Prepare V3 Configuration"
+  icon="gear"
+  href="/hc/en-us/articles/#step-1-prepare-v3-configuration"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Step 2: Start V3 on Alternate Ports"
+  icon="plug"
+  href="/hc/en-us/articles/#step-2-start-v3-on-alternate-ports"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Step 3: Run Migration Script"
+  icon="terminal"
+  href="/hc/en-us/articles/#step-3-run-migration-script"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Step 4: Validate Migration"
+  icon="circle-check"
+  href="/hc/en-us/articles/#step-4-validate-migration"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Step 5: Switch to V3"
+  icon="repeat"
+  href="/hc/en-us/articles/#step-5-switch-to-v3"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Cleanup"
+  icon="broom"
+  href="/hc/en-us/articles/#cleanup"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Troubleshooting"
+  icon="circle-exclamation"
+  href="/hc/en-us/articles/#troubleshooting"
+  iconType="solid"
+  horizontal
+/>
+
+</CardGroup>
+## Prerequisites
+
+### Software Requirements
+
+- **Docker Engine**: Version 20.10 or higher
+- **Docker Compose V2**: Must use docker compose command (not legacy docker-compose)
+- **Bash shell**: Linux/macOS native
+- **Windows**: Use WSL2 (recommended), Git Bash, or Cygwin
+<Note>
+**Note:** If you are not using **Docker** as part of your existing deployment, you may need to configure a V3 container from the ground up, as this migration process **only supports Docker.** 
+</Note>
+### Hardware Requirements
+
+- **Storage**: At least 2× your current V2 data size in free disk space
+- **Memory**: 8 GB RAM minimum (same as V2 requirements)
+
+### Verify Your Environment
+
+Run these commands to confirm your setup meets the requirements:
+
+```bash
+# Check Docker version (requires 20.10+)
+docker --version
+
+# Check Compose version (requires v2.x.x)
+docker compose version
+
+# Check available disk space
+df -h
+```
+
+### Required Files
+
+Before proceeding, ensure you have:
+
+1. **V3 Docker Compose file** —Can be found here: [https://github.com/draftable/apish/tree/v3](https://github.com/draftable/apish/tree/v3)
+2. **V3** .env file — Sample file can be found here: [https://github.com/draftable/apish/tree/v3](https://github.com/draftable/apish/tree/v3)
+3. **Migration script** (migrate-data.sh) — Can be found here: [https://github.com/draftable/apish/tree/v3/v3\_migration](https://github.com/draftable/apish/tree/v3/v3_migration)
+
+
+## Migration Overview
+
+The migration follows a side-by-side approach:
+<Steps>
+<Step>
+Start V3 instance on alternate ports **and on the same server/machine** as your V2 instance (V2 continues running normally)
+</Step>
+<Step>
+Run migration script to copy database and files from V2 → V3
+</Step>
+<Step>
+Validate V3 instance with migrated data
+</Step>
+<Step>
+Switch V3 to production ports and shut down V2
+</Step>
+</Steps>
+<Note>
+**Note:** Your V2 instance remains fully operational throughout the migration process until you explicitly switch over.  
+</Note>
+<Warning>
+IMPORTANT: Treat your V2 instance as read-only during the migration process. Any new data created in V2 after the migration script starts (e.g., new comparisons, user changes) will NOT be transferred to V3. To avoid data loss, ensure all users stop making changes to the V2 instance before beginning the migration.
+</Warning>
+
+## Step 1: Prepare V3 Configuration
+
+Create or update your .env file for the V3 deployment:
+
+```bash
+# Required variables
+DB_USER=postgres
+DB_PASS=<your_db_password>
+AMQP_USER=draftable
+AMQP_PASSWORD=<your_rabbit_password>
+DJANGO_SECRET_KEY=<your_django_secret>
+
+# Optional variables
+# SERVER_DNS=<your_domain>
+# TLS_CERT=<path_or_base64_cert>
+# TLS_KEY=<path_or_base64_key>
+# TLS_CA_CHAIN=<path_or_base64_ca_chain>
+# COMPARE_WORKERS_COUNT=<number>
+```
+
+Place the V3 docker-compose.yml and .env file in a dedicated directory separate from your V2 deployment.
+
+
+## Step 2: Start V3 on Alternate Ports
+
+Launch the V3 instance on custom ports to avoid conflicts with your running V2 instance. **Ensure that containers are running on the same machine**:
+
+```bash
+HTTP_PORT=3080 HTTPS_PORT=3443 docker compose -f /path/to/v3/docker-compose.yml up -d
+```
+
+Verify V3 is running:
+
+```bash
+# Check container status
+docker compose -f /path/to/v3/docker-compose.yml ps
+
+# View logs
+docker compose -f /path/to/v3/docker-compose.yml logs -f
+
+# Test accessibility
+curl http://localhost:3080
+```
+
+Confirm you can access the V3 instance at `<http://localhost:3080\>` before proceeding.
+
+
+## Step 3: Run Migration Script
+
+Execute the migration script, providing paths to both your V2 and V3 compose files:
+
+```bash
+bash migrate-data.sh /path/to/v2/docker-compose.yml /path/to/v3/docker-compose.yml
+```
+
+### What the Script Does
+
+The migration script performs these operations automatically:
+
+1. **Export V2 database** — Uses pg\_dump to create a complete export of the draftable database
+2. **Import to V3** — Loads the database dump into V3's PostgreSQL service
+3. **Copy application files** — Transfers config, data, and fonts directories from V2 volume to V3
+4. **Apply schema updates** — Runs Django migrations to update the database schema for V3
+5. **Activate license** — Re-activates your product key in the V3 instance
+6. **Verify migration** — Performs basic integrity checks
+
+### Migration Progress
+
+The script provides timestamped output for each step:
+
+```bash
+==========================================
+  Data Copy: Old → New Instance
+==========================================
+
+Configuration:
+  Old compose: /path/to/v2/docker-compose.yml
+  New compose: /path/to/v3/docker-compose.yml
+
+[12:34:56] ✓ Compose files found
+[12:34:57] ✓ Old app volume: draftable_data
+[12:34:58] ✓ New app volume: apish_app_data
+...
+==========================================
+[12:45:12] ✓ Data Copy Complete!
+==========================================
+```
+
+
+## Step 4: Validate Migration
+
+Before switching over, thoroughly test the V3 instance:
+
+### Current State
+
+At this point, you have two instances running:
+
+- **V2**: Running on default ports ([https://](https://localhost/)localhost or your SERVER\_DNS)
+- **V3**: Running on [http://](http://localhost:3080/)localhost[:3080](http://localhost:3080/)
+<Note>
+**Note:** localhost is in reference to the current domain/address of your container. 
+</Note>
+### Validation Checklist
+
+- \[ \] Log in with existing administrator credentials
+- \[ \] Verify all existing comparisons are present and viewable
+- \[ \] Confirm application files (documents) are accessible
+- \[ \] Create a new test comparison to verify functionality
+- \[ \] Check license status in the admin portal
+- \[ \] Review any custom configurations or user accounts
+
+<Note>
+**Important:** 
+
+Do not proceed to the switchover step until you've confirmed V3 is working correctly with your migrated data.
+</Note>
+
+## Step 5: Switch to V3
+
+Once validation is complete, switch V3 to production:
+
+```bash
+# Stop both instances
+docker compose -f /path/to/v2/docker-compose.yml stop
+docker compose -f /path/to/v3/docker-compose.yml stop
+
+# Start V3 on default ports
+docker compose -f /path/to/v3/docker-compose.yml up -d
+```
+
+V3 is now running on the default ports. Access it at `<https://localhost\>` or your configured SERVER\_DNS.
+
+
+## Cleanup
+
+After confirming V3 is stable in production:
+
+### Remove Temporary Migration Files
+
+```bash
+rm -rf temp-migration-data/
+```
+
+### Stop V2 Containers
+
+```bash
+docker compose -f /path/to/v2/docker-compose.yml down
+```
+
+### Remove V2 Volumes (Optional)
+<Warning>
+**Warning:** 
+
+This action permanently deletes V2 data and cannot be undone. Only proceed after confirming V3 is fully operational.
+</Warning>
+
+```bash
+# List volumes to identify V2 volumes
+docker volume ls
+
+# Remove specific V2 volumes
+docker volume rm <v2_volume_name>
+```
+
+
+## Troubleshooting
+
+### Migration Script Fails to Find Containers
+
+**Error:** Existing API instance not detected, are you sure it's running on this machine?
+
+Ensure your V2 instance is running:
+
+```bash
+docker compose -f /path/to/v2/docker-compose.yml ps
+```
+
+### Volume Not Found
+
+**Error:** Old volume not found: `<volume\_name>`
+
+The script auto-detects volumes from compose files. Verify your V2 instance has been started at least once and volumes exist:
+
+```bash
+docker volume ls
+```
+
+### Database Import Errors
+
+Check the migration log file for details:
+
+```bash
+cat temp-migration-data/migration.sql.log
+```
+
+### PostgreSQL Not Ready
+
+If the script times out waiting for PostgreSQL, ensure the V3 database service is healthy:
+
+```bash
+docker compose -f /path/to/v3/docker-compose.yml ps pgsql
+docker compose -f /path/to/v3/docker-compose.yml logs pgsql
+```
+
+
+If you encounter issues not covered here, contact [support@draftable.com](mailto:support@draftable.com) with your migration logs and error output.

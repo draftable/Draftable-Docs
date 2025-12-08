@@ -1,0 +1,1090 @@
+---
+title: "Draftable Business Ongoing Release Notes"
+description: "Please note: this article is for **non-legal Draftable Business customers**. Draftable Legal customers can find a record of all product updates in [Release Log: Draftable Legal](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal). Descriptive articles for each month's Draftable legal releases are also available in our [Release Notes](/hc/en-us/sections/20829119477529-Release-Notes) section."
+---
+
+f you require any specific explanations on the changes or features, please get in touch with us at [support@draftable.com](mailto:support@draftable.com) 
+
+### Release Notes
+
+<Update label="Version 25.11.100" description="November 13, 2025">
+**Bugfixes:**
+
+- Fixed an issue where a watermark could appear on PDF outputs.
+</Update>
+
+<Update label="Version 25.11.0" description="November 11, 2025">
+**Features & Improvements:**
+
+- Improved placement of changed text around deleted paragraphs.
+- Added support for comparing SmartTag content.
+
+**Ease of Use**
+
+- Draftable now starts in the user’s **last non-maximized window size**.
+- New setting to **open the comparison viewer in a new tab** (rather than the same tab).
+
+**Bugfixes:**
+
+**Algorithm Reliability**
+
+- Fixed several “unable to compare” errors related to:
+	- Move detection overlaps.
+	- Malformed SVG content.
+	- Mismatched block- vs run-level `sdt` markers.
+	- Preprocessing of textbox content within a Table of Contents.
+- Fixed an issue with **sync scrolling** in Side-by-Side comparisons when using threaded runners.
+
+</Update>   
+
+<Update label="Version 25.10.100" description="October 23, 2025">
+
+**Bugfixes:**
+
+- Prevented crashes when comparing **text input vs text file**.
+
+</Update>
+
+<Update label="Version 25.10.0" description="October 21, 2025">
+**Features & Improvements:**
+
+**Administrator Features**
+
+- Added the option for organizations to include an **organization-level GUID** in telemetry for admin usage reporting.
+- Enforced logging of new settings to telemetry (when organization telemetry is enabled).
+
+**Bugfixes:**
+
+- Fixed errors caused by images in the **new Outlook**.
+- Resolved occasional **filename UI collisions** in redline viewer outputs.
+- Updated the **update dialog** to avoid cut-off text.
+- Prevented poor layouts stemming from interactions with **table column changes**.
+- Ensured results open in the **source tab** rather than the most recent Draftable window.
+- Fixed preprocessing failure when an **invalid output type** was selected.
+
+</Update>
+
+<Update label="Version 25.9.300" description="September 29, 2025">
+**Features & Improvements:**
+
+- Added telemetry events for window size changes.
+- You can now reduce the Draftable window to one quarter of the screen.
+- Admin profile locks now also cover **Excel** and **PowerPoint** settings.
+- New option to display the Draftable UI in additional languages.
+
+**Bugfixes:**
+
+- Fixed an issue where selections couldn’t be cleared in Text Decoration settings.
+- The original file type is now logged in compare execution telemetry.
+- Side-by-side algorithm parameters now reach the text alignment stage correctly.
+- Improved parsing of names containing “&” in the Word Add-in.
+- Text normalization now tolerates invalid code points.
+- Draftable now remembers your preferred default window size after resizing.
+- Detaching a tab no longer breaks the original window.
+
+</Update>
+
+<Update label="Version 25.9.200" description="September 18, 2025">
+
+**Hotfix:**
+
+- Resolved an issue in the Draftable **Word Add-in** that caused unexpected template prompts to appear when using Word.
+
+</Update>
+
+<Update label="Version 25.9.100" description="September 11, 2025">
+
+**Hotfix:**
+
+- DD-2604: Redirect Draftable subscription link to the current URL.
+
+</Update>
+
+<Update label="Version 25.9.0" description="September 4, 2025">
+
+**Improvements & Features:**
+
+- Added a setting to enable extra CEF logging for diagnostics
+- Restored the ability to resize the app down to the original minimum window size (pre-25.8.0)
+
+**Bugfixes:**
+
+- \[Word Add-in\] “Compare with Latest” no longer appears for local documents
+- Improved email generation to avoid Outlook-related issues
+- Fixed the Excel Add-in archive not extracting properly
+- \[Telemetry\] Now logs the source of files added to the app
+- Resolved the inability to resize the window while on the Comparison tab
+- Prevented unintended modifications to `Normal.dotm` unless explicitly requested
+
+</Update>
+
+<Update label="Version 25.8.000" description="August 15, 2025">
+**Features & Improvements:**
+
+- **Tabbed UI:** Redesigned the app to use tabs instead of multiple windows
+- **Unified window:** Merged the Launcher and Viewer into a single window
+- **Viewer UX:** Remember the expanded/collapsed state of the Summary panel when switching view types
+- **Diagnostics:** Setting to enable extra logging from CEF
+- **Compare quality:** Reduce false positives where mixed numbering is interpreted as text
+
+**Bugfixes:**
+
+- Wrap long lines when converting TXT to PDF for comparison
+- Handle `LISTNUM` fields with invalid levels
+- Workaround for ZIP corruption caused by empty XML parts (DD-2454).
+- **Word Add-in:** Avoid hang when the source document is completely empty
+
+</Update>
+
+<Update label="Version 25.6.200" description="June 27, 2025">
+**Improvements & Features:**
+
+- Resolved pipe-handling issues affecting MSI installs.
+- **Viewer:** added **“Re-run Compare”** command, allowing users to relaunch a comparison directly from the results window (intended to be used with filters)
+- Cleans cached values in header/footer numbering fields for more accurate numbering
+- Compare window now opens in maximised state by default
+
+</Update>
+
+<Update label="Version 25.6.100" description="June 20, 2025">
+**Features & Improvements:**
+
+- \[Word Add-in\] Context menu actions no longer modify the `Normal.dotm` template.
+- Introduced a keyboard shortcut to quickly navigate to the next change in comparison results.
+
+**Bugfixes:**
+
+- Fixed issue preventing export logs from generating.
+- Resolved unresponsive behaviour in the "Export Error Logs" feature.
+
+</Update>
+
+<Update label="Version 25.06.0" description="June 11, 2025">
+
+**Improvements & Features:**
+
+- \[Outlook Add-in\] Added support for 1-Click Compare directly on email attachments.
+- Improved case-sensitive comparison with better handling of `<w:caps>` styles.
+
+**Bugfixes:**
+
+- Updated tooltip behaviour for the system tray icon.
+- Fixed serialization logic for nested complex field instructions in documents.
+
+</Update>
+
+<Update label="Version 25.05.200" description="May 30, 2025">
+
+**Improvements & Features:**
+
+- Embedded version information into ADML and ADMX templates.
+- \[Word Add-in\] Added command to load all open Word files into Draftable.
+- Retained user signature when generating emails via the Outlook integration.
+
+**Bugfixes:**
+
+- Added configuration to limit the number of runner processes for performance stability.
+- Enabled support for OneDrive file handling in Word Add-in even without SharePoint integration.
+
+</Update>
+
+<Update label="Version 25.05.100" description="May 13, 2025">
+
+**Improvements & Features:**
+
+- \[Outlook Add-in\]
+	- Introduced token exchange for silent login.
+	- Improved internal communication between the Outlook Add-in and the main app.
+
+**Bugfixes:**
+
+- Fixed issues where email logs were not being generated properly.
+- Fixed issues with 1-Click and Bulk Compare producing invalid Side-by-Side outputs.
+- Fixed an issue in the Group Policy template.
+
+</Update>
+
+<Update label="Version 25.05.0" description="May 5, 2025">
+
+**Improvements & Features:**
+
+- \[Word Add-in\] Added "Compare with Latest" option.
+- Administrators can now define custom tags for the change list.
+
+**Bugfixes:**
+
+- Prevented follow-up requests from failing after an invalid background request.
+- Fixed bug where certain Burmese script characters were converted to newlines.
+- Resolved app freezes during update processes.
+- Fixed issues with output filenames for files sharing the same name.
+</Update>
+<Update label="Version 25.03.200" description="April 1, 2025">
+
+**Bugfixes:**
+
+- Various fixes to group policy
+
+</Update>
+
+<Update label="Version 25.03.0" description="March 31, 2025">
+
+**Improvements & Features:**
+
+- Improved handling of shared drive file loading to prevent resource errors.
+- Group temporary files by comparison for easier troubleshooting.
+- Removed the "One or more documents are in an older format" warning.
+- \[SharePoint\] Updated One Click command to use the new architecture.
+- Right-hand menu in viewer is now sticky between sessions (e.g. change list state persists).
+- Enhanced clarity in the 1-Click Compare error dialog.
+- New setting to ignore differences between curly and straight apostrophes and quotation marks.
+- Admin-installed Office Add-ins are now visible in Settings.
+- Admins can now create custom tags for the change list.
+
+**Bugfixes:**
+
+- Improved handling of `numPicBullet` definitions using `mc:AlternateContent`.
+- Fixed false positive paragraph changes caused by bookmark tags in tables.
+- PDF icon now properly displays when PDF files are compared.
+- Corrected pagination issues in SharePoint API responses.
+- Resolved system verification errors related to the "Microsoft Windows: Context menu" feature.
+
+</Update>
+<Update label="Version 25.2.0" description="February 27, 2025">
+**Improvements & Features:**
+
+- Ignored footer changes in "Changes Pages Only" mode.
+- Added PDF compatibility toggle.
+- Introduced a markup schema option to highlight changed text.
+- Improved comparison accuracy for Text Boxes.
+- 1-Click Compare now respects setting to auto-select the two most recent versions.
+- Enhanced robustness of HTTP listener for initial support of Redline in Outlook.
+
+**Bugfixes:**
+
+- Fixed export bug where HTML was generated despite DOCX being selected.
+- Corrected failures in report generation involving moved text within text boxes.
+- Fixed missing file extensions in ZIP exports.
+- Now handles `footnoteColumns` attribute in section properties.
+- Resolved issues with native Office compare.
+- Disabled changes display when "Compare Textboxes" is turned off.
+- Fixed indentation flattening in PDF compatibility mode.
+- Prevented incorrect inheritance of paragraph properties in deleted content.
+- Fixed comparison errors due to table issues in certain documents.
+- Fixed comparison failures for documents with comments.
+
+</Update>
+
+<Update label="Version 25.1.100" description="January 30, 2025">
+
+**Bugfixes:**
+
+- Fixed orphaned comments in document outputs.
+- Removed invalid XML characters when converting from TXT to DOCX.
+
+</Update>
+
+<Update label="Version 25.01.0" description="January 28, 2025">
+
+**Improvements & Features:**
+
+- Automatically convert XLSEL to XLSX when loading from the Excel Add-in; now also supported in Side-by-Side view.
+- Enhanced section column with shorthand notation and parent sections in clause view.
+- Multiple comparisons can now be emailed at once.
+- Improved filename handling and enforced naming conventions.
+- Added "remember my choice" option for next actions in admin-defined profiles.
+- Improved comparison of footnote numbering.
+- Treated soft hyphens as zero-weight characters in comparisons.
+
+**Bugfixes:**
+
+- Updated tooltip wording in General Settings.
+- Resolved file loading issues.
+- Adjusted fixed-height row layout for revised tables.
+- Improved text alignment logic in numbering detection.
+- Resolved clause generation crashes.
+- Ignored quotation mark-only changes in comparisons.
+- Fixed numbering ID alignment for consistency.
+</Update>
+<Update label="Version 24.12.0" description="December 23, 2024">
+
+**Bugfixes:**
+
+- Fixed file naming recognition for Redline in Word when launched from the Word Add-in.
+- Resolved document comparison failure bugs.
+
+</Update>
+
+<Update label="Version 24.10.400" description="November 6, 2024">
+
+**Bugfixes:**
+
+- Fixed issue where Office Add-ins were not properly installed by the MSI installer.
+
+</Update>
+
+<Update label="Version 24.10.300" description="October 31, 2024">
+
+**Improvements & Features:**
+
+- Added a certificate verification option for Office Add-ins.
+- Extended SharePoint site search to return more than 25 results.
+- Cleaned up help article links in the action pane and ribbon UI.
+- \[Epona\] Added support for drag and drop from the Outlook extension.
+- 1-Click Compare now supports setting a default "save to" location.
+- Improved filename truncation logic for OneDrive, NetDocuments, and viewer displays.
+
+**Bugfixes:**
+
+- Improved performance on single-core machines by optimizing change list generation.
+- Fixed app-blocking issue when iManage files are selected from recent files.
+- Resolved problem where customized OCR settings were not applied.
+- Improved handling of DOCX style changes in Aspose engine.
+- Upgraded Aspose.Words to version 24.10.
+- Fixed failure to load the Changes Report when Summary Page is included in Redline.
+- Resolved mismatch between displayed name and actual filename for Outlook attachments.
+- Fixed PDF generation error when footnotes/endnotes comparison was disabled.
+- Addressed lingering password prompt during comparison after entering correct credentials.
+- Fixed issue where password-protected files wouldn’t open during Bulk Compare.
+
+</Update>
+<Update label="Version 24.10.200" description="October 21, 2024">
+
+**Improvements & Features:**
+
+- 1-Click compare improvements: Allow users to set specific 'save to' location default for 1-Click Compare
+
+**Bugfixes:**
+
+- Addressed an issue where the refresh function was interfering with the comparison process.
+
+</Update>
+
+<Update label="Version 24.10.100" description="October 17, 2024">
+
+**Bugfixes:**
+
+- Fixed a signing issue for the MSI installer introduced in version 24.10.0.
+
+</Update>
+
+<Update label="Version 24.10.0" description="October 10, 2024">
+
+**Improvements & Features:**
+
+- **Startup Notifications Setting:** Added a new setting and Group Policy option to disable Windows startup notifications for a smoother launch experience.
+- **Application Exit Option:** Users can now exit the application conveniently from the file menu.
+- **Version Information Sync:** Ensures that the Windows system always has the latest Draftable version information.
+
+**Bugfixes:**
+
+- Resolved issues with change list loading errors and file handling during comparisons.
+- Fixed various errors affecting the generation and display of comparison reports and document metadata.
+- Improved the handling of settings when reloading file comparison definitions.
+
+</Update>
+<Update label="Version 24.9.1" description="September 27, 2024">
+
+**Bug Fixes:**
+
+- Windows Shell extension not installed for Per-User installer.
+
+</Update>
+
+<Update label="Version 24.9.0" description="September 26, 2024">
+
+**New Features & Improvements:**
+
+- Option added to default to the last saved location when saving locally.
+- Local files are now reloaded before comparison if the file content changes.
+- Users can mark off changes in the change list.
+- Bulk actions are now available for status tags in the change list.
+
+**Bug Fixes:**
+
+- File Obfuscator failed to obfuscate files.
+
+</Update>
+
+<Update label="Version 24.8.200" description="September 6, 2024">
+
+**Bug Fixes:**
+
+- False negative on the first page header.
+- Compare error on handling complex fields.
+- Inserted signature not showing up on the change list.
+- Password-protected XLSX documents are not detected properly.
+
+**New Features & Improvements:**
+
+- Removed suffix (.docx) from appending twice on renamed files when copying to the clipboard.
+- File Obfuscator tool now asks for two files.
+- Include names of compared files in the changes report.
+- Added option to save output to the last save location.
+
+</Update>
+
+<Update label="Version 24.8.100" description="August 22, 2024">
+
+**Bug Fixes:**
+
+- Resolved issue where certain settings were not showing in the general tab.
+
+</Update>
+
+<Update label="Version 24.8.0" description="August 13, 2024">
+
+**New Features & Improvements:**
+
+- Improved table column matching.
+- Tracked settings configured by Group Policy in the telemetry.
+
+**Bug Fixes:**
+
+- Table comparison error resolved.
+- False negatives for deleted comments in comparisons fixed.
+
+</Update>
+
+<Update label="Version 24.7.200" description="July 17, 2024">
+
+**Bug Fixes:**
+
+- Conversion engine setting changes are now logged to telemetry.
+- Resolved UI issue where the Change List was not loading properly.
+
+</Update>
+
+<Update label="Version 24.7.0" description="July 3, 2024">
+
+**Bug Fixes:**
+
+- Corrected several false positives and wrong descriptions of changes in the change list.
+
+</Update>
+<Update label="Version 2.16.100" description="June 20, 2024">
+
+**New Features & Improvements:**
+
+- Added NGEN support to reduce memory consumption on multi-user systems.
+
+**Bug Fixes:**
+
+- Start automatically with Windows is not working.
+- Updated the File Open to remember the last used location.
+- Incorrect numbering changes resolved.
+
+</Update>
+
+<Update label="Version 2.16.0" description="June 5, 2024">
+
+**New Features & Improvements:**
+
+- Renamed comparison options.
+- Certain changes are now excluded when all elements are disabled in comparison options.
+
+**Bug Fixes:**
+
+- Resolved issues with changes made to Word settings after using Draftable.
+
+</Update>
+
+<Update label="Version 2.15.300" description="May 29, 2024">
+
+**New Features & Improvements:**
+
+- Administrators can now lock certain profile settings when creating new profiles.
+- Implemented registry and Group Policy support for 1-Click Compare, including options to control 1-Click export settings.
+
+**Bug Fixes:**
+
+- Fixed issue where chromium logs would appear next to the selected document.
+- Filename trimming corrected.
+- Resolved cutoff issue with tables during comparison.
+- Fixed compare error with bullets and numbering disabled.
+
+</Update>
+
+<Update label="Version 2.15.200" description="May 14, 2024">
+
+**New Features & Improvements:**
+
+- Updated insertion colors in Side-by-Side exports from green to blue.
+- Improved error message when no valid 1-Click action is defined.
+
+**Bug Fixes:**
+
+- Resolved issues with next actions for 1-Click Compare not appearing properly.
+- Fixed font issues affecting highlight boxes.
+
+</Update>
+
+<Update label="Version 2.15.100" description="May 2, 2024">
+
+**New Features & Improvements:**
+
+- Added missing Group Policy templates.
+
+</Update>
+
+<Update label="Version 2.15.0" description="April 25, 2024">
+
+**New Features & Improvements:**
+
+- Introduced 1-Click Compare.
+- Added next action menu to Side-By-Side comparisons.
+
+**Bug Fixes:**
+
+- Filename output now works correctly without a summary page.
+- Various issues with dotm template prompts in Word Add-In resolved.
+</Update>
+<Update label="Version 2.14.300" description="March 27, 2024">
+
+**New Features & Improvements:**
+
+- Filenames are now correctly trimmed for custom filename output.
+
+</Update>
+
+<Update label="Version 2.14.200" description="March 25, 2024">
+
+**Bug Fixes:**
+
+- The application now properly informs users when a comparison fails.
+
+</Update>
+
+<Update label="Version 2.14.100" description="March 21, 2024">
+
+**New Features & Improvements:**
+
+- Small UI improvements made to the side by side viewer.
+
+</Update>
+
+<Update label="Version 2.14.0" description="March 18, 2024">
+
+**New Features & Improvements:**
+
+- Enhanced interactions with the Word API.
+- Telemetry now passes the ComparisonID to the viewer.
+- The ribbon menu is now expanded by default.
+- Added a colon to automated emails for comparison outputs.
+- Speed improvements for DOCX comparisons, with an average performance boost of 6.5%.
+
+**Bug Fixes:**
+
+- Side-by-Side users can now turn off moves in the settings.
+- Fixed the "key not present in the dictionary" error in TryGetNumbering.
+- Resolved issues with the legacy theme not being supported for Side-by-Side comparisons.
+
+</Update>
+
+<Update label="Version 2.13.700" description="March 13, 2024">
+
+**Improvements:**
+
+- Enhanced the installation process for Add-ins.
+
+</Update>
+
+<Update label="Version 2.13.602" description="March 6, 2024">
+
+**Improvements:**
+
+- Fixed an issue where input files were not filled when the app was triggered without running.
+
+</Update>
+
+<Update label="Version 2.13.600" description="March 23, 2024">
+
+**Bug Fix:**
+
+- Fixed an error when comparing documents with hidden text.
+
+</Update>
+
+<Update label="Version 2.13.500" description="March 22, 2024">
+
+**Bug Fix:**
+
+- Resolved an issue where text inputs could not be compared.
+</Update>
+<Update label="Version 2.13.400" description="February 15, 2024">
+
+**New Features & Improvements:**
+
+- Fixed the startup option to ensure proper behavior on Windows startup.
+- Bookmarks are now encoded as the same character.
+- Extended support for UNC file paths.
+- Font size threshold setting is now visible to standard users.
+
+</Update>
+<Update label="Version 2.13.300" description="February 13, 2024">
+
+**New Features & Improvements:**
+
+- Custom output filename structure now available.
+- Fixed error parsing DOCX indentation values.
+
+**Bug Fixes:**
+
+- Resolved issue where the file area would stay in spin/load mode when closing the multiple file selector without files.
+
+</Update>
+<Update label="Version 2.13.200" description="February 8, 2024">
+
+**Improvements:**
+
+- Small improvement to a previous bug fix, making it more efficient.
+
+</Update>
+
+<Update label="Version 2.13.100" description="February 5, 2024">
+
+**Bug Fixes:**
+
+- Resolved a conflict between Microsoft Edge WebView2 and Chromium that caused issues.
+
+</Update>
+
+<Update label="Version 2.13.0" description="January 22, 2024">
+
+**New Features & Improvements:**
+
+- Compare output now shows 'hidden' text as a change.
+- Users can now drag and drop text directly into the box without clicking the "input text" button.
+- Introduced a silent launch option that prevents the New Compare window from showing on startup.
+- Added the ability to compare text from Word.
+- Users can now collapse the 'next actions' menu on the right side of the viewer.
+- The default 'save to' location in the Windows file browser is now the same as the comparison input file location.
+- Updated the Squirrel installer to reflect an app size estimate of 2GB.
+- Display the installed version of add-ins in the settings.
+
+**Bug Fixes:**
+
+- Fixed error when exporting Side-by-Side comparisons for certain documents.
+- Allowed scrolling for System Verification results to avoid UI cutoff.
+- Resolved issues with exporting Tracked Changes from Side-by-Side comparisons.
+- Fixed error handling numbering issues in DOCX comparisons.
+- Resolved conversion issues with .doc files to PDF where files could not be found.
+
+</Update>
+
+<Update label="Version 2.12.300" description="January 12, 2024">
+
+**New Features & Improvements:**
+
+- Enabled drag-and-drop text directly into the comparison input box.
+- The default 'save to' location in Windows file browser is now the same as the input file location.
+- Added support for footnotes and endnotes in the change list.
+- Added support for other run content in the Change List.
+
+**Bug Fixes:**
+
+- Stopped using Office apps from the main process to avoid errors.
+- Fixed issues with exporting Side-by-Side comparisons for certain documents.
+- Allowed scrolling for System Verification results to avoid UI cutoff.
+- Small refactor of temporary file management.
+- Fixed issue where errors during Side-by-Side export for email caused app freezes.
+
+</Update>
+
+<Update label="Version 2.12.201" description="January 5, 2024">
+
+**Bug Fixes:**
+
+- Improved sequential processing of PowerPoint operations.
+- Stopped using Office apps from the main process to avoid errors.
+
+</Update>
+<Update label="Version 2.12.200" description="December 20, 2023">
+
+**Bug Fixes:**
+
+- Export logs option now works after system verification.
+- Incorrect timestamps in the summary page resolved.
+- Fixed UI issues for long profile names in the settings menu.
+- Fixed linking Sentry reports with the license.
+- Resolved incorrect filename issues for files dragged and dropped from Outlook email attachments.
+- Alert during application auto-start added.
+- Addressed long profile name cutting off the comparison type in the launcher.
+- Fixed privacy disclaimer window cutting off text.
+- Tooltip for Draftable Desktop activation dialog no longer appears on top of other windows.
+- Resolved application exit issues with Squirrel AbandonedMutexException.
+
+**New Features & Improvements:**
+
+- Added "Side by Side as Tracked Changes" as a new comparison type.
+- Disabled the "Compare Version(s)" button in the web extension when list versioning is not supported.
+- Aspose is now available via the general settings tab (not set as the default).
+- Group Policy support added to disable the desktop shortcut.
+- Updated viewer to version 3.6.20.
+- Group Policy added to enable/disable Draftable launching upon startup.
+- Warn users before the app restarts after an update.
+
+</Update>
+
+<Update label="Version 2.12.0" description="December 4, 2023">
+
+**New Features & Improvements:**
+
+- **GDPR Compliance**:
+	- Sanitized error reporting data captured in Sentry.
+	- Sanitized telemetry data.
+- Draftable Engine used for PDF to DOCX conversions.
+
+**Bug Fixes:**
+
+- AutoCompare fixed when running from CLI.
+- Document version changes now detected after clicking "Compare."
+- Fixed header bug in comparison.
+
+</Update>
+
+<Update label="Version 2.11.300" description="November 20, 2023">
+
+**New Features & Improvements:**
+
+- New Comparison window automatically launched after product activation.
+- Multiple file selection now available in Windows file browser.
+
+**Bug Fixes:**
+
+- Fixed PDF file load timing out on network drives.
+- Updated image hash not to use MD5.
+
+</Update>
+
+<Update label="Version 2.11.200" description="November 6, 2023">
+
+**New Features & Improvements:**
+
+- Added support for a third-party library for DOCX to PDF rendering, available in the "Preview Features" tab.
+- New Comparison window automatically launches after product activation.
+- Support for loading password-protected Office documents added.
+- Added a Preview Features tab in settings, accessible via SHIFT + F12.
+
+</Update>
+<Update label="Version 2.11.100" description="October 31, 2023">
+
+**New Features:**
+
+- Option to keep input files after a comparison is complete.
+- Group Policy introduced to guide users to contact internal IT for support instead of Draftable Support.
+- Improvements in handling Structured Document Tags.
+
+**Bug Fixes:**
+
+- Fixed header/footer false negatives in comparisons.
+- Resolved issue where Word conversion would break due to error overriding Word settings.
+
+</Update>
+
+<Update label="Version 2.11.0" description="October 25, 2023">
+
+**New Features:**
+
+- Users can now select input files from a list of recent documents.
+- Default insertion color changed from "Blue" to "Dark Blue."
+
+**Bug Fixes:**
+
+- Fixed issue with the Word Add-In not working for file paths containing "&".
+- Resolved issues where the author name in the new comparison window would change when switching comparison types.
+- Improved error handling when closing Word documents.
+- Fixed issue where the Compare Result window would get stuck on a spinner when loading output PDFs.
+- The Word Add-In now displays a warning when attempting to compare an unsaved file.
+- Fixed app freeze caused by an exception during export.
+- Resolved an error when running Side-by-Side comparisons for DOCX files, ensuring PDF copies of the original document are created at the correct stage.
+- Addressed false error timeouts when loading files.
+- Output filenames are no longer truncated, with the limit extended from 30 to 70 characters.
+- Profile picker no longer displays for non-legal users.
+
+</Update>
+
+<Update label="Version 2.10.1300" description="September 26, 2023">
+
+**New Features & Improvements:**
+
+- Improved validation of the Comparison Type on the Compare Selector window.
+- Fixed leaking Word instances.
+- Fixed patch version for MSI installers.
+- Resolved issue with Draftable opening Word files when running comparisons.
+
+</Update>
+
+<Update label="Version 2.10.1200" description="October 2, 2023">
+
+**New Features & Improvements:**
+
+- Fixed leaking Word instances.
+
+</Update>
+
+<Update label="Version 2.10.1100" description="September 19, 2023">
+
+**Improvements:**
+
+- Users can now set content and style changes for Side-by-Side comparisons.
+
+</Update>
+
+<Update label="Version 2.10.1000" description="September 15, 2023">
+
+**Bug Fixes:**
+
+- Group Policy fix applied.
+
+</Update>
+
+<Update label="Version 2.10.900" description="September 14, 2023">
+
+**Bug Fixes:**
+
+- Fixed issue where disabling the PDF warning in Office was not working in certain scenarios.
+
+</Update>
+<Update label="Version 2.10.800" description="September 13, 2023">
+
+**New Features:**
+
+- Progress bar introduced to indicate loading status during comparisons.
+- Open link features now supported from the Viewer.
+- Error dialogs now include an option to export and send logs.
+- User Desktop settings are now included when exporting logs.
+- The Viewer now logs custom errors, which are sent to Sentry for troubleshooting.
+
+</Update>
+
+<Update label="Version 2.10.700" description="September 7, 2023">
+
+**Bug Fixes:**
+
+- Resolved issue where the app would encounter an error when Office was not installed.
+
+</Update>
+
+<Update label="Version 2.10.600" description="September 5, 2023">
+
+**Bug Fixes & Improvements:**
+
+- Cleaned up Word integration for better diagnostics and future issue resolution.
+- Extended the app log to include Sentry and telemetry configuration details.
+- Updated error logs to record the current time zone from Windows during startup.
+- Fixed `NullReferenceException` in the Draftable.CompareTool.Updater.WindowsUtils.
+- Moved PDF generation steps to the progress window for better task execution.
+
+**New Features:**
+
+- Introduced double underline and strikethrough options for markup styling.
+
+</Update>
+
+<Update label="Version 2.9.4" description="August 1, 2023">
+
+**New Features & Improvements:**
+
+- Relaxed memory limit on Draftable for enhanced performance.
+
+</Update>
+
+<Update label="Version 2.9.3" description="July 26, 2023">
+
+**Bug Fixes:**
+
+- Improved handling of `TargetInvocationException` from the Word API.
+- Resolved issue where using a simple/default Normal.dotm template triggered Word Macros warnings, by removing all templates before comparison.
+
+</Update>
+
+<Update label="Version 2.9.2" description="July 24, 2023">
+
+**New Features & Improvements:**
+
+- Optimized handling of the `DisableConvertPdfWarning` setting to prevent unnecessary changes when already correctly configured.
+- Created the Word Options key automatically if missing.
+- Help articles are now linked to issues found by the diagnostic tool.
+
+**Bug Fixes:**
+
+- Fixed an issue where the settings window would become unresponsive when opened for the first time.
+- Improved performance of the CompareSelector window by reducing lag after closing a comparison.
+- Various algorithm improvements and cleanups.
+
+</Update>
+
+<Update label="Version 2.9.1" description="July 13, 2023">
+
+**New Features & Improvements:**
+
+- Updated viewer to latest viewer version.
+
+**Bug Fixes:**
+
+- Fixed an issue with the onboarding statistics step not being readable.
+- Addressed issues with Word's `Normal.dotm` popup warning during comparisons.
+
+</Update>
+
+<Update label="Version 2.9.0" description="July 12, 2023">
+
+**New Features & Improvements:**
+
+- Introduced a new diagnostic tool to help resolve common support issues.
+- MSI installers now support versioning.
+- Added links to relevant knowledge base articles for better in-app guidance.
+- Viewer ribbon is now maximized by default for better usability.
+
+**Bug Fixes:**
+
+- Fixed various smaller bugs and issues with the comparison dialog.
+</Update>
+<Update label="Version 2.8.6" description="July 3, 2023">
+
+**Bug Fixes:**
+
+- Resolved issue preventing the creation of `Draftable.dotm`.
+
+</Update>
+
+<Update label="Version 2.8.5" description="June 29, 2023">
+
+**New Features & Improvements:**
+
+- Enhanced comparison progress dialog to show steps more clearly.
+- Updated the viewer to new version.
+
+**Bug Fixes:**
+
+- Fixed an issue causing unknown errors when running Side-by-Side comparisons with one PDF and one Word document.
+- Resolved `AccessViolationException` when trying to override Word settings.
+
+</Update>
+
+<Update label="Version 2.8.4" description="June 22, 2023">
+
+**New Features & Improvements:**
+
+- Added the display of steps in the comparison progress dialog to enhance the visibility of the process.
+- Improved the handling of document loading, addressing one of the most common bugs reported by support.
+- Implemented a potential fix for running comparisons when the system language differs from the application language.
+
+**Bug Fixes:**
+
+- Telemetry improvements made based on recent reviews.
+
+</Update>
+
+<Update label="Version 2.8.3" description="June 15, 2023">
+
+**Bug Fixes:**
+
+- Resolved text input bugs for smoother operation.
+
+</Update>
+
+<Update label="Version 2.8.2" description="June 8, 2023">
+
+**New Features & Improvements:**
+
+- Managed Word options to avoid default Microsoft pop-ups during comparisons.
+
+</Update>
+
+<Update label="Version 2.8.1" description="June 7, 2023">
+
+**New Features & Improvements:**
+
+- Small backend bug fixes applied.
+
+</Update>
+
+<Update label="Version 2.8.0" description="June 1, 2023">
+
+**New Features:**
+
+- Extended the Draftable Group Policy template to allow setting auto-updates on/off for per-user and per-user MSI.
+
+**Bug Fixes:**
+
+- Resolved issues with algorithm and comments handling.
+
+</Update>
+<Update label="Version 2.7.2" description="May 17, 2023">
+
+**Bug Fixes:**
+
+- Resolved issue where Headers and Footers were not visible in Side-by-Side comparisons for users with a standard license.
+
+</Update>
+
+<Update label="Version 2.7.1" description="May 11, 2023">
+
+**Bug Fixes:**
+
+- Fixed the Move From and Move To decoration for improved comparison readability.
+
+</Update>
+
+<Update label="Version 2.7.0" description="May 8, 2023">
+
+**New Features & Improvements:**
+
+- Introduced a new compare progress dialog with a spinner for better visibility of ongoing comparisons.
+- Gracefully handle and dispose of in-progress comparison cancellations.
+- Extended markup customization options, with a feature flag to ignore moves.
+- Default markup settings now align with Microsoft Word's style.
+- Users can now save their preference for opening or saving tracked changes output.
+- Implemented new techniques for faster performance.
+- Avoided using the Microsoft Word for preprocessing to improve efficiency.
+
+**Bug Fixes:**
+
+- Fixed the issue where files were removed after a comparison was cancelled.
+- Several algorithm bug fixes for smoother performance.
+
+</Update>
+
+<Update label="Version 2.6.3" description="May 2, 2023">
+
+**Bug Fixes:**
+
+- Resolved issue where it was not possible to save a document to from the streamline view panel.
+
+</Update>
+
+<Update label="Version 2.6.2" description="April 27, 2023">
+
+**Bug Fixes:**
+
+- Fixed issue preventing users from selecting files.
+
+</Update>
+
+<Update label="Version 2.6.1" description="April 20, 2023">
+
+**Bug Fixes:**
+
+- Fixed issue where the Compare Selector was visible before users accepted the Terms & Conditions during a fresh installation.
+
+</Update>
+
+<Update label="Version 2.6.0" description="April 3, 2023">
+
+**New Features & Improvements:**
+
+- Fixed an issue where some fonts (primarily Asia-based fonts) were not loaded correctly.
+- Resolved an issue where long file names would expand the control instead of wrapping.
+- Kept the launcher open after a comparison is created for better workflow continuity.
+- Introduced spinners in buttons for actions that take time to complete.
+- License key is now visible in the settings window.
+- Added an option for users to switch between word-level or character-level comparison.
+- Telemetry improvements: grouped actions related to specific comparisons and created comparison IDs after file drop, keeping them consistent until the comparison is triggered.
+- Prepopulated the email body when emailing comparison outputs.
+- Shipped language-specific fonts with the desktop application for better compatibility.
+
+**Components:**
+
+- Upgraded to new Viewer for better handling of long lists of changes and improved font handling for different languages.
+</Update>

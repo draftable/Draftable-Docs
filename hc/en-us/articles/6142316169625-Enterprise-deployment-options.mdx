@@ -1,0 +1,84 @@
+---
+title: "Enterprise deployment options"
+description: "This article is for IT administrators looking to deploy Draftable Desktop across their organization."
+---
+
+
+## Configuring Draftable Business settings via Group Policy
+
+Draftable Business offers a range of Group Policy settings for license deployment, application configuration and update management. More information is documented [here.](/hc/en-us/articles/6142412798233-Configuring-preferences-with-Group-Policy-Draftable-Business)
+
+## Installer for enterprise deployments
+
+For deployments in enterprise environments, the default installer for Draftable Business may not be suitable. Draftable Business offers an alternative installer: a machine-wide MSI installer.
+
+Each installer has trade-offs, different recommended deployment scenarios, advantages, and installation steps.
+
+### Default Installer
+
+**Installer Type:** Regular executable (.exe)
+
+**Installer Scope:** Per-user
+
+**Requires Admin:** No
+
+**Recommended scenarios:** Individual users, small-scale deployments
+
+**Download URL:** [https://dl.draftable.com/desktop/DraftableDesktopSetup.exe](https://dl.draftable.com/desktop/DraftableDesktopSetup.exe)
+
+This installer is recommended for most scenarios and is the default installer provided. It's the easiest to use and has minimal requirements - ideal for individual users.
+
+#### Benefits
+
+- No administrator privileges are required for installation
+- Updates are automatically applied
+
+#### Notes
+
+- Each user on the system needs to run the installer (per-user deployment)
+- Each user maintains their own copy of the product
+
+#### Installation
+
+1. Run the installer
+2. Follow the prompts, which will include selecting the install location and entering the product key
+3. Draftable Business is installed and ready to use
+
+### Machine-Wide MSI
+
+**Also Known As:** Native MSI, Per-Machine MSI
+
+**Installer Type:** MSI (Windows Installer)
+
+**Installer Scope:** System
+
+**Requires Admin:** Yes 
+
+**Recommended scenarios:** Citrix & Remote Desktop Services deployments, high-security environments 
+
+**Download URL:** [https://dl.draftable.com/desktop/DraftableDesktopSystem.msi](https://dl.draftable.com/desktop/DraftableDesktopSystem.msi)
+
+This installer is only recommended for specific deployment scenarios where the other installers are unsuitable. The most common scenario is Microsoft RDS and Citrix deployments where a single shared installation is desired, typically for storage efficiency.
+
+  
+This installer is a "true" system-wide installer, unlike the Per-User MSI. The software is installed to a  
+system-wide location and can be launched by all users of the system, including concurrently as in RDS  
+and Citrix deployments.
+
+#### Benefits 
+
+- A single installation can be shared by all users on that machine
+- Administrators have the control to manage updates
+- Offers support for concurrent usage by multiple users on that machine
+
+#### Notes
+
+- Administrator rights are required for the initial installation and updates
+- All product updates must be manually downloaded and installed
+- System dependencies must be manually installed (e.g. .NET)
+
+#### Installation
+
+1. Run the installer with administrator rights
+2. Follow the prompts, which will include entering the install location and entering the product key
+3. Draftable Business is installed and ready to use

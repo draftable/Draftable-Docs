@@ -1,0 +1,189 @@
+---
+title: "Understanding the docker-compose.yml file and parameters guide"
+---
+
+## A complete docker-compose.yml 
+
+This article outlines all the configurable parameters that can be made within the docker compose YAML file. See below an example of a docker-compose file that has **every** **possible configurable parameter**. 
+
+```yaml expandable
+version: '3.5'
+services:
+  apish:
+    environment:
+      DRAFTABLE_APISH_NGINX: |-
+        nginx:
+          virtual_hosts:
+            draftable:
+              conf_settings:
+                http_redirects_to_https: False
+                use_x_forwarded_proto: True
+                real_ip_header_name: X-Real-IP
+                real_ip_header_from: 190.168.10.80
+                ssl:
+                  certificate: /srv/draftable/config/certs/apish.crt
+                  private_key: /srv/draftable/config/private/apish.key
+      DRAFTABLE_APISH_DJANGO: |-
+        draftable:
+          django:
+            enable_cors: True #enables CORS on the Draftable Self Hosted instance
+            cors:
+              allowed_origins: [] # List of allowed origins 
+              allowed_origin_regexes: [] # List of regular expressions matching allowed origins 
+              allow_all_origins: True # Allow CORS requests from any origin
+    image: draftable/apish
+    ports:
+      - 80:80/tcp # HTTP
+      - 440:443/tcp # HTTPS
+    volumes:
+      - draftable-apish:/srv/draftable
+      - /sys/fs/cgroup:/sys/fs/cgroup 
+volumes:
+  draftable-apish:
+```
+
+You can copy and paste sections from the example above to form your own docker-compose.yml file. Just be sure to change the values to suit your installation. 
+
+## All docker-compose YAML parameters 
+
+Below is an explanation of each important field that can be configured to enable/disable certain features within the instance. You can also view the [documentation on docker-composer](https://docs.docker.com/compose/) created by docker. 
+
+### Default docker-compose parameters 
+
+These are parameters that are required for APISH but are configurable. 
+
+```yaml
+image:
+```
+
+This selects the image that is used to start the instance, only 1 image can be selected. Please ensure the image is already pulled before declaring it in the docker-compose file. 
+
+```yaml
+ports:
+```
+
+Notate which ports are opened for users to access the instance. Take note of the formatting of the ports settings. 
+
+```yaml
+volumes (under apish):
+```
+
+This is where you donate the storage locations within the selection volume for both the volume data and cgroups. Ensure that the volume name used matches the other *volumes* field below. 
+
+```yaml
+volumes:
+```
+
+Notate which volume is being used with the instance. When r*unning docker-compose up* if the volume named here does not match one that already exists, it will generate a new volume. Like the other *volumes* field, the volume declared needs to match. 
+
+### Draftable Self-hosted specific environmental configuration settings 
+
+All fields under **`environment`** are additional features that have been added to the API Self-hosted product and can be customised here. There are two subfields,`DRAFTABLE_APISH_NGINX: |-` and `DRAFTABLE_APISH_DJANGO: |-`, NGINX is used for the majority of settings, whilst DJANGO is only used for [CORS specific](/hc/en-us/articles/5526130052633-CORS-implementation-within-API-Self-hosted) configurations. Ensure you place the correct setting variable under the right subfield. Refer to the full yaml example shown earlier.
+
+Below are descriptions for all the different fields that can be added and hence configured. 
+
+```bash
+http_redirects_to_https: 
+```
+
+```bash
+Default value: True (Boolean)
+```
+
+If enabled, redirect HTTP requests to the equivalent HTTPS URL. Disabling should only be necessary if you want to allow "truly" insecure requests. When TLS connections are not being terminated on the server, you should instead enable  `use_x_forwarded_proto`, and ensure the `use_x_forwarded_proto` header is being set by upstream load balancers and reverse proxies.
+
+For more information you can view our [SSL termination instructions article](/hc/en-us/articles/5526115029017-SSL-termination-configuration).
+
+```bash
+use_x_forwarded_proto:
+```
+
+```bash
+Default: False (Boolean)
+```
+
+If enabled, check the `use_x_forwarded_proto` header in requests to determine the URI scheme (HTTP or HTTPS). The header will be passed through to the frontend server, and used to check if a HTTP redirect to the equivalent HTTPS URL should be sent when HTTPS request redirection is enabled.
+
+For more information you can view our [SSL termination instructions article](/hc/en-us/articles/5526115029017-SSL-termination-configuration).
+
+```bash
+enable_cors:
+```
+
+```bash
+Default: False (Boolean)
+```
+
+This variable which is seated under the `django:` key sets whether CORS is enabled or not on the instance. If set to `true` CORS will be enabled on that instance. 
+
+For more information you can view our [CORs implementation setup article](/hc/en-us/articles/5526130052633-CORS-implementation-within-API-Self-hosted).
+
+```bash
+allowed_origins:
+```
+
+```bash
+Correct format
+
+allowed_origins:
+- my.domain.com
+- some.other.domain.com
+```
+
+
+This variable which is seated under the `cors:` key allows you to provide a list of the allowed origins for CORS. The correct formatting for this field is shown above. 
+
+```bash
+allowed_origin_regexes:
+```
+
+This variable which is seated under the `cors:` key allows you to list the regular expressions matching the allowed origins.
+
+```bash
+allow_all_origins:
+```
+
+```bash
+Default: False (Boolean)
+```
+
+This variable which is seated under the `cors:` key allows you to turn on CORS requests from any origin. This is the equivalent of using \* as a wildcard and needs to be set to `True` for this effect.  
+
+```bash
+real_ip_header_name:
+```
+
+```bash
+Default value: <null> (String)
+```
+
+Specifies the name of the HTTP header supplied in requests which contains the "real" IP address of the client. This can be used by load balancers and reverse proxies to communicate the IP address of the client, allowing the server to be aware of the IP address of clients making requests. The header used for this purpose is typically named `use_x_forwarded_proto`
+
+```bash
+real_ip_header_from:
+```
+
+```bash
+Default value: \[0.0.0.0:0\] (IP address with ports expected)
+```
+
+If`real_ip_header_name` has been set, specifies an array of IPv4 and IPv6 addresses trusted to provide real IP address information. If untrusted clients can access the server and set this header, they can effectively "spoof" their IP address. It's strongly recommended this setting be set to addresses of load balancers and reverse proxies forwarding requests.
+
+```bash
+ssl:
+```
+
+The two sub-fields under this field represent the certificate and private key locations which are used as part of custom certificate installation. 
+
+- **certificate:** 
+	- This notates which certificate is being used within the volume for ssl configuration. Note the value *apish.crt* in the YMAL example is just a placeholder name.
+- **private\_key:** 
+	- This notates which private key is being used within the volume for ssl configuration. Note the value *apish.key* in the YAML example is just a placeholder name.
+
+For the process of installing custom certificates, see [installing customer certificates onto your Self-hosted](/hc/en-us/articles/5526003315353-Installing-custom-certificates-onto-your-Self-hosted-instance)
+
+<CardGroup>
+<Card title="docker-compose.yml" icon="file-lines" href="https://help.draftable.com/hc/en-us/article_attachments/7040814182169" cta="Download" iconType="solid" >
+319 Bytes
+</Card>
+</CardGroup>

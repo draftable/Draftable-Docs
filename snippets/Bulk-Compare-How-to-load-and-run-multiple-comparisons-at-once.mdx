@@ -1,0 +1,335 @@
+<Note>
+**Note:** 
+
+This article was updated in January 2025 to reflect major changes to Bulk Compare's file loading interface and functionality in our [December 2024 release (v24.12.0)](/hc/en-us/articles/41369665084313-Release-Notes-Draftable-Legal-December-2024-v24-12-0)
+</Note>
+
+Bulk Compare allows users to **load multiple documents for comparison and run them simultaneously**. This 'Bulk Compare' feature is designed to save you time by removing the need to manually run every single comparison one by one.
+
+Draftable's Bulk Compare allows up to 100s\* of comparisons to compare at once. Each comparison is run independently and users are then able to open each individually for review and to take next actions or to save all comparisons in one bulk action. 
+
+*\*While there is no limit to the number of comparisons that can be run using the Bulk Compare feature, Draftable Legal only supports running up to 100 bulk compares at a time. Users can load and run more compares than this at their own discretion.*
+
+<Card title="Video Resource" icon="video" horizontal href="/hc/en-us/articles/33899769666585-Draftable-Legal-Bulk-Compare-Many-to-One">
+A guide to using the older version of Bulk Compare (before v24.12.0) is included in our specially crafted explainer video.
+</Card>
+
+## How to enable the 'Bulk Compare' setting and turn on 'Bulk Compare' mode
+
+To get started with Bulk Compare, you will first need to enable the feature in your settings.
+
+<Steps>
+<Step>
+Open Draftable Legal and go to the Settings menu in the top right corner of the New Comparison Window.  
+
+    <Frame>
+    ![](/images/using-draftable-bulk-compare/image-1.png)
+    </Frame>
+</Step>
+<Step>
+Go to the **'General'** section on the left hand side menu, and click the **Show Bulk Compare option** check box.  
+	
+    <Frame>
+    ![Enable Bulk Compare in General Settings.png](/images//using-draftable-bulk-compare/image-2.png)
+    </Frame>
+</Step>
+<Step>
+Once the check box is selected, close the Settings menu and click the **Bulk Compare** toggle on the New Comparison Window.  
+	
+    <Frame>
+    ![Enable Bulk Comapre in Launcher.png](/images//using-draftable-bulk-compare/image-3.png)
+    </Frame>
+</Step>
+</Steps>
+
+## How to load files in Bulk Compare mode
+
+File loading for Bulk Compare is designed to be intuitive and flexible. Individual files can be added either as Older or Newer documents, but once they are loaded can be easily rearranged however necessary to reflect the pairs and ordering needed.
+
+Files can be loaded into Draftable when Bulk Compare mode is enabled via: 
+
+- Local file browsing
+- From your Document Management System (DMS)
+- From recently compared files
+- Via Drag and Drop.
+
+### Loading via local file browsing
+
+<Steps>
+<Step>
+Click the **Browse** folder icon (shown in the screenshot below) for either the **Older Document(s)** or **Newer Document(s).**  
+	
+    <Frame>
+    ![Input file loading - browse local.png](/images//using-draftable-bulk-compare/image-4.png)
+    </Frame>
+</Step>
+<Step>
+Draftable will open the windows file explorer menu, where you can select all documents required for bulk comparison and hit **Open** to add to Draftable. *Note, you are able to select multiple files at once by **holding 'Ctrl'** and clicking each individual file or by holding the '**Shift'** key and selecting the first and last files in the desired list.  
+    
+    <Frame>
+    ![](/images//using-draftable-bulk-compare/image-5.png)
+    </Frame>
+</Step>
+<Step>
+Once selected, the files will be added to either the 'Older Documents' or 'Newer Document(s) section based on the location where you opened the 'Browse menu. Draftable will automatically create spaces for potential pairings for each document. You can drag any of your loaded files to any other space in the arrangement.  
+	
+    <Frame>
+    ![Input file loading - files on Older Documents.png](/images//using-draftable-bulk-compare/image-6.png)
+    </Frame>
+</Step>
+</Steps>
+
+### Loading files from your Document Management System (DMS)
+
+In Bulk Compare mode, you can load files from your Document Management System via the DMS icon inside Draftable or via your DMS application's file loading options. 
+
+#### Load DMS files via the icon in Draftable
+
+<Steps>
+<Step>
+Click the **DMS** cloud icon (shown in the screenshot below) for either the **Older Document(s)** or **Newer Document(s)**.  
+	
+    <Frame>
+    ![Input file loading - DMS.png](/images//using-draftable-bulk-compare/image-7.png)  
+    </Frame>
+
+    <Note>
+	**Note:** 
+    
+    Draftable will automatically detect which DMS you have enabled and open the file selection menu. If you have multiple DMS integrations enabled, Draftable will choose the 'priority DMS' based on the following hierarchy: *iManage > NetDocuments > SharePoint > Epona. This means if you have iManage and SharePoint enabled, the DMS cloud icon will only open the iManage file selection menu.
+    </Note>
+</Step>
+<Step>
+Select the files using your Document Management System file selection menu. You can select as many files at once as you need providing multi selection is supported by your DMS browsing interface).  
+	  
+	**Example of iManage file selection menu:**
+    <Frame>
+    ![imanage file selection.png](/images//using-draftable-bulk-compare/image-8.png)  
+    </Frame>
+	**Example of NetDocuments file selection menu:**  
+	
+    <Frame>
+    ![NetDocs file selection.png](/images//using-draftable-bulk-compare/image-9.png)  
+    </Frame>
+	**Example of SharePoint files selection menu:** 
+	
+    <Frame>
+    ![SharePoint file selection menu.png](/images//using-draftable-bulk-compare/image-10.png)  
+    </Frame>
+</Step>
+<Step>
+Once selected, the files will be added to either the 'Older Documents' or 'Newer Document(s) section based on the location where you opened the DMS file browsing menu. Draftable will automatically create spaces for potential pairings for each document. You can drag any of your loaded files to any other space in the arrangement.  
+	
+    <Frame>
+    ![Input file loading - files on Older Documents.png](/images//using-draftable-bulk-compare/image-11.png)
+    </Frame>
+</Step>
+</Steps>
+
+#### Load DMS files from your DMS
+
+You can also use the file loading options in your Document Management System to load files when Bulk Compare Mode is enabled. For guidance on how to load files from your DMS, see the relevant guides below:
+
+<Columns cols={2}>
+<Card title="Launching comparisons from within iManage" icon="code-compare" horizontal href="/hc/en-us/articles/22873285776409-Launching-comparisons-from-within-iManage" />
+
+<Card title="Launching comparisons from within NetDocuments" icon="rocket-launch" horizontal href="/hc/en-us/articles/26029848063769-Launching-comparisons-from-within-NetDocuments" />
+
+<Card title="Launching Comparisons from SharePoint" icon="share-nodes" horizontal href="/hc/en-us/articles/16115274749337-Launching-Comparisons-from-SharePoint" />
+
+<Card title="Running comparisons with files from Epona and saving outputs to Epona" icon="code" horizontal href="/hc/en-us/articles/37239959492633-Running-comparisons-with-files-from-Epona-and-saving-outputs-to-Epona" />
+</Columns>
+
+### Load recently compared files
+
+<Steps>
+<Step>
+Click the **Recent** icon (shown in the screenshot below) for either the **Older Document(s)** or **Newer Document(s).** 
+	
+    <Frame>
+    ![Input file loading - Recent.png](/images//using-draftable-bulk-compare/image-12.png)  
+    </Frame>
+</Step>
+<Step>
+Select the recently compare files you wish to compare. You can select as many files as you wish.  
+	
+    <Frame>
+    ![Select from recent file menu.png](/images//using-draftable-bulk-compare/image-13.png)
+    </Frame>
+</Step>
+<Step>
+Once selected, the files will be added to either the 'Older Documents' or 'Newer Document(s) section based on the location where you opened the Recent Files menu. Draftable will automatically create spaces for potential pairings for each document. You can drag any of your loaded files to any other space in the arrangement.  
+	
+    <Frame>
+    ![Input file loading - files on Older Documents.png](/images//using-draftable-bulk-compare/image-14.png)
+    </Frame>
+</Step>
+</Steps>
+
+## How to compare files in Bulk Compare mode
+
+### Comparing multiple discrete pairs of documents
+
+<Steps>
+<Step>
+To compare multiple discrete pairs of documents in Bulk Compare mode, start by loading the desired files into Draftable.  
+	
+    <Frame>
+    ![Multiple unique files loaded.png](/images//using-draftable-bulk-compare/image-15.png)
+    </Frame>
+</Step>
+<Step>
+Once these are loaded, simply rearrange your files so that the desired pairs of Older and Newer Documents are aligned.  
+	
+    <Frame>
+    ![Multiple pairs arrangement.png](/images//using-draftable-bulk-compare/image-16.png)
+    </Frame>
+</Step>
+<Step>
+To confirm that your arrangement will compare files as discrete pairings, you should see individual bi-directional arrows between the Older and Newer Documents (see picture below).  
+	
+    <Frame>
+    ![Multiple pairs arrangement with arrows highlighter.png](/images//using-draftable-bulk-compare/image-17.png)
+    </Frame>
+</Step>
+<Step>
+Once your files Select your preferred **Comparison Type** - e.g. "Redline (.pdf)", "Redline (Word with Tracked Changes)", etc and settings **'Profile'.**
+    <Frame>
+    ![Multiple Pairs - Select comparison type and profile.png](/images//using-draftable-bulk-compare/image-18.png)
+    </Frame>
+</Step>
+<Step>
+Click **Compare.**
+</Step>
+</Steps>
+
+### Comparing one Older Document against multiple Newer Documents
+
+<Steps>
+<Step>
+To compare one Older Document against multiple Newer Documents, start by loading the relevant files into Draftable.  
+	
+    <Frame>
+    ![Input file loading - files on Older Documents.png](/images//using-draftable-bulk-compare/image-19.png)
+    </Frame>
+</Step>
+<Step>
+Once these are loaded, simply rearrange your files so that the desired Older Document is on the left and the Newer Documents are on the right.  
+	
+    <Frame>
+    ![Input file loading - One older document multiple newer documents.png](/images//using-draftable-bulk-compare/image-20.png)
+    </Frame>
+</Step>
+<Step>
+Draftable will indicate with arrows in the middle that all Newer Documents will be compared against your one Older Document (see below example where the Airbnb file v1 is compared against v2 and v3).  
+	
+    <Frame>
+    ![Input file loading - One older document multiple newer documents - arrows highlight.png](/images//using-draftable-bulk-compare/image-21.png)
+    </Frame>
+</Step>
+<Step>
+Once your files Select your preferred **Comparison Type** - e.g. "Redline (.pdf)", "Redline (Word with Tracked Changes)", etc and settings **'Profile'**.  
+	
+    <Frame>
+    ![One older many newer - compare type and profile.png](/images//using-draftable-bulk-compare/image-22.png)
+    </Frame>
+</Step>
+<Step>
+Click **Compare.**
+</Step>
+</Steps>
+
+### Comparing multiple Older Documents against one Newer Document
+
+<Steps>
+<Step>
+The same approach above can be used to compare multiple Older Documents against a single Newer Document. First, load the Documents you wish to compare into Draftable.  
+	
+    <Frame>
+    ![Input file loading - files on Older Documents.png](/images//using-draftable-bulk-compare/image-23.png)
+    </Frame>
+</Step>
+<Step>
+Once your documents are loaded, rearrange them as needed by dragging and dropping them into place, ensuring your have only one file on the right side under the Newer Document(s). *Note: you can place the one Newer Document in any position on the right side - see picture below*).  
+	
+    <Frame>
+    ![Input file loading - Multple older documents one newer document.png](/images//using-draftable-bulk-compare/image-24.png)
+    </Frame>
+</Step>
+<Step>
+Once your files Select your preferred **Comparison Type** - e.g. "Redline (.pdf)", "Redline (Word with Tracked Changes)", etc and settings **'Profile'**.  
+	
+    <Frame>
+    ![One newer many older - compare type and profile.png](/images//using-draftable-bulk-compare/image-25.png)
+    </Frame>
+</Step>
+<Step>
+Click **Compare**
+</Step>
+</Steps>
+
+## Actions after the comparisons are completed
+
+After the comparison is complete, Draftable Legal supports directly saving all output files to your local computer or opening them individually in the comparison viewer to review and take any 'next action' (save to DMS, copy to clipboard, email, print).
+
+### Action 1: Save all output files to your computer
+
+<Steps>
+<Step>
+From the **Comparison finished** window **select all the comparisons** that are intended to be saved, then click **Save.**  
+	
+    <Frame>
+    ![Bulk actions.png](/images//using-draftable-bulk-compare/image-26.png)
+    </Frame>
+</Step>
+<Step>
+In the popup menu, you can specify the save location by selecting the "..." button (pictured).  
+	
+    <Frame>
+    ![Save to location.png](/images//using-draftable-bulk-compare/image-27.png)
+    </Frame>
+</Step>
+<Step>
+Once opened, the **Select Folder** pop-up will allow you to navigate to the folder that the comparison outputs are to be saved in, then click **Select Folder.**  
+
+    <Frame>
+    ![](/images//using-draftable-bulk-compare/image-28.png)
+    </Frame>
+</Step>
+<Step>
+Select the files you wish to save (you can choose to save the Older and Newer input files for each comparison as well as the comparison output in the form of Tracked Changes, Redline Docx and Redline PDF).  
+	
+    <Frame>
+    ![Select files to save.png](/images//using-draftable-bulk-compare/image-29.png)
+    </Frame>
+</Step>
+<Step>
+Select whether you wish to save the files only, save the files into a zipped folder, or save both the files and a zipped folder of the files.  
+	
+    <Frame>
+    ![Zipping options.png](/images//using-draftable-bulk-compare/image-30.png)
+    </Frame>
+</Step>
+<Step>
+Select **Save.**
+</Step>
+</Steps>
+
+### Action 2: Open comparison outputs individually for review & next action
+
+<Steps>
+<Step>
+From the **Comparison finished** window click **Open on the desired comparison** output to review it in the comparison viewer. Redline .pdf comparisons and Side by Side comparisons will open in the Draftable viewer and Redline (Word with Tracked Changes) will open in MS Word.  
+
+    <Frame>
+    ![](/images//using-draftable-bulk-compare/image-31.png)
+    </Frame>
+</Step>
+<Step>
+After a comparison has been opened, its status will appear in the **Comparison finished** window will change to **Opened.  
+
+    <Frame>
+    ![](/images//using-draftable-bulk-compare/image-32.png)
+    </Frame>
+</Step>
+</Steps>

@@ -1,0 +1,39 @@
+---
+title: "Issue with Registering Custom Windows Context Menu Action in Draftable Legal"
+---
+
+If you are seeing this article, it is likely that Draftable Legal has detected an issue where it cannot access `HKEY_CURRENT_USER\Software\Classes\*`. This problem hinders the application from registering a custom Windows context menu action which is integral to the functionality of the app.
+
+## What's the issue?
+
+The Windows Registry is a database that stores low-level settings for the operating system and certain applications. The path `HKEY_CURRENT_USER\Software\Classes\*` is a specific registry location where context menu actions (i.e., the menu that appears when you right-click on an item) are registered. In this case, Draftable Pro needs to access this location to add its own context menu action.
+
+The issue could occur due to one or more of the following reasons:
+<Steps>
+<Step title="User Permissions:">
+The current user may not have the necessary permissions to modify the Windows Registry.
+</Step>
+<Step title="Registry Key is Blocked:">
+Certain security software might block applications from modifying the Registry.
+</Step>
+<Step title="Application Needs Administrator Privileges">
+The application might need to be run as an administrator to make changes to the Windows Registry.
+</Step>
+</Steps>
+## Here's the solution
+
+Here are a few possible solutions to this problem. Please proceed with caution, as incorrectly modifying the Windows Registry can have significant impacts on your system.
+<Steps>
+<Step title="Check User Permissions:">
+Make sure that the current user account has the necessary permissions to edit the Windows Registry. This usually requires administrative privileges.
+</Step>
+<Step title="Temporarily Disable Security Software:">
+Some security software might block modifications to the Windows Registry. If you trust our application, consider temporarily disabling any security software that could be causing the issue. Don't forget to re-enable it after the problem is resolved!
+</Step>
+<Step title="Run Application as an Administrator:">
+Running our application as an administrator might solve the issue. Right-click on the application icon and choose "Run as administrator".
+</Step>
+</Steps>
+## What if the problem persists?
+
+If the issue is not resolved by following the above steps, it may be beneficial to consult our customer support for further assistance. You can contact our customer support team for help at [support@draftable.com](mailto:support@draftable.com)

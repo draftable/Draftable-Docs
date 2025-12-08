@@ -1,0 +1,94 @@
+---
+title: "Release notes: Draftable Legal v2.14"
+description: "We are excited to share our highlights from Draftable Legal release version 2.14 (released in March 2024). *For a full list of items in all releases, please see our [Release Log.](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal)*"
+---
+
+
+This update added improvements designed to help our customers by:
+
+- Reducing time taken to compare multiple markups by running multiple comparisons  
+	(Bulk Compare)
+- Removing tedious workflow steps for SharePoint users by allowing file selection and saving from within Draftable (via our new custom-built file selection user interface)
+- Removing noise in comparisons by allowing changes in headers and footers to be included / ignored independently
+- Strengthening product reliability through a series of underlying improvements to MS Word interoperations
+- Creating a easier and more accessible navigation by updating the user interface of Draftable's Redline PDF viewer
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 2.14 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Core Functionality
+
+### Run multiple comparisons at once with ‘Bulk Compare’
+
+From Draftable Legal v2.14, users are able to **load multiple documents for comparison and run them simultaneously**. This 'Bulk Compare' feature is designed to save you time by removing the need to manually run every single comparison one by one. It was the single most requested feature from customers over the last 6 months and we are thrilled to be delivering it.
+
+With Bulk Compare, you can load multiple **(up to 100s\*) of 'newer' documents** to compare against a single original document. Each comparison is run independently and you are able to open or save them. 
+
+Future improvements will see more 'next actions' being added to the Bulk Compare feature, allowing all outputs to be printed, saved, zipped or saved to document management systems.
+
+To learn more about how to use this feature, [see our complete step by step guide here](/hc/en-us/articles/30062521598361-Bulk-Compare-How-to-load-and-run-multiple-comparisons-at-once).
+
+*\*While there is no limit to the number of comparisons that can be run using the Bulk Compare featu**re**, Draftable Legal only supports running up to 100 bulk compares at a time. Users can load and run more compares than this at their own discretion.*
+<Frame caption="The Draftable Launcher shown in 'Bulk Compare' mode, with multiple 'newer' files loaded">
+![](/images/draftable-legal/image-155.png)
+</Frame>
+
+<Frame caption="Running multiple comparisons via 'Bulk Compare' provides a single progress bar and individual comparison for next actions, or the ability to save all comparisons to your computer.">
+![](/images/draftable-legal/image-156.png)
+</Frame>
+
+## New SharePoint integration functionality
+
+### ‘Select from’ and ‘save to’ SharePoint via Draftable Legal
+
+Draftable Legal v2.14 now offers users the ability to "select from / save to" SharePoint Online directly from our platform, offering a smoother integration experience. Previously, SharePoint users had to
+
+- Load files from SharePoint online via their web browsers
+- Save comparison outputs to SharePoint online by first saving locally then separately uploading them to SharePoint Online
+
+From v2.14, Draftable Legal has its own custom-built file selection and saving UI which has been implemented for SharePoint users. This file selection and saving interface brings our SharePoint integration up to the same standard as the iManage and NetDocuments integrations in terms of functionality and is a critical step for any customer using SharePoint as a Document Management System.
+<Frame caption="Users can now select files from and save to SharePoint online from within Draftable">
+![](/images/draftable-legal/image-157.png)
+</Frame>
+
+<Frame caption="Draftable has built its own User Interface for SharePoint file selection, which can expand and collapse file versions via the 'show' command.">
+![](/images/draftable-legal/image-158.png)
+</Frame>
+
+### Ability to enable / disable SharePoint online via Group Policy
+
+In addition to the above, we have also enabled Group Policy support for enabling or disabling the SharePoint integration. This will provide administrators with added control over SharePoint integration configuration (previously only configured via registry key updates).
+
+## Added Markup Customization
+
+### Configure changes shown in Headers and Footers separately
+
+In response to user feedback, we have added the ability to disregard changes in headers and footers individually in the Redline settings. This improvement adds to Draftable Legal’s ability to produce a high quality output that allows lawyers to focus on the changes that matter most.
+
+Users can now see ignore changes in headers that aren't relevant (e.g. updated logo images) while still seeing substantive changes in footers that need to be detected (e.g. updates to recipient's name, date document name, and signee initials).
+
+We are pleased to share that our next major release will include a number of additional markup customization options for other document elements that have been requested by users.
+
+## Improving Software Performance
+
+### Updates to improve reliability with MS Word
+
+Reliability is a foundational requirement of Draftable Legal customers. Customer feedback and support has shown that many issues users run into relate to Draftable’s use of Microsoft Word for certain preprocessing operations. Our team has done a significant review of how Draftable interacts with MS Office and a range of updates have been made to reduce issues when Draftable calls out to MS Word via the API. This ensures your comparison workflows continue uninterrupted by errors.
+
+## Better navigation and accessibility in the Draftable PDF Viewer
+
+Users will find navigation of the Draftable viewer simplified and more accessible thanks to user interface upgrades in Draftable Legal v2.14. These changes include:
+
+- Highlighting commands where the cursor is in the ‘next action’ menu (on right hand side) to make it easier to quickly select your next step
+- Smoother expanding and collapsing animation for the ‘next action’ menu
+- Defaulting to the expanded view for the Ribbon menu (top menu) to make commands such as our dynamic ‘changed pages only’ view more discoverable
+
+These changes have also allowed us to prepare for the release of our interactive change list for redline comparisons (currently only available in Side by Side comparisons). This feature is scheduled for our next major release in April.
+<Frame caption="The updated Redline PDF viewer includes more accessibility features on the right hand 'next action' menu and easier discoverability of the top 'ribbon' menu options">
+![](/images/draftable-legal/image-159.png)
+</Frame>

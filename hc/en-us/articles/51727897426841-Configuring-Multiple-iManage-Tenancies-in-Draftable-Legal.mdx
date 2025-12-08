@@ -1,0 +1,144 @@
+---
+title: "Configuring Multiple iManage Tenancies in Draftable Legal"
+description: "Draftable Legal now supports **multiple iManage tenancies** within the application. This feature enables organizations that work across multiple iManage environments, such as different firms, clients, or practice areas to seamlessly connect and switch between them directly inside Draftable Legal."
+---
+
+This update introduces the ability to **configure and manage multiple iManage tenancies both within the Draftable Legal application and via Group Policy** for enterprise administrators.
+
+
+### What are multiple iManage tenancies?
+
+An iManage tenancy (also referred to as an iManage "environment" or "instance") represents a unique deployment of iManage Cloud or On-Premise. Organizations often have multiple tenancies for different business units, regions, or clients.
+
+Previously, Draftable Legal supported integration with a **single iManage tenancy** at a time. With this update, users and administrators will be able to **add, label, and connect to multiple tenancies** from within the application, making it simple to compare and save documents from multiple environments without needing to log out.
+
+
+### Configuring iManage Tenancies in Draftable Legal (In-App)
+
+End users can manage their iManage tenancies from within the Draftable Legal interface.
+<Steps>
+<Step title="Open the Settings menu">
+	- Right-click the Draftable Legal icon in the Windows taskbar and select **Settings**.  
+		**(The taskbar is located at the bottom-right of your screen.)**
+</Step>
+<Step title="Go to the Integrations tab">
+	- Under **Integrations**, locate the **iManage** section.  
+		
+		<Frame>
+		![](/images/using-draftable-legal-with-iManage/image-112.png)
+		</Frame>
+</Step>
+<Step title="Add multiple iManage tenancies">
+	- Click on the arrow icon on the **Manage endpoint** section in the iManage settings  
+		
+		<Frame>
+		![](/images/using-draftable-legal-with-iManage/image-113.png)
+		</Frame>
+	- To add multiple tenancies, first enter the tenancy name and then add the custom URL (for example, "Firm Main Cloud", then "https://customdomain.com").  
+		
+		<Frame>
+		![](/images/using-draftable-legal-with-iManage/image-114.png)
+		</Frame>
+		You can test the connection to ensure that the domain is correct, and then save it to add it to your tenancy list.  
+		
+		<Frame>
+		![](/images/using-draftable-legal-with-iManage/image-115.png)
+		</Frame>
+</Step>
+<Step title="Authenticate with iManage">
+	- Click **connect** once you've selected the tenancy you want to connect to.
+	- Follow the prompts to sign in to iManage and authorise Draftable Legal.
+	- Once complete, your tenancy will display as **Connected**.
+</Step>
+<Step title="Switching between tenancies">
+	- Within the Integrations tab, toggle between connected tenancies using the drop-down list.  
+		
+		<Frame>
+		![](/images/using-draftable-legal-with-iManage/image-116.png)
+		</Frame>
+	- Draftable Legal will remember your last active tenancy.
+
+</Step>
+</Steps>
+
+### Configuring iManage Tenancies via Group Policy (For Administrators)
+
+For enterprise environments, administrators can configure multiple iManage tenancies via **Group Policy (GPO)**, allowing deployment across all users in a domain.
+
+This feature uses an updated **administrative template (ADMX/ADML)** included with the next release of Draftable Legal.
+
+There is only one group policy item that needs configuring for this, which is **iManage endpoints (CSV).** 
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-117.png)
+</Frame>
+
+To configure this field, ensure you provide valid URLs, separated by a ";" and a space. For example:
+
+```bash
+https://draftable.com; https://newcompany.com; https://test_domain.com
+```
+
+<Note>
+**Note:** The first URL provided will be the default one that is selected by Draftable.
+</Note>
+
+
+### Configuring iManage Tenancies via Group Policy (For Administrators)
+
+If group policy is not an option for configuring 
+
+```bash
+Current user key location: HKEY_CURRENT_USER\Software\Policies\Draftable\Feature
+Local Machine key location: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Draftable\Feature
+Value name: ImanageEndpointsCsvPolicy
+Value type: REG_SZ
+Value data: <key>
+```
+
+The `<key>` value is the same as group policy, you set URLs separated by a ";" and a space. For example:
+
+```bash
+https://draftable.com; https://newcompany.com; https://test_domain.com
+```
+
+<Note>
+**Note:** The first URL provided will be the default one that is selected by Draftable.
+</Note>
+
+### Notes for Administrators
+
+- If using **Microsoft Intune**, you can import the latest Draftable Legal ADMX templates to deploy tenancy configurations cloud-wide.
+- Group Policy configurations take precedence over user-defined settings.
+- For troubleshooting, ensure that the steps followed for iManage configuration were correctly done (depending on whether your setup is for on-premise or cloud).
+
+
+### Related Articles
+<CardGroup>
+<Card
+  title="iManage Integration and Usage in Draftable Legal"
+  icon="file-text"
+  href="/hc/en-us/articles/16549583625241-iManage-Integration-with-Draftable-Legal"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Guide for iManage Cloud Integration with Draftable Legal"
+  icon="cloud"
+  href="/hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Configuring Settings with Group Policy (Draftable Legal)"
+  icon="gear"
+  href="/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal"
+  iconType="solid"
+  horizontal
+/>
+</CardGroup>
+### Need Help?
+
+If you require assistance configuring multiple iManage tenancies or Group Policy templates, contact our support team at **support@draftable.com**.

@@ -1,0 +1,87 @@
+---
+title: "Configuring preferences with Group Policy (Draftable Business)"
+description: "This article is for system administrators who are interested in using Group Policy to deploy & configure Draftable Business across an organization as part of an [enterprise deployment.](/hc/en-us/articles/6142316169625-Enterprise-deployment-options)"
+---
+
+## What is Group Policy?
+
+Group Policy is a feature in Microsoft Windows that provides centralized management and configuration of operating systems, applications, and users' settings in an Active Directory environment. This is particularly useful in enterprise settings, where maintaining uniform configurations across multiple machines is critical.
+
+## Obtaining the administrative templates
+
+The administrative templates are found in the **GroupPolicy** folder under the product installation path.
+
+For the Default Installer, the path will also contain a version number. The latest administrative templates will be in the folder with the latest version.
+
+Example path for Default Installer:
+
+```bash
+%LocalAppData%\DraftableDesktop\current\GroupPolicy
+```
+
+## Installing the administrative templates
+
+To install the templates, copy all files/folders in the **GroupPolicy** folder to the following location on the system(s) from which Group Policy will be managed:
+
+```bash
+C:\Windows\PolicyDefinitions
+```
+
+You could perform the following alternate methods of installing administrative templates, by either:
+
+- If your organization maintains a Central Store, copy the administrative templates to the  
+	Central Store’s network path.
+- Import custom and third party partner ADMX templates using [Microsoft Intune.](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom)
+
+## Editing the policies in the Group Policy editor
+
+Once the administrative templates are installed, the Draftable Desktop policies can be found in Group  
+Policy editor under:
+
+- Computer Configuration > Administrative Templates > Draftable
+- User Configuration > Administrative Templates > Draftable
+
+Some settings may only be listed under one of the two scopes if they’re not supported on the other.
+
+### Policy settings
+
+These are the policy settings that can be set via Group Policy for Draftable Desktop:
+
+- **1-Click definition:** By copying the 1-Click Compare export item (pictured below), you can copy the instruction to set the group policy definition to a default behavior.  
+	<Frame>
+	![](/images/draftable-business/image-18.png)
+	</Frame>
+- **Setup automatic updates on behalf of users (non-MSI installer):** By default, users' Draftable applications are automatically updated. If this policy is set to the disabled setting, the app can only be updated manually from the settings window.
+- **Configure custom error message:** This option allows you to set a custom error message that will be shown when something goes wrong when executing a comparison.
+- **Configure customer contact support email body:** This option allows you to  a custom email message that will be shown when user will see Outlook email with logs, after an error in the application.
+- **DOCX Conversion Engine:** Specify which conversion engine to use when converting Word documents to PDF.
+	- Use 'Default' to use Draftable recommended engine. The default engine may change between versions.
+	- Use 'Office' to use Microsoft Office.
+	- Use 'Internal' to use Draftable Engine.
+- **Free text font family:** Allows you to set custom font family for free text comparisons. Default font is Arial.
+- **Header and footer detection:** An experimental feature for detecting headers and footers in documents. When enabled, the product key must also be entered as part of the policy setting.
+- **Hide 1-Click tab from users:** Allows you to hide 1-Click tab in the Settings. Note that it'll not remove 1-click in the integrations such as Windows Context Menu.
+- **Enable to show 1-Click export options:** Allows you to see the "copy to clipboard" export option (in the image pictured above) as so be able to configure the **1-Click definition** group policy item.
+- **Configure product key:** Add the product key to be used for automatic license activation.
+- **Send usage statistics:** When enabled, statistics on user machines are sent to Draftable servers for diagnostic purposes.
+- **Configure Word Application usage Policy:** This setting when enabled, sets the setting for Microsoft Word to only use a single instance of Word, when converting documents to pdf.
+- **Configure submission of exception reports:** Assists Draftable Legal in identifying issues and improving the product. When enabled, the administrator has 2 additional options: Always send exceptions or never send exceptions.
+- **Launch Draftable Automatically when Windows starts:** If you enable this policy setting, Draftable will launch automatically when Windows starts, unless the user explicitly opts out from the settings window.
+- **Accept terms and conditions on behalf of users:** Users are prompted to accept the terms and conditions on first-time application start. When enabled this will automatically accept said terms and conditions.
+- **Users can share error logs:** When goes wrong while executing comparison, by default users are prompted with an error dialog that has a button to draft an email with logs attached. This setting can hide that option, by default it's enabled.
+
+## Priority of Group Policy settings
+
+Unless otherwise noted, the order of precedence from highest priority to lowest priority is:
+
+- User Policy (set in User Configuration)
+- Computer Policy (set in Computer Configuration)
+- User Setting (set by the user through the UI or by the user manually editing the registry)
+
+If no policy setting exists, the user setting is used.
+
+## Using Microsoft Intune
+
+Microsoft Intune is a cloud-based service provided by Microsoft that helps organizations manage and secure their devices, applications, and data.
+
+If you are using Microsoft Intune, you can use it to install Group Policy for Draftable Business. Follow the [Microsoft documentation](https://learn.microsoft.com/en-us/mem/intune/apps/lob-apps-windows) for more information.

@@ -1,0 +1,73 @@
+---
+title: "Enterprise installment for Draftable using Intune"
+description: "Microsoft Intune is a cloud-based service for mobile device and application management. It allows businesses to control access to company resources, manage mobile devices, and ensure data security centrally, regardless of where employees are located or their devices. It is part of Microsoft's Enterprise Mobility + Security suite."
+---
+
+
+
+This article will guide you through installing Draftable Legal using Microsoft Intune, and how to manage product keys via group policy. This guide will also cover an issue where Draftable Legal Machine Wide MSI doesn't install due to existing installation files. This article will explain how to diagnose this issue and apply a fix.
+
+## Microsoft Intune Installation
+
+If you wish to deploy the Draftable Legal application via Microsoft Intune here are the steps to be followed for successful deployment:
+<Steps>
+<Step>
+Adding Draftable Legal Machine Wide MSI to Microsoft Intune
+</Step>
+<Step>
+ Deploy Draftable Legal with Microsoft Intune
+</Step>
+<Step>
+ Using Intune to deploy the product key via group policy
+</Step>
+</Steps>
+### Adding Draftable Legal to Microsoft Intune
+
+Before deploying the Draftable Legal application via Intune, it requires it to be added as a Windows App first. This is first done by ensuring the the Draftable Legal Machine Wide MSI is being used, and download link can be found [here](https://dl.draftable.com/desktop/DraftableDesktopSystem.msi).
+
+To continue this process, we recommend following the official Mircosoft Intune documentation on this process [here.](https://learn.microsoft.com/en-us/mem/intune/apps/apps-windows-10-app-deploy)
+
+### Deploying Draftable Legal with Microsoft Intune
+
+Now that Draftable Legal has been added as an app, we can deploy it via Microsoft Intune. For this process we recommend following the official Mircosoft Intune documentation on this process [here.](https://learn.microsoft.com/en-us/mem/intune/apps/apps-windows-10-app-deploy)
+
+### Using Intune to deploy the product key via group policy
+
+If you wish to use Microsoft Intune to manage product keys, this can be done using group policy within Intune. For this process we recommend following the official Mircosoft Intune documentation on this process [here](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom).
+
+Alternatively you can deploy this by normal group policy method, which we have an article on [here](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal).
+
+### Uploading Group Policy files to Intune
+
+Latest ADMX/ADML template files used for group policy configuration with Draftable Legal and by extension via Intune can be found [here.](/hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files)
+
+Ensure where possible you are always using the latest template files to ensure you have access to the most up to date configuration group policy options.
+
+<Note>**Note:** Ensure you only have 1 copy of the each the Draftable Legal ADMX/ADML file uploaded to Intune at any given time. If you attempt to upload a duplicate of an existing file (but with a different name) issues will occur.</Note>
+
+## Draftable Legal MSI doesn't install due to existing installation files
+
+We understand there is an existing issue where the Draftble Legal MSI won't install. This might be due to the system already containing the %localappdata%/DraftableDesktop directory, and the installer may mistakenly assume that the application has already been installed.
+
+### Verify existing installation files
+<Steps>
+<Step>
+Check if the %localappdata%/DraftableDesktop directory already exists on the system by navigating to the specified location.
+</Step>
+<Step>
+If the directory exists, proceed to the next step. Otherwise if this directory does not exist, get in touch with our support team at [support@draftable.com](mailto:support@draftable.com) and provide us with information relating to your issue.
+</Step>
+</Steps>
+### Existing installation files fix and verification
+<Steps>
+<Step>
+Delete the preexisting Draftable Directory before proceeding with the MSI installer. This is important if you've used the standard exe installer before.
+</Step>
+<Step>
+Run the MSI installation process (either via Intune or default MSI deployment)
+</Step>
+<Step>
+To verify the the installer is deployed correctly, an application named 'DraftableDesktop Deployment Tool' will be installed and listed under 'Programs and Features'.
+</Step>
+</Steps>
+If you have followed our fix or have in general questions regarding deployment, please get in touch with our support team at [support@draftable.com](mailto:support@draftable.com) and let us know your issue.

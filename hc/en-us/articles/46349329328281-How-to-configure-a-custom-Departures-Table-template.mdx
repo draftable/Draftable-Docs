@@ -1,0 +1,114 @@
+---
+title: "How to configure a custom Departures Table template"
+---
+
+## What is the Departures Table?
+
+The **Departures Table** is a specialized report that helps you see how a document has changed—**with full context**. Instead of just showing edits inline or as redlines, it highlights the **entire section or clause** where a change occurred. This makes it easier to understand changes at a glance, especially in long or complex documents.
+
+<Frame>
+![](/images/draftable-legal-configure-a-custom-departures/image-1.png)
+</Frame>
+
+## What Is It Used For?
+
+The Departures Table is typically used during collaborative editing or negotiation processes. It's especially helpful when:
+
+- You want to **quickly review all meaningful changes** without digging through redlines.
+- You're working with **large documents** and need a summary that highlights changes in full paragraphs or sections.
+- You need a **clean, shareable summary** of updates to send to others for review or approval.
+
+## How to export a Departures Table
+
+<Steps>
+    <Step>
+    Run a **Redline in Draftable** comparison
+
+    <Frame>
+    ![](/images/draftable-legal-configure-a-custom-departures/image-2.png)
+    </Frame>
+    </Step>
+
+    <Step>
+    In the Draftable viewer, navigate to any of the **export options** in the top-left, and select **Departures Table**. A Departures Table can be generated for **Open, Save, Save to DMS, Copy to Clipboard** or **Email**.
+
+    <Frame>
+    ![](/images/draftable-legal-configure-a-custom-departures/image-3.png)
+    </Frame>
+    </Step>
+</Steps>
+
+## How to configure a custom Departures Table template
+
+Draftable includes a default Word document template for the Departures Table, but you can customize this to suit your needs. This can be achieved by adding your own custom template and overriding the default template.
+
+<Steps>
+<Step>
+Navigate to Draftable installation folder, e.g. `%LOCALAPPDATA%\DraftableDesktop\current` or `C:\Program Files (x86)\Draftable\Draftable Desktop` and open `Resources` folder.
+
+    <Frame>
+    ![](/images/draftable-legal-configure-a-custom-departures/image-4.png)
+    </Frame>
+</Step>
+
+<Step>
+Create a copy of **DeparturesTableTemplate.docx** file and open it in MS Word and enable it for editing.
+
+<Frame>
+![](/images/draftable-legal-configure-a-custom-departures/image-5.png)
+</Frame>
+</Step>
+<Step>
+Edit the newly created, copied Departures Table template according to your needs. Please, however, adhere to the requirements for the table:  
+	  
+	At least four columns for the following content in the following order:  
+	1. Departure ID
+	2. Section Reference
+	3. Changed clause (departure)
+	4. Review notes/comments  
+		  
+	Also, ensure there is:
+	- A table header
+	- An empty row  
+		  
+    See the example below:
+    <Frame caption="Example of a valid template">
+    ![](/images/draftable-legal-configure-a-custom-departures/image-6.png)
+    </Frame>
+</Step>
+<Step>
+Style the document according to your needs
+	1. Elements that can be customised:
+        1. Header and footer
+		2. Font family and size
+		3. Table header titles
+		4. Adding more table columns on the right-hand side
+	2. Elements that cannot be customised:
+		1. Removing or adding columns at position 1-4 (as mentioned above)
+		2. Changing the order of columns at position 1-4 (as mentioned above)
+			
+            <Frame>
+            ![](/images/draftable-legal-configure-a-custom-departures/image-7.png)
+            </Frame>
+</Step>
+</Steps>
+
+## Deploying a custom Departures Table template
+
+<Steps>
+    <Step>
+    Copy the document created to the Microsoft Office templates folder, typically at: %AppData%\\Microsoft\\Templates
+    </Step>
+    <Step>
+    **Restart Draftable** by exiting out of the application completely. Do not just close out the New Comparison window. (Guide here on how to [correctly restart Draftable](/hc/en-us/articles/39934335355033-How-to-properly-restart-Draftable-Legal))
+    </Step>
+    <Step>
+    Verify the new template is working by generating a Departures Table report
+    </Step>
+</Steps>
+
+## Having issues?
+
+Reach out to the support team at [support@draftable.com](mailto:support@draftable.com) and we will assist you in getting your departures table template working, or if you have any questions regarding this feature.
+
+

@@ -1,0 +1,72 @@
+---
+title: "Release Notes: Draftable Legal March 2025 (v25.3.0)"
+description: "We’re excited to share the March release of Draftable Legal (v25.3.0), bringing new customization options for comparison accuracy, streamlined document viewing, and enhancements to SharePoint workflows. This update also includes fixes to common issues affecting Excel redlines, PDFs, and large batch comparisons. Here is a quick overview of the five new improvements that matter most:"
+---
+
+1. **Focus on real content differences** – Comparisons can now ignore changes between **straight and curly apostrophes or quotation marks**. This new setting helps you avoid getting distracted by irrelevant changes in punctuation formatting, especially in documents with mixed authorship or legacy content.
+2. **Keep your layout preferences between comparisons** – The Viewer now **remembers your preferred layout** — such as keeping the Change List collapsed. This saves time for reviewers who prefer a cleaner workspace when comparing many files throughout the day.
+3. **Understand issues faster with improved error messages** – When comparisons fail, the **1-Click Compare** error dialog now includes clearer explanations and next steps. This helps users resolve issues without needing to escalate to IT or support teams.
+4. **Review legacy documents without unnecessary alerts** – The warning about older document formats (.doc) has been removed to reduce interruptions during review. Users can now **compare older Word files** without seeing alerts that don’t affect output quality.
+5. **Use custom change list tags for internal workflows** – Admins can now define custom tags for the **change list,** giving you greater control over how changes are labelled and reviewed.
+
+Let’s take a closer look at the full list of updates:
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the March releases to be possible.
+
+If you have feature ideas or product performance feedback, we **would** love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## Core Functionality
+
+### Comparison Settings
+
+#### Option to ignore punctuation style differences
+
+A new Redline Profile setting allows users to treat straight and curly apostrophes or quotation marks as equivalent, preventing minor formatting differences from being flagged as content changes.
+
+This is especially helpful in cross-jurisdictional or collaborative documents where punctuation standards vary.
+<Frame>
+![](/images/draftable-legal/image-73.png)
+</Frame>
+### Ease of Use Enhancements
+
+#### Sticky sidebar preferences
+
+The right-hand menu panel in the Viewer now remembers your last state — whether collapsed or expanded. This preference carries across future comparisons and sessions, streamlining the review process.
+<Frame>
+![](/images/draftable-legal/image-74.png)
+</Frame>
+#### Clearer error messages
+
+We’ve redesigned the 1-Click Compare error dialog to surface more helpful context, including what went wrong and what the user can try next. This supports faster self-resolution without needing to escalate to IT.
+
+#### SharePoint: updated 1-Click Compare behavior
+
+When using 1-Click Compare via SharePoint, the command now runs using the latest engine, ensuring faster, more consistent comparisons with improved file handling.
+
+### Word and Excel Output Enhancements
+
+#### Word: Changes Report now uses full page width
+
+The table in the Word Changes Report now expands to fill the width of the page, improving readability and reducing wasted space.
+
+#### Custom tags in change list
+
+Administrators can define firm-specific tags that appear in the change list. These tags support team-based review workflows and help reviewers scan for key issues faster. This can be implemented in the Group Policy settings under Custom Status Tags.
+
+## Bug Fixes
+
+As with all releases, the March update included fixes to several reported issues:
+
+- Resolved issues in **bulk comparisons where large sets would occasionally timeout**
+- Fixed **change list comment indexing** to ensure consistent markup output
+- Resolved **formatting issues in Departures Table emails**
+- Fixed issue with **redlines failing to open in Excel**
+- Corrected false positives in **paragraph changes caused by bookmarks**
+- Fixed **PDF viewer icon not appearing** when PDF files are compared
+- Improved **SharePoint API handling** for large libraries
+- Fixed issue with **TXT file comparisons**
+- **Corrected behavior for admin-installed add-ins** in Settings view
+
+If you are ever experiencing issues in Draftable, please contact [support@draftable.com](mailto:support@draftable.com) for further assistance.

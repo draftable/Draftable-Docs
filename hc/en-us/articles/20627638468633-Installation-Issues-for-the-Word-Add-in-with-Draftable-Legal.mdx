@@ -1,0 +1,53 @@
+---
+title: "Installation Issues for the Word Add-in with Draftable Legal"
+description: "If your seeing this article, its likely Draftable Legal has encountered a couple of issues that prevent the installation of our Word Add-in. There are two potential causes for this issue:"
+---
+
+
+
+1. The Visual Studio Tools for Office (VSTO) Runtime is not installed.
+2. The application cannot access `HKEY_CURRENT_USER\Software\Microsoft\Office\Word\Addins`.
+
+These issues prevent the complete functionality of our Word Add-in.
+
+## Whats the issue?
+
+### Issue 1: VSTO Runtime not installed
+
+VSTO Runtime is a component required to run Microsoft Office-based solutions that are built by using Microsoft Visual Studio. This issue indicates that the VSTO Runtime, which is necessary to run our Word Add-in, is not installed on your system.
+
+### Issue 2: Inaccessible Registry Key
+
+The path `HKEY_CURRENT_USER\Software\Microsoft\Office\Word\Addins` is a specific location in the Windows Registry where Microsoft Word Add-ins are registered. Our application needs to access this location to register our Word Add-in. The inability to access this Registry key may indicate that the current user account does not have the necessary permissions.
+
+## Here's the solution 
+
+Here's how you can solve these issues:
+
+### Issue 1: Install VSTO Runtime
+<Steps>
+<Step>
+Visit the official [Microsoft Download Center](https://www.microsoft.com/en-us/download/default.aspx)
+</Step>
+<Step>
+Search for "Visual Studio 2010 Tools for Office Runtime".
+</Step>
+<Step>
+Click on the search result to access the download page.
+</Step>
+<Step>
+Click "Download" and follow the instructions to install the VSTO Runtime.
+</Step>
+</Steps>
+### Issue 2: Gain access to Registry Key
+<Steps>
+<Step>
+Make sure that the current user account has the necessary permissions to edit the Windows Registry. This usually requires administrative privileges.
+</Step>
+<Step>
+If necessary, run our application as an administrator. Right-click on the application icon and choose "Run as administrator".
+</Step>
+</Steps>
+## What if the problem persists?
+
+If these steps do not solve the issue, it could be beneficial to consult with our team. You can contact our customer support team for help at [support@draftable.com](mailto:support@draftable.com)

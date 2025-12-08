@@ -1,0 +1,123 @@
+---
+title: "API Self Hosted v3 – Quick Start Guide"
+description: "This guide will help you set up and run API Self Hosted v3 in a Docker-based environment. Follow the steps below to get up and running in minutes."
+---
+
+## Pre-requisites
+
+### Software
+
+Before you begin, make sure you have the following installed on your Linux server:
+
+- A Linux distribution that supports Docker (or equivalent container runtime)
+- Docker is installed and running
+- Docker Compose plugin installed
+
+### Hardware
+
+Your server should meet the following minimum requirements:
+
+- **Processor**: 4 cores running at 2.5 GHz (Intel Xeon 8000 series or better)
+- **Memory**: 8 GB RAM minimum
+- **Storage**: 20 GB free disk space
+
+## Configuration Files
+
+You can find the Docker Compose file and a sample `.ENV` configuration file at our GitHub repository:
+
+<Card title="https://github.com/draftable/apish/tree/v3" href="https://github.com/draftable/apish/tree/v3" iconType="solid" icon="github" horizontal />
+
+## Initial Deployment
+
+<Steps>
+<Step title="Prepare your directory">
+	On your Linux server, create a dedicated folder that contains your `.ENV` file and the Docker Compose file. Adjust the settings in the `.ENV` file to suit your use case.
+
+    <Note>
+	**Note:** You can pre-configure your product key in the `.ENV` file.  
+	Example:
+	```bash
+	DRAFTABLE_PRODUCT_KEY=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+	```
+    </Note>
+</Step>
+<Step title="Navigate to the directory and deploy the container">
+	First ensure you are currently operating within the directory where the compose file and .ENV exists. 
+	```bash
+	cd /location_of_your_directory
+	```
+	Run the following command from inside your deployment folder:
+	```bash
+	docker compose up
+	```
+</Step>
+<Step title="Note">
+Add the `-d` flag if you want to run the container in the background:
+	```bash
+	docker compose up -d
+	```
+</Step>
+<Step title="Access the UI">
+	Open your browser and navigate to the HTTPS address you configured in your `.ENV` and Compose files.  
+	  
+	Example:
+    <Frame>
+    ![](/images/image-2.png)
+    </Frame>
+
+</Step>
+<Step title="Set up the Administrator account">
+	On first launch, you will be prompted to create an Administrator account.  
+	  
+    <Frame>
+    ![](/images/image-3.png)
+    </Frame>
+    <br />
+    <Frame>
+    ![](/images/image-4.png)
+    </Frame>
+</Step>
+<Step title="Log in as Administrator">
+	After creating your account, log in with the Administrator credentials.   
+	  
+	<Frame>
+    ![](/images/image-5.png)
+    </Frame>
+    <br />
+	You now have full UI access to the container.  
+	 
+	<Frame>
+    ![](/images/image-6.png)
+    </Frame>
+
+</Step>
+<Step title="Retrieve your API credentials">
+	Navigate to **Account Settings** within the Administrator portal to view your API credentials.   
+	  
+	<Frame>
+    ![](/images/image-7.png)
+    </Frame>
+	  
+	With these credentials, you can now start using the API.  
+	<Frame>
+    ![](/images/image-8.png)
+    </Frame>
+</Step>
+<Step title="Manage users and settings">
+	Use the Administrator portal to modify user accounts, update settings, and manage your deployment. Selecting the **Account settings** of the user you wish to configure will open the Django administration page.  
+	  
+	<Frame>
+    ![](/images/image-9.png)
+    </Frame>
+	  
+	Here you can configure the settings for the user account. These settings impact things like file size limitations, UI configuration and default values with comparison UI.   
+	<Frame>
+    ![](/images/image-10.png)
+    </Frame>
+</Step>
+<Step title="You are now ready to use API Self Hosted v3!">
+	✅ You are now ready to use API Self Hosted v3! If you are having any issues deploying or problems related to the new image version, please get in touch at [support@draftable.com](mailto:support@draftable.com).
+</Step>
+</Steps>
+
+✅ You are now ready to use API Self Hosted v3! If you are having any issues deploying or problems related to the new image version, please get in touch at [support@draftable.com](mailto:support@draftable.com).

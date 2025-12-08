@@ -1,0 +1,91 @@
+---
+title: "Release notes: Draftable Legal v2.16"
+description: "We are pleased to introduce Draftable Legal v2.16 (released in June 2024). *A full list of items in all releases is available in our* [*Release Log*](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal)."
+---
+
+
+This update introduces enhancements designed to help our customers by:
+
+- Expanding document comparison flexibility with a new Redline output in Word without tracked changes (.docx)
+- Increasing workflow efficiency by adding Redline (.docx) as an output option in Next Actions, Bulk Compare and 1-Click Compare
+- Simplifying the comparison process with renamed Comparison Type options for clearer selection
+- Clarifying PowerPoint and Excel comparisons by adding a new 'Native (MS Office)' Comparison Type, previously included as part of ‘Redline tracked changes (docx, pptx, xlsx)’
+- Reducing workflow steps for comparing text in word by accepting tracked changes in selected text using the 'Compare Text' command
+- Saving time by allowing users to copy input files to the clipboard in the Next Action menu
+- Strengthening iManage integration stability with an update to the iManage SDK version 10.9.3.43
+- Reducing potential file identification confusion by adjusting filenames to omit the term "original" when attaching to emails
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 2.16 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Core Functionality
+
+### Redline in Word (without tracked changes)
+
+We have expanded our Redline document options by adding the ability to create Word (.docx) files without tracked changes. This new feature allows users to present markups in a static format (with no associated metadata). Users can access this new comparison output by choosing the Redline in Word Comparison Type (pictured).
+
+<Frame>
+![Launcher - Redline in word.png](/images/draftable-legal/image-146.png)
+</Frame>
+
+Redline (.docx) has also been incorporated into the Next Action menu, Bulk Compare save menu, and 1-Click Compare settings. This ensures users who prefer this output format have access to all Draftable’s time saving features.
+
+<Frame>
+![Next Action - Redline Docx .png](/images/draftable-legal/image-147.png)
+</Frame>
+
+## Enhanced ease of use
+
+### Updated Comparison Type options
+
+In an effort to make our interface more intuitive for first time users, we’ve renamed the Comparison Type options in the New Comparison Window. This change simplifies the selection process, making it easier for users to navigate and choose the right options. Alongside this, a new Comparison Type 'Native (MS Office)' for Excel and PowerPoint has been introduced, leveraging PowerPoint's Compare and Spreadsheet Compare tools. These options were previously housed under Track Changes and their reallocation aims to reduce confusion for users who would otherwise have expected a redline output for PowerPoint and Excel 
+<Note>
+Redline for PowerPoint and Excel are currently in development.
+</Note>
+
+<Frame>
+![Comparison types in launcher.png](/images/draftable-legal/image-148.png)
+</Frame>
+
+The new Comparison Type options are summarized in the table below. You can read more about these in our new [**Comparison Type guide**](/hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window).
+
+| Comparison Type | Description |
+|:-|:-|
+| Redline in Draftable | Our recommended Redline option. Opens in the Draftable Comparison Viewer for advanced review features and allows for all file types to be opened, saved, printed, emailed or copied to clipboard. |
+| Tracked Changes in Word | For users who prefer to work in Word and want their markup as tracked changes with associated metadata |
+| Redline in Word | For users who prefer to work in Word and want their markup as static redline (with no associated metadata) |
+| Side by side | Our original comparison product for users that need to see changes but don't need to continue working on a file. This produces a side by side PDF with changes shown with highlighting. Comparisons opens in the Draftable Viewer for advanced review features. Can open in Adobe, save to DMS, print, email or copy the output to clipboard. This option compares all files types (including PowerPoint and Excel). |
+| Native (MS Office) | Microsoft Office's native compare functions for PowerPoint and Excel files (Spreadsheet Compare). This is recommended for users who need to compare PowerPoint and Excel files and continue working on those files afterwards. |
+
+### Improved text compare via the word Add-in
+
+Users can now accept tracked changes within selected text areas when using the 'Compare Text' command in Draftable. This enhancement removes the need for users to accept or manually edit changes to text when running comparisons, removing unnecessary ‘clicks’ from their workflows.
+
+### Copying input files to clipboard via Next Actions
+
+In Draftable v2.16 we’ve restored the ability to copy input files to the clipboard directly from the Next Action menu. This makes it easier for users who tend to have emailed pre-drafted and need to attach their comparison files (including input files) quickly via copy to clipboard. This functionality was present in earlier versions of Draftable and has been restored after feedback from customers.
+
+<Frame>
+![Copy to clipboard input files.png](/images/draftable-legal/image-149.png)
+</Frame>  
+
+Draftable Legal v2.16 also sees minor adjustments to the input filename convention when generating emails, or copying to clipboard. We have removed the term “original” which was previously appended to input filenames when attaching documents to emails, reducing potential confusion with file identification.
+
+## Ongoing reliability improvements
+
+We have updated our iManage integration to use the iManage SDK version 10.9.3.43. This ensures integration stability and performance.
+
+## Bug Fixes
+
+Draftable Legal v2.16 has addressed several bugs raised by customers, including:
+
+- Updating our algorithm to avoid displaying changes in images, hidden text, and page breaks when all Comparison Options are disabled in the selected Redline Profile.
+- Stopping Draftable from making changes to user Word settings for Review Balloons after comparisons are run.
+- Updated Registry / Group Policy for 1-Click Compare to ensure it also updates the end user UI in the settings menu.
+- Fixing behavior where the incorrect font rendering in PDF Redline outputs
+- Ensuring that margin lines are not shown in PDF outputs when changes are ignored.

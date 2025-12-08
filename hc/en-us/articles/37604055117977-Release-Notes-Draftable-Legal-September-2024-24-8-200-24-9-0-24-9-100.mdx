@@ -1,0 +1,139 @@
+---
+title: "Release Notes: Draftable Legal September 2024 (24.8.200, 24.9.0 & 24.9.100)"
+---
+
+<Note>
+***Note: this article was updated on 30 September 2024 to include the v24.9.0 and v24.9.100 releases***
+</Note>
+We are pleased to share details of our September releases of Draftable Legal (v24.8.200, 24.9.0 and 24.9.100). These releases bring together a number of new improvements for expanded redline and review functionality and faster and more accurate document comparison workflows.
+
+Key benefits in September updates include:
+
+- **Create redlined Excel files** using our new 'Redline in Excel' Comparison Type, with the ability to load excel files, worksheets or selected cells via our new Draftable Excel Add-in
+- **Enjoy better accuracy** with an improved algorithm for merged cell display in tables and auto-detection and optimization for ideographic languages (such as Japanese, Chinese and Korean)
+- **See markups more easily** with new markup schema color options for Classic (brighter) Blue and Red, and selected markup schema defined in the Summary page and used in the Changes Report
+- **Annotate and share changes** with less clicks using new bulk action tagging in the Change List, and export your Changes Report as part of redline exports, as a separate docx file or within the body of a Draftable-generated email
+- **Rerun comparisons faster** with Draftable's new automatic detection and syncing of file updates from your computer or DMS before rerunning comparisons.
+- **Print files faster** with the option to print input files alongside comparison outputs
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 24.8.200 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Features & Improvements
+
+### Redline in Excel now available to all users
+
+#### Generate redlined Excel files using our new 'Redline in Excel' Comparison Type
+
+From v24.9.1, users can generate redline outputs in Excel files, expanding Draftable's redlining comparison capabilities beyond Word and PDFs. This feature, previously in preview mode, is now generally available and allows for a more comprehensive review of spreadsheet-based agreements, financials, and other legal documents. 
+
+Our Redline in Excel comparison type uses a new purpose-built comparison algorithm specific to spreadsheets, and can detect and highlight where formula changes are the cause of markups (shown as yellow boxed groups of cells with 'notes' outlining formula changes). The output also displays where whole sheets are deleted or inserted, and where rows or columns are inserted or deleted using blue and pink shading.
+<Frame>
+![Excel redline output.png](/images/draftable-legal/image-121.png)
+</Frame>
+The workflow in Draftable mimics our existing options for 'Redline in Word', providing users the flexibility to open, save, email or copy to clipboard the redlined Excel file. Our team are now hard at work building a dedicated Draftable viewer experience for spreadsheets, which will include a clickable and filterable change list for Excel comparisons.
+<Frame>
+![Next actions menu excel.png](/images/draftable-legal/image-122.png)
+</Frame>
+#### Load Excel files, worksheets, or specific cells with the new Draftable Excel Add-in
+
+To complement our new 'Redline in Excel' Comparison Type, Draftable has also released a Draftable add in for Excel. This add-in streamlines your comparison process by loading entire Excel files, individual worksheets, or selected cells for comparison. This ability to target specific sheets or cells for comparison helps users focus on relevant data, reducing time otherwise spent navigating through comparisons of larger spreadsheets.
+<Frame>
+![Excel add in.png](/images/draftable-legal/image-123.png)
+</Frame>
+### Improved algorithm for more accurate comparisons
+
+#### Algorithm updates with support for Japanese and ideographic languages
+
+From v24.9.0, users working with Japanese, Chinese, Korean and other ideographic languages can now experience more accurate and reliable comparisons. The updated algorithm automatically detects the presence of these languages in your documents and optimizes its functionality to ensure better handling of character-based languages without sentence spacing. This improves the overall experience for multilingual firms.
+
+<Frame caption="Comparison of Japanese language document AFTER algorithm improvement">![Japanese language output improved.png](/images/draftable-legal/image-124.png)</Frame> 
+
+#### Improved outputs for comparing Tables with merged columns
+
+Users will enjoy clearer and more readable table comparisons when they include merged cells. Draftable v24.8.200 includes algorithm improvements for scenarios where two columns are merged and text is inserted. This updated algorithm optimizes the redline output to preventing text from bunching up in a single column and gives an easy to read output while still clearly indicating the cells have been merged. This ensures smoother document reviews, particularly for tables with complex formatting.
+
+| <Frame>![Table input with merged cell.png](/images/draftable-legal/image-125.png)</Frame> | <Frame>![Table input redline with merged cell.png](/images/draftable-legal/image-126.png)</Frame> |
+| :--- | --- |
+| **Older input file with Table that has empty row with two columns** | **New redline output with merged cell shown with readable text** |
+
+### Improvements for comparison review workflows
+
+#### Find changes more easily with brighter 'classic' blue and red markup colors
+
+Focus on key changes by using the classic Word blue and red color scheme in markup outputs. This new option in the markup schema settings provides a familiar format for users, enhancing the ease of reviewing Redline comparisons.
+<Frame>
+![Classic colours in markup schema.png](/images/draftable-legal/image-127.png)
+</Frame>
+#### Bulk status tagging and 'reviewed' tag for faster comparison reviews
+
+Complete your reviews more efficiently with the new bulk tagging feature, allowing you to apply status tags across multiple changes at once. Additionally, you can mark individual changes as 'reviewed,' making it easier to track progress and finalize comparisons without missing critical updates.
+<Frame>
+![Bulk actions on change list.png](/images/draftable-legal/image-128.png)
+</Frame>
+### Share your annotated changes more easily
+
+Our September updates included several enhancements to our Changes Report specifically requested by customers to make it easier to export and review. These include:
+
+#### Export your Changes Report to DOCX or include in Redline exports or the body of emails generated by Draftable
+
+We know most lawyers prefer working in Word documents. So from v24.8.200, users can export the Changes Report as a DOCX file in the Next Action menus (open, save, save to DMS, email, copy to clipboard). This makes it easier to share comprehensive summaries of document changes.
+
+Alternatively, if users prefer they can choose to include the changes report as part of the redline or tracked change document itself (in any format). This can be achieved by selecting 'options' in the Next Action ribbon menus and choosing to include the Changes Report at the start or end of the comparison output.  
+
+Lastly, from v24.9.0, users can share their insights and tagged changes with colleagues directly in emails via the updated Next Actions menu. The new feature allows you to include the Changes Report within the body of emails generated by Draftable, streamlining collaboration and communication.
+
+These additions ensure legal teams can share all necessary details when delivering reports to clients or colleagues. 
+<Frame>
+![Changes report next actions incl add to email body.png](/images/draftable-legal/image-129.png)
+</Frame>
+#### Markup Schema Colors and filename in the Changes Report
+
+Users can now identify changes more effectively in the Changes Report by seeing their markup schema colors used directly in the report. This visual enhancement makes it faster to understand changes in the report for quicker review turnaround.
+
+Users will also see the names of compared files directly within the Changes Report. This feature makes it easier to ensure the correct files were compared and contextualizes the changes shown in the Changes Report.
+<Frame>
+![Chnages report markup schema.png](/images/draftable-legal/image-130.png)
+</Frame>
+We are currently working with customers on further enhancements to our Changes Report and if you would like to see other improvements please reach out to [product@draftable.com.](mailto:product@draftable.com) 
+
+### Other Ease of Use enhancements
+
+Our September release has included a number of new ease of use features that remove steps in file loading and printing. 
+
+#### Rerun comparisons faster with automatic file resync
+
+From v24.9.0, Draftable will detect updates to files that are left in the New Comparison Window, and automatically resyncs these updates from your local computer or DMS. This means users can rerun comparisons after updating their files without manually reloading the files into Draftable. This improvement reduces workflow clicks and helps you get to the results faster, especially when working on iterative drafts.
+
+#### Save to the last used location by default
+
+Users can save time during frequent comparison tasks by updating their General settings to default save locations to the last saved directory. This new setting minimizes unnecessary clicks and ensures smoother document handling.
+<Frame>
+![Save to last location.png](/images/draftable-legal/image-131.png)
+</Frame>
+#### Faster file loading when comparing older (Legacy) documents
+
+Users can now streamline their comparison experience by disabling the warning in Draftable when working with legacy document types. This reduces unnecessary interruptions for users who frequently compare older Word documents.
+
+#### Print Input Files via Draftable
+
+It's now easier to obtain hard copies for comparison review when needed. Users can now choose to print their comparison input files directly from the Next Action menu in addition to comparison outputs. This improvement adds to Draftable's wide range of 'next actions' designed to reduce steps for comparison workflows.
+<Frame>
+![Print input files.png](/images/draftable-legal/image-132.png)
+</Frame>
+## Bug Fixes
+
+As with all releases, we have included a number of bug fixes reported to our support team:
+
+- Resolved an issue where the `.docx` suffix was being appended twice when copying renamed files to the clipboard.
+- Fixed a rendering issue that caused screen flickering when performing drag-and-drop operations.
+- Addressed a false negative detection for inserted headers on the first page of documents.
+- Corrected an error that caused a comparison failure when handling complex fields.
+- Fixed an issue where inserted signatures were not appearing in the Change List.
+
+For a full list of changes and more details, please refer to our [Release Log](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal) or contact our support team at [support@draftable.com](mailto:support@draftable.com) for further assistance.

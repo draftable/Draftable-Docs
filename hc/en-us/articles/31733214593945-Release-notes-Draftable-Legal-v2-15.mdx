@@ -1,0 +1,93 @@
+---
+title: "Release notes: Draftable Legal v2.15"
+description: "We are pleased to introduce Draftable Legal v2.15 (released in April 2024). *A full list of items in all releases is available in our* [*Release Log*](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal)."
+---
+
+
+Benefits to customers highlighted in the 2.15 update include:
+
+- **Finish comparison workflows faster** with the addition of ‘1-Click Comparison’
+- **Focus on the changes that matter** with an expanded range of markup customization options in the Redline Settings
+- **Reduced issues with the Draftable Word Add-in** by removing interaction with other add-ins and normal.dotm popups
+- **New document management system integrations** for **Worldox** and **Epona 365** users
+- **More next actions for Side by Side comparisons**, including the ability to save these comparisons to your DMS
+- **Easier enterprise deployment configuration** for default PDF conversion engine, Office Add-ins and Shortcuts
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 2.15 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Core Functionality
+
+### Complete your workflow faster with the new 1-Click Compare feature
+
+Draftable Legal v2.15 debuts the '1-Click Compare' feature, fundamentally redefining how you use Draftable for document comparison. Users can select their preferred comparison type and subsequent ‘next action’, and then run comparisons with a single click operation. This feature is initially supported within Windows file explorer and from iManage, NetDocuments and SharePoint. Future releases will add this command to the Outlook and Word add-ins as well as to other DMS providers.
+
+*To learn more about how to use this feature,* [see our complete step by step guide here](/hc/en-us/articles/31611819497753-Using-1-Click-Compare-to-run-comparisons-with-your-preferred-default-workflow)*.*
+<Frame>
+![1-Click Compare.png](/images/draftable-legal/image-150.png)
+</Frame>
+## Added Markup Customization
+
+### Focus on changes that matter with an expanded range of markup customization options
+
+Draftable v2.15 introduces expanded markup configuration options that were requested by several customers. These include the ability to either include or ignore changes in:
+
+- Bullets & Numberings,
+- Text boxes,
+- Tables,
+- Tables of Contents, and
+- Capitalizations.
+
+These options (available under Settings > Redline > Comparison Options) allow users to cut out the noise and focus on the changes that truly count. Users can also use these settings to build more tailored redline Profiles.
+<Frame>
+![Comparison options.png](/images/draftable-legal/image-151.png)
+</Frame>
+#### Configure the font user for free text comparisons
+
+Based on direct feedback from users, we have added a new setting that allows firms to select the font used for free-text comparisons. This new setting can be found in the ‘General’ tab, and is also configurable via the Registry and Group Policy. We have also updated the default font used for Free Text comparisons to Arial.
+<Frame>
+![Free text font setting.png](/images/draftable-legal/image-152.png)
+</Frame>
+## Improving Software Performance
+
+### Updates to improve reliability with MS Word
+
+Users should see improvements to the reliability of the Draftable Word Add-in from 2.15 thanks to improvements that resolve interaction issues with other COM add-ins. We've also implemented updates that remove the ‘normal.dotm template’ pop-up from appearing when using the Draftable Word Add-in. Users experiencing these issues after updating to v2.15 are encouraged to contact [support@draftable.com](mailto:support@draftable.com) for further assistance.
+
+## New integration functionality
+
+### Draftable now integrates directly with Worldox and Epona 365
+
+Draftable Legal v2.15 widens its integration capabilities with the addition of Worldox and Epona 365. This enhanced functionality allows users to directly load files from these popular Document Management Systems (DMS), eliminating the need for manual downloads and local file saving. Users can also use Draftable to browse these DMSs to load and save files. Options to save to Worldox and save to Epona are also available from the Draftable Viewer Next Action menu. As a result, customers using these DMS providers can access an even more seamless file management experience with Draftable.
+
+For a complete guide to setting up and using the Worldox integration, [see here](/hc/en-us/sections/31690290379929-Using-Draftable-Legal-with-Worldox).
+
+To get started with the Draftable integration for Epona 365, users will need to have Epona installed on their machine and must have the integration set via Group Policy / Windows Registry.
+
+**Key** in Draftable/Feature, **Value**: IsEponaEnabled **ValueName**: 0 or 1
+
+## Next actions available for Side by Side, including save to DMS
+
+In 2.15, our 'Side by Side' comparisons have been revamped for an improved user interface that aligns with the Redline viewer. A new 'Next Actions' menu provides efficient navigation, enabling users to open, save locally, save to DMS, print, email, or copy to clipboard, directly from the right-hand panel.
+<Frame>
+![Next actions in SBS.png](/images/draftable-legal/image-153.png)
+</Frame>
+## Administrator improvements
+
+#### Extending Group Policy for PDF conversion engine
+
+While the Draftable team has been busily improving the quality of the Draftable PDF conversion engine, the feedback has been overwhelmingly positive. More and more firms are reportedly choosing the Draftable Engine as their default for PDF conversions. In response, the v2.15 version makes this choice easier to implement for administrators with an extended Group Policy option for setting the default PDF conversion engine. With this feature, administrators can easily set up their preferred default engine, eliminating the need for manual Windows Registry configuration.
+
+*Note: We are continuing to conduct extensive quality assurance testing of the Draftable Engine for PDF conversions and will be making ongoing improvements to our algorithm in relation to PDF rendering.*
+
+### Updates to the Machine-Wide MSI installer to enable deployment without add-ins or Shortcuts
+
+Draftable Legal v2.15 included improvements to the Machine Wide MSI (also known as the System-Wide MSI, Native MSI, or Per-Machine MSI). These enable software installation without the MS Office add-ins or desktop and Start Menu shortcuts. This upgrade ensures Draftable users maintain flexibility in deployment after recent updates that moved add-in installation behaviour from the application to the Machine wide MSI. [See here for a complete guide on how to use this improvement while deploying the Machine-Wide MSI](/hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer).
+<Frame>
+![](/images/draftable-legal/image-154.png)
+</Frame>

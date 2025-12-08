@@ -1,0 +1,362 @@
+---
+title: "Configuring iManage to be able to launch comparisons directly from within iManage"
+description: "This article is intended for administrators who want to configure iManage with Draftable Legal to simplify document comparison by providing the ability to start comparisons directly from within iManage. "
+---
+
+
+
+This guide includes the process for both iManage cloud and on-premise, hence, both deployments of iManage are supported for this integration. 
+
+### Note regarding Machine Wide MSI installation for Draftable Legal and iManage integration
+
+
+It is recommended that if are planning to use the Machine Wide MSI installer for your Draftable Legal installation, we highly recommend that you use the default install location if you also plan to integrate with iManage to reduce the likelihood of any issues during the integration process.
+
+## iManage Cloud configuration
+
+The iManage cloud configuration requires access to both Draftable Legal and an administrator-level   
+(with access to control center) account for configuring Draftable within iManage. 
+
+### Configuring Draftable Legal
+
+Ensure you have logged into iManage on your Draftable Legal application. This depends on what version of **Draftable** you are using. If you are using Draftable version 25.9.300 or earlier, please follow the process below. 
+<Steps>
+<Step>
+Open the settings menu and navigate to the **integrations** section of the settings.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-58.png)
+	</Frame>
+</Step>
+<Step>
+Click the **Login** button, enter your credentials for your iManage account. It should display as *Connected as* with your correct account details if done correctly.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-59.png)
+	</Frame>
+</Step>
+</Steps>
+If you're using Draftable version 25.10.000 or later, please see the following process: 
+<Steps>
+<Step>
+Open the settings menu and navigate to the **integrations** section of the settings.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-60.png)
+	</Frame>
+</Step>
+<Step>
+Enter your credentials for your iManage account (if they haven't already been configured by Group Policy) by clicking the arrow in the "Manage endpoints" section.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-61.png)
+	</Frame>
+	
+	You can enter the endpoint name and the endpoint URL. This is important if you are using multiple tenancies. If you are using just the default cloud configuration, just ensure you enter:
+
+```bash
+https://cloudimanage.com
+```  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-62.png)
+	</Frame>
+</Step>
+<Step>
+Click the **Save.** It will now add that endpoint to the endpoint section.
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-63.png)
+	</Frame>
+</Step>
+<Step>
+In the environment dropdown section, select the endpoint you want to connect to and click **Connect.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-64.png)
+	</Frame>
+</Step>
+<Step>
+Connection is validated when the "Logout" button appears and the dropdown icon greys out.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-65.png)
+	</Frame>
+</Step>
+</Steps>
+### Configuring iManage cloud 
+
+We need to complete a few steps in order to correctly integrate Draftable Legal in iManage, and also setup the context menus to allow your users to compare with Draftable within iManage cloud.  
+<Note>
+**Note:** If you already have completed the application configuration within control center, and you want to setup context menus, you can skip to step 9.
+</Note>
+<Steps>
+<Step>
+Login into iManage and navigate to **control center.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-66.png)
+	</Frame>
+</Step>
+<Step>
+On the left hand menu bar, scroll until you see **settings,** then select **applications**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-67.png)
+	</Frame>
+</Step>
+<Step>
+On the top right-hand side, select **Add Application**  
+	![](/images/using-draftable-legal-with-iManage/image-68.png)
+</Step>
+<Step>
+Search for **Draftable**, select the **Draftable** option, and then click **Authentication**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-69.png)
+	</Frame>
+</Step>
+<Step>
+Now we configure the application, in the authentication section ensure we have the following settings configured:  
+	**Allow Refresh Token = Yes  
+	Refresh Token Expiry = 365  
+	Access Token Expiry = 30** 
+    
+    Once configured, select **Access.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-70.png)
+	</Frame>
+</Step>
+<Step>
+In the "Access" window, ensure that **Allow access to** is set to **All Users.** Then click **Review.**
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-71.png)
+	</Frame>
+</Step>
+<Step>
+In the "Settings" window, ensure that the **Draftable Communication Port** is set to **4764.** Then click **Review.**
+	
+	<Note>
+	**Note:** You can set this to a different value, however, this will require you to change the value on the client end as well via group policy. If you wish to change the port value, set it here within iManage to your desired value and also set the group policy for the Draftable communication port. For the group policy information please refer to [this article.](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal)
+	</Note>
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-72.png)
+	</Frame>
+</Step>
+<Step>
+In the "Review" window, ensure that the information configured is correct, and then select **Finish.**
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-73.png)
+	</Frame>
+</Step>
+<Step>
+Now that the application is configured, we need to set up the web client context menus. In the left-hand menu bar, scroll until you see **Work Clients,** then select **Web Client.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-74.png)
+	</Frame>
+</Step>
+<Step>
+Within the web client section, select the **context menus** option to start editing the context menus.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-75.png)
+	</Frame>
+</Step>
+<Step>
+You will see two context menus, one for **Documents,** and another for **Versions.** We need to edit both in order to correctly configure. We will first configure **Documents.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-76.png)
+	</Frame>
+</Step>
+<Step>
+We first need to remove any options for **Select for Compare**, by clicking the X next to it. Do so before continuing to the next step.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-77.png)
+	</Frame>
+</Step>
+<Step>
+Now click on the menu itself so it highlights, and at the bottom of the menu select **Add action.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-78.png)
+	</Frame>
+</Step>
+<Step>
+Select the **Compare** menu item, to add it to the menu. Repeat this for **Compare Versions, 1-Click Compare** and **Compare with latest** items as well.  
+	
+	<Frame>
+	!![](/images/using-draftable-legal-with-iManage/image-79.png)
+	</Frame>
+</Step>
+<Step>
+Reorder the new menu option by selecting and dragging the **Compare** options to anywhere in your menu. See below for reference.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-80.png)
+	</Frame>
+</Step>
+<Step>
+That completes the context menu for the **Documents** context menu. Repeat steps 11 to 15 for the version's context menu. You should see a result similar to below.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-81.png)
+	</Frame>
+</Step>
+</Steps>
+This completes the configuration for the setup for iManage on cloud. If you want to know how to use the feature itself, of launching Draftable from within iManage, please see [this article.](/hc/en-us/articles/22873285776409-Launching-comparisons-from-within-iManage) 
+
+## iManage On-Premise configuration
+
+The iManage on-premise configuration requires access to both Draftable Legal and an administrator-level (with access to control center) account for configuring Draftable within iManage on-premise. 
+
+### Configuring Draftable Legal
+
+Firstly we need to ensure that we are logging into our On-Premise iManage account. Navigate to the **Integrations** section of the settings menu and select **On-Premises.** The **Communication Port** and **Draftable App Id** are prefilled, so you only need to add the **Service URL** of your On-Premise iManage server. 
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-82.png)
+</Frame>
+
+Once you have done this, we can move to configuring iManage On-Premise.
+
+### Configuring iManage on-premises
+<Steps>
+<Step>
+Login into your iManage On-Premise server, and navigate to **control center.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-83.png)
+	</Frame>
+</Step>
+<Step>
+On the left hand menu bar, scroll until you see **settings,** then select **applications.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-84.png)
+	</Frame>
+</Step>
+<Step>
+On the top right-hand side, select **Add Application**
+	![](/images/using-draftable-legal-with-iManage/image-85.png)
+</Step>
+<Step>
+The following window will appear. Draftable now allows you to upload a package file, so we will select **Upload Package.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-86.png)
+	</Frame>
+</Step>
+<Step>
+Navigate to the following location:
+
+	```bash
+	C:\Users\<username>\AppData\Local\DraftableDesktop\app-Y.ZZ.XXX\Integrations
+	```
+	
+	Where `<username>` is the name of your account on the local machine, and Y.ZZ.XXX is the version number of Draftable, see below for an example.
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-87.png)
+	</Frame>  
+	Select the **Draftable\_for\_iManage.Zip** file and click **open.**
+</Step>
+<Step>
+The following screen will appear. Since we added the package the information is prefilled. Click **Authentication.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-88.png)
+	</Frame>
+</Step>
+<Step>
+Again the information is prefilled, except for **Allow Refresh Token,** ensure this is ticked as **Yes**. Then click **Access.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-89.png)
+	</Frame>
+</Step>
+<Step>
+Again the information is prefilled, so just click **Settings.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-90.png)
+	</Frame>
+</Step>
+<Step>
+Again the information is prefilled, so just click **Review.**  
+	  
+	<Note>
+	**Note:** You can set the Draftable Communication port to a different value, however, this will require you to change the value on the client end as well via group policy. If you wish to change the port value, set it here within iManage to your desired value and also set the group policy for the Draftable communication port. For the group policy information please refer to [this article.](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal)
+	</Note>
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-91.png)
+	</Frame>
+</Step>
+<Step>
+Review the information to ensure everything appears to look right and then click **Finish.**
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-92.png)
+	</Frame>
+</Step>
+<Step>
+Now that the application is configured, we need to set up the web client context menus. In the left-hand menu bar, scroll until you see **Work Clients,** then select **Web Client.**
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-93.png)
+	</Frame>
+</Step>
+<Step>
+Within the web client section, select the **context menus** option to start editing the context menus.  
+	You will see two context menus, one for **Documents,** and another for **Versions.** We need to edit both in order to correctly configure. We will first configure **Documents.**  
+</Step>
+<Step>
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-94.png)
+	</Frame>
+</Step>
+<Step>
+We first need to remove any options for **Select for Compare**, by clicking the X next to it. Do so before continuing to the next step.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-95.png)
+	</Frame>
+</Step>
+<Step>
+Now click on the menu itself so it highlights, and at the bottom of the menu select **Add action**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-96.png)
+	</Frame>
+</Step>
+<Step>
+Select the **Compare** menu item, to add it to the menu. Repeat this for **Compare Versions, 1-Click Compare** and **Compare with latest** items as well.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-97.png)
+	</Frame>
+</Step>
+<Step>
+Reorder the new menu option by selecting and dragging the **Compare** options to anywhere in your menu. See below for reference.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-98.png)
+	</Frame>
+</Step>
+<Step>
+That completes the context menu for the **Documents** context menu. Repeat steps 11 to 15 for the version's context menu. You should see a result similar to below.  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-99.png)
+	</Frame>
+</Step>
+</Steps>
+This completes the configuration for the setup for iManage on-premises. If you want to know how to use the feature itself, of launching Draftable from within iManage, please see [this article.](/hc/en-us/articles/22873285776409-Launching-comparisons-from-within-iManage)

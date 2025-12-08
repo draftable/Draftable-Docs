@@ -1,0 +1,143 @@
+**Video Resource:** For a comprehensive understanding of Draftable group policy, we offer our specially crafted explainer video, accessible [via this link.](/hc/en-us/articles/27925463968793-Draftable-Legal-Enterprise-Configuration-with-Group-Policy-and-MS-Intune)
+
+## What is Group Policy?
+
+Group Policy is a feature in Microsoft Windows that provides centralized management and configuration of operating systems, applications, and users' settings in an Active Directory environment. This is particularly useful in enterprise settings, where maintaining uniform configurations across multiple machines is critical.
+
+If you prefer to work directly with the windows registry and not use Group Policy, [here is an article](/hc/en-us/articles/24732245077401-Most-common-Draftable-Legal-registry-configurations) discussing all the registry key options you can set directly if that is your preferred configuration method.
+
+## Obtaining the administrative templates
+
+Group Policy is supported by Draftable irrespective of installation mechanism. The only difference between installation mechanism is where the administrative templates are installed to (and may need to be copied from into the administrative store). The administrative templates are found in the **GroupPolicy** folder under the product installation path.
+
+For the Default MSI Installer the path will also contain a version number and the latest administrative templates will be in the folder with the latest version. Example path for Default Installer:
+
+```bash
+%LocalAppData%\DraftableDesktop\app-2.4.5500\GroupPolicy
+```
+
+For Machine-Wide MSI installations, the location of the Group Policy templates will typically default to:
+
+```bash
+C:\Program Files\Draftable Desktop
+```
+
+An easy way of determining the location of the Group Policy folder location is to right click the Draftable Legal application shortcut on the desktop, open properties and select ‘open file location’.”
+
+Alternatively, you can always access the latest Group Policy templates from our knowledgebase article [here](/hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files).
+
+## Installing the administrative templates
+
+To install the templates, copy all files/folders in the **GroupPolicy** folder to the following location on the system(s) from which Group Policy will be managed:
+
+```bash
+C:\Windows\PolicyDefinitions
+```
+
+You could perform the following alternate methods of installing administrative templates, by either:
+
+- If your organization maintains a Central Store, copy the administrative templates to the  
+	Central Store’s network path.
+- Import custom and third party partner ADMX templates using [Microsoft Intune.](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom)
+
+You will also need to copy the .adml files from the **GroupPolicy** folder in Draftable Desktop and paste these into the en-US folder within the **PolicyDefinitions** folder in C Drive:
+
+```bash
+C:\Windows\PolicyDefinitions\en-US
+```
+
+## Editing the policies in the Group Policy editor
+
+Once the administrative templates are installed, the Draftable Pro policies can be found in Group  
+Policy editor under:
+
+- Computer Configuration > Administrative Templates > Draftable
+- User Configuration > Administrative Templates > Draftable
+
+Some settings may only be listed under one of the two scopes if they’re not supported on the other.
+
+## Policy settings
+
+These are the policy settings that can be set via Group Policy:
+
+### Draftable Desktop group policy (affects both Desktop and Legal)
+
+- **1-Click definition:** By copying the 1-Click Compare export item (pictured below), you can copy the instruction to set the group policy definition to a default behavior.
+	<Frame>
+	![](/images/draftable-legal/image-214.png)
+	</Frame>
+- **Setup automatic updates on behalf of users (non-MSI installer):** By default, users' Draftable applications are automatically updated. If this policy is set to the disabled setting, the app can only be updated manually from the settings window.
+- **Configure custom error message:** This option allows you to set a custom error message that will be shown when something goes wrong when executing a comparison.
+- **Configure customer contact support email body:** This option allows you to  a custom email message that will be shown when user will see Outlook email with logs, after an error in the application.
+- **DOCX Conversion Engine:** Specify which conversion engine to use when converting Word documents to PDF.
+	- Use 'Default' to use Draftable recommended engine. The default engine may change between versions.
+	- Use 'Office' to use Microsoft Office.
+	- Use 'Internal' to use Draftable Engine.
+- **Free text font family:** Allows you to set custom font family for free text comparisons. Default font is Arial.
+- **Header and footer detection:** An experimental feature for detecting headers and footers in documents. When enabled, the product key must also be entered as part of the policy setting.
+- **Hide 1-Click tab from users:** Allows you to hide 1-Click tab in the Settings. Note that it'll not remove 1-click in the integrations such as Windows Context Menu.
+- **Enable to show 1-Click export options:** Allows you to see the "copy to clipboard" export option (in the image pictured above) as so be able to configure the **1-Click definition** group policy item.
+- **Configure product key:** Add the product key to be used for automatic license activation.
+- **Send usage statistics:** When enabled, statistics on user machines are sent to Draftable servers for diagnostic purposes.
+- **Configure Word Application usage Policy:** This setting when enabled, sets the setting for Microsoft Word to only use a single instance of Word, when converting documents to pdf.
+- **Configure submission of exception reports:** Assists Draftable Legal in identifying issues and improving the product. When enabled, the administrator has 2 additional options: Always send exceptions or never send exceptions.
+- **Launch Draftable Automatically when Windows starts:** If you enable this policy setting, Draftable will launch automatically when Windows starts, unless the user explicitly opts out from the settings window.
+- **Accept terms and conditions on behalf of users:** Users are prompted to accept the terms and conditions on first-time application start. When enabled this will automatically accept said terms and conditions.
+- **Users can share error logs:** When goes wrong while executing comparison, by default users are prompted with an error dialog that has a button to draft an email with logs attached. This setting can hide that option, by default it's enabled.
+
+### Draftable Legal group policy (Only applicable for Draftable Legal)
+
+- **Admin Base Profiles Only:** Enabling this setting removes the Draftable Default Template and disables importing of other user profiles. Essentially, it forces users to only use admin template files only.
+- **Disable Legacy Document Elements Warning Dialog:** When Draftable detects legacy elements in a document’s structure, it displays a warning dialog. Use this policy setting is intended to disable the warning for users, allowing the system to automatically bypass it on their behalf.By Enabling this policy you're disabling the warning dialog.
+- **Enable automatic selection of the two latest versions:** If a single file with multiple versions is selected, Draftable loads the two most recent versions of that document. If this group policy is enabled, Draftable will automatically load the other most recent version of the document.
+- **Enable Changed Pages Output:** Enabling this setting allows the changed pages comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Excel Redline Output:** Enabling this setting allows the Excel Redline comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Native Office Output:** Enabling this setting allows the Native Office comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Redline DOCX Output:** Enabling this setting allows the Redline DOCX comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Redline PDF Output:** Enabling this setting allows the Redline PDF comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Redline Excel compare (preview):** This feature allows users to compare two Excel documents by highlighting all differences and changes, following the Redline standard for clear and precise review. Enabling this setting allows for users to be able to utilize this preview feature.
+- **Enable Side-By-Side Output Comparison:** Enabling this setting allows the Side by Side comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Enable Track Changes in Word Output:** Enabling this setting allows the Track Changes comparison output type to be enabled within the comparison viewer and selectable option for 1-Click compare. By default, this setting is set to true.
+- **Configure an organisation identifier:** This policy setting allows you to specify an organization identifier (GUID) that will be included in all telemetry events. The identifier is used to associate telemetry with your organization for reporting and analysis. No user-level personally identifiable information (PII) is collected or transmitted.
+- **Enable custom contact details:** Allows you to set the custom contact details to replace support@draftable.com in all dialog windows and as email recipient.
+- **Redline Settings Default Profile Name:** Allows the user to set the default profile that is used for Redline comparisons. See our [article here](/hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy) about how to configure this policy.
+- **Enable iManage integration on behalf of users:** By default users with a Draftable Legal license have iManage integration activated. By setting this policy to disabled, users cannot setup iManage integration.
+- **Enable iManage automatic log in:** Enables iManage automatic log in with the Draftable application start. It may show iManage log in screen, which depends on iManage configuration already configured. By default, this setting is set to false.
+- **Enable local iManage HTTP listener:** Enables local http listener that will allow for running Draftable from iManage site. For information regarding this configuration, please see [here.](/hc/en-us/articles/33978111642905-Alternative-iManage-HTTP-listener-service-installation-guide-for-Draftable-Legal)
+- **Enable HTTP Listener Communication Port:** Specifies the iManage HTTP Listener Communication Port.
+- **Imanage On Premise Client ID:** Used to integrate an On-Premise instance of iManage with Draftable Pro. The value of the client ID can be entered in this field for automatic integration.
+- **Imanage On Premise Server URL:** Used to integrate an On-Premise instance of iManage with Draftable Pro. The value of the Server URL can be entered in this field for automatic integration.
+- **iManage persistent session:** Specifies the iManage Persistent session process to be running.  
+	**Recommended to be disabled for SSO scenario login policy. Important to be enabled for a non SSO scenario. By default, this property is set to true**.  
+	
+- **Enable Epona integration:** Specifies whether the Epona integration will be enabled in the application.
+- **Enable automatic selection of the two latest versions:** If enabled, when a single file with multiple versions is selected from a DMS, Draftable loads the two most recent versions of that document. If a file version is selected, Draftable will automatically load the other most recent version of the document.
+- **Enable NetDocuments integration**: Specifies whether the NetDocuments integration will be enabled in the Draftable Legal application.
+- **Enable Worldox integration:** Specifies whether the Worldox integration will be enabled in the application.
+- **Never share obfuscated documents:** By default submission of the obfuscated files is enabled and users can opt out. If you enable this policy setting submission of the obfuscated files is always disabled. If you disable this policy setting submission of the obfuscated files is always enabled.
+- **Enable VSTO Add-In (Outlook):** If you enable this policy setting, the Outlook VSTO Add-In will be automatically installed when Draftable Desktop Pro is launched. Machines and users that already have the Outlook VSTO Add-In installed will not be affected.
+- **iManage Communication Port:** Allows the user to allocate the communication port used for their iManage integration. This works for both the On-premises version and cloud versions of iManage. For the integration process itself, please see [this article](/hc/en-us/articles/22860371094681-Configuring-iManage-to-be-able-to-launch-comparisons-directly-from-within-iManage) for the full guide.
+- **Redline Settings Base Profile:** Specifies a named set of configuration settings used for compares. Optionally allows for enforcing properties on all profiles. More information can be found in [this article.](/hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy)
+- **Redline pdf output enabled**: Allows disabling of the Redline PDF output option via group policy. Redline pdf output can be disabled by setting this property to False. By default, it's set to True
+- **Redline Settings Profile (1-9):** Allows the user to preload Redline settings profiles to be used within Draftable Legal. See our [article here](/hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy) about how to configure this policy.
+- **Enable Sharepoint integration:** Specifies whether the SharePoint integration will be enabled within Draftable Legal.
+- **Suppress table cell revisions for Track Changes Output:** When enabled, this will automatically accept table layout changes when exporting to tracked changes output to avoid these comment bubbles being left in on the right-hand side of the document.
+- **User Team Name:** Allows the user to allocate a team name to their account, which can restrict what Redline settings profiles can be used within Draftable Legal. See our [article here](/hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy) about how to configure this policy.
+- **Enable Three Pane View for Redline PDF comparison type:** By default Three Pane view will be available to show for Redline PDF comparison type. By enabling this group policy feature can be hidden for users by setting this option to be disabled.
+- **Enable VSTO Add-In (Word):** If you enable this policy setting, the Word VSTO Add-In will be automatically installed when Draftable Legal is launched. Machines and users that already have the Word VSTO Add-In installed will not be affected.
+
+## Priority of Group Policy settings
+
+Unless otherwise noted, the order of precedence from highest priority to lowest priority is:
+
+- User Policy (set in User Configuration)
+- Computer Policy (set in Computer Configuration)
+- User Setting (set by the user through the UI or by the user manually editing the registry)
+
+If no policy setting exists, the user setting is used.
+
+## Using Microsoft Intune
+
+Microsoft Intune is a cloud-based service provided by Microsoft that helps organizations manage and secure their devices, applications, and data.
+
+If you are using Microsoft Intune, you can use it to install Group Policy for Draftable Legal. Follow the [Microsoft documentation](https://learn.microsoft.com/en-us/mem/intune/apps/lob-apps-windows) for more information.

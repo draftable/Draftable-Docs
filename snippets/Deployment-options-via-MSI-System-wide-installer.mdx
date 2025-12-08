@@ -1,0 +1,81 @@
+## Deployment options via standard MSI installer
+<Steps>
+<Step>
+Download and run the Machine Wide MSI (you can download the latest version of this installer via [https://dl.draftable.com/desktop/DraftableDesktopSystem.msi](https://dl.draftable.com/desktop/DraftableDesktopSystem.msi))
+</Step>
+<Step>
+In the installation menu, select the **Advanced** option and click 'next'  
+	Select item to see menu
+	<Frame>
+	![](/images/draftable-legal/image-216.png)
+	</Frame>
+</Step>
+<Step>
+ In the Advanced screen, you will see an expandable feature tree user interface. Expand the **Draftable Desktop** node, then the **Office add-ins** node to view individual add ins (pictured)
+	<Frame>
+	![](/images/draftable-legal/image-217.png)
+	</Frame>
+</Step>
+<Step>
+**Select** the add in(s) that you do not want installed and use the menu to select **Entire feature will be unavailable**
+	<Frame>
+	![](/images/draftable-legal/image-218.png)
+	</Frame>
+</Step>
+<Step>
+ Select **Install** to proceed with installation without the add-in(s)
+</Step>
+</Steps>
+<Note>The iManage HTTP Listener Service requires more configuration beyond that is setup in this article. The steps in this article merely deploys the Listener Service, but for complete configuration [please see here.](/hc/en-us/articles/33978111642905-Alternative-iManage-HTTP-listener-service-installation-guide-for-Draftable-Legal)</Note>
+
+## Custom MSI deployment via scripted automated installs
+
+The following steps are suitable for administrators deploying Draftable Desktop via a command line interface, InTune or similar. It outlines how to programmatically control features being installed by the MSI via the well-known [ADDLOCAL property (link to Microsoft Learn page)](https://learn.microsoft.com/en-us/windows/win32/msi/addlocal).  This allows administrators to provide a comma-separated list of features to be installed.
+
+The features available for specification are listed in the table below
+
+| Feature name ("Title") | Feature ID ("Feature") |
+| :--------------------- | :--------------------- |
+| Draftable for Outlook | OutlookAddin |
+| Draftable for Word | WordAddin |
+| Draftable for Excel | ExcelAddin |
+| Desktop | DesktopShortcut |
+| Start Menu | StartMenuShortcut |
+| iManage HTTP Listener Service | HttpListener |
+
+Use the ADDLOCAL property to programmatically specify which 'Features' are installed by the MSI by listing the Feature ID (see table above). *Note, this property specifies what IS INSTALLED. Features absent from this property will NOT be installed.*
+
+### Basic command - MSI installation
+
+Below is a **basic** example of how to install Draftable via a command line. This example shows installation without the Outlook add-in but including the Word and Excel add-ins and the two shortcuts and the iManage HTTP Listener Service.
+
+```bash
+msiexec /i DraftableDesktopSystem.msi ADDLOCAL=StartMenuShortcut,DesktopShortcut,HttpListener,WordAddin,ExcelAddin
+```
+
+Based on the above, running the installer would result in the following Advanced UI set-up:
+
+<Frame>
+![](/images/draftable-legal/image-219.png)
+</Frame>
+
+### Advanced command - MSI installation
+
+If you wanted a more complex configuration that specifies: 
+
+- The install location
+- Multiple Draftable add-ins
+- HTTP listener service for imanage
+- Quiet/silent installation
+- Specify no machine restart after installation
+- Verbose logging of the full install. **Recommended** if you are having issues with certain components not installing correctly.
+
+The command below is more **advanced** with demonstrates more options during installation.
+
+```powershell
+Start-Process msiexec -ArgumentList '/i "DraftableDesktopSystem.msi" ADDLOCAL=StartMenuShortcut,DesktopShortcut,HttpListener,WordAddin,ExcelAddin,OutlookAddin INSTALLDIR="C:\Program Files (x86)\Draftable" /qn /norestart /L*V "C:\Logs\draftable_install.log"' -Wait
+```
+
+For logging to work, please ensure you create the logging location **prior** to installation. This command will also wait to complete before returning to the command line, that way you know when the installation is completed. 
+
+If you need further assistance in deploying the Draftable Machine-wide MSI via command line, please contact [support@draftable.com](mailto:support@draftable.com)

@@ -1,0 +1,24 @@
+---
+title: "System requirements for a Self-hosted instance"
+---
+
+## System requirements
+
+| **Requirement** | **Minimum** | **Recommended** |
+| :--- | :--- | :--- |
+| Processor <sup>**1**</sup> | 2 cores | 4 cores |
+| Memory | 4 GB | 8 GB |
+| Storage | 10 GB <sup>**2**</sup> | Variable <sup>**3**</sup> |
+| Operating system | Windows 10 using docker desktop to virtualise a Linux kernel <sup>**4**</sup> | Linux host w/ supported kernel <sup>**5**</sup> |
+| Root permissions | Root permissions on docker host | Root permissions on docker host <sup>**6**</sup> |
+
+<Note>
+**PLEASE NOTE:** Draftable API Self-Hosted is currently not supported in a horizontal scaling type configuration. This includes services like AKS, ECS, Kubernetes and other deployment structures which are intended for file system sharing and horizontal scaling.
+</Note>
+
+1. Processor speed is often not a reliable indicator of performance, however any processor manufactured from 2014 on-wards with sufficient cores should meet performance requirements. For development and testing scenarios the processor and memory requirements may be reduced to 2 core and 2GB.
+2. For testing or low use purposes 10 GB of storage should be sufficient, however please perform your own testing to see how much storage space is required for your instance use case.
+3. Storage requirements are primarily dictated by the volume of comparisons to be processed by the appliance. As a general indicator, required storage should be calculated as ~5x the size of the documents submitted for a given comparison. However, the only truly reliable indicator for storage requirements is to submit a representative set of comparisons for your usage scenario.
+4. This configuration is only recommended for testing and development purposes and production environments.
+5. Supported refers to a Linux kernel under active support by the distribution vendor. The kernel must have the requisite support for Docker functionality. In addition, support for cgroups is strongly recommended as the Docker container can take advantage of this functionality for improved application stability and reliability.
+6. Root permissions are required in order for the Self Hosted container to be provisioned correctly, without root permissions the container setup will failover during this provisioning process. We currently do not offer or support a 'rootless' design.

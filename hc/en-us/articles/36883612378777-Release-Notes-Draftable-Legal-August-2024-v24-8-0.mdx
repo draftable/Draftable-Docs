@@ -1,0 +1,97 @@
+---
+title: "Release Notes: Draftable Legal August 2024 (v24.8.0)"
+description: "We are excited to announce the release of Draftable Legal v24.8.0 (August 2024). This update introduces several new features and improvements focused on streamlining your document comparison workflows, enhancing performance, and providing greater control for administrators."
+---
+
+
+Key benefits in this update include:
+
+- **Greater flexibility** in file handling with new options for renaming, converting, and zipping files during email or clipboard actions.
+- **Improved table comparison accuracy** with an updated algorithm for better column matching.
+- **Faster comparisons** with optimized performance for text vs. text Redline outputs.
+- **More export options** with single page export in the side-by-side view.
+- **More consistent user experience** with persistent (i.e. sticky) user export selections across Draftable viewer sessions.
+- **Improved product learnings for administration features** through expanded telemetry for Redline Profile changes and Group Policy configurations.
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 24.8.0 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## Core Functionality Enhancements
+
+### Enhanced File Handling with New Email and Clipboard Options
+
+From v24.8.0, users can now save time when sharing their comparisons with the ability to rename, convert, and zip all files when emailing or copying them to the clipboard. This update allows for greater flexibility in how you share and manage documents, particularly in workflows requiring frequent document adjustments on the go.
+<Frame>
+![Rename convert zip UI.png](/images/draftable-legal/image-133.png)
+</Frame>
+### More export options with Single Page Export in Side-by-Side View
+
+Effortlessly manage your comparison outputs by exporting a single page from the side-by-side view directly through the next action menus. This feature simplifies the document sharing process by enabling precise extraction of key pages for review or collaboration.
+<Frame>
+![Side by side export options.png](/images/draftable-legal/image-134.png)
+</Frame>
+## Ease of Use Improvements
+
+### Sticky Preferences for Consistent User Experience
+
+Users will no longer need to manually select their file selection, renaming, and conversion preferences for every comparison. Next action preferences will now remain consistent across viewer sessions, defaulting to the last selection used. These ‘sticky’ settings ensure that your customizations persist, reducing clicks to complete your comparison and making it easier to work consistently across multiple sessions.
+
+### New Default View Option for Redline PDF Comparisons
+
+Optimize your review process with the new Redline Profile setting that allows the 3-pane view to be set as the default for PDF comparisons. This enhancement provides organizations or users that prefer a more detailed view of changes across older, newer and redlined documents. The setting can be configured via registry keys and Group Policy.
+<Frame>
+![3-Pane View as default setting.png](/images/draftable-legal/image-135.png)
+</Frame>
+### Improved Error Messaging for Non-Comparable File Types
+
+Users will now receive clearer guidance from Draftable with improved messaging for the "Draftable does not compare" filetype error. This update helps users quickly understand which file types are supported when an unsupported filetype is loaded for comparison, reducing confusion and streamlining troubleshooting.
+<Frame>
+![Improved file type error message.png](/images/draftable-legal/image-136.png)
+</Frame>
+## Performance Enhancements
+
+### Accuracy: Improved Table Comparison Algorithm
+
+From v24.8.0 Draftable Legal users can benefit from an updated table comparison algorithm that improves column matching accuracy. This advancement ensures that the output of tables within your documents are easier to read, reducing the work involved in reviewing comparison outputs.
+
+### Reliability: Automatic Repair for Input DOCX Files
+
+Enjoy greater reliability with the new auto-repair feature for DOCX documents. This function automatically corrects issues in input files with minor corruption (effectively saving a new copy of these files to remove the issue). This improvement reduces the likelihood of comparison failures and saves time by automating the workaround that would typically be provided during a support request.
+
+### Speed: Optimized Speed for Text Comparisons in Redline Outputs
+
+Experience faster performance in text vs. text comparisons for Redline outputs. This speed optimization allows you to complete your comparisons much more quickly than in previous versions, enhancing overall productivity.
+<Frame>
+![Speed - faster text to text comparisons.png](/images/draftable-legal/image-137.png)
+</Frame>
+## Administrator Features
+
+### New Telemetry for Redline Profile, Group Policy Changes and Bulk Compare usage
+
+As part of our commitment to continuous improvement for application administrators using Draftable, we have added new (anonymous) telemetry to log user behavior and configuration changes for Redline Profile adjustments and settings configured via Group Policy. This data will enable us to better understand the configuration needs of users which we aim to use to simplify both administrator and end user settings management.
+
+In addition to adding Redline Profile and Group Policy events, we have also added Bulk Compare usage events to our telemetry system. We aim to use this information to guide how we further develop the Bulk Compare feature set, given the numerous additional improvements and features that can be built on top of this feature.
+
+For more information about our product telemetry, visit our [dedicated telemetry guide](/hc/en-us/articles/34620487450265-Product-Telemetry).
+
+## Bug Fixes
+
+The August 2024 release also included the following bug fixes:
+
+- Resolved document-specific error causing 'unable to compare' issues.
+- Fixed an issue with redline output filenames when the name contained a period ('.').
+- Corrected Office Add-ins installation issues when using MSI.
+- Improved algorithm to display deleted comments correctly.
+- Ensured that redline output correctly displays color changes even when text decoration is not used.
+- Updated the help link for the 'Email' action in the next action menu to direct to the correct knowledge base guide.
+- Fixed comparison errors caused by special characters in file names loaded from iManage.
+- Corrected footers display in Redline when footer changes are disabled.
+- Removed false positives in text box comparisons.
+- Resolved issues with the incorrect order of deletions and insertions.
+
+For a full list of changes and more details, please refer to our [Release Log](/hc/en-us/articles/20871414263577-Release-Log-Draftable-Legal) or contact our support team at [support@draftable.com](mailto:support@draftable.com) for further assistance.

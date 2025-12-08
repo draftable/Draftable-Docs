@@ -1,0 +1,85 @@
+---
+title: "Release Notes: Draftable Legal October 2024 (24.10.0)"
+description: "We are pleased to share the latest enhancements in Draftable Legal v24.10.0 (released October 11, 2024). This update introduces a Preview of our new comparison algorithm for PowerPoint, and a number of improvements for end user workflows, administrators and Epona users."
+---
+
+
+Key benefits in October updates include:
+
+- **Redline PowerPoint presentations** with our new ‘PowerPoint Redline Comparison’ feature, enabling more efficient review of .pptx files with changes clearly marked for quick analysis.
+- **Access critical comparison insights faster** by viewing summary page data directly within the Draftable Comparison Viewer, reducing the need to export comparisons to see this summary.
+- **Make more accurate document selections in Epona** with extended file version details in the Epona integration, allowing users to select the correct file version quickly and confidently
+- **Improve end user system performance** by easily exiting the Draftable Desktop application after comparisons via the file menu, rather than by using the windows system tray
+- **Provide users with fast comparison launching distractions** with the option for administrators to disable Windows bubble notifications on startup, configurable via Group Policy.
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 24.10.0 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Features & Improvements
+
+### Core Functionality
+
+#### PowerPoint Redline Comparison (Preview)
+
+Users accustomed to redline markups can now easily review PowerPoint presentation files using the new **Redline in PowerPoint** Comparison Type. The Redline in PowerPoint uses a newly developed Draftable PowerPoint comparison algorithm and supports identification of changes in:
+
+- Text (insertions and deletions)
+- Tables (insertions, cell / row / column deletions, text changes within tables)
+- Images (including icons, graphics and shapes)
+- Speaker notes (insertions and deletions, shown without coloring)
+- Slide numbers
+- Whole slides (insertions, deletions)
+- Grouped shapes / smart art (insertions and deletions as well as text changes)
+<Frame>
+![Output PPT redline.png](/images/draftable-legal/image-114.png)
+</Frame>
+The Redline in Draftable will use your Profile settings for markup schema (colours, text styling) and offers the ability to choose whether to compare or ignore slide elements such as text, tables, images, speaker notes, slide numbers and grouped shapes and smart art.
+<Frame>
+![Settings PPT redline.png](/images/draftable-legal/image-115.png)
+</Frame>
+This feature is available in v24.10.0 as a Preview, and users interested in accessing it can contact their account representative or email product@draftable.com.
+
+#### Summary page data and exit application option in the Comparison Viewer
+
+To further streamline workflows, we have integrated summary page data directly into the Draftable Comparison Viewer. This makes it easier to access key comparison information without needing to switch views, helping users focus on critical changes. Additionally, we’ve introduced an 'Exit application' option in the file menu, offering a more convenient way to close the application.
+<Frame>
+![Viewer improvements - summary data and file exit.png](/images/draftable-legal/image-116.png)
+</Frame>
+#### Improved file selection UI for Draftable's Epona integration 
+
+For users using the Epona 365 document management system, we’ve made improvements for file selection workflows in the October release. Draftable now **extends the version selector** in its Epona integration to provide more information, such as author, date and check in comments, to help users select the correct file for comparison. The file selection dialog has also been updated to make it easier to identify major and minor versions during selection.
+<Frame>
+![Epona file selection with new data.png](/images/draftable-legal/image-117.png)
+</Frame>
+#### Easier administration of Draftable for faster comparison workflows
+
+**Run Draftable in silent mode without popups**
+
+Administrators will now be able to give their end users faster compare launching by having Draftable run without users being notified by Windows (pictured). From v24.10.0, a new setting exists to disable the Windows bubble notifications on startup. This can be configured via Group Policy, reducing distractions for users during launch.
+<Frame>
+![Windows Bubble Popup.png](/images/draftable-legal/image-118.png)
+</Frame>
+<Frame>
+![Disable bubble notifications setting.png](/images/draftable-legal/image-119.png)
+</Frame>
+**Enable Bulk Compare for users via Group Policy**
+
+The October release also added a Group Policy option to enable Bulk Compare for end users. This enables the General setting (shown below) that displays the 'Bulk Compare Mode' toggle in the New Comparison Window. Organizations using Group Policy can now easily ensure their teams can find this mode and run multiple document comparisons simultaneously, saving valuable time.
+<Frame>
+![Bulk Compare setting.png](/images/draftable-legal/image-120.png)
+</Frame>
+## Bug Fixes
+
+Finally, the October update also covered a number of identified bug fixes, including:
+
+- Update for Windows tracking of installed versions of Draftable, ensuring the system always reflects the most up-to-date information.
+- Resolved an issue where attaching comparison files larger than Outlook's size limit caused crashes.
+- Fixed a Change List load error, addressed an issue with comparing math elements, and corrected errors that occurred when switching compare methods.
+- A problem with redline author detection has been fixed, along with a UX bug that caused renamed files to be deselected during email generation.
+- Resolved issues where the author field was being overwritten during text comparisons and ensured the 1-Click Compare settings load properly.
+- Fixed two errors found when generating Changes Reports in .docx format.

@@ -1,0 +1,75 @@
+---
+title: "Understanding the PDF Conversion Engine Setting in Draftable Legal"
+---
+
+## Purpose of the PDF Conversion Engine Setting
+
+The PDF conversion engine setting in Draftable Legal's 'General' tab of the settings menu is designed to determine how the application handles the conversion of Word documents (DOCX) to PDFs during the document comparison process. This setting significantly impacts the speed and reliability of your document comparisons.
+
+## Importance of the Setting
+
+Selecting the appropriate PDF conversion engine is crucial because it directly influences the performance of your comparisons when using the 'Redline in Draftable' comparison type. The setting allows users to choose between Draftable's internal conversion engine and Microsoft Word's conversion engine. Each option has its own advantages, depending on your specific needs and any issues you might encounter.
+
+## Recommended Settings
+
+**Draftable Engine**: This is the recommended setting for most users. It provides faster and more reliable comparisons within Draftable Legal. The Draftable Engine is optimized for the software, ensuring that document comparisons are performed efficiently and accurately.
+
+**MS Word**: This setting should be used if users experience PDF rendering issues. The MS Word engine utilizes Microsoft's capabilities to convert documents, which can be beneficial in cases where the Draftable Engine produces poor formatting in PDF outputs.
+
+## How to Configure the PDF Conversion Engine
+
+<Steps>
+<Step title="Open the Settings Menu">
+	- Via New Comparison Window: Open the New Comparison window and click on 'Settings' in the top right corner.  
+		<Frame>
+        ![](/images/draftable-legal-understanding-the-pdf/image-1.png)
+		</Frame>
+	- Via Taskbar: Right-click the Draftable Legal icon in the taskbar and select 'Settings'.  
+		<Frame>
+        ![](/images/draftable-legal-understanding-the-pdf/image-2.png)
+		</Frame>
+</Step>
+<Step title="In the General Tab select the PDF Conversion Engine from the Dropdown menu">
+	- In the Settings menu, select the 'General' tab where you can configure various application-wide options.
+	- Locate the 'PDF Conversion Engine' dropdown menu within the General tab.
+	- Choose between 'Draftable Engine' for optimized performance and 'MS Word' for compatibility with specific PDF rendering requirements.  
+		<Frame>
+        ![](/images/draftable-legal-understanding-the-pdf/image-3.png)
+		</Frame>
+</Step>
+</Steps>
+
+## Extending Group Policy or using Registry Keys for PDF Conversion Engine
+
+For organizations utilizing Group Policy to manage settings across multiple user accounts, the PDF conversion engine can also be configured centrally. This ensures consistency in settings across the enterprise and reduces the need for individual user configuration. [A complete guide on using Group Policy can be found here](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal). [A complete guide on common Windows Registry configurations for Draftable Legal can be found here](/hc/en-us/articles/24732245077401-Most-common-Draftable-Legal-registry-configurations).    
+
+<Steps>
+<Step title="Open Group Policy Editor">
+	- Navigate to Control Panel > Windows Tools > Edit Group Policy.  
+		<Frame>
+        ![](/images/draftable-legal-understanding-the-pdf/image-4.png)
+		</Frame>
+		<Frame>
+        ![](/images/draftable-legal-understanding-the-pdf/image-5.png)
+		</Frame>
+</Step>
+<Step title="Configure the DOCX Conversion Engine">
+	- By default the Conversion Engine is set to the Draftable Engine
+	- To configure this to use the Microsoft Word engine,
+		- Under the Draftable settings, locate the 'DOCX Conversion Engine' policy.
+		- Set the policy to 'Office' (MS Word).
+</Step>
+</Steps>
+
+## Troubleshooting
+
+### Troubleshooting Issues when using the Draftable Engine
+
+The Draftable team have an ongoing project to improve the quality of our conversion engine. If you encounter any issues with your PDF output rendering please share these with [support@draftable.com](mailto:support@draftable.com) so we can make necessary improvements to our comparison algorithm.
+
+If users encounter PDF rendering issues with the Draftable Engine document comparisons, one immediate workaround available is to try switching the PDF conversion engine to the MS Word engine.
+
+### Troubleshooting Issues when using the MS Word Engine
+
+If users are experiencing reliability or speed issues when running comparisons using the Redline in Draftable Comparison Type, switching the PDF Conversion Engine often resolves these problems. Try switching the PDF Conversion Engine to Draftable Engine for faster and more reliable results.
+

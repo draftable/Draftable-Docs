@@ -1,0 +1,141 @@
+---
+title: "AWS load balancer configuration example for your EC2 instance"
+description: "A load balancer **serves as the single point of contact for clients**. The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This increases the availability of your application."
+---
+
+This guide shows how to setup an example **Classic load balancer** for you EC2 Draftable instance. 
+
+## Before you begin
+
+Ensure you have configured/prepared the following before creating your load balancer
+
+- Ensure your VPC and EC2 instances are prepared. Assistance for [AWS VPC and instance configuration](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-backend-instances.html#set-up-ec2).
+- Launch the EC2 instances that you plan to register with your load balancer. Ensure that the security groups for these instances allow HTTP access on port 80.
+
+## Create and set your load balancer type 
+
+<Steps>
+<Step>
+Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/)
+</Step>
+<Step>
+On the navigation bar, choose a Region for your load balancer. Be sure to select the same Region that you selected for your EC2 instances.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-82.png)
+</Frame>
+</Step>
+<Step>
+On the navigation pane, under **LOAD BALANCING**, choose **Load Balancers**.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-83.png)
+</Frame>
+</Step>
+<Step>
+Choose **Create Load Balancer**.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-84.png)
+</Frame>
+</Step>
+<Step>
+In this example we are going to choose the **Classic Load Balancer.** Click **Create**.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-85.png)
+</Frame>
+</Step>
+</Steps>
+
+## Configure your load balancer 
+
+We now configure the load balancer, this includes information such as a name, a network, and a listener.
+
+A *listener* is a process that checks for connection requests. It is configured with a protocol and a port for front-end (client to load balancer) connections and a protocol and a port for back-end (load balancer to instance) connections. In this tutorial, you configure a listener that accepts HTTP requests on port 80 and sends them to your instances on port 80 using HTTP.
+
+### Basic configuration 
+
+<Steps>
+<Step>
+Type a name for your load balancer.
+<Frame>
+![](/images/draftable-api-self-hosted/image-86.png)
+</Frame>
+</Step>
+<Step>
+For **Scheme** and **IP address type,** select *Internet-facing* and *IPv4* respectively. If you require different routing please refer to your own use-case for the correct settings.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-87.png)
+</Frame>
+</Step>
+</Steps>
+
+### Network mapping 
+
+There are two components for **Network mapping** which are the **VPC** selection and **Mapping** configuration:
+
+- Select a **VPC** which will align to your target groups. Ensure you select the right **VPC** at this stage as you cannot change the **VPC** after configuring your load balancer.
+- For **Mappings**, select at least one available public subnet in the dropdown box. To improve the availability of your load balancer, select more than one public subnet. You can add at most one subnet per Availability Zone.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-88.png)
+</Frame>
+
+### Security groups
+
+<Steps>
+<Step>
+On the **security groups** dropdown box, select a security group that fits your security configuration scheme for your load balancer. If you need to create a new security group for you load balancer, select **create new security group** and assign it to this load balancer.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-89.png)
+</Frame>
+</Step>
+</Steps>
+
+### Listeners and routing 
+
+A **listener** is a process that checks for connection requests, using the protocol and port you configure. Traffic received by the listener is then routed per your specification. You can specify multiple rules and multiple certificates per listener after the load balancer is created.
+
+<Steps>
+<Step>
+Select a **Protocol, Port** and **Default action/****target group** for each listener. These settings are critical to ensure that traffic routing to your EC2 instance is properly configured to suit your load balancer use case. Ensure that your target groups have been properly configured as to route traffic back to your EC2 instance.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-90.png)
+</Frame>
+</Step>
+<Step>
+You can add more listeners by clicking **add listener.**
+</Step>
+</Steps>
+
+If you require assistance on how target groups work, refer to the [AWS documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html). 
+
+### Summary and creation 
+
+<Steps>
+<Step>
+Check the **Summary** page and ensure that all the configurations are accurate.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-91.png)
+</Frame>
+</Step>
+<Step>
+Once you have verified that all information is accurate click **Create load balancer.**
+</Step>
+</Steps>
+
+## Verify your load balancer
+
+<Steps>
+<Step>
+Go to the **Load Balancers** page, and select your new load balancer.
+</Step>
+<Step>
+On the **Description** tab, see the **Status** row.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-92.png)
+</Frame>
+</Step>
+<Step>
+After at least one of your EC2 instances is in service, you can test your load balancer. Copy the string from **DNS name** (for example, my-load-balancer-1234567890.us-west-2.elb.amazonaws.com) and paste it into the address field of an internet-connected web browser. If your load balancer is working, you see the default page of your server.  
+<Frame>
+![](/images/draftable-api-self-hosted/image-93.png)
+</Frame>
+</Step>
+</Steps>

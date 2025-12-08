@@ -1,0 +1,73 @@
+---
+title: "SSL termination configuration"
+---
+
+## Configuration via environment variables
+
+Settings regarding SSL termination (reverse proxy configuration) are configurable via the docker-compose.yml. The relevant parameters are:
+
+```bash
+http_redirects_to_https: 
+```
+```bash
+use_x_forwarded_proto:
+```
+
+  
+Below is an example of a docker compose file that could be used for your instance, taking note of the parameters below the **conf\_setttings**: 
+
+```YAML
+version: '3.5'
+services:
+  apish:
+    environment:
+      DRAFTABLE_APISH_NGINX: |-
+        nginx:
+          virtual_hosts:
+            draftable:
+              conf_settings:
+                http_redirects_to_https: True
+                use_x_forwarded_proto: False
+    image: draftable/apish
+    ports:
+      - 80:80/tcp # HTTP
+      - 443:443/tcp # HTTPS
+    volumes:
+      - draftable-apish:/srv/draftable
+      - /sys/fs/cgroup:/sys/fs/cgroup
+volumes:
+  draftable-apish:
+```
+
+These parameters are critical for correct implementation for SSL termination on your instance, and should also be reflected on your reverse proxy/load balancer if you are using one.
+
+### Descriptions of custom variables 
+
+```bash
+http_redirects_to_https:
+```
+
+```bash
+Default value: True (Boolean)
+```
+
+If enabled, redirect HTTP requests to the equivalent HTTPS URL. Disabling should only be necessary if you want to allow "truly" insecure requests. When TLS connections are not being terminated on the server, you should instead enable  `use_x_forwarded_proto`, and ensure the `use_x_forwarded_proto` header is being set by upstream load balancers and reverse proxies.
+
+```bash
+use_x_forwarded_proto:
+```
+
+```bash
+Default: False (Boolean)
+```
+
+If enabled, check the `use_x_forwarded_proto` header in requests to determine the URI scheme (HTTP or HTTPS). The header will be passed through to the frontend server, and used to check if a HTTP redirect to the equivalent HTTPS URL should be sent when HTTPS request redirection is enabled.
+
+<CardGroup>
+<Card title="docker-compose.yml" icon="file-lines" href="https://help.draftable.com/hc/en-us/article_attachments/6461995941401" cta="Download" iconType="solid">
+512 Bytes
+</Card>
+<Card title="Draftable API Self-hosted docker compose setup.pdf" icon="file-lines" href="https://help.draftable.com/hc/en-us/article_attachments/6462001653017" cta="Download" iconType="solid" >
+10 KB
+</Card>
+</CardGroup>

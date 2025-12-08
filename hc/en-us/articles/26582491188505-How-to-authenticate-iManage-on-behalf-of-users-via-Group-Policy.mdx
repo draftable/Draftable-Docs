@@ -1,0 +1,55 @@
+---
+title: "How to authenticate iManage on behalf of users via Group Policy"
+description: "Draftable Legal allows you to integrate your iManage setup with Draftable Legal itself, so you can run comparisons directly from iManage. This article provides a guide on how to enable automatic authentication of iManage for your users, via Group Policy. **Please note**, that this is not the complete configuration required for iManage integration with Draftable Legal, please see these specific articles for full configuration depending on your iManage environment."
+---
+
+
+
+<CardGroup>
+<Card
+  title="For Cloud"
+  icon="cloud"
+  href="/hc/en-us/articles/24481421270425-Guide-for-iManage-Cloud-integration-with-Draftable-Legal"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="For On-premises"
+  icon="server"
+  href="/hc/en-us/articles/19747263579801-Guide-for-iManage-On-Premises-integration-with-Draftable-Legal"
+  iconType="solid"
+  horizontal
+/>
+
+</CardGroup>
+### Configuring the setting via group policy
+
+If you do not already have the Group Policy templates installed, please read this article first about the Draftable Legal [Group Policy Settings](/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal) which details where the templates are located and how to install them.
+
+Once you have installed the templates, you can open up the Group Policy Editor and expand either the Computer Configuration or User Configuration depending on how you are deploying Draftable Legal. Under the Administrative Templates folder, you will see a Draftable folder which contains three subfolders which that allow you to configure various Draftable Legal settings.  
+  
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-118.png)
+</Frame>
+
+  
+Select the folder Draftable Desktop Legal folder. Once opened, you will be presented with many group policy options. Select the **Enable iManage integration on behalf of users** option.  
+  
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-119.png)
+</Frame>
+
+  
+Double-click on the setting, to bring up the window to allow you to configure the setting.  
+  
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-120.png)
+</Frame>
+
+Here you can enable (to allow users to connect to iManage) or disable (prevent users from connecting to iManage) the setting. Once configured and saved, you can push out the setting to the relevant group of users.
+
+This feature has been available since version 2.10 of Draftable Legal.

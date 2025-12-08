@@ -1,0 +1,279 @@
+---
+title: "Most common Draftable Legal registry configurations"
+description: "This is an article intended for administrator level users, who wish to make certain configurations to the registry of user computers, to set values directly to the registry. This is an alternative method of Draftable legal user machine configuration as opposed to using something like group policy."
+---
+
+
+## Registry configurations
+
+Below are a series of different registry configurations you can use to set user machine values directly for Draftable legal. They are grouped by the category of settings/configuration each registry key belongs to.
+<Note>
+**Please note**: By default Draftable will prioritize registry keys set in the "CURRENT\_USER" registry folders, and will then prioritize "LOCAL\_MACHINE" registry keys if keys are not found in "CURRENT\_USER". This will apply to users wanting to use "LOCAL\_MACHINE" to apply keys, so they do not have to configure each different individual user account.
+</Note>
+<Warning>
+Please **be aware,** that if you wish to set the registry keys in the "LOCAL\_MACHINE" section, the location slightly differs from the "CURRENT\_USER" location, as it's not mirrored. Hence, the default location for Draftable registry keys in "LOCAL\_MACHINE" is HKLM:\\Software\\Policies\\Draftable\\
+</Warning>
+Hence, **do not use** HKLM:\\Software\\Draftable\\ for "LOCAL\_MACHINE" registry configurations.
+
+### Installation configurations
+
+#### Draftable startup when Windows starts
+
+This registry key is used to control what type of startup occurs if Draftable starts up when Windows boots.
+
+```bash
+Key: HKCU:\Software\Draftable\Compare
+Value name: StartOnStartupOption
+Value type: REG_SZ
+Value data: <key>
+```
+The value **`<key>`** can be set to the following values:
+
+- Silent: Starts silently in the background, no user prompt is given.
+- Start: Starts and opens a New Comparison window when Windows starts.
+- NotStart: Will not start Draftable, when Windows starts.
+
+#### Send telemetry data
+
+By default the Draftable application will send telemetry data to us for diagnostic purposes. It is not required to be enabled for the function of Draftable, and this setting controls whether it is enabled or not.
+
+```bash
+Key: HKCU:\Software\Policies\Draftable\Compare
+Value name: SendStatistics
+Value type: REG_DWORD
+Value data: <key>
+```
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+#### Word Add-in
+
+You can set whether the Word add-in is enabled, and by extension, to be installed into Microsoft Word for use with Draftable.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: WordVstoAddInEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+#### Outlook Add-in
+
+You can set whether the Outlook add-in is enabled, and by extension, to be installed into Microsoft Outlook for use with Draftable.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: OutlookVstoAddInEnabledSetting
+Value type: REG_DWORD
+Value data: <key>
+```
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+### General settings
+
+#### Conversion engine type
+
+You can set the default conversion engine used in Draftable Legal.
+
+```bash
+Key: HKCU:\Software\Draftable\Compare
+Value name: DocxConversionEngine
+Value type: REG_SZ
+Value data: <key>
+```
+
+Where the **Value data** can be set to 'Internal' for the Draftable engine or 'Office' for the Microsoft Word engine.
+
+#### Disable the option to send obfuscated documents 
+
+You can set the overall behaviour in Draftable Legal to prevent any obfuscated documents from being sent, which also includes the option to send obfuscated documents in the error message.
+
+```bash
+Key: HKCU:\Software\Draftable\Compare
+Value name: NeverShareObfuscatedDocuments
+Value type: REG_DWORD
+Value data: <key>
+```
+The value **`<key>`** can be set to either **1** for enabled (do not send obfuscated documents) or **0** for disabled (to allow sending of obfuscated documents).
+
+#### Enable "Preview" options in the settings menu
+
+You can set the "Preview" settings in Draftable Legal to be enabled, by changing the below setting.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: PreviewSettingsEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+The value **`<key>`** can be set to either **1** for enabled (Preview settings enabled) or **0** for disabled (Preview settings hidden).
+
+### DMS configurations
+
+#### Enabling/Disabling iManage integration
+
+This registry key is used to set the status of iManage integration to be enabled or disabled by default.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: DmsEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+#### iManage On-Premises configuration
+
+This registry key is used to set the client id, server URL and communication port for On-Premises iManage configuration.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: ImanageOnPremisesClientId
+Value type: REG_SZ
+Value data: <client-id-guid>
+
+Key: HKCU:\Software\Draftable\Feature
+Value name: ImanageOnPremisesServerUrl
+Value type: REG_SZ
+Value data: <https://cloudimanage.com/>
+
+Key: HKCU:\Software\Draftable\Feature
+Value name: ImanageCommunicationPort
+Value type: REG_SZ
+Value data: <port_number>
+```
+The value **`<client-id-guid>`** is the value of the client ID for Draftable to be used in iManage.
+
+The value **`<https://cloudimanage.com/>`** is the value of the server URL for Draftable to be used in iManage.
+
+The value **`<port\_number>`** is the value of the set port number to be used for Draftable communication with iManage.
+
+#### Enabling/Disabling SharePoint integration
+
+This registry key is used to set the status of SharePoint integration to be enabled or disabled by default.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: SharePointEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+
+The value **`<key`>** can be set to either **1** for enabled, or **0** for disabled.
+
+#### Enabling/Disabling NetDocs integration
+
+This registry key is used to set the status of NetDocs integration to be enabled or disabled by default.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: IsNetDocsEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+#### Enabling/Disabling iManage Persistent Session
+
+This registry key is used to control whether login details are retained on the end user's machine. Useful to **disable** when troubleshooting iManage connection issues between Draftable and iManage.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: ImanagePersistentSessionEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled. If you are having issues with connections, its recommended you set this key to 0, restart your computer and try iManage connection again (it will prompt you to login). 
+
+### Side by side comparison configurations
+
+#### Header and footer detection
+
+This registry key is used to specify whether header and footer detection is enabled for side by side comparisons.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: HeaderFooterEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+
+The value **`<key>`** can be set to either **1** for enabled, or **0** for disabled.
+
+### Redline comparison configurations
+
+#### Redline default profile name
+
+This registry key is used to specify the default Redline profile to be used on Draftable startup.
+
+```bash
+Key: HKLM:\Software\Policies\Draftable\RedlineProfiles
+Value name: DefaultProfileName
+Value type: REG_SZ
+Value data: <key>
+```
+
+The value **`<key>`** is to be set to the exact name of the Redline profile to be loaded, it is case sensitive.
+
+#### Redline profiles
+
+These registry keys named AdminRedlineProfile is used to specify the Redline profile JSON data to be loaded for Redline profiles, which stipulate the settings to be loaded for Redline comparisons.
+
+The **value names** are labeled in ascending order from AdminRedlineProfile, AdminRedlineProfile1, AdminRedlineProfile2, and so forth up until AdminRedlineProfile9. This provides 10 total profiles that can be set.
+
+```bash
+Key: HKCU:\Software\Draftable\RedlineProfiles
+Value name: AdminRedlineProfiles
+Value type: REG_SZ
+Value data: <key>
+```
+
+The value data to be entered is a JSON response with all the Redline profile information. You can read more about [Redline profiles here.](/hc/en-us/articles/19002240548249-Managing-profiles-for-Redline-settings)
+
+#### OCR detection default setting
+
+You can set the default value for OCR detection for documents being compared.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: DefaultOcrOption
+Value type: REG_SZ
+Value data: <key>
+```
+
+Where the **Value data** could be either: 
+
+- Auto - Automatically performs OCR when Draftable detects that the document requires OCR.
+- Yes - Will always perform an OCR on the document
+- No - Never performs an OCR on the document.
+
+#### OCR detection per comparison setting
+
+You can set the default behavior for OCR setting for comparisons to be shown and settable in the new comparison window for each comparison.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: OcrSelectorOptionsVisible
+Value type: REG_DWORD
+Value data: <key>
+```
+
+Where the **Value data** could be either 1 for enabled or 0 for disabled. 
+
+### Diagnostic configurations
+
+#### Single instance of Word used during Draftable usage
+
+This registry key is used to set as part of a configuration to only let Draftable use a single instance of word at a time for file conversion. Is is intended as a fix for those using macros within the normal dotm file types for comparisons.
+
+```bash
+Key: HKCU:\Software\Draftable\Compare
+Value name: WordApplicationInstancePolicy
+Value type: REG_SZ
+Value data: SingleInstance
+```
+
+Setting **Value data** to "SingleInstance" will enable this feature.

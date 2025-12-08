@@ -1,0 +1,216 @@
+---
+title: "API Self-hosted AWS EC2 deployment guide"
+description: "If you intend on using AWS EC2 to host your Draftable Self-hosted image, this guide provides a step by step process for this exact deployment. "
+---
+
+## Prerequisites 
+
+You will need to ensure you have the following ready before beginning this deployment.
+
+1. You have logged into your AWS console with elevated privileges
+2. You have selected the correct region in the AWS console where you are going to host your instance
+
+## Deployment steps
+
+The deployment steps are broken down into the following sections. 
+
+- [User configuration:](#user-configuration) Account configuration for the AWS user that will interact with the instance configuration.
+- [Launching a EC2 instance](#launching-a-ec2-instance): Process of the initial configuration for your EC2 instance.
+- [Instance configuration](#instance-configuration): Adding the Draftable container to your instance, configuring the Self-hosted instance and restarting your container with Self-hosted configured.
+
+### User configuration
+
+<Steps>
+<Step>
+Navigate to your **IAM users.** We are going to create a new user by selecting the **add users** option. (**Note:** if editing an existing user account instead skip to step 5)  
+
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-65.png)
+	</Frame>
+</Step>
+<Step>
+Enter details for the new user, ensure that you have the following AWS credential parameters enabled: **Access Key** and **Password.** Then click **next**.   
+
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-66.png)
+	</Frame>
+</Step>
+<Step>
+Now we include specific policies on the account. Ensure you include the *AdministratorAccess* and *IAMUserChangePassword* policies to the account. Then click **next**.
+
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-67.png)
+	</Frame>
+</Step>
+<Step>
+Ignoring the **tags** step, go straight to the **review** page. Ensure that the two policies we added earlier are present. If all looks good, click **create user**.
+
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-68.png)
+	</Frame>
+</Step>
+<Step>
+Open the user account again and go the **permissions** page. We to add an additional permission called *AmazonEC2ContainerRegistryFullAccess.* Add this policy and hit **next,** then **add permissions**.  
+    <Frame>
+	![](/images/draftable-api-self-hosted/image68-1.png)
+	</Frame>
+    <br />
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-69.png)
+	</Frame>
+</Step>
+</Steps>
+
+### Launching a EC2 instance
+
+#### **Prerequisites** 
+
+Ensure you have setup the following:
+
+- Logged into the AWS console as the user created/edit in the user configuration section.
+- Have the correct region selected before continuing with instance setup.
+
+<Steps>
+<Step>
+Navigate to the **EC2 dashboard** and select the **Launch instance** option.   
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-70.png)
+</Frame>
+</Step>
+<Step>
+Draftable API Self-hosted runs on any Linux operating system which has both docker support and uses a Linux kernel. Provide a **name** for your instance and then select **Amazon Linux** as the AMI.  
+
+<Note>
+You can deviate from the example below and choose a different Linux operating system, as long as it still supports the above requirements.   
+</Note>
+
+	<Frame>
+	![](/images/draftable-api-self-hosted/image-71.png)
+	</Frame>
+</Step>
+<Step>
+Continue to configure the instance by selecting a **x64** architecture, and then selecting a instance type that is at least **t2.medium** or higher. Key pair should be the same one used as part as the login for the AWS user.   
+<Frame>
+![](/images/draftable-api-self-hosted/image-72.png)
+</Frame>
+</Step>
+<Step>
+Configure the **network settings** as detailed below, create a new **firewall security group** and allow **SSH**, **HTTPS** and **HTTP** traffic from the internet. Depending on your use case you may want to change some of these parameters at a later time, but for the configuration process please allow all during the setup process.   
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-73.png)
+</Frame>
+Following this configuration, you should be left with a following summary of settings. Ensure they are correct to the settings provided earlier.  
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-74.png)
+</Frame>
+</Step>
+<Step>
+Click **launch instance.** Your EC2 instance should now be running.
+</Step>
+</Steps>
+
+### Instance configuration 
+
+#### **Prerequisites** 
+
+Ensure you have setup the following:
+
+- Logged into the AWS console as the user created/edit in the user configuration section.
+- Are on the **instances** page before continuing.
+
+<Steps>
+<Step>
+Select on your newly created instance and click on **connect to your instance.** Ensure the username s correct and then select **connect**.
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-75.png)
+</Frame>
+</Step>
+<Step>
+In this instance terminal we will configure and add the latest Draftable Self-hosted image. First we need to add docker to the instance, which can be done with the command below:
+
+```bash
+sudo yum install -y docker
+```
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-76.png)
+</Frame>
+</Step>
+<Step>
+Now we need to add docker-compose to the instance, use the commands below:
+```bash
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+```
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+<Frame>
+![](/images/draftable-api-self-hosted/image-77.png)
+</Frame>
+</Step>
+<Step>
+We can now verify that docker compose has installed correctly by using the command below:
+```bash
+docker-compose version
+```
+<Frame>
+![](/images/draftable-api-self-hosted/image-78.png)
+</Frame>
+</Step>
+<Step>
+Now create the ***docker-compose.yml*** file, use the command below: 
+```bash
+touch docker-compose.yml
+```
+</Step>
+<Step>
+Now we need to edit the *docker-compose* file to add all the correct parameters for the instance. To start editing the file use the command below:  
+
+```bash
+nano docker-compose.yml
+```
+</Step>
+<Step>
+Now using this file editor, populate the YAML file with the correct configuration. For references on this topic see our [docker-compose guide](/hc/en-us/articles/6140153331993-Using-docker-compose-to-launch-instances) and [settings reference.](/hc/en-us/articles/6140653011865-Understanding-the-docker-compose-yml-file-and-parameters-guide) For this example we are using the most basic YAML configuration.   
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-79.png)
+</Frame>
+</Step>
+<Step>
+Save and close the *docker-compose* file, and then start the docker daemon with the following command: 
+```bash
+sudo systemctl start docker
+```
+</Step>
+<Step>
+Now start the instance using the command below: docker-compose up
+
+<Note>
+You may receive a permissions error regarding the instance trying to connect to the Docker Daemon. If so run this command to correct permissions:
+</Note>
+	```
+	sudo chmod 666 /var/run/docker.sock
+	```
+</Step>
+<Step>
+Your instance should launch from here. You can go back to your **EC2 instances** list and extract a IP address to connect to your instance via the web browser to start configuration.
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-80.png)
+</Frame>
+</Step>
+<Step>
+From here, please refer to our [first time configuration guide](/hc/en-us/articles/8424839618457-Draftable-Self-hosted-instance-first-time-configuration).
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-81.png)
+</Frame>
+
+If you are having difficulty following this guide or getting Draftable Self-hosted to work on your AWS EC2, please get in contact with our support team at [support@draftable.com.](mailto:support@draftable.com)
+</Step>
+</Steps>

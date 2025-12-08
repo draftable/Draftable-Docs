@@ -1,0 +1,74 @@
+---
+title: "How to resolve \"Comparison of PDF documents failed. Draftable requires additional permissions to complete this action\""
+---
+
+
+## Identifying the Issue
+
+This issue occurs when trying to run a comparison of PDF documents and/or raw text input. Draftable  displays the following error dialog with message "Comparison of PDF documents failed. Draftable requires additional permissions to complete this action":
+
+<Frame>
+  <img src="/images/troubleshooting/image-53.png" alt="Error dialog" />
+</Frame>
+
+Additionally, the following error message might appear in the logs:
+
+`System.UnauthorizedAccessException: Comparison of PDF documents failed. Draftable requires additional permissions to complete this action`
+
+## Root Cause of the Issue
+
+Draftable's Legal Redline compare depends on Microsoft Word for certain functions. The issue arises due to a Word setting associated with converting PDF files into Word documents. This can occur when trying to compare PDF documents or raw text input.
+
+Unfortunately, it's not possible for Draftable to change this setting on your behalf, but you can do this yourself via two different methods.
+
+## Workaround: Step-by-Step Instructions
+
+There are currently two workarounds for this issue, it can be fixed via Microsoft word or editing a key within the system registry.
+
+### Microsoft Word method
+<Steps>
+<Step>
+Launch Microsoft Word.
+</Step>
+<Step>
+Under **File**, click **Open**
+</Step>
+<Step>
+Browse to and select the PDF document you wish to compare (or any other PDF), and click **Open**.
+</Step>
+<Step>
+A dialog window will appear, informing you that Word will attempt to convert the PDF into an editable Word document.  
+	<Frame>
+	  <img src="/images/troubleshooting/image-54.png" alt="PDF conversion dialog" />
+	</Frame>
+</Step>
+<Step>
+Tick "Don't show this message again". *This is the important part.*
+</Step>
+<Step>
+Click "OK" to proceed. You can close Word at this point.
+</Step>
+<Step>
+Now, you can return to Draftable Pro and run the comparison. The error should not appear anymore.
+</Step>
+</Steps>
+### Change settings via registry method
+
+You may need to contact your computer administrator to get these settings enabled using this method.
+<Steps>
+<Step>
+Open Registry edtior or similar
+</Step>
+<Step>
+Navigate to the following path: `Computer\HKEYCURRENTUSER\Software\Microsoft\Office\16.0\Word\Options`
+</Step>
+<Step>
+Set the registry key `DisableConvertPdfWarning` to 1  
+	<Frame>
+	  <img src="/images/troubleshooting/image-55.png" alt="Registry editor" />
+	</Frame>
+</Step>
+<Step>
+Restart Draftable and retest to see if the issue is persisting.
+</Step>
+</Steps>

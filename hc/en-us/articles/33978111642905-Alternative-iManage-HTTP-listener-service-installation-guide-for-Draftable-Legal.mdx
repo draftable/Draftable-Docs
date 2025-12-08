@@ -1,0 +1,109 @@
+---
+title: "Alternative iManage HTTP listener service installation guide for Draftable Legal"
+description: "This article provides a step-by-step guide for installing the alternative Windows service with a HTTP listener as an alternative to the local iManage HTTP Listener. This is done by installing a new Windows based listener service and then ensuring we disable the local iManage HTTP listener."
+---
+
+
+This guide is a recommended deployment step for all Citrix/RDS users or those who are currently experiencing issues with the local iManage HTTP Listener not working when Draftable Legal is not running or open in the background.
+
+## What is the Listener service?
+
+The Listener Service allows users to open and load files from iManage (via the Draftable Universal iManage App) even when the Draftable Desktop application is not running.
+
+### How does it work?
+
+The Listener Service does this by hosting a standalone HTTP Server that is also a part of the Draftable Desktop application. This operates (by default) on the same port - 4764. Its utility is in it being a standalone service that is running all the time. By always running, it can wait for a request from iManage to load files into Draftable which then triggers the Service to call the Draftable Desktop application. 
+
+### Does it require internet access?
+
+The iManage HTTP Listener service requires network access to your iManage instance for the purpose of loading the iManage JavaScript API. No authentication credentials are required. For cloud-hosted iManage instances, Internet access is implicitly required. For on-premise installations, the service must be able to reach the URL of your iManage server as configured for the service.
+
+## How to install the Listener Service
+
+### Step 1: Install Draftable Legal System-Wide MSI
+
+First we must ensure we install the new listener service via the System-Wide MSI installer.
+
+**Download and Run Installer:**
+
+- Download the latest system-wide MSI installer from [this link.](/hc/en-us/articles/16018288168601-Enterprise-deployment-options)
+- Run the installer with administrator rights.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-125.png)
+	</Frame>
+
+**Advanced setup steps:**
+
+- During the setup process, choose the **Advanced** Installation option.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-126.png)
+	</Frame>
+- Continue the installation as normal, but once you get to the **Product Features** section, under **Integrations,** select the Http service option and ensure you select that the **Entire feature will be installed on the local hard drive.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-127.png)
+	</Frame>
+- Continue the installation process until Draftable Legal is completely installed.
+
+### Step 2: Ensure that the new Listener Process is running
+
+We want to ensure that the installation steps above went successfully, hence we can validate the new listener service by checking the task manager after Draftable has finished installing and is currently running.
+
+**Open Task Manager:**
+
+- Press Ctrl + Shift + Esc to open Task Manager.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-128.png)
+	</Frame>
+- Navigate to the "Services" tab.
+
+**Locate iManage Listener Process:**
+
+- Look for Draftable.HttpListener in the list of services.  
+	  
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-129.png)
+	</Frame>
+- As long as you can see this service, you have correctly installed the new listener service
+
+### Step 3: Disable Local iManage HTTP Listener via group policy or registry
+
+To ensure that the local iManage HTTP listener no longer runs, we need to disable it via group policy or via registry.
+
+**Disable Local iManage HTTP Listener via group policy:**
+
+- Ensure you are using the latest group policy templates from 2.16.100 or above.
+- Using your preferred group policy editor, ensure the policy **Enable local iManage HTTP Listener** is set to **disabled.**  
+	
+	<Frame>
+	![](/images/using-draftable-legal-with-iManage/image-130.png)
+	</Frame>
+
+**Disable Local iManage HTTP Listener via group policy:**
+
+In your registry, it is recommended for system-wide deployment that you configure this registry key under LOCAL\_MACHINE location, but it will still work in CURRENT\_USER.
+
+To disable the Local iManage HTTP Listener, ensure you set the following key.
+
+```bash
+Key: HKCU:\Software\Draftable\Feature
+Value name: CommunicationEnabled
+Value type: REG_DWORD
+Value data: <key>
+```
+Where the value of `<key>` needs to be set to **0** for disabled, 1 will enable this feature.
+
+## Troubleshooting 
+
+If you have issues with installing the HTTP listener service, you may see the following error:
+
+<Frame>
+![](/images/using-draftable-legal-with-iManage/image-131.png)
+</Frame>
+
+This issue occurs when the local iManage listener is not disabled. Hence, please ensure that it is not enabled, restart Draftable and attempt the configuration again.
+
+If you encounter issues during the setup, consult the Draftable support team for further assistance at [support@draftable.com](mailto:support@draftable.com)

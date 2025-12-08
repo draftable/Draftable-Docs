@@ -1,0 +1,16 @@
+---
+title: "Network requirements"
+description: "Draftable API Self-hosted container requires internet access to activate the license."
+---
+
+## License Activation
+
+To activate the instance, the product license is verified by our license servers.
+
+| Host | Port | Protocol | Required |
+| :--- | :--- | :--- | :--- |
+| draftable.com | 443 | HTTPS | Yes |
+
+<Note>
+The IP address may change due to CDN and load balancer usage, so the firewall should dynamically whitelist based on the DNS query response.
+</Note>

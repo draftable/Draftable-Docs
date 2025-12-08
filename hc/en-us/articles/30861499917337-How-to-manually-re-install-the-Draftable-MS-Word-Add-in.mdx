@@ -1,0 +1,116 @@
+---
+title: "How to manually re-install the Draftable MS Word Add-in"
+---
+
+## Introduction
+
+This article is designed to assist users in troubleshooting their Draftable MS Word Add-In. Users may find this useful if they receive errors after installing or updating Draftable Legal (see image below) or if they have followed the [How to re-enable Draftable Word Add-in](/hc/en-us/articles/26630500422809-How-to-re-enable-Draftable-Word-Add-in) and were unsuccessful in re-enabling the add-in.  
+<Note>
+**Please note:** This guide assumes that users have installed Draftable Desktop on their machine and have a Draftable Legal license activated.
+</Note>
+
+<Frame>
+  <img src="/images/troubleshooting/image-33.png" alt="Word Add-in error" />
+</Frame>
+
+## The solution: perform a manual uninstall and re-install of the Word add-in
+
+### Part 1: Uninstall the existing add-in from your machine
+<Steps>
+<Step>
+In your windows search bar (at the bottom of your primary monitor screen), type in **add remove programs** and **open the option 'Add or remove programs (control panel)'.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-34.png" alt="Add or remove programs" />
+	</Frame>
+</Step>
+<Step>
+Programs are in alphabetical order. Scroll down the list until you find **Draftable.CompareTool.WordAddIn,** click on the **"..."** ellipses and select **Uninstall**.  
+	<Note>
+	  Note, If this item does not appear in your list of installed apps you can proceed to the next section.
+	</Note>
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-35.png" alt="Uninstall Word Add-in" />
+	</Frame>
+</Step>
+<Step>
+Windows will warn you that the app will be uninstalled. Select the **Uninstall** to proceed.
+</Step>
+<Step>
+Microsoft Office will warn you that the add in will uninstall. Select **OK** to continue and the add-in will be uninstalled. Note you will not receive a notification that this is completed.
+</Step>
+</Steps>
+### Part 2: Manually install the latest Word add-in
+<Steps>
+<Step>
+First make sure that all your work in Microsoft Word is saved
+</Step>
+<Step>
+Then close all Word files / windows on your computer.
+</Step>
+<Step>
+To be certain no Word processes are running in the background, press **Ctrl + Alt + Delete** on your keyboard and select **Task Manager.**
+</Step>
+<Step>
+In the task manager, under 'Processes', type **winword** into the search bar, select any processes in the search result and select **End Task.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-36.png" alt="Task Manager" />
+	</Frame>
+</Step>
+<Step>
+In your windows search bar at the bottom of your screen, type **%localappdata%** and open the %localappdata% file folder in the results.  
+	  
+	<Note>
+	  **Note:** If you have installed Draftable Legal via the MSI system wide installer, navigate instead to the install folder of where Draftable was installed.
+	</Note>
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-37.png" alt="Local AppData folder" />
+	</Frame>
+</Step>
+<Step>
+In the file explorer folder that opens, find the folder for **DraftableDesktop** and open it.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-38.jpg" alt="DraftableDesktop folder" />
+	</Frame>
+</Step>
+<Step>    
+Once the **DraftableDesktop** folder is opened, go to the **current** folder, followed by the **integrations** folder.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-39.png" alt="Integrations folder" />
+	</Frame>
+</Step>
+<Step>
+Right click 'DraftableWordAddIn-bin.zip' and select 'Extract'  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-40.jpg" alt="Extract zip file" />
+	</Frame>
+</Step>
+<Step>
+The extracted folder will automatically open when complete. In the folder, **double click** the **Draftable.CompareTool.WordAddIn** **VSTO Deployment Manifest** file. You can confirm the right file by checking the file type is VSTO Deployment Manifest.  
+	  
+	<Frame>
+	  <img src="/images/troubleshooting/image-41.png" alt="VSTO Deployment Manifest" />
+	</Frame>
+</Step>
+<Step>
+This will trigger the manual installation of the Word Add in. Once completed, you should see a notification saying the installation was successful.
+
+<Frame>
+  <img src="/images/troubleshooting/image-42.png" alt="Installation successful" />
+</Frame>
+
+After successfully installing the Word Add-in, **open** **Microsoft Word**. The Add-in should load correctly and be available for use in the ribbon menu and via right click when selecting text (see below).  
+  
+<Frame>
+  <img src="/images/troubleshooting/image-43.png" alt="Word Add-in in ribbon" />
+</Frame>
+</Step>
+</Steps>
+
+If you continue to have trouble with your Word Add In installation, please contact [support@draftable.com](mailto:support@draftable.com) and our team will be glad to assist.

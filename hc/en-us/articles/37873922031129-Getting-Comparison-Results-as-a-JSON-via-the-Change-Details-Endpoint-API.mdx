@@ -1,0 +1,143 @@
+---
+title: "Getting Comparison Results as a JSON via the Change-Details Endpoint (API)"
+description: "Draftable provides a useful API endpoint called the **change-details** endpoint, which allows users to retrieve comparison results as a structured JSON response. This article provides details on how to access this endpoint and outlines an example for retrieving the JSON data via code."
+---
+
+
+### Accessing the Change-Details Endpoint
+
+To access the **change-details** endpoint, use the following URL structure:
+
+```bash
+https://api.draftable.com/v1/comparisons/<Comparison\_ID>/change-details
+```
+
+- **Comparison\_ID**: This is the unique identifier for the comparison you want to retrieve the details of.
+
+You will need to authenticate using your **API credentials** to access the endpoint if you wish to view it directly in the browser. Hence, ensure you are logged in with the appropriate credentials before attempting to access this URL.
+
+### Example URL
+
+```bash
+https://api.draftable.com/v1/comparisons/LxBGpPTO/change-details
+```
+
+<Note>
+  The example URL above is provided for illustration purposes and will not work without valid credentials.
+</Note>
+
+When accessed successfully, the endpoint returns a JSON response containing detailed information about the changes in the specified comparison.
+
+### Change-Details Example JSON Response
+
+The JSON response from this endpoint includes detailed change data such as:
+
+- The type of change (insertions, deletions, etc.)
+- The location of changes (paragraphs, headers, etc.)
+- Change metadata (timestamps, user info, etc.)
+- Summary of all the changes found in the comparison (shown at the end of the response)
+
+Here is a basic structure of what the main body JSON response would look like:
+
+```json
+{ 
+  "comparison_id": "LxBGpPTO", 
+  "changes": [ 
+    { 
+      "id": "1", 
+      "change_type": "insertion", 
+      "content": "New paragraph added here", 
+      "location": { 
+        "page": 2, 
+        "section": "Main Body" 
+      } 
+    }, 
+    { 
+      "id": "2", 
+      "change_type": "deletion", 
+      "content": "Text removed here", 
+      "location": { 
+        "page": 5, 
+        "section": "Footer" 
+      } 
+    } 
+  ] 
+}
+```
+
+As mentioned before, at the bottom of the response there is a summary which would appear like below:
+
+```json
+"summary": {
+        "anyChanges": true,
+        "anyMatches": true,
+        "changeSummary": {
+            "matches": 48,
+            "deletions": 11,
+            "insertions": 2,
+            "replacements": 22,
+            "matchingWords": 373,
+            "deletedLeftWords": 61,
+            "replacedLeftWords": 14,
+            "insertedRightWords": 8,
+            "replacedRightWords": 11
+        },
+        "leftDocumentSummary": {
+            "pageCount": 2,
+            "characterCount": 3088,
+            "wordCount": 499
+        },
+        "rightDocumentSummary": {
+            "pageCount": 2,
+            "characterCount": 2696,
+            "wordCount": 434
+        }
+    }
+}
+```
+
+### Fetching Change-Details via Code (Python)
+
+You can also access the **change-details** endpoint programmatically using your preferred coding language. For the below example, we are using Python of how to retrieve the JSON response for a given comparison ID.
+
+<Note>
+  Retrieval or usage of the change-details endpoint is **not** apart of any existing client library, it will need to be created yourselves.
+</Note>
+
+```python
+import requests
+
+# Replace with your actual endpoint URL and API access token
+url = 'https://example.com/api/v1/comparisons/<Comparison_ID>/change-details'
+access_token = 'your_access_token'
+
+# Set up headers with the authorization token
+headers = {
+    'Authorization': f'Token {access_token}',
+}
+
+# Make the GET request to the endpoint
+response = requests.get(url, headers=headers)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Parse and print the JSON response
+    json_response = response.json()
+    print(json_response)
+else:
+    print(f"Request failed with status code: {response.status_code}")
+```
+
+### Important Considerations
+
+1. **Authentication**: You need to pass the correct API token as part of the request headers. Ensure that your token is up to date and correctly scoped for accessing comparison data.
+2. **Error Handling**: The response will include an HTTP status code, so ensure to handle possible errors such as `401 Unauthorized` or `404 Not Found` in your code.
+3. **Data Privacy**: The comparison results might contain sensitive information depending on the documents compared. Ensure appropriate measures are in place to secure this data.
+
+### Conclusion
+
+The **change-details** endpoint provides a convenient way to programmatically retrieve detailed comparison results in JSON format, which can be integrated into various workflows or applications. Whether accessed directly via the URL or programmatically through code, this endpoint offers flexibility for users needing detailed change data.
+
+For more information on other API endpoints or configuration options, please refer to the [Draftable API Documentation](https://api.draftable.com/).
+
+If you encounter any issues accessing the endpoint or need assistance, feel free to reach out to our support team.

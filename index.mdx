@@ -1,97 +1,76 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+mode: "custom"
+title: "Draftable Docs"
 ---
 
-## Setting up
+<div className="relative w-full flex items-center justify-center" style={{ height: '26rem', overflow: 'hidden'}}>
 
-Get your documentation site up and running in minutes.
+<div id="background-div" className="absolute inset-0 h-full bg-[#00000000] bg-cover bg-center"></div>
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
+<div
+  id="background-div"
+  className="absolute inset-0 h-full bg-cover bg-center"
+  style={{
+    backgroundImage: 'url("https://help.draftable.com/hc/theming_assets/01HZM2WME45M88WKVH0MYN5A5E")'
+  }}
 >
-  Follow our three step quickstart guide.
-</Card>
+</div>
 
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
-
-## Create beautiful pages
-
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
+<div style={{ position: 'absolute', textAlign: 'center', padding: '0 1rem' }}>
+<div
+  className="text-5xl font-bold w-full mt-12 text-white"
 >
-  Browse our showcase of exceptional documentation sites.
-</Card>
+
+  Welcome to Draftable Docs!
+  </div>
+
+  <p className="text-lg text-white" style={{  fontWeight: '500' , maxWidth: '40rem', margin: '0 auto', marginTop: '0.5rem'}}>
+  Hi, How can we help you today?
+  </p>
+
+    <div className="flex items-center justify-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <button
+        type="button"
+        className="hidden w-full lg:flex items-center text-sm leading-6 py-4 pl-4 pr-4 text-gray-500 rounded-full"
+        id="home-search-entry"
+        style={{
+          marginTop: '2rem',
+          maxWidth: '40rem',
+          background: '#FFF',
+          boxShadow: '0px 1px 4px 0px rgba(8, 9, 10, 0.25), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
+          cursor: 'pointer',
+          textAlign: 'left',
+        }}
+        onClick={()=> document.getElementById('search-bar-entry').click()}
+      >
+        <svg
+          className="h-4 w-4 ml-1.5 flex-none bg-primary hover:bg-gray-600 dark:bg-primary-dark dark:hover:bg-white/70"
+          style={{
+          marginRight: '0.5rem',
+          maskImage:
+            'url("https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg")',
+          maskRepeat: 'no-repeat',
+          maskPosition: 'center center',
+          }}
+        />
+        Search the Draftable knowledgebase...
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  style={{marginTop: '2rem', marginBottom: '4rem', maxWidth: '70rem', marginLeft: 'auto',
+  marginRight: 'auto', paddingLeft: '1.25rem',
+  paddingRight: '1.25rem' }}
+>
+
+<CardGroup cols={3}>
+<Card title="Draftable API Self Hosted - Version 3" icon="book-open-reader"  href="/hc/en-us/categories/51117451677721-Draftable-API-Self-Hosted-Version-3" iconType="solid"/>
+<Card title="Draftable API Self-hosted" icon="book-open-reader"  href="/hc/en-us/categories/4405478683545-Draftable-API-Self-hosted" iconType="solid"/>
+<Card title="Draftable API" icon="book-open-reader"  href="/hc/en-us/categories/6140281969177-Draftable-API" iconType="solid"/>
+<Card title="Draftable Business" icon="book-open-reader"  href="/hc/en-us/categories/6140753313305-Draftable-Business" iconType="solid"/>
+<Card title="Draftable Legal" icon="book-open-reader"  href="/hc/en-us/categories/15749853683481-Draftable-Legal" iconType="solid"/>
+<Card title="General Information" icon="book-open-reader"  href="/hc/en-us/categories/16226061871257-General-Information" iconType="solid"/>
+</CardGroup>
+</div>

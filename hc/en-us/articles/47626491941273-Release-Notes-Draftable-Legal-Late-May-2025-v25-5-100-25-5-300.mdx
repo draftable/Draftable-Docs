@@ -1,0 +1,114 @@
+---
+title: "Release Notes: Draftable Legal Late May 2025 (v25.5.100-25.5.300)"
+description: "The May 2025 releases of Draftable Legal (v25.5.100-300) delivered important upgrades to email redlining, markup customization, and integration workflows across Word, Outlook, and NetDocuments. These releases also included reliability improvements for OneDrive and performance fixes to enhance document comparison speed and accuracy."
+---
+
+Here’s a quick highlight of the top five new features:
+
+- **Redline your emails directly in Outlook** – Redline your changes or compare changes to your email chain by others without leaving your inbox, using a new modern Draftable Outlook add-in.
+- **Cleaner input file review** – Remove the side pane comments from input files when viewing comparisons in [3-Pane view mode](/hc/en-us/articles/31975077731225-Three-Pane-View-See-changes-in-context-with-older-newer-and-redlined-documents-in-one-screen).
+- **Load open Word documents instantly** – A new Word add-in command allows you to select any currently open document for comparison without switching windows or manually browsing.
+- **Smarter Outlook email generation** – Automatically include your Office profile’s email signature when generating emails of redlines from Draftable.
+- **Improved NetDocuments workflows** – Save as attachment to specific input files, support for local edits, and option to check in comparison outputs by default.
+
+Let's explore these updates in more detail.
+
+**_But first, a note from our product team_**
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the May 2025 releases to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## Core Functionality
+
+### Redline your emails directly in Microsoft Outlook
+
+Draftable legal users can now redline email message content from within Microsoft Outlook using a new modern JavaScript add-in. This new "Redline in Email" add in enables comparisons of email threads and drafted responses without switching applications or copying content manually to Draftable.
+
+Users can make changes, before manually redlining their changes prior to sending their email so that the recipients will easily see their changes (even if they do not have Draftable).
+
+Users can also use the add in to 'compare' a received email against an earlier version in their conversation. This makes it easy to find changes from colleagues, clients or external parties that have not been redlined.
+
+You can learn more about [how to use Redline in Email in our dedicated guide](/hc/en-us/articles/46382010730905-Using-Draftable-Redline-in-Email), or watch a short demonstration video (below). See the administrator [deployment guide](/hc/en-us/articles/46382047949977-Configuring-Redline-in-Email-Outlook-with-Draftable) for instructions on how to setup the new add in for your organization.
+
+<Note>
+We are currently building accept / reject functionality into this add in, to further support review workflows in outlook. This will be released in the coming months.
+</Note>
+
+<Frame>
+![Email redline.png](/images/draftable-legal/image-63.png)
+</Frame>
+
+
+<Frame>
+  <iframe
+    src="//player.vimeo.com/video/1090726939"
+    title="Video player"
+    className="w-full aspect-video rounded-xl"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</Frame>
+## Markup Configuration
+
+### Remove comments from input files in 3-Pane View
+
+Users now have the option to exclude comments from the input documents when viewing redlines in the Draftable's 3-Pane view layout. This helps reduce noise and distractions in the markup when internal review notes are not relevant to external document versions.
+
+<Frame>
+![Comments in three pane view.png](/images/draftable-legal/image-64.png)
+</Frame>
+
+## Ease of Use
+
+### Select from open Word files
+
+A new command in the Draftable Word add-in allows users to quickly load documents from all currently open Word windows. This improvement eliminates unnecessary navigation steps and speeds up file selection during side-by-side or redline comparisons.
+<Frame>
+![Word add in - Open all.png](/images/draftable-legal/image-65.png)
+</Frame>
+## Integration Functions
+
+### Outlook: Include email signature in drafts
+
+When users choose to email comparison outputs (redlines, change reports, departures tables), Draftable will now automatically appends the user’s Outlook profile signature to the email it generates. This ensures lawyers can easily send comparison outputs in less time while maintaining consistent client-facing communication.
+<Frame>
+![Signature in email.png](/images/draftable-legal/image-66.png)
+</Frame>
+### NetDocuments enhancements
+
+Draftable Legal now supports the following NetDocuments workflow improvements to minimize clicks and steps when loading input files and saving comparison outputs. These include:
+
+- **Save as attachment** **to Older / Newer file** – Redline outputs can be saved as attachments specifically to either the older or the newer file. This removes the need to browse to the particular input file in the NetDocuments UI, allowing faster save workflows.  
+  <Frame>![](/images/draftable-legal/image-67.png)</Frame>
+- **Support for local edits** – Files opened from NetDocuments and edited locally in Word are now fully supported in comparison workflows to ensure they can be loaded into Draftable for comparison without saving back into NetDocuments.
+- **Default check-in setting** – Administrators can enable a default setting to automatically check in redline outputs when saved, improving version control compliance and removing the need for users to manually 'check in' these comparisons after saving.
+<Frame>
+![](/images/draftable-legal/image-68.png)
+</Frame>
+## Administrator Features
+
+### System Verification now uses Tungsten Automate when testing OCR function
+
+Draftable's automated 'System Verification' tool has been upgraded in v25.5.200 to ensure that the OCR tests use our new [**Tungsten Automate OCR library**](/hc/en-us/articles/46593503914649-Release-Notes-Draftable-Legal-Early-May-2025-v25-5-0) (released earlier in May) instead of Microsoft Word. This ensures Draftable identifies any OCR related issues proactively upon installation (when system verification first runs) and if the system verification tool is used during troubleshooting.
+
+### Versioning information now in Group Policy templates
+
+From Draftable Legal v25.5.200, IT administrators will be able to verify and track group policy template versions during deployment and updates with ADMX and ADML files now including embedded version information.
+
+## Bug Fixes
+
+As with all releases, our 25.5.200 update included some important fixes for issues reported by our customers. Specific bugs addressed in this release:
+
+- Fix to ensure desktop shortcuts are not installed when this is configured by administrators during app installation
+- Fix for issue causing "Email logs" troubleshooting command to fail
+- Fix for missing numbering reference leading to failed comparison for specific documents
+- Fix for issue causing both 1-Click Compares and Bulk Compares to fail when generating Side-By-Side outputs
+- Fix for issue causing exports of Tracked Changes via Draftable viewer to fail when input files are PDFs
+- Resolved an issue where comparisons failed due to misaligned paragraph numbering shortcuts.
+- Fixed a display bug where markup settings caused table cell changes to appear without color.
+- Improved performance for large batch comparisons by addressing a bottleneck in bulk compare processing.
+- Corrected an issue that prevented OneDrive-stored documents from loading via the Word add-in when SharePoint integration was disabled.
+- Fix to ensure text decoration in Profiles configured prior to v24.11.0 are applied correctly from 25.5.300 (_note - for organization that set up their Profiles before v24.11.0, you will need to update to v25.5.300 or later to ensure backward compatibility of text decorations)_
+
+If you are ever experiencing issues in Draftable, please contact [support@draftable.com](mailto:support@draftable.com) for further assistance.

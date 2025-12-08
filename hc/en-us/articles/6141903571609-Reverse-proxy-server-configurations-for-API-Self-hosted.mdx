@@ -1,0 +1,67 @@
+---
+title: "Reverse proxy server configurations for API Self-hosted"
+description: "A reverse proxy is a server that sits in front of web servers and forwards client (e.g. web browser) requests to those web servers. Reverse proxies are typically implemented to help increase security, performance, and reliability."
+---
+
+This article aims to provide configuration examples using a Apache server for both *reverse proxy* and *TLS termination* to achieve a reverse proxy server. 
+
+## Reverse proxy configuration
+
+For Apache 2.4, a minimal reverse proxy configuration would include the following parameters within the apache configuration file (*httpd.conf*):
+
+```bash
+    # Authorise all requests
+    <Location />
+        Require all granted
+    </Location>
+
+    # Preserve the Host header
+    ProxyPreserveHost On
+
+    # API Self-hosted reverse proxy
+    ProxyPass / https://<apish>/
+    ProxyPassReverse / https://<apish>/
+```
+
+<Note>
+Note that:
+
+- This is not a complete configuration web server configuration, it only illustrates the specific parts pertaining to the reverse proxy. The above configuration would typically be inserted into an appropriate `<VirtualHost>` block.
+	- See [ProxyPass documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass) for more information.
+	- See [ProxyPassReverse documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypassreverse) for more information.
+- The above requires the Apache `mod_proxy` and `mod_proxy_http` modules to be enabled. These modules are typically included in most Apache installations, but may need to be enabled.
+	- See the full [Apache documentation](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html) regarding `mod_proxy`
+- The `**<apish>**` placeholders in the `ProxyPass` and `ProxyPassReverse` statements should be replaced with the DNS address or IP address (preferred) of the API Self-hosted installation.
+</Note>
+
+## TLS termination configuration
+
+For the scenario where TLS termination is being performed by the reverse proxy, in addition to the required APISH configuration, the *Apache* configuration file would be modified as follows:
+
+```bash
+    # Authorise all requests
+    <Location />
+        Require all granted
+    </Location>
+
+    # Pass the client IP through to the backend
+    RemoteIPHeader X-Forwarded-For
+
+    # Flag that client connection to proxy is secure
+    RequestHeader set X-Forwarded-Proto https
+
+    # Preserve the Host header
+    ProxyPreserveHost On
+
+    # API Self-hosted reverse proxy
+    ProxyPass / http://<apish>/
+    ProxyPassReverse / http://<apish>/
+```
+<Note>
+Note that:
+
+- The `ProxyPass` and `ProxyPassReverse` statements are now using `http` instead of `https`.
+- We use the `RemoteIPHeader` setting to pass through the IP of the client to the APISH box in the `X-Forwarded-For` header. This requires the `mod_remoteip` module be enabled. This is not required, but is recommended.
+	- See the full [Apache documentation](https://httpd.apache.org/docs/2.4/mod/mod_remoteip.html) regarding `mod_remoteip`
+- We set the `X-Forwarded-Proto` header to `https` to indicate to APISH that the original connection is secure. This requires the `mod_headers` module and is required.
+</Note>

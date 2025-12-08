@@ -1,0 +1,429 @@
+---
+title: "Draftable API Self Hosted v3 Docker Compose Guide"
+description: "This is a guide for the Docker Compose file used in the API Self Hosted v3 image."
+---
+
+
+<CardGroup>
+<Card
+  title="Web Server"
+  icon="server"
+  href="#web-server"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Licensing"
+  icon="id-card"
+  href="#licensing"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Compare API"
+  icon="code"
+  href="#compare-api"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Application Security"
+  icon="shield-halved"
+  href="#application-security"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="File Storage"
+  icon="folder"
+  href="#file-storage"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="HTTP Headers"
+  icon="network-wired"
+  href="#http-headers"
+  iconType="solid"
+  horizontal
+/>
+
+<Card
+  title="Logging"
+  icon="clipboard-list"
+  href="#logging"
+  iconType="solid"
+  horizontal
+/>
+</CardGroup>
+
+## Web server
+
+### `SERVER_DNS`
+
+- **Type**: String
+- **Default**: (empty)
+- **Example**: `draftable.yourcompany.com`
+
+Primary domain name for the server. Used for configuring the load balancer to serve requests SSL certificate validation and virtual host configuration.
+
+### `TLS_CERT`
+
+- **Type**: String (Base64 or file path)
+- **Default**: (empty))
+
+SSL/TLS certificate content (Base64 encoded) or path to certificate file.
+
+### `TLS_KEY`
+
+- **Type**: String (Base64 or file path)
+- **Default**: (empty)
+
+SSL/TLS private key content (Base64 encoded) or path to private key file.
+
+### `TLS_CA_CHAIN`
+
+- **Type**: String (Base64 or file path)
+- **Default**: (empty)
+
+SSL/TLS certificate authority chain (Base64 encoded) or path to CA chain file.
+
+## Licensing
+
+### `DRAFTABLE_PRODUCT_KEY`
+
+- **Type**: String
+- **Default**: (empty)
+
+Product key for automatic activation of Draftable API Self-hosted. If left empty, the product key can be entered in the web administration interface.
+
+## Compare API
+
+### `COMPARE_WORKERS_COUNT`
+
+- **Type**: Integer
+- **Default**: `1`
+- **Valid Range**: 1 - 10
+
+Number of comparison worker containers.
+
+### `COMPARE_API_ACCOUNT_SIGNUP_ENABLED`
+
+- **Type**: Boolean
+- **Default**: `true`
+
+Allow users to create accounts through self-registration.
+
+### `COMPARE_API_SOURCE_URL_ALLOW_HTTP`
+
+- **Type**: Boolean
+- **Default**: `false`
+
+Allow HTTP URLs in the `source_url` parameter of comparison requests.
+
+### `COMPARE_API_SOURCE_URL_ALLOW_PRIVATE_IP`
+
+- **Type**: Boolean
+- **Default**: `false`
+
+Allow private IP addresses in the `source_url` parameter of comparison requests.
+
+## Application security
+
+### `DJANGO_SECRET_KEY`
+
+- **Mandatory setting**
+- **Type**: String
+- **Default**: (empty)
+
+Secret key used for cryptographic signing by web containers. A random alphanumeric value of at least 64 characters is recommended. The secret key can be changed at any time, however, doing so will invalidate all existing login sessions forcing all users to login again.
+
+### `ALLOWED_HOSTS`
+
+- **Type**: List
+- **Default**: Value of `SERVER_DNS`
+- **Example**: `draftable.yourcompany.com, www.draftable.yourcompany.com`
+
+List of hosts and domains which the application is permitted to serve. By default, the value of `SERVER_DNS` is automatically used.
+
+### `REQUIRE_HTTPS`
+
+- **Type**: Boolean
+- **Default**: `true`
+
+Require all web requests and responses be served over HTTPS. When enabled, any HTTP requests will be redirected to the equivalent HTTPS URL. See also the configuration of the [`X-Forwarded-Proto` HTTP header](#x-forwarded-proto).
+
+### `SESSION_COOKIE_AGE`
+
+- **Type**: Integer
+- **Default**: `86400`
+- **Valid Values**: >= 0
+
+Duration for which a session cookie (login session) is valid. The value is provided in seconds with the default of `86400` equal to one day.
+
+### `SESSION_COOKIE_SAMESITE`
+
+- **Type**: String
+- **Default**: `Lax`
+- **Valid Values**: `Strict`, `Lax`, `None`, (empty)
+
+Value for the `SameSite` attribute of session cookies. Consult general online documentation for the behaviours set by the `Strict`, `Lax`, and `None` values. Setting an empty string will result in omitting the `SameSite` attribute from session cookies, which on modern web browsers is typically equivalent to the `Lax` setting.
+
+## File storage
+
+### `FILE_STORAGE_TYPE`
+
+- **Type**: String
+- **Default**: `local`
+- **Valid Values**: `local`, `s3`
+
+Storage provider to use for storing uploaded documents and resulting comparison data.
+
+- `local`  
+	Data is made directly accessible to Draftable containers through the container filesystem. When using the default Docker Compose configuration a Docker volume will be created and mounted into all Draftable containers. Using a Docker volume is not generally compatible with deployments where Draftable containers span multiple servers as the underlying volume will typically not be accessible across discrete hosts.
+- `s3`  
+	Data is stored in AWS S3 buckets. This storage option is highly scalable and permits usage of Draftable containers across multiple servers due to the separation of the storage backed from compute. The AWS S3 buckets must be configured in advance. Please reach out to Draftable support for details.
+
+### `DRAFTABLE_API_FILE_STORAGE_ROOT`
+
+- **Type**: String
+- **Default**: `/srv/draftable/data`
+
+Path at which the comparison data will be mounted in Draftable containers when using the `local` storage type. Changing the default is not recommended unless directed by Draftable support for specific advanced scenarios.
+
+
+
+**To enable S3 storage, the 2 environment variables must be set below:**
+
+### `S3_STORAGE_BUCKET`
+
+\- **Type**: String  
+\- **Default**: (empty).
+
+Name of the bucket to use. The bucket must be configured with Cross-origin resource sharing (CORS). Below is a minimal JSON example:
+
+```bash
+[
+   {
+       "AllowedHeaders": [
+           "*"
+       ],
+       "AllowedMethods": [
+           "GET"
+       ],
+       "AllowedOrigins": [
+           "*"
+       ],
+       "ExposeHeaders": []
+   }
+]
+```
+
+### `AWS_REGION`
+
+\- **Type**: String  
+\- **Default**: (empty)
+
+AWS region name. Must match the region of the bucket.
+
+`AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY`
+
+AWS Credentials. The user/role used to access the bucket requires the following permissions to the bucket:
+
+s3:ListBucket, s3:GetObject, s3:PutObject, s3:DeleteObject
+
+Example IAM policy:
+
+```bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ListBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::bucket-name"
+        },
+        {
+            "Sid": "ReadWriteObjects",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::bucket-name/*"
+        }
+    ]
+}
+```
+
+## HTTP headers
+
+### Cross-Origin Resource Sharing (CORS)
+
+#### `CORS_ENABLED`
+
+- **Type**: Boolean
+- **Default**: `false`
+
+Enable including CORS headers in API Self-hosted responses to HTTP(S) requests.
+
+#### `CORS_ALLOWED_ORIGINS`
+
+- **Type**: List
+- **Default**: (empty))
+- **Example**: `https://app.yourcompany.com, https://api.yourcompany.com`
+
+List of origins permitted to make cross-origin requests.
+
+#### `CORS_ALLOWED_ORIGIN_REGEXES`
+
+- **Type**: List
+- **Default**: (empty)
+- **Example**: `https://.*\.yourcompany\.com`
+
+List of regular expression patterns for which matches are permitted to make cross-origin requests.
+
+#### `CORS_ALLOW_ALL_ORIGINS`
+
+- **Type**: Boolean
+- **Default**: `false`
+
+Permit requests from any origin. Enabling this behaviour can be a security risk and should be carefully evaluated.
+
+### Cross-Site Request Forgery (CSRF) protection
+
+#### `CSRF_COOKIE_SAMESITE`
+
+- **Type**: String
+- **Default**: `Strict`
+- **Valid Values**: `Strict`, `Lax`, `None`, (empty)
+
+Value for the `SameSite` attribute of CSRF cookies. Consult general online documentation for the behaviours set by the `Strict`, `Lax`, and `None` values. Setting an empty string will result in omitting the `SameSite` attribute from CSRF cookies, which on modern web browsers is typically equivalent to the `Lax` setting.
+
+### HTTP Strict Transport Security (HSTS)
+
+#### `SECURE_HSTS_SECONDS`
+
+- **Type**: Integer
+- **Default**: `0`
+- **Valid Values**: >= 0
+
+Number of seconds for which the HSTS policy will be enforced when received by a web browser. The configured value is set in the `max-age` attribute of the HSTS header. The default of zero disables the HSTS header, while for production deployments a value of two years (`63072000`) is recommended.
+
+#### `SECURE_HSTS_INCLUDE_SUBDOMAINS`
+
+- **Type**: Boolean
+- **Default**: `false`
+
+Enables applying the HSTS policy to all subdomains of the API Self-hosted domain. When enabled, sets the `includeSubDomains` attribute in the HSTS header.
+
+#### `SECURE_HSTS_PRELOAD`
+
+- **Type**: Boolean
+- **Default**: `false`
+- **Required**: Optional
+
+Enables inclusion of the HSTS policy in the [preload list](https://hstspreload.org/) maintained by Google. When enabled, sets the `preload` attribute in the HSTS header, indicating that the API Self-hosted domain may be included in the preload list, which is used by all major web browsers. To take effect the `SECURE_HSTS_SECONDS` value must be at least one year (`31536000`) and `SECURE_HSTS_INCLUDE_SUBDOMAINS` must be enabled.
+
+There are additional requirements for inclusion in the preload list; see the [submission requirements](https://hstspreload.org/#submission-requirements) for full details.
+
+### `X-Forwarded-Proto`
+
+#### `SECURE_PROXY_SSL_HEADER_ENABLED`
+
+- **Type**: Boolean
+- **Default**: `true`
+
+Enables setting the `X-Forwarded-Proto` header on requests sent from the load balancer to web containers and configures the API Self-hosted application to respect the header.
+
+If HTTPS support is enabled via the `REQUIRE_HTTPS` setting (the default) then the `X-Forwarded-Proto` header will be implicitly enabled irrespective of the value of this setting.
+
+#### `SECURE_PROXY_SSL_HEADER_NAME`
+
+- **Type**: String
+- **Default**: `HTTP_X_FORWARDED_PROTO`
+
+The name of the header used to communicate the protocol used by the client which originated the request.
+
+#### `SECURE_PROXY_SSL_HEADER_VALUE`
+
+- **Type**: String
+- **Default**: `https`
+
+The value of the header which indicates that the originating client request is secure.
+
+## Logging
+
+Configuration of logging functionality and minimum logging severity levels of components. Changing logging severity levels from the defaults is not recommended unless directed by Draftable support.
+
+### `CONSOLE_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `WARNING`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for outputting logs to the console.
+
+### `AWS_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from Amazon Web Services (AWS) libraries.
+
+### `CELERY_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from the Celery distributed task queue.
+
+### `DJANGO_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from the Django web application framework.
+
+### `DRAFTABLE_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from Draftable components.
+
+### `GUNICORN_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from the Gunicorn WSGI HTTP server.
+
+### `MISC_LOG_LEVEL`
+
+- **Type**: String
+- **Default**: `INFO`
+- **Valid Values**: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`
+
+Minimum severity level for logs from components not covered by a specific `LOG_LEVEL` setting.
+
+### `CONSOLE_LOG_TIMESTAMP_ENABLED`
+
+- **Type**: Boolean
+- **Default**: `true`
+
+Prepend a timestamp for logs output to the console. When collecting console logs via a log aggregation system that adds its own timestamps to the processed events you may wish to disable this behaviour to avoid duplication of timestamps.

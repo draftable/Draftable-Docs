@@ -1,0 +1,131 @@
+---
+title: "Draftable Legal Configuring Custom Output Filenames"
+description: "If you wanted to configure the file names for Redline outputs in Draftable Legal, thankfully this is now an achievable in Draftable Legal. Draftable Legal allows you to fully customize the file naming schema for Redline comparison outputs, which give you greater control over your workflows. <br /> <br /> This article will detail how you can configure this feature, what the configurable fields represent, what predetermined options are selectable and how to create your own output filename schema."
+---
+
+
+## Enabling custom output filenames
+
+The **Filename output** feature can be found in the Redline section of the settings menu.
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-1.png)
+</Frame>
+
+Once you have selected this section, scroll down until you see the **Filename output** option.
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-2.png)
+</Frame>
+
+Here is where you can configure your own filename schema for usage of your Redline comparison outputs. However its important to understand what the tags used in this feature represent.
+
+## Filename output fields tags
+
+Tags are used to automatically prefill data in the Filename output, that is extracted from either the documents used in the comparison, the comparison itself, or from the installed machine itself (relevant for the data and time tags).
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-3.png)
+</Frame>
+
+Above is the list of all the tags that can be used to create a filename output schema. This is what each of these tags represent.
+
+**Date:** Shows the date in the YYYYMMDD format when the output is created
+
+**Time:** Shows the time in the HHMM format when the output is created
+
+**Date and time:** Shows the date and time in the YYYYMMDD and HHMM format when the output is created (example: "20240214 1345", represents the date and time for 14/02/2024 1:45pm)
+
+**Original document display name:** Displays the original document (left side) display name. This can be different to the *document name.*
+
+**Original document name:** Displays the original document (left side) display name. This can be different to the *display name.*
+
+**Original document version:** Displays the document version. If there is no version set, this is ignored.
+
+**Original document ID:** Displays the document ID. If there is no ID set, this is ignored. 
+
+**Modified document display name:** Displays the original document (right side) display name. This can be different to the *document name.*
+
+**Modified document name:** Displays the original document (right side) display name. This can be different to the *display name.*
+
+**Modified document version:** Displays the document version. If there is no version set, this is ignored.
+
+**Modified document ID:** Displays the document ID. If there is no ID set, this is ignored. 
+
+**Output type:** Provides the output type for selected output. For example if a Redline export was performed, then it will say "Redline:
+
+**Original document file type:** Displays the original (left side) document file type. If the file type was PDF it would say "pdf".
+
+**Modified document file type:** Displays the modified (right side) document file type. If the file type was docx it would say "docx".
+
+Now that we understand what all the tags represent, below are the two ways you can set your own filename output schema
+
+### Method 1: Preset options
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-4.png)
+</Frame>
+
+You can select from the many preset options shown above, each with its own unique use-cases. Below are a few examples to understand what some of the preset filename outputs would look like.
+
+**Example 1:**
+
+Original document name: original\_draft
+
+Original document ID: 232
+
+Modified document name: original\_draft\_v2
+
+Original document ID: 234
+
+Preset used: \[original document version\] \[original document name\] vs \[modified document version\] \[modified document name\] \[output type\]
+
+Output used: Redline
+
+Filename for the output: **original\_draft 232 vs original\_draft\_v2 234 Redline**
+
+**Example 2:**
+
+Original document name: contract\_town-planning
+
+Original document version: 2.3
+
+Original document ID: 1546
+
+Modified document name: contract\_town-planning\_variation
+
+Original document version: 2.7
+
+Original document ID: 1685
+
+Preset used: COMPARISON #\[original document ID\]v\[original document version\] \[original document name\] vs #\[modified document ID\]v\[modified document version\] \[modified document name\]
+
+Output used: Redline
+
+Filename for the output: **COMPARISON #1546v2.3 contract\_town-planning vs #1685v2.7 contract\_town-planning\_variation**
+
+
+### Method 2: Create your own output schema
+
+Using the information above we can create our own schema using any combination of tags and free text. Any free text used in the schema will appear on all comparison outputs. For example if you enter the text "Comparison Export" like shown below:
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-5.png)
+</Frame>
+
+That will appear at the start of every comparison output, and is not dynamic like the tags. If we add tags to the above filename output such as the \[date and time\] tag, it will look like this.
+
+<Frame>
+![](/images/draftable-legal-configuring-custom/image-6.png)
+</Frame>
+
+This means that if a comparison was completed at 12:35pm on the 17/02/2024, then the resulting output filename for the output would be: **Comparison Export 20240217 1235**
+
+There are also some additional considerations to be noted:
+
+- **Autocomplete Feature**: As  you type in the Filename output field, r types in the an autocomplete dropdown should appear after you type the `[` character. This dropdown will suggest possible tags based on what the user has typed after `[`.
+- **Selection of Autocomplete Options**: You can select an option from the autocomplete suggestions either by using the `Tab` key or by clicking on one of the suggestions.
+- **Easy Tag Removal**: If you make a mistake, pressing the backspace key will remove the entire tag instead of just one character.
+
+If you have any issues with this feature, or any questions, please get in touch with us at [support@draftable.com](mailto:support@draftable.com).
+

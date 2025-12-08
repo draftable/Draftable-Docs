@@ -1,0 +1,92 @@
+---
+title: "Release Notes: Draftable Legal December 2024 (v24.12.0)"
+description: "We are pleased to introduce  our final update for 2024, Draftable Legal v24.12.0. This update brings exciting new functionality for multiple comparison workflows, and adds a new comparison export option specifically designed to automate manual work that our customers reported their teams are doing with comparison outputs. We also add features that help to streamline workflows and improve accuracy to ensure users can compare legal documents faster and with greater clarity."
+---
+
+
+Key benefits in November updates include:
+
+- **Save time running different comparison pairs** with our redesigned Bulk Compare experience that supports easier file loading and compares multiple discrete pairs of documents.
+- **Automatically generate Departures Tables (i.e. Issues Lists) via a new export** that provides a table of named clauses with redlined text in context (Preview Only).
+- **See moved text more clearly** with the new "Vintage Green" color inspired by legacy comparison software.
+- **Identify NetDocuments files more easily** with Document ID and version number now displaying in the Draftable New Comparison Window.
+- **Select the correct version of heavily edited iManage files** by seeing up to 100 iManage file versions in Draftable's version selection menu.
+
+Let's explore these updates in more detail.
+
+***But first, a note from our product team***
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the 24.12.0 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## New Features & Improvements
+
+### Core Functionality
+
+#### Bulk Compare redesigned: easier file loading and compare multiple unique pairs 
+
+From v24.12.0, Draftable Legal users can save time comparing multiple unique pairs of documents by using Bulk Compare. Previously, Bulk Compare mode only supported multiple comparisons of a single precedent or a single markup. Our December update redesigns Bulk Compare mode to allow discrete pairs of unrelated documents to be compared at once. For example, users can now upload two versions of a contract, and two versions of a term sheet to run both comparisons simultaneously. This improvement removes the pain of running individual comparisons one at a time. It is particularly aimed to assist Document Processing Teams who are often given large numbers of discrete documents to compare for practice area teams. 
+<Frame>
+![Bulk Comapre - Unique pairs.png](/images/draftable-legal/image-97.png)
+</Frame>
+To complement this update, we have made file loading into Bulk Compare easier, by removing the need to select the type of bulk compare (i.e. the 'use one older file' or 'use one newer file' options). Instead, users can simply arrange the files how want them compared and Draftable will automatically understand how to run the Bulk Comparison.
+
+| **Draftable's previous 'Bulk Compare' mode required the selection of either '** **Use same Original Document' or 'Use same Newer Document' and did not support unique pairs** | **Draftable's new Bulk Compare mode allows flexible file loading, multiple unique comparisons, and automatically duplicates older or newer documents as needed** |
+| :--- | --- |
+| <Frame>![Old bulk compare mode UI.png](/images/draftable-legal/image-98.png)</Frame> | <Frame>![New bulk compare mode UI.png](/images/draftable-legal/image-99.png)</Frame> |
+
+#### Preview feature: Automatically generate a Departures Table output for contract negotiations
+
+Our December release includes a Preview of our exciting new "Departures Table" export. This allows users to automatically generate a Departures Table (also known as an Issues List) using Draftable. The output displays the document clause details (e.g. clause 4a) and shows the changes as redlined text in the context of the whole clause or subclause (see screenshot below).
+
+This Departures Table output helps legal teams to define positions on markups and assists in real-time contract negotiations with external parties by eliminating the need for manual comparison review to compile changes into a concise list of changes. 
+
+Importantly, we have designed the Departures Table to allow firms to use Microsoft Word templating methods to specify their own unique template for the Departures Table document. This ensures these important documents are standardized across organizations and are appropriately branded when sharing with clients. 
+
+We will be testing this Preview feature with our customers in the coming months to ensure it performs well on as many contract document formats as possible before it is released to all users. If you or your organization would like to take part in early testing of this feature, please contact your Account Executive or email [product@draftable.com](mailto:product@draftable.com) for instructions on how to gain access to Preview features.     
+
+**An example of the new 'Departures Table' export from Draftable (available as a docx file) showing the relevant clause numbering (see 'Section' column) for each change detected and providing the whole clause text around the redlined changes (see 'Proposed Change' column)**
+<Frame>
+![Departures Table example output.png](/images/draftable-legal/image-100.png)
+</Frame>
+### Quality Improvements
+
+#### Achieve greater precision in Excel Redline comparisons
+
+Enhanced algorithms in our December release have improved the detection and matching of rows and columns in Excel files, ensuring changes are identified with greater accuracy. This refinement reduces errors and misalignments, providing a more reliable foundation for decisions based on Excel Redline comparisons. Legal professionals working with spreadsheets for financials or data-heavy documents will particularly benefit from this improvement.
+
+### Markup Configuration
+
+#### Improve clarity with the new "Vintage Green" color for moved text
+
+After feedback on the addition of the "Classic Green" and "Leaf Green" color options, our December release adds a new "Vintage Green" has been introduced to our Markup Schema options. Vintage Green is intended to mark moved text with enhanced visibility for users familiar with legacy comparison tools. This addition to our markup configuration helps ensure a seamless transition for lawyers migrating from other comparison tools to Draftable. 
+<Frame>
+![Vintage green.png](/images/draftable-legal/image-101.png)
+</Frame>
+### New integration functionality
+
+#### NetDocuments: Identify Document ID and Version Number in the Draftable UI
+
+In response to feedback from customers using NetDocuments, our December release includes the addition of Document IDs and version numbers to the Draftable New Comparison Window (pictured below). Users can now more readily identify the correct files they want to compare with this important file metadata. 
+
+| **Example of previous Draftable user interface when files from NetDocuments were loaded missing the Document ID and version number** | **The new Draftable user interface when files from NetDocuments are loaded showing Document ID and version number** |
+| :--- | --- |
+| <Frame>![Old NetDocs loading UI.png](/images/draftable-legal/image-102.png)</Frame> | <Frame>![New NetDocs loading UI.png](/images/draftable-legal/image-103.png)</Frame> |
+
+#### iManage: Access more file versions in Draftable's version selection menu
+
+For lawyers drafting documents with a very large number of iterations, the December release includes an increase to the maximum number of iManage file versions displayed in Draftable. From Draftable Legal v24.12.0, users will be able to see up to 100 file versions in the Draftable "Select Version" menu. This improvement ensures that users can reliably access even older or less recent file versions, providing flexibility when managing long-term projects or archived documents.
+
+Previously, the file version selection screen only supported 25 file versions. Users can access the file version selection menu by selecting the 'Compare Versions' option in iManage or by clicking the 'Select Version' option in the Draftable New Comparison Window. 
+<Frame>
+![iManage file version selection menu.png](/images/draftable-legal/image-104.png)
+</Frame>
+## Bug fixes
+
+As with all releases, our team have also worked hard to resolve identified issues. The December release included the following bug fixes: 
+
+- **Fixes error when comparing side by side comparisons:** The update resolved an issue that was causing errors during side-by-side comparisons.
+- **Resolved problems with saving Tracked Changes outputs:** for files with excessively long filenames.
+- **Addressed a specific "unable to compare" error:** this issue, now resolved, affected only a subset of document comparisons based on unique document element configuration.
+- **Corrected an issue with file naming:** the update resolved behavior where output filenames were not being implemented properly for Redline in Word comparisons using input files loaded via the Draftable Word Add-in.

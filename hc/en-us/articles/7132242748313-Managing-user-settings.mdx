@@ -1,0 +1,129 @@
+---
+title: "Managing user settings"
+description: "User accounts within a API Self Hosted instance are managed within the Django backend, which is a user management tool local to your instance. There are many configurations that can be altered for your user accounts, and this article details the procedure of managing these settings."
+---
+
+## Management steps
+
+<Steps>
+<Step>
+First start by logging in as an administrator account on the Self-hosted instance and clicking on the **admin** section from the drop down menu found in the top left of the homepage. 
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-112.png)
+</Frame>
+</Step>
+<Step>
+Go to the users tab, and the below screen will be presented. From here select the user you wish to edit and click on Account settings for that user.
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-113.png)
+</Frame>
+</Step>
+<Step>
+You are now taken to the Django backend for you Self-hosted instance, for account management. This page below allows you to edit many settings for the user account.
+</Step>
+<Step>
+See below for an example of the full accounts page for a user. Note: For information on each of the account fields, refer to the setting reference.
+
+<Frame>
+![](/images/draftable-api-self-hosted/image-114.png)
+</Frame>
+<Frame>
+![](/images/draftable-api-self-hosted/image-115.png)
+</Frame>
+<Frame>
+![](/images/draftable-api-self-hosted/image-116.png)
+</Frame>
+<Frame>
+![](/images/draftable-api-self-hosted/image-117.png)
+</Frame>
+<Frame>
+![](/images/draftable-api-self-hosted/image-118.png)
+</Frame>
+<Frame>
+![](/images/draftable-api-self-hosted/image-119.png)
+</Frame>
+</Step>
+<Step>
+Ensure you click on Save to ensure that the account settings edited on the account are correctly applied.
+</Step>
+</Steps>
+
+You have successfully updated a user account with the settings applied to that account.
+
+## Settings reference for Self-hosted user accounts
+
+Below are settings reference for each configurable fields on a user account.
+
+**Username:** The username for the account 
+
+**First name:** First name for the user
+
+**Last name:** Last name for the user
+
+**Email address:** Email address for the user
+
+**Name:** Donates a name for the account, this field is ignored by the instance. 
+
+**File size limit MB:** The maximum file size of a document this user can submit for comparison. Measured in MB. If the user attempts to submit a file larger then the limit specified in this field, the comparison will fail. 
+
+**File page limit:** The maximum page limit of a document this user can submit for comparison. Measured in MB. If the user attempts to submit a document with a larger page limit then is specified in this field, the comparison will fail. 
+
+**Internal plan notes:** Add notes here for this users account.
+
+**Viewer version**: You can specific specific viewer versions that is run by default on this users account when comparisons are generated. If left blank it will default to the latest version. 
+
+**Draftable Branded:** Checkbox, if enabled it leaves Draftable branding in the viewer. Otherwise if disabled, no branding is seen
+
+**App name:** Allows you to specify the text in the browser tab for comparison pages for this users account. 
+
+**Custom page description:** Enter a custom text for the description for the page.
+
+**Search enabled:** Checkbox, if enabled the search button is visible on the page. If disabled the search button is hidden. 
+
+**Zoom button hidden:** Checkbox, if enabled the zoom button is hidden on the page. If disabled the search button is visible. 
+
+**Zoom Default Scale:** Set the default zoom level for the viewer. 
+
+**Cursor button hidden:** Checkbox, if enabled the cursor is hidden on the page. If disabled the cursor is visible. 
+
+**Cursor default state:** Set the default cursor mode to either Grab mode, or Text selection mode. 
+
+**Print enabled:** Checkbox, if enabled the print button is visible on the page. If disabled the print button is hidden. 
+
+**Download enabled:** Checkbox, if enabled the download button is visible on the page. If disabled the download button is hidden. 
+
+**Help enabled:** Checkbox, if enabled the help button is visible on the page. If disabled the help button is hidden. 
+
+**Comparison view - default view:** Set to either single page or side by side view as default when the viewer loads. 
+
+**Show changes list:** Checkbox, if enabled the change-list is visible on the page. If disabled the change-list is hidden.
+
+**Change list default state:** Can be set to open, which enables the change-list to be visible on the page by default. Otherwise set to closed, the change-list is closed by default.
+
+**Share button hidden:** Checkbox, if enabled the share button is hidden on the page. If disabled the share button is visible. 
+
+**Full screen enabled:** Checkbox, if enabled the full screen option is available to the user. Is disabled the full screen option is not an option. 
+
+**Show Style changes:** Checkbox, if enabled style changes will be shown in the viewer. If disabled, style changes are not shown. 
+
+**Changes shown default state:** Set the default state to either show both content and style changes, just content changes or just style changes. 
+
+**Font size change threshold:** Sets a threshold wherein font changes are detected. For example if the average font size was reduced across an entire document by 0.05, you can set the threshold to 0.1 as to not detect the change in font size. 
+
+**Dots:** If enabled, it shows dots as detections within the comparison. 
+
+**Dashes:** If enabled, it shows dashes as detections within the comparison. 
+
+**Underscores:** If enabled, it shows underscores as detections within the comparison. 
+
+**Enable header footer detection:** Checkbox, If enabled shows header and footer detection within comparisons. 
+
+**Enable moves:** Checkbox, If enabled shows moved text detection within comparisons. 
+
+**Delete:** Can set the colour for deletion detections. 
+
+**Insert:** Can set the colour for insert detections. 
+
+**Move:** Can set the colour for move detections.

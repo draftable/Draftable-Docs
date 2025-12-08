@@ -1,0 +1,97 @@
+---
+title: "Configuring Sharepoint Online to launch directly into Draftable"
+description: "This article is intended for administrators who want to configure SharePoint Online with Draftable Legal to simplify document comparison by providing the ability to start comparisons directly from within SharePoint Online (accessed via web browser)."
+---
+
+The Draftable App for SharePoint Online requires access to both Draftable Legal and an **administrator-level account for configuring Draftable within** your **SharePoint Admin Center**.
+
+<Note>
+Note, once the Draftable App for SharePoint is enabled, API access for the following needs to be approved:
+
+- Microsoft Graph, Directory.Read.All
+- Microsoft Graph, Files.Read.All
+- Microsoft Graph, User.Read
+
+This is covered in the second section of this guide.
+</Note>
+
+**Video Resource:** For a comprehensive understanding of configuring SharePoint to launch directly into Draftable, we offer our specially crafted explainer video, accessible [via this link.](/hc/en-us/articles/27924970143385-Configuring-SharePoint-to-Launch-Directly-into-Draftable-Legal)
+
+## Enabling SharePoint App
+
+<Steps>
+<Step>
+Login into your SharePoint Admin Center and navigate to **More features then select Open under Apps**
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-22.png)
+</Frame>
+</Step>
+<Step>
+Click **Upload**
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-23.png)
+</Frame>
+</Step>
+<Step>
+**Navigate to the location below,** select the **"draftable-sharepoint-extension.sppkg"** file and click **open**.
+
+```bash
+C:\Users\<user name>\AppData\Local\DraftableDesktop\current\Integrations
+```
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-24.png)
+</Frame>
+</Step>
+<Step>
+Select **Enable app**
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-25.png)
+</Frame>
+</Step>
+</Steps>
+
+## Approving Draftable App access to APIs
+
+<Steps>
+<Step>
+Draftable needs approval to access the graph API proceed to the API access page by clicking **Go to API access page**
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-26.png)
+</Frame>
+</Step>
+<Step>
+Under pending requests approve each of the following individual permissions: *Directory.Read.All, Files.Read.All, User.Read*, by clicking **Approve.**
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-27.png)
+</Frame>
+</Step>
+<Step>
+Click **Approve** again in the confirmation modal.
+
+<Note>
+**Note:** You will need to repeat the above steps for each permission.
+</Note>
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-28.png)
+</Frame>
+</Step>
+</Steps>
+
+## Confirm permissions have been approved
+
+<Steps>
+<Step>
+Confirm that the permissions have been approved by viewing each permission has now been moved to ***Approved requests***
+
+<Frame>
+![](/images/using-draftable-legal-with-sharePoint/image-29.png)
+</Frame>
+</Step>
+</Steps>
