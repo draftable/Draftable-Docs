@@ -1,0 +1,77 @@
+---
+mode: "custom"
+title: "Draftable Docs"
+---
+
+<div className="relative w-full flex items-center justify-center" style={{ height: '26rem', overflow: 'hidden'}}>
+
+<div id="background-div" className="absolute inset-0 h-full bg-[#00000000] bg-cover bg-center"></div>
+
+<div
+  id="background-div"
+  className="absolute inset-0 h-full bg-cover bg-center"
+  style={{
+    backgroundImage: 'url("https://help.draftable.com/hc/theming_assets/01HZM2WME45M88WKVH0MYN5A5E")'
+  }}
+>
+</div>
+
+<div style={{ position: 'absolute', textAlign: 'center', padding: '0 1rem' }}>
+<div
+  className="text-5xl font-bold w-full mt-12 text-white"
+>
+
+  Welcome to Draftable Docs!
+  </div>
+
+  <p className="text-lg text-white" style={{  fontWeight: '500' , maxWidth: '40rem', margin: '0 auto', marginTop: '0.5rem'}}>
+  Hi, How can we help you today?
+  </p>
+
+    <div className="flex items-center justify-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <button
+        type="button"
+        className="hidden w-full lg:flex items-center text-sm leading-6 py-4 pl-4 pr-4 text-gray-500 rounded-full"
+        id="home-search-entry"
+        style={{
+          marginTop: '2rem',
+          maxWidth: '40rem',
+          background: '#FFF',
+          boxShadow: '0px 1px 4px 0px rgba(8, 9, 10, 0.25), 0px 0px 0px 4px rgba(255, 255, 255, 0.20)',
+          cursor: 'pointer',
+          textAlign: 'left',
+        }}
+        onClick={()=> document.getElementById('search-bar-entry').click()}
+      >
+        <svg
+          className="h-4 w-4 ml-1.5 flex-none bg-primary hover:bg-gray-600 dark:bg-primary-dark dark:hover:bg-white/70"
+          style={{
+          marginRight: '0.5rem',
+          maskImage:
+            'url("https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg")',
+          maskRepeat: 'no-repeat',
+          maskPosition: 'center center',
+          }}
+        />
+        Search the Draftable knowledgebase...
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  style={{marginTop: '2rem', marginBottom: '4rem', maxWidth: '70rem', marginLeft: 'auto',
+  marginRight: 'auto', paddingLeft: '1.25rem',
+  paddingRight: '1.25rem' }}
+>
+
+<CardGroup cols={3}>
+<Card title="Draftable API Self Hosted - Version 3" icon="book-open-reader"  href="/hc/en-us/categories/51117451677721-Draftable-API-Self-Hosted-Version-3" iconType="solid"/>
+<Card title="Draftable API Self-hosted" icon="book-open-reader"  href="/hc/en-us/categories/4405478683545-Draftable-API-Self-hosted" iconType="solid"/>
+<Card title="Draftable API" icon="book-open-reader"  href="/hc/en-us/categories/6140281969177-Draftable-API" iconType="solid"/>
+<Card title="Draftable Business" icon="book-open-reader"  href="/hc/en-us/categories/6140753313305-Draftable-Business" iconType="solid"/>
+<Card title="Draftable Legal" icon="book-open-reader"  href="/hc/en-us/categories/15749853683481-Draftable-Legal" iconType="solid"/>
+<Card title="General Information" icon="book-open-reader"  href="/hc/en-us/categories/16226061871257-General-Information" iconType="solid"/>
+</CardGroup>
+</div>
+
