@@ -39,7 +39,7 @@
                 "pages": [
                   "hc/en-us/articles/Welcome",
                   "hc/en-us/articles/Our-Draftable-Product-Family",
-                  "hc/en-us/articles/What-kind-of-Draftable-users-are-you",
+                  "hc/en-us/articles/What-kind-of-Draftable-user-are-you",
                   "hc/en-us/articles/How-to-navigate-our-docs"
                 ]
               },
@@ -464,7 +464,6 @@
               {
                 "group": "Core Usage",
                 "pages": [
-                  "hc/en-us/sections/15894418277017-Using-Draftable-Legal",
                   "hc/en-us/articles/6140816202393-Comparison-Outputs"
                 ]
               },
