@@ -37,10 +37,10 @@
               {
                 "group": " ",
                 "pages": [
-                  "hc/en-us/articles/70000000000001-Welcome",
-                  "hc/en-us/articles/70000000000002-Our-Draftable-Product-Family",
-                  "hc/en-us/articles/70000000000003-What-kind-of-Draftable-users-are-you",
-                  "hc/en-us/articles/70000000000004-How-to-navigate-our-docs"
+                  "hc/en-us/articles/Welcome",
+                  "hc/en-us/articles/Our-Draftable-Product-Family",
+                  "hc/en-us/articles/What-kind-of-Draftable-users-are-you",
+                  "hc/en-us/articles/How-to-navigate-our-docs"
                 ]
               },
               {
@@ -141,7 +141,7 @@
               {
                 "group": "Starting with the basics",
                 "pages": [
-                  "hc/en-us/articles/70000000000005-Your-onboarding-journey",
+                  "hc/en-us/articles/Your-onboarding-journey",
                   "hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window",
                   "hc/en-us/articles/19002235946265-Redline-comparisons",
                   "hc/en-us/articles/17693327305881-Side-by-side-comparisons",
@@ -162,8 +162,8 @@
               {
                 "group": "Hands-on Tutorials",
                 "pages": [
-                  "hc/en-us/articles/70000000000008-to-discuss",
-                  "hc/en-us/articles/70000000000009-thinking-about-having-videos-here-what-do-others-think"
+                  "hc/en-us/articles/to-discuss",
+                  "hc/en-us/articles/thinking-about-having-videos-here-what-do-others-think"
                 ]
               }
             ]
@@ -174,7 +174,7 @@
               {
                 "group": "Your deployment journey",
                 "pages": [
-                  "hc/en-us/articles/70000000000006-Complete-deployment-guide",
+                  "hc/en-us/articles/Complete-deployment-guide",
                   "hc/en-us/articles/16018288168601-Enterprise-deployment-options"
                 ]
               },
@@ -189,7 +189,7 @@
               {
                 "group": "Post installation configurations",
                 "pages": [
-                  "hc/en-us/articles/70000000000007-Setting-up-your-DMS-to-Draftable-Legal",
+                  "hc/en-us/articles/Setting-up-your-DMS-to-Draftable-Legal",
                   "hc/en-us/articles/34137792187801-How-To-Configure-End-User-Troubleshooting-Error-Messages-Logs-and-Contact-Email"
                 ]
               },
