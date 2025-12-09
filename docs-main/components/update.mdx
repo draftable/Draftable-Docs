@@ -1,0 +1,50 @@
+---
+title: "Update"
+description: "Display product updates and changelog entries in a timeline format."
+keywords: ["changelogs", "product updates", "release notes"]
+---
+
+Use the `Update` component to display changelog entries, version updates, and release notes with consistent formatting.
+
+<Update label="Example" description="v0.1.1">
+  ## Example update
+
+  You can add anything here, like a screenshot, a code snippet, or a list of changes.
+  
+  <Frame>
+    <img
+      className="block"
+      src="https://mintlify-assets.b-cdn.net/hero-light.png"
+      alt="Screenshot of the PearsDB Introduction page as an example of an image in an Update component."
+    />
+  </Frame>
+
+  ### Features
+  - Responsive design
+  - Anchor for each update
+  - Generated RSS feed entry for each update
+</Update>
+
+## How to use
+
+```mdx Update example
+<Update label="2024-10-11" description="v0.1.0" tags={["Mintlify"]}>
+  This is an update with a label, description, and tag.
+</Update>
+```
+
+Use multiple `Update` components to create [changelogs](/create/changelogs).
+
+## Props
+
+<ResponseField name="label" type="string" required>
+  Label for the update. Appears to the left of the update and creates an anchor link. Labels should be unique.
+</ResponseField>
+
+<ResponseField name="tags" type="string[]">
+  Tags for the update. Shown as filters in the right side panel.
+</ResponseField>
+
+<ResponseField name="description" type="string">
+  Description of the update. Appears below the label and tag.
+</ResponseField>

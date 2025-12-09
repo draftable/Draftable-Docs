@@ -1,0 +1,34 @@
+---
+title: "Plausible"
+description: "Suivez des Analytics simples et respectueux de la vie privée avec Plausible."
+keywords: ["Plausible Analytics", "analytics respectueux de la vie privée", "analytics auto‑hébergés", "configuration du domain"]
+---
+
+Ajoutez le domain de votre site dans `docs.json` pour envoyer des Analytics à Plausible.
+
+<Info>
+
+    N’incluez pas `https://` pour le domain ou le serveur.
+
+</Info>
+
+<CodeGroup>
+
+```json Options d’Analytics dans docs.json
+"integrations": {
+    "plausible": {
+        "domain": "required",
+        "server": "optional"
+    }
+}
+```
+
+```json Exemple
+"integrations": {
+    "plausible": {
+        "domain": "docs.domain.com"
+    }
+}
+```
+
+</CodeGroup>

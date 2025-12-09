@@ -667,18 +667,8 @@
       "anchors": [
         {
           "anchor": "Status",
-          "href": "https://status.draftable.com/?_gl=1*19s8h3m*_gcl_au*MTUyNjk5OTY0OC4xNzU1NzcyMTg3*_ga*NTk4MTg0NTE3LjE3NTU3NzIxODU.*_ga_XWNFMQSDGW*czE3NTU3NzIxODMkbzEkZzEkdDE3NTU3NzI1MzEkajU3JGwwJGgw",
+          "href": "https://status.draftable.com",
           "icon": "signal"
-        },
-        {
-          "anchor": "Contact Us",
-          "href": "https://www.draftable.com/contact",
-          "icon": "headset"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://www.draftable.com/legal-blog",
-          "icon": "newspaper"
         }
       ]
     }

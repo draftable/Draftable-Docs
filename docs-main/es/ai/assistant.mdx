@@ -1,0 +1,312 @@
+---
+title: "Assistant"
+description: "Añade un chat con IA a tu documentación que responde preguntas, cita fuentes y genera ejemplos de código."
+keywords: ["chat", "RAG", "user support"]
+---
+
+<Info>
+  El assistant se habilita automáticamente en los [planes Pro y Custom](https://mintlify.com/pricing?ref=assistant).
+</Info>
+
+<div id="about-the-assistant">
+  ## Acerca del assistant
+</div>
+
+El assistant responde preguntas sobre tu documentación mediante consultas en lenguaje natural. Está integrado directamente en tu sitio de documentación, de modo que los usuarios puedan encontrar respuestas rápidamente y sacarle el máximo partido a tu producto.
+
+El assistant utiliza RAG agéntico (generación aumentada por recuperación) con llamadas a herramientas impulsadas por Claude Sonnet 4.5. Cuando los usuarios hacen preguntas, el assistant:
+
+* **Busca y recupera** contenido relevante de tu documentación para ofrecer respuestas precisas.
+* **Cita fuentes** y proporciona enlaces navegables para llevar a los usuarios directamente a las páginas de referencia.
+* **Genera ejemplos de código que se pueden copiar** para ayudar a los usuarios a implementar soluciones a partir de tu documentación.
+
+Cada mensaje enviado al assistant cuenta para el límite de mensajes de tu plan. Si superas tu límite, los mensajes adicionales generarán cargos por excedente. Puedes establecer límites de gasto o desactivar el assistant si alcanzas tu límite de mensajes.
+
+Puedes ver el uso del assistant desde tu dashboard para comprender el comportamiento de los usuarios y la eficacia de la documentación. Exporta y analiza los datos de consultas para ayudar a identificar:
+
+* Preguntas frecuentes que podrían necesitar mejor cobertura.
+* Lagunas de contenido donde los usuarios tienen dificultades para encontrar respuestas.
+* Temas populares que podrían beneficiarse de contenido adicional.
+
+<div id="configure-the-assistant">
+  ## Configura el asistente
+</div>
+
+El asistente está habilitado de forma predeterminada para los planes Pro y Custom.
+
+Administra el asistente desde tu [dashboard](https://dashboard.mintlify.com/products/assistant/settings). Haz clic en **Configuration** para activar o desactivar el asistente, configurar cómo se gestionan las respuestas, añadir preguntas predeterminadas y establecer un límite de gasto.
+
+<Frame>
+  <img src="/images/assistant/configuration-light.png" alt="La barra de herramientas del asistente en el dashboard. El botón Configuration está destacado con un rectángulo naranja." className="block dark:hidden" />
+
+  <img src="/images/assistant/configuration-dark.png" alt="La barra de herramientas del asistente en el dashboard. El botón Configuration está destacado con un rectángulo naranja." className="hidden dark:block" />
+</Frame>
+
+<div id="enable-or-disable-the-assistant">
+  ### Activar o desactivar el assistant
+</div>
+
+Alterna el estado del assistant para habilitarlo o deshabilitarlo en tu sitio de documentación.
+
+<Frame>
+  <img src="/images/assistant/status-light.png" alt="El selector de estado del assistant en el dashboard." className="block dark:hidden" />
+
+  <img src="/images/assistant/status-dark.png" alt="El selector de estado del assistant en el dashboard." className="hidden dark:block" />
+</Frame>
+
+<div id="control-placement">
+  ### Ubicación del control
+</div>
+
+Selecciona dónde aparece el assistant en tu sitio de documentación. Elige entre una burbuja de chat flotante en la parte inferior de la página o un botón junto a la barra de búsqueda.
+
+<Frame>
+  <img src="/images/assistant/placement-light.png" alt="El panel de ubicación del assistant en el dashboard con la opción de parte inferior de la página seleccionada." className="block dark:hidden" />
+
+  <img src="/images/assistant/placement-dark.png" alt="El panel de ubicación del assistant en el dashboard con la opción de parte inferior de la página seleccionada." className="hidden dark:block" />
+</Frame>
+
+<div id="set-deflection-email">
+  ### Configurar el correo de desvío
+</div>
+
+En la sección de gestión de respuestas, habilita el assistant para redirigir las preguntas sin respuesta a tu equipo de soporte. Especifica una dirección de correo electrónico que el assistant proporcionará a los usuarios que hagan preguntas que no puede responder.
+
+<Frame>
+  <img src="/images/assistant/deflection-light.png" alt="El panel de desvío del assistant en el dashboard. El desvío del assistant está activado y support@mintlify.com está configurado como el correo de desvío." className="block dark:hidden" />
+
+  <img src="/images/assistant/deflection-dark.png" alt="El panel de desvío del assistant en el dashboard. El desvío del assistant está activado y support@mintlify.com está configurado como el correo de desvío." className="hidden dark:block" />
+</Frame>
+
+<div id="search-sites">
+  ### Búsqueda en sitios
+</div>
+
+<Note>
+  La búsqueda en sitios está en beta. Para activarla en tu sitio de documentación, [contacta a nuestro equipo de ventas](mailto:gtm@mintlify.com).
+</Note>
+
+En la sección de gestión de respuestas, configura los sitios en los que el assistant puede buscar contexto adicional al responder preguntas.
+
+* Los sitios deben ser de acceso público.
+* Los sitios que requieren JavaScript para cargarse no son compatibles.
+
+<Frame>
+  <img src="/images/assistant/search-sites-light.png" alt="El panel de búsqueda en sitios del assistant en el dashboard. El assistant está configurado para buscar en los dominios mintlify.com y mintlify.com/blog." className="block dark:hidden" />
+
+  <img src="/images/assistant/search-sites-dark.png" alt="El panel de búsqueda en sitios del assistant en el dashboard. El assistant está configurado para buscar en los dominios mintlify.com y mintlify.com/blog." className="hidden dark:block" />
+</Frame>
+
+Usa la siguiente sintaxis de filtrado para tener un control más preciso sobre lo que el assistant puede buscar:
+
+* **Filtrado a nivel de dominio**
+  * `example.com`: Busca solo en el dominio `example.com`
+  * `docs.example.com`: Busca solo en el subdominio `docs.example.com`
+  * `*.example.com`: Busca todos los subdominios de `example.com`
+* **Filtrado a nivel de ruta**
+  * `docs.example.com/api`: Busca todas las páginas bajo la subruta `/api`
+* **Múltiples patrones**
+  * Agrega varias entradas para cubrir secciones diferentes de los sitios
+
+<div id="add-sample-questions">
+  ### Agregar preguntas de ejemplo
+</div>
+
+Ayuda a tus usuarios a iniciar preguntas con el assistant agregando preguntas de ejemplo. En la sección de sugerencias de búsqueda, agrega hasta tres preguntas de ejemplo.
+
+<Frame>
+  <img src="/images/assistant/search-suggestions-light.png" alt="El panel de sugerencias de búsqueda en el dashboard. ¿Qué es una especificación OpenAPI? está configurada como una pregunta de ejemplo." className="block dark:hidden" />
+
+  <img src="/images/assistant/search-suggestions-dark.png" alt="El panel de sugerencias de búsqueda en el dashboard. ¿Qué es una especificación OpenAPI? está configurada como una pregunta de ejemplo." className="hidden dark:block" />
+</Frame>
+
+<div id="set-a-spend-limit">
+  ### Establecer un límite de gasto
+</div>
+
+Establece un límite de gasto para controlar lo que sucede si alcanzas tu cupo de mensajes. De forma predeterminada, el assistant continúa respondiendo preguntas de los usuarios después de que alcanzas tu cupo de mensajes, lo que genera cargos por excedente.
+
+Cuando alcanzas tu límite de gasto, el assistant se deshabilita hasta que se restablezca tu cupo de mensajes.
+
+1. Selecciona la pestaña **Billing**.
+
+<Frame>
+  <img src="/images/assistant/billing-light.png" alt="La pestaña de facturación en la página Assistant Configurations. La pestaña Billing está resaltada con un rectángulo naranja." className="block dark:hidden" style={{ width: '268px', height: 'auto' }} />
+
+  <img src="/images/assistant/billing-dark.png" alt="La pestaña de facturación en la página Assistant Configurations. La pestaña Billing está resaltada con un rectángulo naranja." className="hidden dark:block" style={{ width: '268px', height: 'auto' }} />
+</Frame>
+
+2. Establece un límite de gasto para los mensajes del assistant que excedan tu cupo.
+3. Configura alertas de uso para recibir un correo electrónico cuando alcances un determinado porcentaje de tu límite de gasto.
+
+<div id="use-the-assistant">
+  ## Usa el assistant
+</div>
+
+Los usuarios tienen varias formas de iniciar una conversación con el assistant. Cada método abre un panel de chat en el lado derecho de tu documentación. Los usuarios pueden hacer cualquier pregunta y el assistant busca una respuesta en tu documentación. Si no se encuentra información relevante, el assistant indica que no puede responder a la pregunta.
+
+<div id="ui-placement">
+  ### Ubicación en la interfaz de usuario
+</div>
+
+Según cómo configures la ubicación de tu assistant, este aparece como un botón junto a la barra de búsqueda o como una barra en la parte inferior de la página.
+
+<Columns cols={2}>
+  <Frame caption="Botón del assistant junto a la barra de búsqueda.">
+    <img
+      src="/images/assistant/assistant-button-light.png"
+      className="block dark:hidden"
+      style={{
+  width: '268px',
+  height: 'auto',
+}}
+      alt="Barra de búsqueda y botón del assistant en modo claro."
+    />
+
+    <img
+      src="/images/assistant/assistant-button-dark.png"
+      className="hidden dark:block"
+      style={{
+  width: '268px',
+  height: 'auto',
+}}
+      alt="Barra de búsqueda y botón del assistant en modo oscuro."
+    />
+  </Frame>
+
+  <Frame caption="Botón del assistant en la parte inferior de la página.">
+    <img
+      src="/images/assistant/assistant-bar-light.png"
+      className="block dark:hidden"
+      style={{
+  width: '268px',
+  height: 'auto',
+}}
+      alt="Barra del assistant en modo claro."
+    />
+
+    <img
+      src="/images/assistant/assistant-bar-dark.png"
+      className="hidden dark:block"
+      style={{
+  width: '268px',
+  height: 'auto',
+}}
+      alt="Barra del assistant en modo oscuro."
+    />
+  </Frame>
+</Columns>
+
+<div id="keyboard-shortcut">
+  ### Atajo de teclado
+</div>
+
+Usa el atajo de teclado <kbd>Command</kbd> + <kbd>I</kbd> en macOS y <kbd>Ctrl</kbd> + <kbd>I</kbd> en Windows para abrir el panel de chat del assistant.
+
+<div id="highlight-text">
+  ### Resaltar texto
+</div>
+
+Resalta texto en una página y haz clic en el botón emergente **Add to assistant** para abrir el panel de chat del assistant y agregar el texto resaltado como contexto. Puedes agregar varios fragmentos de texto o bloques de código al contexto del assistant.
+
+<Frame>
+  <img src="/images/assistant/highlight-light.png" alt="El botón Add to assistant sobre el texto resaltado en modo claro." className="block dark:hidden" />
+
+  <img src="/images/assistant/highlight-dark.png" alt="El botón Add to assistant sobre el texto resaltado en modo oscuro." className="hidden dark:block" />
+</Frame>
+
+<div id="code-blocks">
+  ### Bloques de código
+</div>
+
+Haz clic en el botón **Ask AI** dentro de un bloque de código para abrir el panel de chat del assistant y agregar ese bloque de código como contexto. Puedes agregar varios bloques de código o fragmentos de texto al contexto del assistant.
+
+<Frame>
+  <img src="/images/assistant/code-block-light.png" alt="El botón Ask AI en un bloque de código en modo claro." className="block dark:hidden" />
+
+  <img src="/images/assistant/code-block-dark.png" alt="El botón Ask AI en un bloque de código en modo oscuro." className="hidden dark:block" />
+</Frame>
+
+<div id="urls">
+  ### URLs
+</div>
+
+Agrega `?assistant=open` a una URL para abrir el assistant al cargar la página. Por ejemplo, [https://mintlify.com/docs?assistant=open](https://mintlify.com/docs?assistant=open).
+
+<div id="make-content-ai-ingestible">
+  ## Haz que el contenido sea apto para la IA
+</div>
+
+Estructura tu documentación para ayudar al assistant a ofrecer respuestas precisas y relevantes. Una organización clara y un contexto completo benefician tanto a los lectores humanos como a la comprensión de la IA.
+
+<Card title="Estructura y organización">
+  * Usa marcado semántico.
+  * Escribe encabezados descriptivos para las secciones.
+  * Crea una jerarquía de información lógica.
+  * Usa un formato coherente en toda tu documentación.
+  * Incluye metadata completa en el frontmatter de la página.
+  * Divide los bloques largos de texto en párrafos más cortos.
+</Card>
+
+<Card title="Contexto">
+  * Define términos específicos y siglas la primera vez que se mencionen.
+  * Proporciona contenido conceptual suficiente sobre funciones y procedimientos.
+  * Incluye ejemplos y casos de uso.
+  * Incluye referencias cruzadas a temas relacionados.
+  * Agrega [hidden pages](/es/organize/hidden-pages) con contexto adicional que los usuarios no necesitan, pero que el assistant puede usar como referencia.
+</Card>
+
+<div id="export-and-analyze-queries">
+  ## Exportar y analizar consultas
+</div>
+
+Revisa y exporta consultas en tu dashboard para entender cómo las personas interactúan con tu documentación e identificar oportunidades de mejora. Algunas maneras en las que analizar las consultas puede ayudarte a mejorar tu documentación:
+
+* Identificar brechas de contenido donde las consultas frecuentes reciben respuestas insuficientes.
+* Descubrir patrones de comportamiento de los usuarios y necesidades de información comunes a partir de los temas y patrones en las consultas.
+* Priorizar las páginas con mayor tráfico para mejoras de precisión y calidad.
+
+Puedes explorar las consultas desde tu [dashboard](https://dashboard.mintlify.com/products/assistant), pero para obtener información más detallada recomendamos exportar un archivo `CSV` con tus consultas, respuestas y fuentes para analizarlo con tu herramienta de IA preferida.
+
+1. Navega a la [página del assistant](https://dashboard.mintlify.com/products/assistant) en tu dashboard.
+2. Haz clic en **Chat history**.
+3. Haz clic en **Export to CSV**.
+4. Analiza los datos exportados usando tu herramienta preferida.
+
+<Card title="Prompts de análisis de ejemplo">
+  * Resume los temas más comunes de las consultas.
+  * Enumera las consultas que no tengan fuentes citadas.
+  * Encuentra patrones en las interacciones fallidas.
+</Card>
+
+<div id="assistant-insights">
+  ## Información del assistant
+</div>
+
+Usa las percepciones del assistant para entender cómo interactúan los usuarios con tu documentación en dos vistas: categorías e historial de chat.
+
+<div id="categories">
+  ### Categorías
+</div>
+
+La pestaña Categorías utiliza modelos de lenguaje (LLM) para categorizar conversaciones automáticamente. Las categorías muestran un resumen del tema o la temática, cuándo se hizo por última vez una pregunta sobre la categoría y cuántas preguntas se han hecho sobre la categoría a lo largo del tiempo.
+
+Usa las categorías para identificar temas comunes, patrones en las necesidades y el comportamiento de los usuarios, y áreas donde la documentación podría necesitar ampliarse o aclararse.
+
+Haz clic en una categoría para ver conversaciones específicas sobre esa categoría. Luego puedes hacer clic en conversaciones individuales para ver todo el hilo del chat, incluida la pregunta del usuario, la respuesta del assistant y cualquier fuente citada.
+
+<div id="chat-history">
+  ### Historial de chat
+</div>
+
+La pestaña Historial de chat muestra un registro cronológico de todas las conversaciones con el assistant. Haz clic en cualquier mensaje para ver el hilo de chat completo, incluida la pregunta del usuario, la respuesta del assistant y cualquier fuente citada.
+
+<div id="troubleshooting">
+  ## Solución de problemas
+</div>
+
+<Accordion title="La barra de chat del assistant no es visible">
+  Si la interfaz del assistant no es visible en determinados navegadores, puede que tengas que enviar un informe de falso positivo a [EasyList](https://easylist.to). Los navegadores que usan la lista EasyList Cookies, como Brave y Comet, a veces bloquean el assistant u otros elementos de la interfaz. La lista EasyList Cookies incluye una regla específica por dominio que oculta elementos fijos en ciertos dominios para bloquear banners de cookies. Esta regla afecta de forma involuntaria a componentes legítimos de la interfaz.
+
+  Envía un informe de falso positivo a [EasyList](https://github.com/easylist/easylist) para solicitar que se elimine la regla. Esto resuelve el problema para todos los usuarios cuando se actualiza la lista de filtros.
+</Accordion>

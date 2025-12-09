@@ -1,0 +1,126 @@
+---
+title: "Archivos"
+description: "Sirve activos estáticos desde tu documentación."
+keywords: ["activos estáticos", "tipos de archivo compatibles"]
+---
+
+Mintlify sirve automáticamente activos estáticos desde tu repositorio de documentación en la ruta correspondiente de tu domain. Por ejemplo, si tienes `/images/my-logo.png` en tu repositorio, el archivo de imagen estará disponible en `https://docs.your-project.com/images/my-logo.png`.
+
+Puedes poner a disposición de tus usuarios cualquier tipo de archivo compatible, incluidas especificaciones OpenAPI, imágenes, vídeos y más.
+
+Los archivos deben ser menores de 20 MB para imágenes y 100 MB para otros tipos de archivo.
+
+<Note>
+La entrega de archivos no es compatible para sitios de documentación con la autenticación habilitada. Si tu sitio requiere autenticación, los archivos estáticos no serán accesibles en sus URL directas.
+</Note>
+
+<div id="supported-file-types">
+  ## Tipos de archivos compatibles
+</div>
+
+<div id="image-formats">
+  ### Formatos de imagen
+</div>
+
+- `.jpeg`, `.jpg`, `.jfif`, `.pjpeg`, `.pjp`
+- `.png`
+- `.svg`, `.svgz`
+- `.ico`
+- `.webp`
+- `.gif`, `.apng`
+- `.avif`
+- `.bmp`
+- `.tiff`, `.tif`
+
+<div id="video-formats">
+  ### Formatos de vídeo
+</div>
+
+- `.mp4`
+- `.webm`
+- `.ogg`
+- `.avi`
+- `.mov`
+- `.wmv`
+- `.flv`
+- `.mkv`
+- `.m4v`
+
+<div id="audio-formats">
+  ### Formatos de audio
+</div>
+
+- `.mp3`
+- `.wav`
+- `.flac`
+- `.aac`
+- `.ogg`
+- `.wma`
+- `.m4a`
+
+<div id="font-formats">
+  ### Formatos de fuente
+</div>
+
+- `.woff`
+- `.woff2`
+- `.ttf`
+- `.otf`
+- `.eot`
+
+<div id="document-formats">
+  ### Formatos de documentos
+</div>
+
+<Note>Los formatos de documentos solo están disponibles en planes Custom y no son compatibles cuando la autenticación está habilitada.</Note>
+
+- `.pdf`
+- `.txt`
+- `.doc`, `.docx`
+- `.xls`, `.xlsx`
+- `.ppt`, `.pptx`
+- `.rtf`
+- `.odt`, `.ods`, `.odp`
+
+<div id="data-formats">
+  ### Formatos de datos
+</div>
+
+<Note>Los formatos de datos solo están disponibles en los planes personalizados y no son compatibles cuando la autenticación está habilitada.</Note>
+
+- `.csv`
+- `.tsv`
+- `.xml`
+
+<div id="archive-formats">
+  ### Formatos de archivo comprimido
+</div>
+
+<Note>Los formatos de archivo comprimido solo están disponibles en los planes Custom y no son compatibles cuando la autenticación está habilitada.</Note>
+
+- `.zip`
+- `.rar`
+- `.7z`
+- `.tar`
+- `.gz`
+- `.bz2`
+
+<div id="file-organization">
+  ## Organización de archivos
+</div>
+
+Organiza tus archivos en carpetas para que tu repositorio sea fácil de navegar:
+
+```text
+/your-project
+  |- docs.json
+  |- images/
+    |- logo.png
+    |- screenshots/
+      |- dashboard.png
+  |- assets/
+    |- whitepaper.pdf
+    |- demo-video.mp4
+```
+
+Los archivos se sirven desde la raíz de tu domain, por lo que la estructura de tu repositorio se corresponde directamente con la estructura de la URL. En el ejemplo anterior, `assets/whitepaper.pdf` estaría disponible en `https://docs.your-project.com/assets/whitepaper.pdf`.

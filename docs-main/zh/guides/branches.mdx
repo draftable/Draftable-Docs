@@ -1,0 +1,43 @@
+---
+title: "使用 branch"
+description: "创建 branch 以在发布前预览更改并协作。"
+keywords: ["Git", "branches", "branch workflow", "creating branches", "deployment branch"]
+---
+
+Branch 是版本控制的一项功能，用于指向存储库中特定的提交。你的部署用分支，通常称为 `main`，代表用于构建在线文档的内容。除非你选择将其合并到部署用分支，否则所有其他 branch 都与在线文档相互独立。
+
+Branch 使你可以为文档创建独立实例，以进行更改、获取评审，并在发布前尝试新方案。你的团队可以在不同 branch 上同时更新文档的不同部分，在你发布这些更改之前，不会影响用户在在线站点上看到的内容。
+
+我们建议在更新文档时始终基于 branch 开展工作，以保持在线站点稳定，并支持评审流程。
+
+<Tip>
+  - 清晰命名 branch，便于队友了解你的工作内容。
+  - 合并后删除 branch，以保持存储库整洁。
+  - 当你进行可能影响他人工作的重大更改时，及时告知团队。
+</Tip>
+
+<div id="creating-a-branch">
+  ## 创建 branch
+</div>
+
+1. 在编辑器工具栏中选择 branch 名称（通常默认是 `main`）。
+2. 选择 **New Branch**。
+3. 为你的 branch 输入一个描述性名称，例如 `update-getting-started` 或 `fix-api-examples`。
+4. 选择 **Create Branch**。
+
+<div id="saving-changes-on-a-branch">
+  ## 在 branch 上保存更改
+</div>
+
+要在 branch 上保存你的更改，请在编辑器右上角选择 **保存更改** 按钮。这样会创建一次提交，并将你的工作推送到该 branch。
+
+<div id="switching-branches">
+  ## 切换 branch
+</div>
+
+1. 在编辑器工具栏中选择 branch 名称。
+2. 从下拉菜单中选择要切换的 branch。
+
+<Tip>
+  切换 branch 时，未保存的更改将会丢失。请在切换前务必保存或发布你的工作。
+</Tip>

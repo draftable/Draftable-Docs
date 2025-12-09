@@ -1,0 +1,104 @@
+---
+title: "Files"
+description: "Serve static assets from your documentation."
+keywords: ["static assets", "supported file types"]
+---
+
+Mintlify automatically serves static assets from your documentation repository at the appropriate path on your domain. For example, if you have `/images/my-logo.png` in your repo, the image file is available at `https://docs.your-project.com/images/my-logo.png`.
+
+You can make any supported file type available to your users, including OpenAPI specifications, images, videos, and more.
+
+Files must be less than 20 MB for images and 100 MB for other file types.
+
+<Note>
+File serving is not supported for documentation sites with authentication enabled. If your site requires authentication, static files will not be accessible at their direct URLs.
+</Note>
+
+## Supported file types
+
+### Image formats
+- `.jpeg`, `.jpg`, `.jfif`, `.pjpeg`, `.pjp`
+- `.png`
+- `.svg`, `.svgz`
+- `.ico`
+- `.webp`
+- `.gif`, `.apng`
+- `.avif`
+- `.bmp`
+- `.tiff`, `.tif`
+
+### Video formats
+- `.mp4`
+- `.webm`
+- `.ogg`
+- `.avi`
+- `.mov`
+- `.wmv`
+- `.flv`
+- `.mkv`
+- `.m4v`
+
+### Audio formats
+- `.mp3`
+- `.wav`
+- `.flac`
+- `.aac`
+- `.ogg`
+- `.wma`
+- `.m4a`
+
+### Font formats
+- `.woff`
+- `.woff2`
+- `.ttf`
+- `.otf`
+- `.eot`
+
+### Document formats
+
+<Note>Document formats are only available for Custom plans and are not supported when authentication is enabled.</Note>
+
+- `.pdf`
+- `.txt`
+- `.doc`, `.docx`
+- `.xls`, `.xlsx`
+- `.ppt`, `.pptx`
+- `.rtf`
+- `.odt`, `.ods`, `.odp`
+
+### Data formats
+
+<Note>Data formats are only available for Custom plans and are not supported when authentication is enabled.</Note>
+
+- `.csv`
+- `.tsv`
+- `.xml`
+
+### Archive formats
+
+<Note>Archive formats are only available for Custom plans and are not supported when authentication is enabled.</Note>
+
+- `.zip`
+- `.rar`
+- `.7z`
+- `.tar`
+- `.gz`
+- `.bz2`
+
+## File organization
+
+Organize your files using folders to keep your repository easy to navigate:
+
+```text
+/your-project
+  |- docs.json
+  |- images/
+    |- logo.png
+    |- screenshots/
+      |- dashboard.png
+  |- assets/
+    |- whitepaper.pdf
+    |- demo-video.mp4
+```
+
+Files are served from the root of your domain, so the structure in your repository directly maps to the URL structure. From the previous example, `assets/whitepaper.pdf` would be available at `https://docs.your-project.com/assets/whitepaper.pdf`.

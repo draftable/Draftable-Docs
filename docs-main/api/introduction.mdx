@@ -1,0 +1,41 @@
+---
+title: "Introduction"
+description: "Trigger updates, embed AI assistant, and more"
+keywords: ["REST API", "endpoints", "API keys"]
+---
+
+The Mintlify REST API enables you to programmatically interact with your documentation, trigger updates, and embed AI-powered chat experiences.
+
+## Endpoints
+
+- [Trigger update](/api-reference/update/trigger): Trigger an update of your site when desired.
+- [Get update status](/api-reference/update/status): Get the status of an update and other details about your docs.
+- [Create agent job](/api-reference/agent/create-agent-job): Create an agent job to automatically edit your documentation.
+- [Get agent job](/api-reference/agent/get-agent-job): Retrieve the details and status of a specific agent job.
+- [Get all agent jobs](/api-reference/agent/get-all-jobs): Retrieve all agent jobs for a domain.
+- [Generate assistant message](/api-reference/assistant/create-assistant-message): Embed the assistant, trained on your docs, into any application of your choosing.
+- [Search documentation](/api-reference/assistant/search): Search through your documentation.
+
+## Authentication
+
+You can generate an API key through [the dashboard](https://dashboard.mintlify.com/settings/organization/api-keys). API keys are associated with an entire organization and can be used across multiple deployments.
+
+### Admin API key
+
+The admin API key is used for the [Trigger update](/api-reference/update/trigger), [Get update status](/api-reference/update/status), and all agent endpoints.
+
+Admin API keys begin with the `mint_` prefix. Keep your admin API keys secret.
+
+### Assistant API key
+
+The assistant API key is used for the [Generate assistant message](/api-reference/assistant/create-assistant-message) and [Search documentation](/api-reference/assistant/search) endpoints.
+
+Assistant API keys begin with the `mint_dsc_` prefix.
+
+The assistant API **key** is a server-side token that should be kept secret.
+
+The assistant API **token** is a public token that can be referenced in your frontend code.
+
+<Note>
+  Calls using the assistant API token can incur costs: either using your AI assistant credits or incurring overages.
+</Note>

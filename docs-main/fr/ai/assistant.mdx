@@ -1,0 +1,304 @@
+---
+title: "Assistant"
+description: "Ajoutez à votre documentation un chat propulsé par l’IA qui répond aux questions, cite ses sources et génère des exemples de code."
+keywords: ["chat", "RAG", "assistance utilisateur"]
+---
+
+<Info>
+  L’Assistant est automatiquement activé sur les [offres Pro et Custom](https://mintlify.com/pricing?ref=assistant).
+</Info>
+
+<div id="about-the-assistant">
+  ## À propos de l’Assistant
+</div>
+
+L’Assistant répond aux questions sur votre documentation via des requêtes en langage naturel. Il est intégré directement à votre site de documentation, afin que les utilisateurs puissent trouver rapidement des réponses et réussir avec votre produit.
+
+L’Assistant utilise un RAG agentique (retrieval-augmented generation) avec appel d’outils, propulsé par Claude Sonnet 4.5. Lorsque les utilisateurs posent des questions, l’Assistant :
+
+* **Recherche et extrait** le contenu pertinent de votre documentation pour fournir des réponses précises.
+* **Cite ses sources** et fournit des liens navigables pour amener les utilisateurs directement aux pages référencées.
+* **Génère des exemples de code copiables** pour aider les utilisateurs à mettre en œuvre des solutions à partir de votre documentation.
+
+Chaque message envoyé à l’Assistant est décompté de l’allocation de messages de votre forfait. Si vous dépassez cette allocation, les messages supplémentaires entraînent des frais de dépassement. Vous pouvez définir des limites de dépenses ou désactiver l’Assistant si vous atteignez votre allocation de messages.
+
+Vous pouvez consulter l’utilisation de l’Assistant depuis votre Dashboard pour comprendre le comportement des utilisateurs et l’efficacité de votre documentation. Exportez et analysez les données de requête pour vous aider à identifier :
+
+* Les questions fréquemment posées qui pourraient nécessiter une meilleure couverture.
+* Les lacunes de contenu où les utilisateurs peinent à trouver des réponses.
+* Les sujets populaires qui pourraient bénéficier de contenu supplémentaire.
+
+<div id="configure-the-assistant">
+  ## Configurer l’assistant
+</div>
+
+L’assistant est activé par défaut pour les offres Pro et Custom.
+
+Gérez l’assistant depuis votre Dashboard à l’adresse suivante : [dashboard](https://dashboard.mintlify.com/products/assistant/settings). Cliquez sur **Configuration** pour activer ou désactiver l’assistant, configurer la gestion des réponses, ajouter des questions par défaut et définir un plafond de dépenses.
+
+<Frame>
+  <img src="/images/assistant/configuration-light.png" alt="La barre d’outils de l’assistant dans le Dashboard. Le bouton Configuration est mis en évidence par un rectangle orange." className="block dark:hidden" />
+  <img src="/images/assistant/configuration-dark.png" alt="La barre d’outils de l’assistant dans le Dashboard. Le bouton Configuration est mis en évidence par un rectangle orange." className="hidden dark:block" />
+</Frame>
+
+<div id="enable-or-disable-the-assistant">
+  ### Activer ou désactiver l’Assistant
+</div>
+
+Activez ou désactivez l’Assistant pour votre site de documentation à l’aide de l’interrupteur dédié.
+
+<Frame>
+  <img src="/images/assistant/status-light.png" alt="L’interrupteur d’état de l’Assistant dans le Dashboard." className="block dark:hidden" />
+
+  <img src="/images/assistant/status-dark.png" alt="L’interrupteur d’état de l’Assistant dans le Dashboard." className="hidden dark:block" />
+</Frame>
+
+<div id="control-placement">
+  ### Emplacement des contrôles
+</div>
+
+Sélectionnez où l’Assistant apparaît sur votre site de documentation. Choisissez entre une bulle de discussion flottante en bas de page ou un bouton à côté de la barre de recherche.
+
+<Frame>
+  <img src="/images/assistant/placement-light.png" alt="Le panneau d’emplacement de l’Assistant dans le Dashboard avec l’option « bas de page » sélectionnée." className="block dark:hidden" />
+  <img src="/images/assistant/placement-dark.png" alt="Le panneau d’emplacement de l’Assistant dans le Dashboard avec l’option « bas de page » sélectionnée." className="hidden dark:block" />
+</Frame>
+
+<div id="set-deflection-email">
+  ### Définir l’adresse e‑mail de redirection
+</div>
+
+Dans la section de gestion des réponses, activez l’Assistant pour rediriger vers votre équipe d’assistance les questions restées sans réponse. Indiquez l’adresse e‑mail que l’Assistant communiquera aux utilisateurs lorsqu’il ne peut pas répondre à leur question.
+
+<Frame>
+  <img src="/images/assistant/deflection-light.png" alt="Le panneau de redirection de l’Assistant dans le Dashboard. La redirection de l’Assistant est activée et support@mintlify.com est défini comme adresse e‑mail de redirection." className="block dark:hidden" />
+
+  <img src="/images/assistant/deflection-dark.png" alt="Le panneau de redirection de l’Assistant dans le Dashboard. La redirection de l’Assistant est activée et support@mintlify.com est défini comme adresse e‑mail de redirection." className="hidden dark:block" />
+</Frame>
+
+<div id="search-sites">
+  ### Rechercher sur des sites
+</div>
+
+<Note>
+  La recherche sur le site est en version bêta. Pour l’activer pour votre site de documentation, [contactez notre équipe commerciale](mailto:gtm@mintlify.com).
+</Note>
+
+Dans la section de traitement des réponses, configurez les sites que l’Assistant peut explorer pour fournir un contexte supplémentaire lorsqu’il répond aux questions.
+
+- Les sites doivent être publiquement accessibles.
+- Les sites qui nécessitent JavaScript pour se charger ne sont pas pris en charge.
+
+<Frame>
+  <img src="/images/assistant/search-sites-light.png" alt="Le panneau de recherche de sites de l’Assistant dans le Dashboard. L’Assistant est configuré pour rechercher sur les domaines mintlify.com et mintlify.com/blog." className="block dark:hidden" />
+  <img src="/images/assistant/search-sites-dark.png" alt="Le panneau de recherche de sites de l’Assistant dans le Dashboard. L’Assistant est configuré pour rechercher sur les domaines mintlify.com et mintlify.com/blog." className="hidden dark:block" />
+</Frame>
+
+Utilisez la syntaxe de filtrage suivante pour contrôler plus précisément ce que l’Assistant peut rechercher :
+
+- **Filtrage au niveau du domaine**
+  - `example.com` : Rechercher uniquement sur le domaine `example.com`
+  - `docs.example.com` : Rechercher uniquement sur le sous-domaine `docs.example.com`
+  - `*.example.com` : Rechercher sur tous les sous-domaines de `example.com`
+- **Filtrage au niveau du chemin**
+  - `docs.example.com/api` : Rechercher sur toutes les pages sous le sous-chemin `/api`
+- **Modèles multiples**
+  - Ajoutez plusieurs entrées pour cibler différentes sections de sites
+
+<div id="add-sample-questions">
+  ### Ajouter des exemples de questions
+</div>
+
+Aidez vos utilisateurs à lancer leurs questions avec l’Assistant en ajoutant des exemples. Dans la section Suggestions de recherche, ajoutez jusqu’à trois exemples de questions.
+
+<Frame>
+  <img src="/images/assistant/search-suggestions-light.png" alt="Le panneau Suggestions de recherche dans le Dashboard. « What is an OpenAPI spec? » est configuré comme exemple de question." className="block dark:hidden" />
+
+  <img src="/images/assistant/search-suggestions-dark.png" alt="Le panneau Suggestions de recherche dans le Dashboard. « What is an OpenAPI spec? » est configuré comme exemple de question." className="hidden dark:block" />
+</Frame>
+
+<div id="set-a-spend-limit">
+  ### Définir une limite de dépenses
+</div>
+
+Définissez une limite de dépenses pour contrôler ce qui se passe si vous atteignez votre quota de messages. Par défaut, l’Assistant continue de répondre aux questions des utilisateurs après que vous avez atteint votre quota de messages, ce qui génère des dépassements.
+
+Lorsque vous atteignez votre limite de dépenses, l’Assistant est désactivé jusqu’à la réinitialisation de votre quota de messages.
+
+1. Sélectionnez l’onglet **Billing**.
+
+<Frame>
+  <img src="/images/assistant/billing-light.png" alt="L’onglet Billing sur la page Assistant Configurations. L’onglet Billing est mis en évidence par un rectangle orange." className="block dark:hidden" style={{ width: '268px', height: 'auto' }} />
+
+  <img src="/images/assistant/billing-dark.png" alt="L’onglet Billing sur la page Assistant Configurations. L’onglet Billing est mis en évidence par un rectangle orange." className="hidden dark:block" style={{ width: '268px', height: 'auto' }} />
+</Frame>
+
+2. Définissez une limite de dépenses pour les messages de l’Assistant au-delà de votre quota.
+3. Configurez des alertes d’utilisation pour recevoir un e-mail lorsque vous atteignez un certain pourcentage de votre limite de dépenses.
+
+<div id="use-the-assistant">
+  ## Utiliser l’Assistant
+</div>
+
+Les utilisateurs disposent de plusieurs manières de démarrer une conversation avec l’Assistant. Chaque méthode ouvre un panneau de discussion sur le côté droit de votre documentation. Les utilisateurs peuvent poser n’importe quelle question et l’Assistant recherche une réponse dans votre documentation. Si aucune information pertinente n’est trouvée, l’Assistant indique qu’il ne peut pas répondre à la question.
+
+<div id="ui-placement">
+  ### Emplacement dans l’interface
+</div>
+
+Selon la manière dont vous configurez l’emplacement de votre Assistant, celui-ci apparaît soit sous la forme d’un bouton à côté de la barre de recherche, soit sous la forme d’une barre en bas de la page.
+
+<Columns cols={2}>
+  <Frame caption="Bouton de l’Assistant à côté de la barre de recherche.">
+    <img
+  src="/images/assistant/assistant-button-light.png"
+  className="block dark:hidden"
+  style={{
+    width: '268px',
+    height: 'auto',
+  }}
+  alt="Barre de recherche et bouton de l’Assistant en mode clair."
+/>
+<img
+  src="/images/assistant/assistant-button-dark.png"
+  className="hidden dark:block"
+  style={{
+    width: '268px',
+    height: 'auto',
+  }}
+  alt="Barre de recherche et bouton de l’Assistant en mode sombre."
+/>
+</Frame>
+<Frame caption="Bouton de l’Assistant en bas de la page.">
+<img
+  src="/images/assistant/assistant-bar-light.png"
+  className="block dark:hidden"
+  style={{
+    width: '268px',
+    height: 'auto',
+  }}
+  alt="Barre de l’Assistant en mode clair."
+/>
+<img
+  src="/images/assistant/assistant-bar-dark.png"
+  className="hidden dark:block"
+  style={{
+    width: '268px',
+    height: 'auto',
+  }}
+  alt="Barre de l’Assistant en mode sombre."
+/>
+</Frame>
+</Columns>
+
+<div id="keyboard-shortcut">
+  ### Raccourci clavier
+</div>
+
+Ouvrez le panneau de discussion de l'Assistant avec le raccourci clavier <kbd>Command</kbd> + <kbd>I</kbd> sur macOS et <kbd>Ctrl</kbd> + <kbd>I</kbd> sur Windows.
+
+<div id="highlight-text">
+  ### Mettre du texte en surbrillance
+</div>
+
+Mettez du texte en surbrillance sur une page, puis cliquez sur le bouton contextuel **Ajouter à l’Assistant** pour ouvrir le panneau de discussion de l’Assistant et ajouter le texte mis en surbrillance en tant que contexte. Vous pouvez ajouter plusieurs extraits de texte ou blocs de code au contexte de l’Assistant.
+
+<Frame>
+<img src="/images/assistant/highlight-light.png" alt="Le bouton « Ajouter à l’Assistant » au-dessus du texte surligné en mode clair." className="block dark:hidden" />
+<img src="/images/assistant/highlight-dark.png" alt="Le bouton « Ajouter à l’Assistant » au-dessus du texte surligné en mode sombre." className="hidden dark:block" />
+</Frame>
+
+<div id="code-blocks">
+  ### Code blocks
+</div>
+
+Cliquez sur le bouton **Ask AI** dans un code block pour ouvrir le panneau de discussion de l’Assistant et ajouter le code block comme contexte. Vous pouvez ajouter plusieurs code blocks ou extraits de texte au contexte de l’Assistant.
+
+<Frame>
+<img src="/images/assistant/code-block-light.png" alt="Le bouton Ask AI dans un code block en mode clair." className="block dark:hidden" />
+<img src="/images/assistant/code-block-dark.png" alt="Le bouton Ask AI dans un code block en mode sombre." className="hidden dark:block" />
+</Frame>
+
+<div id="urls">
+  ### URL
+</div>
+
+Ajoutez `?assistant=open` à une URL pour ouvrir l’Assistant lors du chargement de la page. Par exemple, [https://mintlify.com/docs?assistant=open](https://mintlify.com/docs?assistant=open).
+
+<div id="make-content-ai-ingestible">
+  ## Rendre le contenu exploitable par l’IA
+</div>
+
+Structurez votre documentation pour aider l’Assistant à fournir des réponses précises et pertinentes. Une organisation claire et un contexte complet profitent à la fois aux lecteurs humains et à la compréhension de l’IA.
+
+<Card title="Structure et organisation">
+  - Utilisez un balisage sémantique.
+  - Rédigez des titres descriptifs pour les sections.
+  - Créez une hiérarchie logique de l’information.
+  - Utilisez une mise en forme cohérente dans toute votre documentation.
+  - Incluez des métadonnées complètes dans le frontmatter de la page.
+  - Scindez les longs blocs de texte en paragraphes plus courts.
+</Card>
+
+<Card title="Contexte">
+  - Définissez les termes spécifiques et les acronymes lors de leur première apparition.
+  - Fournissez un contenu conceptuel suffisant sur les fonctionnalités et les procédures.
+  - Incluez des exemples et des cas d’usage.
+  - Faites des renvois vers les sujets connexes.
+  - Ajoutez des [pages cachées](/fr/organize/hidden-pages) avec du contexte supplémentaire dont les utilisateurs n’ont pas besoin, mais auquel l’Assistant peut se référer.
+</Card>
+
+<div id="export-and-analyze-queries">
+  ## Exporter et analyser les requêtes
+</div>
+
+Passez en revue et exportez les requêtes depuis votre Dashboard pour comprendre comment les utilisateurs interagissent avec votre documentation et identifier des opportunités d'amélioration. Voici quelques façons dont l'analyse des requêtes peut vous aider à améliorer votre documentation :
+
+- Identifier les lacunes de contenu lorsque des requêtes fréquentes reçoivent des réponses insuffisantes.
+- Découvrir des schémas de comportement utilisateur et des besoins d'information courants à partir des thèmes récurrents dans les requêtes.
+- Prioriser les pages à fort trafic pour en améliorer la précision et la qualité.
+
+Vous pouvez explorer les requêtes depuis votre [Dashboard](https://dashboard.mintlify.com/products/assistant), mais pour obtenir des analyses plus approfondies, nous vous recommandons d'exporter un fichier `CSV` contenant vos requêtes, réponses et sources afin de l'analyser avec votre outil d'IA préféré.
+
+1. Accédez à la [page de l’Assistant](https://dashboard.mintlify.com/products/assistant) dans votre Dashboard.
+1. Cliquez sur **Chat history**.
+1. Cliquez sur **Export to CSV**.
+1. Analysez les données exportées avec votre outil préféré.
+
+<Card title="Exemples de prompts d'analyse">
+  - Résumez les thèmes les plus fréquents des requêtes.
+  - Dressez la liste des requêtes pour lesquelles aucune source n'a été citée.
+  - Identifiez des schémas dans les interactions infructueuses.
+</Card>
+
+<div id="assistant-insights">
+  ## Informations de l’Assistant
+</div>
+
+Utilisez les insights de l’Assistant pour comprendre comment les utilisateurs interagissent avec votre documentation, au travers de deux vues : catégories et historique de conversation.
+
+<div id="categories">
+  ### Catégories
+</div>
+
+L’onglet Catégories utilise des LLM pour classer automatiquement les conversations. Les catégories affichent un résumé du sujet ou du thème, la date de la dernière question posée sur la catégorie, ainsi que le nombre de questions qui ont été posées sur cette catégorie au fil du temps.
+
+Utilisez les catégories pour identifier les sujets récurrents, les tendances des besoins et comportements des utilisateurs, ainsi que les domaines où la documentation pourrait nécessiter un enrichissement ou des clarifications.
+
+Cliquez sur une catégorie pour afficher les conversations spécifiques à cette catégorie. Vous pouvez ensuite cliquer sur une conversation pour voir l’intégralité du fil de discussion, incluant la question de l’utilisateur, la réponse de l’Assistant, ainsi que toutes les sources citées.
+
+<div id="chat-history">
+  ### Historique des conversations
+</div>
+
+L’onglet Historique des conversations affiche l’enregistrement chronologique de toutes les conversations avec l’Assistant. Cliquez sur n’importe quel message pour afficher l’intégralité du fil de discussion, y compris la question de l’utilisateur, la réponse de l’Assistant et toutes les sources citées.
+
+<div id="troubleshooting">
+  ## Dépannage
+</div>
+
+<Accordion title="Barre de chat de l’Assistant invisible">
+  Si l’interface de l’Assistant n’est pas visible dans certains navigateurs, vous devrez peut-être signaler un faux positif à [EasyList](https://easylist.to). Les navigateurs qui utilisent la EasyList Cookies List, comme Brave et Comet, bloquent parfois l’Assistant ou d’autres éléments de l’interface. La EasyList Cookies List contient une règle spécifique à certains domaines qui masque les éléments fixes pour bloquer les bannières de cookies. Cette règle affecte par inadvertance des composants d’interface légitimes.
+
+  Signalez un faux positif à [EasyList](https://github.com/easylist/easylist) pour demander la suppression de cette règle. Le problème sera alors résolu pour tous les utilisateurs une fois la liste de filtres mise à jour.
+</Accordion>

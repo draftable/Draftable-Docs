@@ -1,0 +1,75 @@
+---
+title: "选项卡"
+description: "使用选项卡组织内容，以展示不同的选项或版本。"
+keywords: ["标签式内容", "内容面板", "可切换内容"]
+---
+
+使用选项卡将内容组织为多个面板，用户可以在它们之间切换。你可以添加任意数量的选项卡，并在每个选项卡内包含其他组件。
+
+<Tabs>
+  <Tab title="第一个标签页">
+    ☝️ 欢迎来到只能在第一个标签页中看到的内容。
+
+    你可以在选项卡中添加任意数量的组件。例如，一个代码块：
+
+    ```java HelloWorld.java
+      class HelloWorld {
+          public static void main(String[] args) {
+              System.out.println("Hello, World!");
+          }
+      }
+    ```
+  </Tab>
+
+  <Tab title="第二个标签页" icon="leaf">
+    ✌️ 这里是只在第二个标签页中的内容。
+
+    这个还带有一个 <Icon icon="leaf" /> 图标！
+  </Tab>
+
+  <Tab title="第三个标签页">
+    💪 这里是只在第三个标签页中的内容。
+  </Tab>
+</Tabs>
+
+````mdx Tabs example
+<Tabs>
+  <Tab title="第一个标签页">
+    ☝️ 欢迎!这里的内容只在第一个标签页中显示。
+
+    您可以在标签页内添加任意数量的组件。例如,代码块:
+    ```java HelloWorld.java
+      class HelloWorld {
+          public static void main(String[] args) {
+              System.out.println("Hello, World!");
+          }
+      }
+    ```
+  </Tab>
+  <Tab title="第二个标签页" icon="leaf">
+    ✌️ 这里的内容只在第二个标签页中显示。
+
+    这个标签页带有 <Icon icon="leaf" /> 图标!
+  </Tab>
+  <Tab title="第三个标签页">
+    💪 这里的内容只在第三个标签页中显示。
+  </Tab>
+</Tabs>
+````
+
+
+<div id="properties">
+  ## 属性
+</div>
+
+<ResponseField name="title" type="string" required>
+  标签页的标题。标题越短，越便于导航。
+</ResponseField>
+
+<ResponseField name="icon" type="string">
+  一个 [Font Awesome](https://fontawesome.com/icons) icon、[Lucide](https://lucide.dev/icons) icon、指向图标的 URL，或图标的相对路径。
+</ResponseField>
+
+<ResponseField name="iconType" type="string">
+  仅适用于 Font Awesome 图标：可选值之一为 `regular`、`solid`、`light`、`thin`、`sharp-solid`、`duotone`、`brands`。
+</ResponseField>
