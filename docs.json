@@ -32,6 +32,10 @@
         "product": "Welcome to Draftable",
         "tabs": [
           {
+            "tab": "Home",
+            "pages": ["index"]
+          },
+          {
             "tab": "Welcome",
             "groups": [
               {
