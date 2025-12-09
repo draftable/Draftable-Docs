@@ -32,10 +32,6 @@
         "product": "Welcome to Draftable",
         "tabs": [
           {
-            "tab": "Home",
-            "pages": ["index"]
-          },
-          {
             "tab": "Welcome",
             "groups": [
               {
@@ -662,16 +658,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Status",
-          "href": "https://status.draftable.com",
-          "icon": "signal"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -705,8 +692,6 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/WeAreDraftable",
-      "facebook": "https://www.facebook.com/Draftable/",
       "linkedin": "https://www.linkedin.com/company/draftable/"
     }
   }
