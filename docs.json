@@ -136,12 +136,19 @@
         "product": "Draftable Legal ",
         "tabs": [
           {
-            "tab": "Draftable Legal User Onboarding Track",
+            "tab": "Draftable Legal User Academy",
             "groups": [
+              {
+                "group": "Onboarding with Draftable Legal? Start here!",
+                "pages": [
+                  "hc/en-us/articles/How-to-use-this-academy",
+                  "hc/en-us/articles/Creating-your-onboarding-journey",
+                  "hc/en-us/articles/Delivering-training-to-your-users"
+                ]
+              },
               {
                 "group": "Starting with the basics",
                 "pages": [
-                  "hc/en-us/articles/Your-onboarding-journey",
                   "hc/en-us/articles/33190528521881-Comparison-Type-How-to-choose-the-right-option-in-the-Draftable-New-Comparison-Window",
                   "hc/en-us/articles/19002235946265-Redline-comparisons",
                   "hc/en-us/articles/17693327305881-Side-by-side-comparisons",
@@ -160,7 +167,7 @@
                 ]
               },
               {
-                "group": "Hands-on Tutorials",
+                "group": "Advanced features and functionality",
                 "pages": [
                   "hc/en-us/articles/to-discuss",
                   "hc/en-us/articles/thinking-about-having-videos-here-what-do-others-think"
