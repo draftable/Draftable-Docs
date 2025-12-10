@@ -677,17 +677,6 @@
       "href": "https://www.draftable.com/book-a-demo"
     }
   },
-  "contextual": {
-    "options": [
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
   "footer": {
     "socials": {
       "linkedin": "https://www.linkedin.com/company/draftable/"
