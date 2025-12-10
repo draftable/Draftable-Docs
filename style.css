@@ -1,0 +1,7 @@
+/* Custom styling for Draftable documentation */
+
+/* Add spacing between page title and description */
+#page-title p {
+  margin-top: 1rem;
+}
+
