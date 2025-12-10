@@ -1,7 +1,46 @@
 ---
 title: "Release Log: Draftable Legal"
-description: "This article provides a summary log of Draftable Legal (formerly Draftable Pro) releases. It dates back to v2.5.0, which was the version that first introduced Draftable's Redline comparison algorithm into Draftable Desktop.  "
+description: "This article provides a summary log of Draftable Legal (formerly Draftable Pro) releases. It dates back to v2.5.0, which was the version that first introduced Draftable's Redline comparison algorithm into Draftable Desktop.  "
 ---
+
+<Update label="25.12.0" description="10 December 2025">
+**Features and improvements**
+
+*Ease of use*
+- Bulk Compare: Adjusted spacing and alignment in UIs
+- Added setting that updates UX to allow dual window UX
+- Ability to only show header changes once (on first page with header)
+
+*Integrations*
+- Draftable in Outlook UI: Fixed duplicated labels
+- Draftable in Office: Allow users to compare files within Outlook without using Draftable's interface
+
+*Bulk Compare*
+- Added support for Redline in Excel and Redline in PowerPoint when running bulk compare
+
+*Departures Table*
+- Notes and Tags now appearing in review notes for comments
+
+*Other*
+- Upgraded Aspose.Slides to 25.11
+
+**Bug fixes**
+
+*Application fixes*
+- Fix for error dialog when opening comparisons in new tab caused by 3-Pane view task
+- Fix for inability to trigger export action if any of the documents is not ready
+- Fix for Changed Pages export stuck in "Still Preparing" state (intermittent)
+- Fix for Save as Track Changes being removed from Draftable Desktop SBS outputs
+- Fix for Bulk Compare: Opening completed files not responding
+
+*Algorithm reliability fixes*
+- Fix for Redline Settings for Online compare showing inside Draftable Comparison Output Viewer
+- Fix for Office Add-in drag-drop sending concatenated URLs causing comparison failures and IPC thread blocking
+- Fix for splitting surrogate pairs in delIns cleanup
+- Fix for list marker change events in pptx speaker notes
+- Fix for layout misalignment in colourised document transformation
+- Fix for numbering mismatch with w:vanish paragraphs when compareHiddenText=false
+</Update>
 
 <Update label="25.11.100" description="13 November 2025">
 
