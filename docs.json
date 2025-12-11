@@ -391,6 +391,13 @@
             "tab": "Training Centre & Video Resources",
             "groups": [
               {
+                "group": "Using this training centre",
+                "pages": [
+                  "hc/en-us/articles/Introduction-to-this-training-centre",
+                  "hc/en-us/articles/Guidance-for-delivering-training-within-your-team"
+                ]
+              },
+              {
                 "group": "Video Tutorials",
                 "pages": [
                   "hc/en-us/articles/27925634630937-Draftable-Legal-High-Level-Overview",
