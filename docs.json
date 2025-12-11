@@ -182,13 +182,13 @@
                 "group": "Your deployment journey",
                 "pages": [
                   "hc/en-us/articles/Deploying-Draftable-An-introduction",
-                  "hc/en-us/articles/Complete-deployment-guide",
-                  "hc/en-us/articles/16018288168601-Enterprise-deployment-options"
+                  "hc/en-us/articles/Complete-deployment-guide"
                 ]
               },
               {
                 "group": "Getting install ready",
                 "pages": [
+                  "hc/en-us/articles/16018288168601-Enterprise-deployment-options",
                   "hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal",
                   "hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files",
                   "hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer"
