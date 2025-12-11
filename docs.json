@@ -181,6 +181,7 @@
               {
                 "group": "Your deployment journey",
                 "pages": [
+                  "hc/en-us/articles/Deploying-Draftable-An-introduction",
                   "hc/en-us/articles/Complete-deployment-guide",
                   "hc/en-us/articles/16018288168601-Enterprise-deployment-options"
                 ]
