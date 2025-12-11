@@ -240,7 +240,6 @@
               {
                 "group": "Configuration of Modern Office Add-ins",
                 "pages": [
-                  "hc/en-us/articles/Draftable_in_office",
                   "hc/en-us/articles/46382047949978-Configuring-Redline-in-Email-Outlook-with-Draftable",
                   "hc/en-us/articles/51764565990426-Configuring-Draftable-for-Office"
                 ]
@@ -300,6 +299,7 @@
               {
                 "group": "Office & Outlook Workflows",
                 "pages": [
+                  "hc/en-us/articles/Draftable_in_office",
                   "hc/en-us/articles/51787242705818-Using-Draftable-for-Office",
                   "hc/en-us/articles/24732284708377-Draftable-Legal-Outlook-add-In",
                   "hc/en-us/articles/20032551453593-How-to-run-a-Comparison-from-Microsoft-Word",
