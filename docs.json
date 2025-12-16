@@ -212,6 +212,15 @@
                   "hc/en-us/articles/51764565990426-Configuring-Draftable-for-Office",
                   "hc/en-us/articles/46382047949977-Configuring-Redline-in-Email-Outlook-with-Draftable"
                 ]
+              },
+              {
+                "group": "End-User Application Configuration",
+                "pages": [
+                  "hc/en-us/articles/19002240548249-Managing-profiles-for-Redline-settings",
+                  "hc/en-us/articles/22665341687705-Configuring-Redline-profiles-within-Group-Policy",
+                  "hc/en-us/articles/35238811918617-How-to-set-up-1-Click-Compare-default-workflow",
+                  "hc/en-us/articles/46349329328281-How-to-configure-a-custom-Departures-Table-template"
+                ]
               }
             ]
           },
