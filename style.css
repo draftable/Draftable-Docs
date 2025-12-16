@@ -5,13 +5,3 @@
   margin-top: 0.5rem;
 }
 
-/* Custom dark mode background color */
-.dark {
-  --background: #69B2F9;
-}
-
-html.dark,
-html.dark body {
-  background-color: #69B2F9;
-}
-
