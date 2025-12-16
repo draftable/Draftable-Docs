@@ -1,0 +1,121 @@
+---
+title: "System and network requirements"
+description: "Technical specifications and network connectivity requirements for deploying Draftable Legal in your organization."
+---
+
+This article outlines the system specifications and network requirements your organization needs to meet before deploying Draftable Legal.
+
+<Tip>
+**Video Resource:** For a comprehensive overview of Draftable system and network requirements, watch our [Draftable Legal High Level Overview](/hc/en-us/articles/27925634630937-Draftable-Legal-High-Level-Overview) video.
+</Tip>
+
+---
+
+## System Requirements
+
+Your computers must meet the minimum technical specifications outlined below to run Draftable Legal.
+
+<Note>
+Draftable Legal only supports x64 architecture. 32-bit systems are no longer supported.
+</Note>
+
+### Minimum Requirements
+
+| Component | Requirement |
+|:----------|:------------|
+| Operating System | Windows 10 64-bit |
+| Processor | 1.8 GHz Processor |
+| RAM | 2 GB |
+| Disk Space | 1.5 GB (excludes space required for document files or dependencies) |
+
+**Software requirements:**
+- To compare Word, PowerPoint and Excel documents and use the 'Export to Track Changes' feature, Office 2013 Pro Plus or later (including Office 365) is required.
+
+### Recommended Requirements
+
+| Component | Requirement |
+|:----------|:------------|
+| Operating System | Windows 11 64-bit |
+| Processor | Dual-core or better (>1.8 GHz) |
+| RAM | 4 GB (Draftable will use as much RAM as needed. For larger documents, you may need more than 4 GB) |
+| Disk Space | 1.5 GB (excludes space required for document files or dependencies) |
+
+**Software requirements:**
+- To compare Word, PowerPoint and Excel documents and use the 'Export to Track Changes' feature, Office 2013 Pro Plus or later (including Office 365) is required.
+- To perform **OCR**, Office 2016 (or Office 365) or later is required.
+- For spreadsheet compare for Excel, you are required to have one of the following versions of Excel:
+  - Office Professional Plus 2013 (this is where Spreadsheet Compare first became available)
+  - Office 2016
+  - Office 2019
+  - Microsoft 365 (formerly Office 365)
+
+---
+
+## Network Requirements
+
+Draftable Legal requires network connectivity for license verification, software updates, error reporting, and telemetry. Some of these functions can be disabled.
+
+### License Verification
+
+On launch, the application will verify the product license by connecting to Draftable license servers.
+
+| Property | Value |
+|:---------|:------|
+| Host | draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | Yes |
+
+### Software Updates
+
+On launch, the application will check for updates. If a major update is available, it will be automatically installed. For minor updates, the user can force an update manually.
+
+| Property | Value |
+|:---------|:------|
+| Host | dl.draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | Yes |
+
+### Error Reporting
+
+If unexpected error conditions are encountered, the application will send an error report to Draftable servers for diagnostics purposes.
+
+This can be disabled by the user (via application settings) or by network administrators (via Group Policy).
+
+| Property | Value |
+|:---------|:------|
+| Host | draftable.com |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | No |
+
+### Telemetry/Usage Data
+
+Draftable Legal uses Microsoft Azure as the host for telemetry and usage data. This means there are outbound connections to the Azure AppInsights servers. For further information, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses).
+
+This can be disabled by the user (via application settings) or by network administrators (via Group Policy).
+
+| Property | Value |
+|:---------|:------|
+| Host | Azure AppInsights servers |
+| Port | 443 |
+| Protocol | HTTPS |
+| Required | No |
+
+---
+
+## Summary of Required Network Access
+
+For a successful deployment, ensure the following hosts are accessible from your network:
+
+| Host | Purpose | Required |
+|:-----|:--------|:---------|
+| draftable.com | License verification, error reporting | Yes (license), No (errors) |
+| dl.draftable.com | Software updates | Yes |
+| Azure AppInsights | Telemetry | No |
+
+<Note>
+All connections use HTTPS on port 443.
+</Note>
+

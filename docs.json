@@ -190,6 +190,7 @@
               {
                 "group": "Getting install ready",
                 "pages": [
+                  "hc/en-us/articles/System-and-network-requirements",
                   "hc/en-us/articles/16018288168601-Enterprise-deployment-options",
                   "hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal",
                   "hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files",
