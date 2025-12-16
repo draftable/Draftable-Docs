@@ -3,4 +3,328 @@ title: "Creating your custom deployment guide"
 description: "A high-level overview guide that directs administrators through the complete deployment process for Draftable Legal, from initial setup to final configuration."
 ---
 
+This guide provides a comprehensive, high-level overview of the entire Draftable Legal deployment process. It is designed to help IT administrators and deployment teams ensure they complete every necessary step in the correct order.
 
+## Before you begin
+
+<Warning>
+**Order matters!** The Administrator Deployment Track is ordered in a very deliberate manner. While you can skip components that aren't relevant to your installation, **you cannot do them in a different order**. Steps must be completed in the sequence they appear. Following the correct order ensures dependencies are met and avoids configuration issues.
+</Warning>
+
+### How to use this guide
+
+Every article in this guide is hyperlinked to open in a new tab. We recommend the following approach:
+
+<Steps>
+<Step title="Click the article link">
+Each article link opens in a new tab so you don't lose your place in this guide.
+</Step>
+<Step title="Read and complete the instructions">
+Follow the instructions in the article thoroughly before moving on.
+</Step>
+<Step title="Close the tab and return here">
+Once complete, close the article tab and return to this guide to continue with the next step.
+</Step>
+</Steps>
+
+Alternatively, you can navigate through the articles in order using the sidebar navigation. Use whichever method is more comfortable for you.
+
+<Tip>
+**Don't miss a step!** We highly recommend creating your own checklist or copying the article list below to track your progress. The purpose of this guide is to ensure you don't miss any deployment step. Opening articles in new tabs helps you maintain your place and verify completion of each step.
+</Tip>
+
+---
+
+## Section 1: Getting Install Ready
+
+This section covers the **bare minimum requirements** for deployment. It details the entry-level components you need to understand and configure before installing Draftable Legal on user machines.
+
+### System and network requirements
+
+Ensure all end-user machines and your network meet the requirements for Draftable Legal. Review this article to identify any potential issues before deployment begins.
+
+<Steps>
+<Step title="System and network requirements" icon="check">
+Review hardware, software, and network prerequisites for Draftable Legal.
+
+<a href="/hc/en-us/articles/System-and-network-requirements" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Enterprise deployment options
+
+This article explains the different installer types available and provides recommendations for each deployment scenario.
+
+<Tip>
+**Deploying to multiple users?** If you're doing a group-wide deployment (typically more than 10 users), using the **Machine-Wide MSI installer** is generally recommended for this entire deployment track. You can use the default installer, but that requires running the installation on each machine individually.
+</Tip>
+
+<Steps>
+<Step title="Enterprise deployment options" icon="check">
+Understand the available installer types and choose the right one for your deployment.
+
+<a href="/hc/en-us/articles/16018288168601-Enterprise-deployment-options" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Configuring settings with Group Policy
+
+This article details **every Group Policy option** available for Draftable Legal. Some options may not be immediately useful, as they only become relevant after piloting the product (such as Redline Profiles, explained later in this guide). However, there are several key settings you should review carefully.
+
+**Key Group Policy settings to note:**
+- **Product Key Activation** — Your license key can be deployed via Group Policy, eliminating the need for users to enter it manually
+- **Usage statistics configuration** — Control telemetry and usage data collection
+- **DMS selections** — Pre-configure Document Management System settings
+
+<Note>
+**Important:** The Product Key can be added as part of Group Policy configuration. This article explains all Group Policy options currently available for Draftable Legal. Read through this section carefully.
+</Note>
+
+<Steps>
+<Step title="Configuring settings with Group Policy - Draftable Legal" icon="check">
+Review and configure Group Policy settings for your deployment.
+
+<a href="/hc/en-us/articles/18763487262105-Configuring-settings-with-Group-Policy-Draftable-Legal" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Group Policy Template Files
+
+This article provides the **ADMX and ADML template files** required for Group Policy configuration. These files are useful if you're deploying with pre-configured settings that you want to push to all users.
+
+<Steps>
+<Step title="Draftable Legal Group Policy Template Files" icon="check">
+Download and install the Group Policy template files.
+
+<a href="/hc/en-us/articles/28666057117721-Draftable-Legal-Group-Policy-Template-Files" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Deployment options via MSI (System-wide) installer
+
+This is typically the **last article you complete in this section** before actually deploying Draftable Legal. It provides default MSI switches, recommendations, and features that can be installed using the MSI.
+
+<Warning>
+**Read carefully before deploying!** Most administrators will be using an MSI-type installation, whether via Command Line or Intune. It is critical that you read through this article thoroughly and understand the options before beginning your deployment.
+</Warning>
+
+<Steps>
+<Step title="Deployment options via MSI (System-wide) installer" icon="check">
+Review MSI deployment options, switches, and feature configuration.
+
+<a href="/hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+---
+
+## Section 2: Post Installation Configurations
+
+<Warning>
+**Post-installation only!** This section can only be completed **after Draftable Legal has been installed** on user machines. We recommend completing all the steps in Section 1 and deploying Draftable before proceeding with this section.
+</Warning>
+
+While some of these configurations can technically be done before or after Draftable has been installed, it is generally recommended for easier deployment that they are all completed after the product has been deployed.
+
+### Setting up your DMS to Draftable Legal
+
+This article is essentially its **own miniature guide** for configuring Document Management System integrations. If you have DMSs you want to integrate with Draftable Legal (whether multiple systems or just one), we recommend reading through this section thoroughly and following the procedures correctly.
+
+<Note>
+**No DMS?** If you are not configuring any DMS integrations, you can skip this article entirely.
+</Note>
+
+<Steps>
+<Step title="Setting up your DMS to Draftable Legal" icon="check">
+Configure iManage, NetDocuments, SharePoint, Worldox, or Epona integration.
+
+<a href="/hc/en-us/articles/Setting-up-your-DMS-to-Draftable-Legal" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Configure an Organisation Identifier
+
+This configuration enables **telemetric metrics collection**, which is valuable for organizations that are deploying and piloting Draftable Legal. It allows Draftable to gather more information about your deployment and provide tailored advice.
+
+<Note>
+**Optional but highly recommended.** This step is completely optional, but we strongly recommend completing it, especially during initial deployment and piloting phases.
+</Note>
+
+<Steps>
+<Step title="Configure an Organisation Identifier (Group Policy/Registry)" icon="check">
+Set up organisation identification for telemetry and deployment support.
+
+<a href="/hc/en-us/articles/51788481256985-Configure-an-Organisation-Identifier-Group-Policy-Registry" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### How to Configure End-User Troubleshooting
+
+This article covers customization options for **error messages, logging, and contact email** when errors occur within Draftable Legal.
+
+<Note>
+**Optional but recommended.** While this step can be skipped, we recommend completing it. Notably, this configuration allows you to **route error notification emails to your own helpdesk** rather than to support@draftable.com, giving your internal team visibility into issues.
+</Note>
+
+<Steps>
+<Step title="How to Configure End-User Troubleshooting Error Messages, Logs and Contact Email" icon="check">
+Customize error handling and support contact information.
+
+<a href="/hc/en-us/articles/34137792187801-How-To-Configure-End-User-Troubleshooting-Error-Messages-Logs-and-Contact-Email" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+---
+
+## Section 3: Installation of Advanced Draftable Workflows
+
+<Warning>
+**These are separate installations!** The workflows in this section are installed **outside of Draftable Legal itself**. They require additional deployment steps and are **not automatically installed** when you install Draftable Legal. Each one must be deployed separately. Read each article carefully before proceeding.
+</Warning>
+
+These advanced workflows extend Draftable Legal's capabilities through Office add-ins and email integration.
+
+### Installing Draftable in Office
+
+Deploy the Draftable add-in for Microsoft Office applications (Word, Excel, PowerPoint).
+
+<Steps>
+<Step title="Installing Draftable in Office" icon="check">
+Deploy the Draftable Office add-in for your users.
+
+<a href="/hc/en-us/articles/Installing-Draftable-in-Office" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Installing Draftable for Office
+
+<Note>
+**Different from "Draftable in Office"!** This is a separate product from "Installing Draftable in Office" above. Make sure you understand the difference and deploy the correct add-in(s) for your users' needs.
+</Note>
+
+<Steps>
+<Step title="Installing Draftable for Office" icon="check">
+Configure the Draftable for Office add-in.
+
+<a href="/hc/en-us/articles/51764565990426-Configuring-Draftable-for-Office" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Configuring Redline in Email
+
+Deploy the Outlook add-in that enables email comparison workflows.
+
+<Steps>
+<Step title="Configuring Redline in Email (Outlook) with Draftable" icon="check">
+Set up the Outlook add-in for Redline in Email functionality.
+
+<a href="/hc/en-us/articles/46382047949977-Configuring-Redline-in-Email-Outlook-with-Draftable" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+---
+
+## Section 4: End-User Application Configuration
+
+<Tip>
+**Best completed after pilot testing.** The configurations in this section are best done **after some users have had the opportunity to pilot Draftable Legal**. Users need hands-on experience with the product to understand what settings and profiles work best for their workflows. Consider completing this section after your team has used Draftable for a while and identified their preferred configurations.
+</Tip>
+
+This section covers pre-configuring application settings that will be applied to end users, such as Redline profiles and default workflows.
+
+### Managing profiles for Redline settings
+
+Understand how Redline profiles work in Draftable Legal. Profiles are essentially default settings templates that control how comparisons are performed and displayed.
+
+<Steps>
+<Step title="Managing profiles for Redline settings" icon="check">
+Learn how Redline profiles work and how users can manage them.
+
+<a href="/hc/en-us/articles/19002240548250-Managing-profiles-for-Redline-settings" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### Configuring Redline profiles within Group Policy
+
+Once you understand how profiles work, this article explains how to deploy pre-configured Redline profiles to users via Group Policy.
+
+<Steps>
+<Step title="Configuring Redline profiles within Group Policy" icon="check">
+Deploy Redline profiles to users via Group Policy.
+
+<a href="/hc/en-us/articles/22665341687706-Configuring-Redline-profiles-within-Group-Policy" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### How to set up 1-Click Compare default workflow
+
+Configure a default 1-Click Compare workflow for your users, streamlining their most common comparison tasks.
+
+<Steps>
+<Step title="How to set up 1-Click Compare default workflow" icon="check">
+Pre-configure 1-Click Compare settings for end users.
+
+<a href="/hc/en-us/articles/35238811918618-How-to-set-up-1-Click-Compare-default-workflow" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+### How to configure a custom Departures Table template
+
+The Departures Table is an export option that some organizations may want to customize. Work with your end users to determine what template format works best for their use cases.
+
+<Steps>
+<Step title="How to configure a custom Departures Table template" icon="check">
+Customize the Departures Table export template.
+
+<a href="/hc/en-us/articles/46349329328282-How-to-configure-a-custom-Departures-Table-template" target="_blank" rel="noopener noreferrer">
+  **→ Open article in new tab**
+</a>
+</Step>
+</Steps>
+
+---
+
+## Deployment complete!
+
+Congratulations! If you've followed this guide and completed all relevant sections, your Draftable Legal deployment should be fully configured.
+
+<CardGroup cols={2}>
+<Card title="Train your users" icon="graduation-cap" iconType="solid" href="/hc/en-us/articles/Delivering-training-to-your-users">
+  Now that deployment is complete, help your users get up to speed with our training resources.
+</Card>
+<Card title="Need help?" icon="headset" iconType="solid" href="mailto:support@draftable.com">
+  Contact our support team if you have any questions or encounter issues.
+</Card>
+</CardGroup>
+
+<Tip>
+**Questions or concerns?** If anything in this deployment guide was unclear or you need additional assistance, please contact our support team at [support@draftable.com](mailto:support@draftable.com). We're here to help ensure your deployment is successful.
+</Tip>
