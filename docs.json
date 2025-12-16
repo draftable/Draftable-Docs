@@ -4,8 +4,8 @@
   "name": "Draftable",
   "colors": {
     "primary": "#0B2B5C",
-    "light": "#0b3575",
-    "dark": "#69B2F9"
+    "light": "#69B2F9",
+    "dark": "#0B2B5C"
   },
   "background": {
     "decoration": "gradient"
