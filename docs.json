@@ -699,5 +699,10 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/draftable/"
     }
+  },
+  "integrations": {
+    "gtm": {
+      "tagId": "GTM-MBHCQCM"
+    }
   }
 }
