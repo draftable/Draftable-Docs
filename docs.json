@@ -400,6 +400,12 @@
                 ]
               },
               {
+                "group": "Additional Training Resources",
+                "pages": [
+                  "hc/en-us/articles/Additional-training-resources"
+                ]
+              },
+              {
                 "group": "Video Tutorials",
                 "pages": [
                   "hc/en-us/articles/27925634630937-Draftable-Legal-High-Level-Overview",
@@ -421,12 +427,6 @@
                   "hc/en-us/articles/33899864844697-Draftable-Legal-1-Click-Compare",
                   "hc/en-us/articles/33899769666585-Draftable-Legal-Bulk-Compare-Many-to-One",
                   "hc/en-us/articles/33899677536793-Draftable-Legal-Comparing-Excel-PowerPoint-files"
-                ]
-              },
-              {
-                "group": "Additional Training Resources",
-                "pages": [
-                  "hc/en-us/articles/Additional-training-resources"
                 ]
               }
             ]
