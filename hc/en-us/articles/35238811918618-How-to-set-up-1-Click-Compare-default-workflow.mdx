@@ -1,0 +1,58 @@
+---
+title: "How to set up 1-Click Compare default workflow"
+description: "This article outlines how to set up a default 1-Click Compare workflow for users in an organization. It is written for Systems / IT Administrators.  "
+---
+
+If you are an end user who wants to update your own default workflow for 1-Click Compare, see [this article](/hc/en-us/articles/31611819497753-Using-1-Click-Compare-to-run-comparisons-with-your-preferred-default-workflow) instead. 
+
+## What is 1-Click Compare?
+
+1-Click Compare gets you to your preferred next action in "1-Click". Users can launch a comparison of two files and generate their chosen 'next action' without any further steps. For example, you can use 1-Click Compare to go straight from selecting your files to:
+
+- Creating an email with redline outputs and input files attached
+- Copying input files and comparison outputs to your clipboard
+- Immediately printing your preferred comparison output
+- Saving your your preferred comparison output to your DMS
+- Opening your Redline in Word
+
+## How to set up a default 1-Click Compare workflow via Registry or Group Policy
+
+<Steps>
+    <Step>
+    You will first need to allow the export option to be shown on your own version of Draftable Legal. You can do this via updating the Registry key changes or by Group Policy.  
+        
+        By updating the registry key under HKEY\_CURRENT\_USER\\Software\\Draftable\\Feature by creating the following DWord 32 bit key `OneClickExportOptionsEnabled`with a value from 1Or by enabling the `Enable to show 1-Click export options` in Group Policy  
+        
+        To confirm this has worked, open Draftable, go to the settings and select the 1-Click Compare tab, in the menu you should now see a 'Copy to Clipboard' option in the top left corner (see below)  
+        <Frame>
+        ![image (62).png](/images/draftable-legal-setup-1-click/image-1.png)
+        </Frame>
+    </Step>
+    <Step>
+    Once the export option is available, set up your preferred default workflow for 1-Click Compares in your organization via the settings UI on screen.
+    </Step>
+    <Step>
+    Once it is set up, click 'Copy to Clipboard'
+    </Step>
+    <Step>
+    Now you can paste the default workflow into either the registry key AdminOneClickCompareSuggestion or in Group Policy `1-Click definition`  (pictured below in two screenshots)  
+        
+        <Frame>
+        ![image (63).png](/images/draftable-legal-setup-1-click/image-2.png)  
+        </Frame>
+        
+        <Frame>
+        ![image (64).png](/images/draftable-legal-setup-1-click/image-3.png)
+        </Frame>
+    </Step>
+    <Step>
+    Your 1-Click Default will now be set up for all users. Users will be able to override this 1-Click Compare default workflow unless you remove the settings menu section (see below for details)
+    </Step>
+</Steps>
+
+## How to remove the option for end users to override your default 1-Click Compare workflow
+
+1. You can remove the 1-Click Compare settings tab by updating the registry key HideOneClickTab from 0 to 1
+2. Alternatively, you can use Group Policy to remove the 1-Click Compare settings tab by enabling the Hide 1-Click tab for users option
+
+
