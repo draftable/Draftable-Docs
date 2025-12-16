@@ -30,7 +30,11 @@ In the installation menu, select the **Advanced** option and click 'next'
 
 ## Custom MSI deployment via scripted automated installs
 
-The following steps are suitable for administrators deploying Draftable Desktop via a command line interface, InTune or similar. It outlines how to programmatically control features being installed by the MSI via the well-known [ADDLOCAL property (link to Microsoft Learn page)](https://learn.microsoft.com/en-us/windows/win32/msi/addlocal).  This allows administrators to provide a comma-separated list of features to be installed.
+The following steps are suitable for administrators deploying Draftable Desktop via a command line interface, InTune or similar. It outlines how to programmatically control features being installed by the MSI via the well-known [ADDLOCAL property (link to Microsoft Learn page)](https://learn.microsoft.com/en-us/windows/win32/msi/addlocal).  This allows administrators to provide a comma-separated list of features to be installed.
+
+<Warning>
+**Planning to use iManage?** If your organization intends to use iManage integration with Draftable Legal, it is strongly recommended that you include the HTTP Listener Service (`HttpListener`) in your deployment. This service is required for iManage integration to function correctly. For complete iManage configuration, please refer to the [iManage HTTP Listener Service installation guide](/hc/en-us/articles/33978111642905-Alternative-iManage-HTTP-listener-service-installation-guide-for-Draftable-Legal).
+</Warning>
 
 The features available for specification are listed in the table below
 
