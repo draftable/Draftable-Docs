@@ -1,0 +1,118 @@
+---
+title: "Release Notes: Draftable Legal – November 2025 (v25.11 Series)"
+description: "The November 2025 updates to Draftable Legal include a major upgrade to comparison flows in Microsoft Office, enhancements to comparison accuracy, markup customization, and user experience. These updates also include targeted fixes to key issues affecting Side-by-Side comparisons, email workflows, and integration reliability across iManage and SharePoint."
+---
+
+Here's a quick summary of the five most impactful improvements:
+
+- **Run comparisons entirely within Microsoft Office** using our new JavaScript Add-In
+- **Better support for smart-tags and deleted paragraphs** when comparing complex legal content
+- **View comparison results in a new tab** to make switching files and settings easy
+- **Admins can now configure default email body text** to be inline with your language requirements
+- **Optionally ignore whitespace changes** (added spaces, tabs, or line breaks) to reduce noise in comparison results
+
+Let's take a closer look at the full list of updates.
+
+**_But first, a note from our product team_**
+
+Our product improvements are the direct result of insights from our customers. We are extremely grateful for the excellent feedback we received which allowed the November 2025 release to be possible.
+
+If you have feature ideas or product performance feedback, we would love to hear from you. Please share any suggestions with us by contacting [product@draftable.com](mailto:product@draftable.com).
+
+## Core Functionality
+
+### Run Draftable comparisons entirely inside Word, Excel and PowerPoint
+
+We know lawyers do most of their work in Microsoft Office. Comparison workflows often start in Word, Excel or PowerPoint. Switching from MS Office to the Draftable Desktop application can be inconvenient at best and painfully frustrating when deadlines are looming. That's why we've built our most advanced Office add-in yet: **"Draftable in Office"**.
+
+This new Microsoft Office JavaScript (JS) Add-In allows users to access full comparison workflows from within Microsoft Word, Excel, and PowerPoint — including initiating comparisons, viewing redlines, and saving/exporting all directly within the Office interface. The November 2025 updates to Draftable Desktop have included updated back end to support the new add-ins, which will be available for download and provisioning in early December 2025.
+
+This is a major improvement for firms standardizing on Microsoft 365 and enables a more integrated experience for fee earners working directly in Office applications.
+
+<Frame>
+![Draftable in Office JS Add-in is located in the Ribbon menu of Word, Excel and PowerPoint, launching Draftable in the sidebar](/images/Draftable-Legal-November-2025-Updates-(v25.11-series)/1.png)
+</Frame>
+
+<Tip>
+[Watch the Draftable in Office demo video](https://vimeo.com/draftable) (opens in a new tab)
+
+Visit the [Draftable Office Add-In Deployment page](/hc/en-us/articles/52362093587481-Draftable-in-Office) to find install links and guides for all our modern Office add-ins.
+</Tip>
+
+### Improved accuracy around deleted paragraphs
+
+Comparisons now offer greater positional accuracy in cases where paragraphs are removed. Updated handling ensures that text changes surrounding deleted sections are located and marked with improved precision, reducing false positives in these scenarios.
+
+### Support for smart-tag content comparison
+
+Draftable Legal now identifies and compares smart-tag content within legal documents. This enhancement ensures no content is missed during markup, even when embedded metadata or smart-tagged values are used to track client names, dates, or other key information.
+
+## Markup Configuration
+
+### Remove clutter from redlines by ignoring whitespace changes
+
+A new Redline profile setting allows users to ignore changes consisting solely of whitespace (e.g., added spaces, tabs, or line breaks). This helps reduce noise in comparison results and lets reviewers focus on substantive changes.
+
+This setting can be toggled on or off in settings via **Redline > Word - Comparison options** section, or configured via Registry or Group Policy.
+
+<Frame>
+![Option to ignore whitespace changes in Settings > Redline > Word](/images/Draftable-Legal-November-2025-Updates-(v25.11-series)/2.png)
+</Frame>
+
+## Ease of Use
+
+### Draftable now remembers your preferred window size
+
+Draftable Legal will now open using the window size last used by the user, instead of defaulting to full screen. This change supports consistent user preferences across sessions and improves multitasking on split-screen setups.
+
+### View results in a new tab without losing your comparison screen
+
+A new setting allows the Viewer to open in a separate tab, so the original comparison window stays open. This makes it easier to change files or settings and rerun comparisons without reloading inputs. It also ensures that closing a comparison doesn't fully exit the app.
+
+<Frame>
+![Switch in Settings > General > New Comparison to 'Open comparisons in a new tab'](/images/Draftable-Legal-November-2025-Updates-(v25.11-series)/3.png)
+</Frame>
+
+## Integration Functions
+
+### Word, Excel and PowerPoint: Standardized DMS file naming conventions
+
+The Draftable file selection panel inside of Office now displays the DMS filename, document ID, and version instead of raw file paths. This change improves clarity when launching comparisons via the "Compare Open" panel, especially when working concurrently with many files.
+
+<Frame>
+![When using the 'Compare Open' functionality, you can now see the file name, version number and path for each open item](/images/Draftable-Legal-November-2025-Updates-(v25.11-series)/4.png)
+</Frame>
+
+## Administrator Features
+
+### Outlook: Customizable email body text
+
+Administrators can now configure via Group Policy the default body text used when Draftable Legal generates an Outlook email containing comparison results. This setting allows firms to standardize language for outbound redlines and tailor it to internal review or client delivery requirements.
+
+<Frame>
+![Group Policy option for Administrators](/images/Draftable-Legal-November-2025-Updates-(v25.11-series)/5.png)
+</Frame>
+
+## Bug Fixes
+
+The November releases (25.11.0, 25.11.100) resolved several customer-reported issues:
+
+### Application Fixes
+
+- Fixed an issue where the PDF format was not available in the Changes Report when viewing Side-by-Side comparisons
+
+### Algorithm Reliability Fixes
+
+- Resolved errors related to move detection overlaps that previously caused 'unable to compare' messages
+- Fixed failures due to malformed SVG content
+- Resolved issues with mismatched sdt markers at block- and run-levels
+- Corrected pre-processing failures related to textboxes within Table of Contents
+
+### Integration Fixes
+
+- **Outlook Add-In:** Resolved an issue preventing comparison actions from triggering within the Outlook JavaScript Add-In
+- **iManage:** Fixed failures that occurred when launching comparisons from within iManage in the browser
+- **SharePoint:** Corrected drag-and-drop failures and restored functionality for launching comparisons from SharePoint environments
+
+If your firm experiences any issues or has feedback on recent updates, please contact us at [support@draftable.com](mailto:support@draftable.com). For deployment guidance, including new Microsoft Office Add-In instructions, please refer to our updated [Installation Guides](/hc/en-us/articles/52362093587481-Draftable-in-Office).
+
