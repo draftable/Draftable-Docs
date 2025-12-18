@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?><policyDefinitionResources revision="2512.0" schemaVersion="1.0" xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><displayName /><description /><resources minRequiredRevision="2512.0"><stringTable><string id="Installer">Installer</string><string id="SupportedOn_Desktop_2_12_200">Draftable 2.12.200 (or later)</string><string id="Installer_CreateDesktopShortcut">Create a shortcut on the Desktop</string><string id="Installer_CreateDesktopShortcut_Explain">By default, the Draftable installer will create a desktop shortcut.
+
+            If you enable this policy, the Draftable installer will attempt to create a desktop shortcut.
+
+            If you disable this policy, the Draftable installer will never create a desktop shortcut.</string></stringTable></resources></policyDefinitionResources>
