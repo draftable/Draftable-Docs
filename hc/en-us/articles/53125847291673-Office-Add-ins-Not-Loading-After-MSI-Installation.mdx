@@ -1,0 +1,89 @@
+---
+title: "Office Add-ins Not Loading After MSI Installation"
+description: "Troubleshooting guide for when Draftable Office Add-ins (Word, Excel, Outlook) do not load correctly after installing via the MSI installer. This is typically caused by incorrect LoadBehavior registry values."
+---
+
+If you have installed Draftable Legal using the MSI installer and the Office Add-ins (Word, Excel, or Outlook) are not loading correctly or showing as unavailable in the Draftable Add-ins tab, this may be due to the **LoadBehavior** registry value not being set correctly.
+
+## Understanding LoadBehavior
+
+Microsoft Office uses a registry value called `LoadBehavior` to determine how and when add-ins should be loaded. According to [Microsoft's documentation on keeping add-ins enabled](https://learn.microsoft.com/en-us/office/vba/outlook/concepts/getting-started/support-for-keeping-add-ins-enabled), the LoadBehavior value controls the loading behavior of COM add-ins.
+
+For Draftable Add-ins to load correctly at startup, the **LoadBehavior value must be set to `3`** (Load at startup).
+
+<Note>
+If the LoadBehavior is not set to `3`, the Add-ins may not load correctly and can show false positives within the Draftable Add-ins tab, appearing as if they are installed but not functioning.
+</Note>
+
+## How to Check and Fix LoadBehavior
+
+<Steps>
+<Step title="Open the Registry Editor">
+Press `Win + R`, type `regedit`, and press Enter to open the Windows Registry Editor.
+</Step>
+
+<Step title="Navigate to the Add-in Registry Keys">
+Check the LoadBehavior value for each Office application where the add-in is not loading:
+
+**For Outlook:**
+```
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\Draftable.CompareTool.OutlookAddIn
+```
+
+**For Word:**
+```
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Word\Addins\Draftable.CompareTool.WordAddIn
+```
+
+**For Excel:**
+```
+Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Excel\Addins\Draftable.CompareTool.ExcelAddIn
+```
+</Step>
+
+<Step title="Check the LoadBehavior Value">
+In each of the registry locations above, look for a DWORD value named `LoadBehavior`.
+
+<Frame>
+![LoadBehavior registry value](/images/troubleshooting/loadbehavior-registry.png)
+</Frame>
+</Step>
+
+<Step title="Set LoadBehavior to 3">
+If the `LoadBehavior` value is not set to `3`, double-click on it and change the value to `3`.
+
+| Value | Behavior |
+|-------|----------|
+| 0 | Do not load automatically |
+| 1 | Do not load automatically |
+| 2 | Load at startup (but not connected) |
+| **3** | **Load at startup (recommended)** |
+| 9 | Load on demand |
+| 16 | Load first time, then load on demand |
+</Step>
+
+<Step title="Restart Office Applications">
+After changing the LoadBehavior value, close and restart the affected Office application(s) for the changes to take effect.
+</Step>
+</Steps>
+
+## Deploying the Fix via Group Policy
+
+For enterprise deployments, administrators can ensure the correct LoadBehavior is set via Group Policy or during the MSI installation process. Contact your IT administrator to configure the registry values centrally.
+
+## Still Having Issues?
+
+If you have verified that the LoadBehavior is set to `3` and the add-ins still do not load:
+
+1. Check that the add-in is not disabled in the Office application's **COM Add-ins** settings
+2. Verify that Draftable Legal is installed and running correctly
+3. Try [manually re-installing the add-in](/hc/en-us/articles/30861499917337-How-to-manually-re-install-the-Draftable-MS-Word-Add-in)
+
+If the issue persists, please contact us at [support@draftable.com](mailto:support@draftable.com) with details about your installation method and any error messages you are seeing.
+
+## Related Articles
+
+- [Deployment options via MSI (System wide) installer](/hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer)
+- [How to manually re-install the Draftable MS Word Add-in](/hc/en-us/articles/30861499917337-How-to-manually-re-install-the-Draftable-MS-Word-Add-in)
+- [How to re-enable Draftable Word Add-in](/hc/en-us/articles/26630500422809-How-to-re-enable-Draftable-Word-Add-in)
+

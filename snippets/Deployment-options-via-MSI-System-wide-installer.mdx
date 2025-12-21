@@ -83,3 +83,7 @@ Start-Process msiexec -ArgumentList '/i "DraftableDesktopSystem.msi" ADDLOCAL=St
 For logging to work, please ensure you create the logging location **prior** to installation. This command will also wait to complete before returning to the command line, that way you know when the installation is completed. 
 
 If you need further assistance in deploying the Draftable Machine-wide MSI via command line, please contact [support@draftable.com](mailto:support@draftable.com)
+
+## Troubleshooting Add-in Installation Issues
+
+If Office Add-ins are not loading correctly after MSI installation, this may be due to the LoadBehavior registry value not being set correctly. For troubleshooting steps, see [Office Add-ins Not Loading After MSI Installation](/hc/en-us/articles/53125847291673-Office-Add-ins-Not-Loading-After-MSI-Installation).
