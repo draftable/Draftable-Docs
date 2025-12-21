@@ -63,6 +63,14 @@ Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Word\Addins\Draftable.Compa
 ```
 Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Excel\Addins\Draftable.CompareTool.ExcelAddIn
 ```
+
+<Note>
+**Machine-wide installation?** Depending on your installation type and end-user machine configuration, the registry keys may be located under `HKEY_LOCAL_MACHINE` instead of `HKEY_CURRENT_USER`. If you cannot find the keys in the CURRENT_USER location, check the following paths:
+
+- `Computer\HKEY_LOCAL_MACHINE\Software\Microsoft\Office\Outlook\Addins\Draftable.CompareTool.OutlookAddIn`
+- `Computer\HKEY_LOCAL_MACHINE\Software\Microsoft\Office\Word\Addins\Draftable.CompareTool.WordAddIn`
+- `Computer\HKEY_LOCAL_MACHINE\Software\Microsoft\Office\Excel\Addins\Draftable.CompareTool.ExcelAddIn`
+</Note>
 </Step>
 
 <Step title="Check the LoadBehavior Value">
