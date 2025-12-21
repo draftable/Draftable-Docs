@@ -5,6 +5,30 @@ description: "Troubleshooting guide for when Draftable Office Add-ins (Word, Exc
 
 If you have installed Draftable Legal using the MSI installer and the Office Add-ins (Word, Excel, or Outlook) are not loading correctly or showing as unavailable in the Draftable Add-ins tab, this may be due to the **LoadBehavior** registry value not being set correctly.
 
+## Checking Add-in Status in Draftable Legal
+
+Before investigating the registry, you can check the status of your add-ins directly within Draftable Legal.
+
+<Steps>
+<Step title="Open Draftable Legal Settings">
+Open Draftable Legal and navigate to **Settings** > **Add-ins** tab.
+</Step>
+
+<Step title="Review Add-in Status">
+The Add-ins tab displays all installed Draftable add-ins and their current status.
+
+<Frame>
+![Draftable Legal Add-ins tab showing add-in status](/images/Office-Add-ins-Not-Loading-After-MSI-Installation/2.png)
+</Frame>
+
+When add-ins are working correctly, they will show as loaded. However, if you see a **"Failed"** status against any add-in, this indicates there is an issue with that add-in loading correctly.
+</Step>
+</Steps>
+
+<Warning>
+If any add-in shows a **"Failed"** status, you will need to investigate the LoadBehavior registry value for that specific add-in as described below.
+</Warning>
+
 ## Understanding LoadBehavior
 
 Microsoft Office uses a registry value called `LoadBehavior` to determine how and when add-ins should be loaded. According to [Microsoft's documentation on keeping add-ins enabled](https://learn.microsoft.com/en-us/office/vba/outlook/concepts/getting-started/support-for-keeping-add-ins-enabled), the LoadBehavior value controls the loading behavior of COM add-ins.
@@ -45,7 +69,7 @@ Computer\HKEY_CURRENT_USER\Software\Microsoft\Office\Excel\Addins\Draftable.Comp
 In each of the registry locations above, look for a DWORD value named `LoadBehavior`.
 
 <Frame>
-![LoadBehavior registry value](/images/troubleshooting/loadbehavior-registry.png)
+![LoadBehavior registry value in Windows Registry Editor](/images/Office-Add-ins-Not-Loading-After-MSI-Installation/1.png)
 </Frame>
 </Step>
 
@@ -86,4 +110,3 @@ If the issue persists, please contact us at [support@draftable.com](mailto:suppo
 - [Deployment options via MSI (System wide) installer](/hc/en-us/articles/31609155610393-Deployment-options-via-MSI-System-wide-installer)
 - [How to manually re-install the Draftable MS Word Add-in](/hc/en-us/articles/30861499917337-How-to-manually-re-install-the-Draftable-MS-Word-Add-in)
 - [How to re-enable Draftable Word Add-in](/hc/en-us/articles/26630500422809-How-to-re-enable-Draftable-Word-Add-in)
-
